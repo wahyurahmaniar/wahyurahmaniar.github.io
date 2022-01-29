@@ -80,9 +80,9 @@ education:
 # to get the speakerdeck ID copy the embed code and look for the data-it attribute
 speakerdeck:
    talks:
-    - title: Artificial Intelligence in Real-Life
-      host: Sekolah Tinggi Teknologi Bandung
-      date: July, 2021
+    - title: - Artificial Intelligence in Real-Life
+      host: - Sekolah Tinggi Teknologi Bandung
+      date: - July, 2021
 
 #List of interesting Github repo/projects to include - optional
 #github:

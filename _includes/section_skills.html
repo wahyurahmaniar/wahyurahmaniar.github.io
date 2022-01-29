@@ -1,12 +1,24 @@
 <div id="skillsBubble" class="rounded_panel txt_lightgrey">
 	<div class="top-rounded-panel grey-bg">
-		<h1 id="user-skills">Skills &amp; Interest</h1>
+		<h1 id="user-skills">Software</h1>
 	</div>
 	<div class="content-rounded-panel">
 
 		<div id="skills">
 			{% for skill in site.skills %}
 				<span class="label label-info label-padded"> {{skill}} </span> &nbsp;
+			{% endfor %}
+		</div>
+	</div>
+	
+	<div class="top-rounded-panel grey-bg">
+		<h1 id="user-skills">Hardware</h1>
+	</div>
+	<div class="content-rounded-panel">
+
+		<div id="skills2">
+			{% for skill2 in site.skills2 %}
+				<span class="label label-info label-padded"> {{skill2}} </span> &nbsp;
 			{% endfor %}
 		</div>
 	</div>

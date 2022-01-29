@@ -227,7 +227,7 @@ h2 {
 	text-align:center;
 	font-weight: 100;
 	line-height: normal;
-	background-color: #ff6840;
+	background-color: #4B0082;
 	color: #ffd873;
 }
 
@@ -239,13 +239,13 @@ h2 {
 .search-score{
 	font-size:25px;
 	font-style:bold;
-    color:#ffd873;
+    	color:#ffd873;
 	text-align:center;
 }
 .small_text{
 	font-size:x-small;
 	font-style:italic;
-    color: #999999;
+    	color: #999999;
 }
 
 .small_text_white{

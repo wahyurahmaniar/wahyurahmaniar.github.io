@@ -40,7 +40,7 @@ skills:
  - Technical Architecture
  - Machine learning
  
-skills2:
+skills:
  - Microcontroller
 
 #Blogfeed is optional - including this will add JS to call the feed and populate blog list

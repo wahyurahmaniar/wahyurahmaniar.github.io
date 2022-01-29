@@ -120,6 +120,7 @@ table {
 	margin-top:0px;
 	margin-bottom:10px;
 }
+
 .top-rounded-panel {
 	padding-left:15px;
     -moz-border-radius-topleft: 5px;
@@ -129,11 +130,13 @@ table {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+
 .top-rounded-panel h1{
 	color: #ff3500;
 	font-weight: 300;
 	padding-top: 15px;
 }
+
 .content-rounded-panel {
 	padding-left:10px;
 	padding-right:10px;
@@ -142,6 +145,7 @@ table {
 	margin-right:5px;
 	margin-bottom:10px;
 }
+
 .rounded_panel {
 	padding-bottom:10px;
 	margin-bottom:10px;
@@ -150,7 +154,6 @@ table {
 .box_width_med{
 	max-width:70px;
 }
-
 
 .column_menu {
 	margin-left:5px;
@@ -190,6 +193,7 @@ table {
 	color: #EEF6F9;
 	font-weight:900;
 }
+
 .txt_lightgrey {
 	background-color:white;
 	border-color: #ABABAB;
@@ -211,10 +215,9 @@ h1 {
 	font-weight: 200;
 }
 
-
 h2 {
 	font-size:14px;
-	color:#EC5D35;
+	color:#0000CD;
 	font-weight:bold;
 	margin:1px 0;
 }
@@ -227,8 +230,6 @@ h2 {
 	background-color: #ff6840;
 	color: #ffd873;
 }
-
-
 
 .search-row > td{
 	padding-bottom: 10px;
@@ -262,11 +263,9 @@ h2 {
     color: #ffffff;
 }
 
-
 .small_text a{
 	text-decoration: none;
 }
-
 
 textarea{
     width:100%;

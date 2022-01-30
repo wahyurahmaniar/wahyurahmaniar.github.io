@@ -60,21 +60,21 @@ blogfeed: Postdoctoral Researcher
 
 #Education is required
 education:
- - level: Bachelor of Science (B.Sc.)
-   date: 2009
-   #departement: Electronics and Instrumentation
-   subject: Robotics and Control
-   school: Universitas Gadjah Mada
- - level: Master of Science (M.Sc.)
-   date: 2014
-   #departement: Electrical Engineering
-   subject: Robotics and Computer Vision
-   school: National Central University
  - level: Doctor of Philosophy (P.hD.)
    date: 2020
    #departement: Electrical Engineering
    subject: Computer Vision and Artificial Intelligence
    school: National Central University
+ - level: Master of Science (M.Sc.)
+   date: 2014
+   #departement: Electrical Engineering
+   subject: Robotics and Computer Vision
+   school: National Central University
+ - level: Bachelor of Science (B.Sc.)
+   date: 2009
+   #departement: Electronics and Instrumentation
+   subject: Robotics and Control
+   school: Universitas Gadjah Mada
 
 #This section is optional - embeds slideshows from speakerdeck
 # to get the speakerdeck ID copy the embed code and look for the data-it attribute

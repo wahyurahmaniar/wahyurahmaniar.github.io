@@ -83,12 +83,16 @@ education:
 # to get the speakerdeck ID copy the embed code and look for the data-it attribute
 speakerdeck:
    talks:
-    - title: Artificial Intelligence in Real-Life
-      host: Sekolah Tinggi Teknologi Bandung
-      date: July, 2021
+    - title: Menggapai Mimpi di Kancah Internasional
+      host: Universitas Internasional Semen Indonesia (UISI)
+      date: July, 2020
    talks2:
+    - title: Artificial Intelligence in Real-Life
+      host: Sekolah Tinggi Teknologi Bandung (STTB)
+      date: July, 2021
+   talks3:
     - title: When Remote Sensing Meets Artificial Intelligence 
-      host: Universitas Negeri Makasar
+      host: Universitas Negeri Makasar (UNM)
       date: December, 2021
 
 #List of interesting Github repo/projects to include - optional

@@ -9,6 +9,16 @@
 				<h5>{{talk.title}}</h5>
 				<h5>{{talk.host}}</h5>
 				<h5>{{talk.date}}</h5>
+				<br/><br/>
+			{% endfor %}
+
+		</div>
+		
+		<div class="content-rounded-panel">
+			{% for talk in site.speakerdeck.talks2 %}
+				<h5>{{talk.title}}</h5>
+				<h5>{{talk.host}}</h5>
+				<h5>{{talk.date}}</h5>
 					<iframe width="500" height="330" src="https://www.youtube.com/embed/cTv9QcIwxrQ?autoplay=1&mute=1">
 		                	</iframe>
 				<br/><br/>
@@ -17,7 +27,7 @@
 		</div>
 		
 		<div class="content-rounded-panel">
-			{% for talk in site.speakerdeck.talks2 %}
+			{% for talk in site.speakerdeck.talks3 %}
 				<h5>{{talk.title}}</h5>
 				<h5>{{talk.host}}</h5>
 				<h5>{{talk.date}}</h5>

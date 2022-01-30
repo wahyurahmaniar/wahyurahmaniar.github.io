@@ -1,6 +1,6 @@
 # Site settings
 title: Wahyu Rahmaniar 
-twitter_username: wahyurahmaniar
+#twitter_username: wahyurahmaniar
 name: Wahyu Rahmaniar
 
 # Build settings
@@ -17,6 +17,8 @@ primarylinks:
    url: https://www.linkedin.com/in/wahyu-rahmaniar-22041987/
  - title: Facebook
    url: https://www.facebook.com/wahyu.rahmaniar
+ - title: Twitter
+   url: https://twitter.com/WahyuRahmaniar
 
 #Any buzzword skills you want to include
 skills:

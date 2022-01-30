@@ -116,7 +116,7 @@ intro: |
 
 #An additional info freetext section is optional at the bottom of the page - can be text or HTML
 additionalinfo: |
-   <p><strong>Year</strong>: November 2021 - now <br/>
+   <p style="font-size:12px;"><strong>Year</strong>: November 2021 - now <br/>
    <strong>Company</strong>: National Taipei University of Technology, Taiwan<br/>
    <strong>Position</strong>: Postdoctoral Researcher <br/>
    <strong>Subject</strong>: Programming, computer vision, image processing, artificial intelligence <br/>

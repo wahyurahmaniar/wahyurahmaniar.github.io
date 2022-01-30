@@ -77,8 +77,8 @@ education:
 speakerdeck:
    talks:
     - title: Artificial Intelligence in Real-Life
-      conference: Sekolah Tinggi Teknologi Bandung
-      #date: Date: July, 2021
+      host: Sekolah Tinggi Teknologi Bandung
+      date: Date: July, 2021
 
 #List of interesting Github repo/projects to include - optional
 #github:

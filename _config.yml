@@ -51,7 +51,7 @@ skills2:
  - Verilog
 
 #Blogfeed is optional - including this will add JS to call the feed and populate blog list
-blogfeed: Postdoctoral Researcher
+blogfeed: Previous Research
 
 #Work experience is required
 #roles:
@@ -100,7 +100,7 @@ speakerdeck:
 # - wahyurahmaniar/wahyurahmaniar.github.io
 
 #Stackoverflow flair is optional
-stackoverflow:
+stackoverflow: Resume
 #   profileurl: https://stackoverflow.com/users/258813/rhinds
 #   flairimageurl: https://stackoverflow.com/users/flair/258813.png
 

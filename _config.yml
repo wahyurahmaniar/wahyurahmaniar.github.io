@@ -79,6 +79,10 @@ speakerdeck:
     - title: Artificial Intelligence in Real-Life
       host: Sekolah Tinggi Teknologi Bandung
       date: July, 2021
+   talks2:
+    - title: When Remote Sensing Meets Artificial Intelligence 
+      host: Universitas Negeri Makasar
+      date: December, 2021
 
 #List of interesting Github repo/projects to include - optional
 #github:

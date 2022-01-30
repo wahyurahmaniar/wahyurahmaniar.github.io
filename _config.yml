@@ -10,17 +10,13 @@ markdown: kramdown
 #Links that will appear in the navbar
 primarylinks:
  - title: Blog
-   url: https://automateddeveloper.blogspot.com/
+   url: http://technologination.blogspot.com/
  - title: GitHub
-   url: https://github.com/robhinds
- - title: StackOverflow
-   url: https://stackoverflow.com/users/258813/rhinds
- - title: DZone
-   url: https://dzone.com/users/899489/rhinds.html
+   url: https://github.com/wahyurahmaniar  
  - title: LinkedIn
-   url: https://www.linkedin.com/pub/rob-hinds/21/361/3b1
- - title: Food
-   url: https://www.robbishfood.com/
+   url: https://www.linkedin.com/in/wahyu-rahmaniar-22041987/
+ - title: Facebook
+   url: https://www.facebook.com/wahyu.rahmaniar
 
 #Any buzzword skills you want to include
 skills:
@@ -46,7 +42,7 @@ skills2:
  - NVIDIA Jetson
 
 #Blogfeed is optional - including this will add JS to call the feed and populate blog list
-blogfeed: https://automateddeveloper.blogspot.com/feeds/posts/default?alt=json
+#blogfeed: https://automateddeveloper.blogspot.com/feeds/posts/default?alt=json
 
 #Work experience is required
 roles:
@@ -72,11 +68,11 @@ roles:
    description: Working on a range of functional and technical roles, primarily working on client sites in Financial Services in London and Europe.
 
 #Education is required
-education:
- - level: Bachelor of Science (B.Sc.)
-   date: 2003
-   subject: Artificial Intelligence and Computer Science
-   school: University of Birmingham
+#education:
+# - level: Bachelor of Science (B.Sc.)
+#   date: 2003
+#   subject: Artificial Intelligence and Computer Science
+#   school: University of Birmingham
 
 #This section is optional - embeds slideshows from speakerdeck
 # to get the speakerdeck ID copy the embed code and look for the data-it attribute
@@ -99,7 +95,7 @@ intro: |
   Currently I'm a Postdoctoral Researcher at National Taipei University of Technology, Taiwan. I received the B.S. degree in Electronics and Instrumentation from Universitas Gadjah Mada, Yogyakarta, Indonesia, in 2009 and Ph.D. degree in Electrical Engineering from National Central University, Taiwan, in 2020. 
   My research interests are in the areas of robotics, computer vision, image processing, and artificial intelligence (AI). <br/><br/>
   
-  The research I conducted in the field of computer vision and image processing, including AI, I used C ++ or Python programming on Windows or Linux operating systems. Overall, I have had experience in the programming field for at least 10 years. And for the AI field, I have studied it since I took a Ph.D. degree until now for about 7 years.
+  The research I conducted in the field of computer vision and image processing, including AI, I used C ++ or Python programming on Windows or Linux operating systems. Overall, I have at least 10 years experience in programming. And for the AI field, I have studied it since I took a Ph.D. degree until now for about 7 years.
   For intelligent systems, I focus more on developing algorithms or frameworks that can run systems in the real-time in the actual environment. Besides, I also understand well enough the theory and mathematics for these systems, including machine learning and deep learning. One of my interests in AI research is that I want to create my own network or method. 
   I have also been a reviewer in several journals and a guest speaker at several seminars. <br/><br/>
 

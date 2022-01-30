@@ -24,24 +24,26 @@ primarylinks:
 
 #Any buzzword skills you want to include
 skills:
- - Scala
- - Akka-http
- - Microservices
- - Slick
- - Product management
- - API design
- - Groovy
- - Spring MVC/Boot/Social
- - Gradle
+ - C/C++
+ - C#
+ - MATLAB
+ - Visual Basic
+ - Python
+ - Tensorflow
+ - Pytorch
  - Java
- - JPA
- - SQL
- - REST
- - Technical Architecture
- - Machine learning
  
 skills2:
- - Microcontroller
+ - Arduino
+ - AVR Studio
+ - Bascom AVR
+ - Protel PCB
+ - Eagle PCB
+ - Solidworks
+ - Verilog
+ - PLC
+ - Raspberry Pi
+ - NVIDIA Jetson
 
 #Blogfeed is optional - including this will add JS to call the feed and populate blog list
 blogfeed: https://automateddeveloper.blogspot.com/feeds/posts/default?alt=json

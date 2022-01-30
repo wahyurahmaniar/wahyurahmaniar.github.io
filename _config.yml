@@ -104,7 +104,7 @@ intro: |
 
 #An additional info freetext section is optional at the bottom of the page - can be text or HTML
 additionalinfo: |
-   <strong>Year</strong>: Year. <br/><br/>
-   <strong>Company</strong>: Company. <br/><br/>
+   <strong>Year</strong>: Year. 
+   <strong>Company</strong>: Company. 
    <strong>Role</strong>: Role. <br/><br/>
    

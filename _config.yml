@@ -56,17 +56,17 @@ skills2:
 education:
  - level: Bachelor of Science (B.Sc.)
    date: 2009
-   departement: Electronics and Instrumentation
+   #departement: Electronics and Instrumentation
    subject: Robotics and Wireless Communication
    school: Universitas Gadjah Mada
  - level: Master of Science (M.Sc.)
    date: 2014
-   departement: Electrical Engineering
+   #departement: Electrical Engineering
    subject: Robotics and Computer Vision
    school: National Central University
  - level: Doctor of Philosophy (P.hD.)
    date: 2020
-   departement: Electrical Engineering
+   #departement: Electrical Engineering
    subject: Computer Vision and Artificial Intelligence
    school: National Central University
 
@@ -75,8 +75,8 @@ education:
 speakerdeck:
    talks:
     - title: Title: Artificial Intelligence in Real-Life
-      host: Host: Sekolah Tinggi Teknologi Bandung
-      date: Date: July, 2021
+      #host: Host: Sekolah Tinggi Teknologi Bandung
+      #date: Date: July, 2021
 
 #List of interesting Github repo/projects to include - optional
 #github:

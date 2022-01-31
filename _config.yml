@@ -65,17 +65,17 @@ blogfeed: Previous Research
 education:
  - level: Doctor of Philosophy (P.hD.)
    date: 2020
-   #departement: Electrical Engineering
+   dept: Electrical Engineering
    subject: Computer Vision and Artificial Intelligence
    school: National Central University
  - level: (M.Sc. fastrack to P.hD.)
    date: 2014
-   #departement: Electrical Engineering
+   dept: Electrical Engineering
    subject: Robotics and Computer Vision
    school: National Central University
  - level: Bachelor of Science / Sarjana Sains (S.Si.)
    date: 2009
-   #departement: Electronics and Instrumentation
+   dept: Electronics and Instrumentation
    subject: Robotics and Control
    school: Universitas Gadjah Mada
 

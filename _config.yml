@@ -73,7 +73,7 @@ education:
    #departement: Electrical Engineering
    subject: Robotics and Computer Vision
    school: National Central University
- - level: Bachelor of Science (B.Sc.)
+ - level: Bachelor of Science / Sarjana Sains (S.Si.)
    date: 2009
    #departement: Electronics and Instrumentation
    subject: Robotics and Control
@@ -85,15 +85,15 @@ speakerdeck:
    talks:
     - title: Menggapai Mimpi di Kancah Internasional
       host: Universitas Internasional Semen Indonesia (UISI)
-      date: July, 2020
+      date: July 4, 2020
    talks2:
     - title: Artificial Intelligence Applications in Real-Life
       host: Sekolah Tinggi Teknologi Bandung (STTB)
-      date: July, 2021
+      date: July 10, 2021
    talks3:
     - title: When Remote Sensing Meets Artificial Intelligence 
       host: Universitas Negeri Makasar (UNM)
-      date: December, 2021
+      date: December 4, 2021
 
 #List of interesting Github repo/projects to include - optional
 #github:

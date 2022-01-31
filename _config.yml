@@ -99,6 +99,9 @@ speakerdeck:
 #github:
 # - wahyurahmaniar/wahyurahmaniar.github.io
 
+#This section is optional (as is the image link below)
+coursera: Awards
+
 #Stackoverflow flair is optional
 stackoverflow: Resume
 #   profileurl: https://stackoverflow.com/users/258813/rhinds

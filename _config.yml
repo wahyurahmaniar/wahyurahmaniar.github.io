@@ -28,10 +28,12 @@ primarylinks:
 
 #Any buzzword skills you want to include
 skills:
+ - Android Studio
  - C/C++
  - C#
  - Java
  - MATLAB
+ - OpenCV
  - Python
  - PyTorch
  - Tensorflow
@@ -41,11 +43,13 @@ skills2:
  - Arduino
  - AVR Studio
  - Bascom AVR
+ - CV AVR
  - Eagle PCB
  - Microcontroller
  - NVIDIA Jetson
  - PLC
  - Protel PCB
+ - Proteus
  - Raspberry Pi
  - Solidworks
  - Verilog

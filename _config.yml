@@ -50,13 +50,13 @@ skills2:
  - PLC
  - Raspberry Pi
  
-# skills3:
-# - Corel Draw
-# - Eagle PCB
-# - Photoshop
-# - Protel PCB
-# - Proteus
-# - Solidworks
+skills3:
+ - Corel Draw
+ - Eagle PCB
+ - Photoshop
+ - Protel PCB
+ - Proteus
+ - Solidworks
 
 #Blogfeed is optional - including this will add JS to call the feed and populate blog list
 blogfeed: Previous Research

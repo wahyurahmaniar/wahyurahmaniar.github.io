@@ -29,30 +29,34 @@ primarylinks:
 #Any buzzword skills you want to include
 skills:
  - Android Studio
+ - AVR Studio
+ - Bascom AVR
  - C/C++
  - C#
+ - CV AVR
  - Java
  - MATLAB
  - OpenCV
  - Python
  - PyTorch
  - Tensorflow
+ - Verilog
  - Visual Basic
 
 skills2:
  - Arduino
- - AVR Studio
- - Bascom AVR
- - CV AVR
- - Eagle PCB
  - Microcontroller
  - NVIDIA Jetson
  - PLC
+ - Raspberry Pi
+ 
+ skills3:
+ - Corel Draw
+ - Eagle PCB
+ - Photoshop
  - Protel PCB
  - Proteus
- - Raspberry Pi
  - Solidworks
- - Verilog
 
 #Blogfeed is optional - including this will add JS to call the feed and populate blog list
 blogfeed: Previous Research

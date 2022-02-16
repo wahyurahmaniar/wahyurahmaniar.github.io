@@ -10,6 +10,14 @@ To make your own GitHub hosted CV:
 4. Visit https://{{yourusername}}.github.io to check it out
 5. Share your new CV/Profile with the world!
 
+Additional from me:
+1. Publications --> /_includes/section_github.html
+2. Achievement and Awards --> /_includes/section_coursera.html
+3. Previous Research --> /_includes/section_blogs.html
+4. Work Experience --> /_includes/section_additionalinfo.html
+5. Guest Lecture --> /_includes/section_speakerdeck.html
+6. Resume --> /_includes/section_stackoverflow.html
+
 
 If you want to test it locally, install Ruby & Jekyll, clone the repository locally and run "jekyll serve" from the repo root directoy.
 

@@ -11,7 +11,6 @@
 				<h5><b>Date:</b> {{talk.date}}</h5>
 				<br/>
 			{% endfor %}
-
 		</div>
 		
 		<div class="content-rounded-panel">
@@ -23,7 +22,6 @@
 		                	</iframe>
 				<br/><br/>
 			{% endfor %}
-
 		</div>
 		
 		<div class="content-rounded-panel">
@@ -31,11 +29,10 @@
 				<h5><b>Title:</b> {{talk.title}}</h5>
 				<h5><b>Host:</b> {{talk.host}}</h5>
 				<h5><b>Date:</b> {{talk.date}}</h5>
-					<iframe width="500" height="330" src="https://docs.google.com/presentation/d/e/2PACX-1vRS67QdZXQfBQnbhRx8qUbDeVHFk_GwA-FWUow_grzJw3OOVy7SpdO3ymMO_x81QA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+					<iframe width="500" height="330" src="https://docs.google.com/presentation/d/1DoqROuELZVfdjkFfqN99aaYXgZ8_1aU3/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
 					</iframe>
 				<br/><br/>
 			{% endfor %}
-
 		</div>
 		
 		<div class="content-rounded-panel">
@@ -47,7 +44,17 @@
 					</iframe>
 				<br/><br/>
 			{% endfor %}
-
+		</div>
+		
+		<div class="content-rounded-panel">
+			{% for talk in site.speakerdeck.talks5 %}
+				<h5><b>Title:</b> {{talk.title}}</h5>
+				<h5><b>Host:</b> {{talk.host}}</h5>
+				<h5><b>Date:</b> {{talk.date}}</h5>
+					<iframe width="500" height="330" src="https://docs.google.com/presentation/d/1PT3goqt6g50zZPq4Hv6lLGCmuHVon-tD/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+					</iframe>
+				<br/><br/>
+			{% endfor %}
 		</div>
 	</div>
 {% endif %}

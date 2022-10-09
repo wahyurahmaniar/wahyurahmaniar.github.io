@@ -106,6 +106,10 @@ speakerdeck:
     - title: AI Technology in Medical Imaging and Assistive Devices 
       host: Universitas Indonesia (UI)
       date: September 23, 2022
+   talks5:
+    - title: Publications in Artificial Intelligence and Medical Imaging 
+      host: Universitas Harapan Bangsa (UHB)
+      date: October 6, 2022
 
 #List of interesting Github repo/projects to include - optional
 #github:

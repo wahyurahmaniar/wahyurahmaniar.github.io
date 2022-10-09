@@ -104,7 +104,7 @@ speakerdeck:
       date: December 4, 2021
    talks4:
     - title: AI Technology in Medical Imaging and Assistive Devices 
-      host: Universitas Indoensia (UI)
+      host: Universitas Indonesia (UI)
       date: September 23, 2022
 
 #List of interesting Github repo/projects to include - optional
@@ -134,7 +134,13 @@ intro: |
 
 #An additional info freetext section is optional at the bottom of the page - can be text or HTML
 additionalinfo: |
-   <p style="font-size:14px;"><strong>Period</strong>: November 2021 - now <br/>
+   <p style="font-size:14px;"><strong>Period</strong>: December 2022 <br/>
+   <strong>Office</strong>: Tokyo Insitute of Technology, Japan<br/>
+   <strong>Position</strong>: Postdoctoral Researcher <br/>
+   <strong>Subject</strong>: Medical imaging, computer vision, image processing, artificial intelligence <br/>
+   </p> 
+   
+   <p style="font-size:14px;"><strong>Period</strong>: November 2021 - November 2022 <br/>
    <strong>Office</strong>: National Taipei University of Technology (NTUT), Taiwan<br/>
    <strong>Position</strong>: Postdoctoral Researcher <br/>
    <strong>Subject</strong>: Programming, computer vision, image processing, artificial intelligence <br/>

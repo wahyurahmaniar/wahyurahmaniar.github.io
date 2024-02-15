@@ -90,7 +90,18 @@ education:
 #This section is optional - embeds slideshows from speakerdeck
 # to get the speakerdeck ID copy the embed code and look for the data-it attribute
 speakerdeck:
-
+   talks8:
+    - title: ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE 
+      host: Prince Sultan University, Saudi Arabia
+      date: January 31, 2024
+   talks7:
+    - title: AI and Computer Vision in Industry and Academia 
+      host: Sciencemind, Education Lab
+      date: December 8, 2023
+   talks6:
+    - title: ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE  
+      host: 1st Engineering Trunojoyo Madura International Conference 2023 (ETMIC)
+      date: November 29, 2023
    talks5:
     - title: Publications in Artificial Intelligence and Medical Imaging 
       host: Universitas Harapan Bangsa (UHB)

@@ -110,18 +110,6 @@ speakerdeck:
     - title: Publications in Artificial Intelligence and Medical Imaging 
       host: Universitas Harapan Bangsa (UHB)
       date: October 6, 2022
-   talks6:
-    - title: ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE  
-      host: 1st Engineering Trunojoyo Madura International Conference 2023 (ETMIC)
-      date: November 29, 2023
-   talks7:
-    - title: AI and Computer Vision in Industry and Academia 
-      host: Sciencemind, Education Lab
-      date: December 8, 2023
-   talks8:
-    - title: ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE 
-      host: Prince Sultan University, Saudi Arabia
-      date: January 31, 2024
 
 #List of interesting Github repo/projects to include - optional
 #github:

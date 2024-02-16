@@ -90,26 +90,26 @@ education:
 #This section is optional - embeds slideshows from speakerdeck
 # to get the speakerdeck ID copy the embed code and look for the data-it attribute
 speakerdeck:
-   talks:
-    - title: Menggapai Mimpi di Kancah Internasional
-      host: Universitas Internasional Semen Indonesia (UISI)
-      date: July 4, 2020
-   talks2:
-    - title: Artificial Intelligence Applications in Real-Life
-      host: Sekolah Tinggi Teknologi Bandung (STTB)
-      date: July 10, 2021
-   talks3:
-    - title: When Remote Sensing Meets Artificial Intelligence 
-      host: Universitas Negeri Makasar (UNM)
-      date: December 4, 2021
-   talks4:
-    - title: AI Technology in Medical Imaging and Assistive Devices 
-      host: Universitas Indonesia (UI)
-      date: September 23, 2022
    talks5:
     - title: Publications in Artificial Intelligence and Medical Imaging 
       host: Universitas Harapan Bangsa (UHB)
       date: October 6, 2022
+   talks4:
+    - title: AI Technology in Medical Imaging and Assistive Devices 
+      host: Universitas Indonesia (UI)
+      date: September 23, 2022
+   talks3:
+    - title: When Remote Sensing Meets Artificial Intelligence 
+      host: Universitas Negeri Makasar (UNM)
+      date: December 4, 2021
+   talks2:
+    - title: Artificial Intelligence Applications in Real-Life
+      host: Sekolah Tinggi Teknologi Bandung (STTB)
+      date: July 10, 2021
+   talks:
+    - title: Menggapai Mimpi di Kancah Internasional
+      host: Universitas Internasional Semen Indonesia (UISI)
+      date: July 4, 2020
 
 #List of interesting Github repo/projects to include - optional
 #github:

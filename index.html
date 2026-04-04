@@ -7,232 +7,183 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#040710;--glow:#00E5FF;--p:#8B5CF6;--w:#E8F4FF;--dim:rgba(232,244,255,.5);--d2:rgba(232,244,255,.22);--bd:rgba(0,229,255,.14);--gl:rgba(4,7,16,.78);--sr:'Instrument Serif',serif;--ss:'Geist',sans-serif;--mo:'Geist Mono',monospace}
+:root{--bg:#040710;--glow:#00E5FF;--p:#8B5CF6;--w:#E8F4FF;--dim:rgba(232,244,255,.5);--d2:rgba(232,244,255,.22);--bd:rgba(0,229,255,.14);--gl:rgba(4,7,16,.8);--sr:'Instrument Serif',serif;--ss:'Geist',sans-serif;--mo:'Geist Mono',monospace}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--w);font-family:var(--ss);font-size:14px;line-height:1.7;overflow-x:hidden}
 #bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem 1.8rem;display:flex;justify-content:space-between;align-items:center;background:rgba(4,7,16,.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
-.logo{display:flex;align-items:center;gap:.55rem;font-family:var(--sr);font-style:italic;color:var(--w);text-decoration:none;font-size:.95rem}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px var(--glow);animation:dp 2.5s ease-in-out infinite}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;display:flex;justify-content:space-between;align-items:center;background:rgba(4,7,16,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;cursor:pointer}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--glow);box-shadow:0 0 10px var(--glow);animation:dp 2.5s ease-in-out infinite;flex-shrink:0}
 @keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
-.nl{display:flex;gap:1rem;list-style:none}
-.nl a{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);text-decoration:none;transition:color .2s}
-.nl a:hover{color:var(--glow)}
-
-/* PAGE */
-#pg{position:relative;z-index:2;padding-top:56px}
-
-/* HERO */
-#hero{padding:6.5rem 2rem 3.5rem}
-.ht{max-width:540px}
-.ey{font-family:var(--mo);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--glow);opacity:.8;display:flex;align-items:center;gap:.55rem;margin-bottom:1.2rem}
-.ey::before{content:'';width:16px;height:1px;background:var(--glow);box-shadow:0 0 6px var(--glow)}
-.hn{font-family:var(--sr);font-size:clamp(2.6rem,5vw,5rem);font-weight:400;line-height:.93;letter-spacing:-.03em;margin-bottom:.55rem}
-.hr{font-family:var(--mo);font-size:.62rem;letter-spacing:.08em;color:var(--d2);margin-bottom:1.2rem}
-.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.4rem}
-.ch{font-size:.6rem;padding:.22rem .6rem;border-radius:3px;font-family:var(--mo)}
-.cc{background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)}
-.cp{background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.22);color:#A78BFA}
-.cg{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);color:#6EE7B7}
-.hd{font-size:.88rem;font-weight:300;color:var(--dim);max-width:420px;line-height:1.85;margin-bottom:1.5rem}
-.btns{display:flex;gap:.5rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.6rem 1.2rem;border-radius:4px;transition:all .2s}
-.bg{background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.45);color:var(--glow)}
-.bg:hover{background:rgba(0,229,255,.2);transform:translateY(-1px)}
-.bh{border:1px solid var(--bd);color:var(--dim)}
-.bh:hover{border-color:rgba(0,229,255,.3);color:var(--glow)}
-
-/* THREE COLUMN GRID */
-.grid3{
-  display:grid;
-  grid-template-columns:260px 1fr 280px;
-  grid-template-rows:auto;
-  gap:1.2rem;
-  padding:0 1.2rem 4rem;
-  max-width:1300px;
-  margin:0 auto;
-  align-items:start;
-}
-.col-l{grid-column:1;display:flex;flex-direction:column;gap:1.2rem;position:sticky;top:68px;max-height:calc(100vh - 80px);overflow-y:auto}
-.col-l::-webkit-scrollbar{width:0}
-.col-m{grid-column:2;display:flex;flex-direction:column;gap:1.2rem}
-.col-r{grid-column:3;display:flex;flex-direction:column;gap:1.2rem;position:sticky;top:68px;max-height:calc(100vh - 80px);overflow-y:auto}
-.col-r::-webkit-scrollbar{width:0}
-
-/* CARD */
-.card{background:var(--gl);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid var(--bd);border-radius:11px;padding:1.5rem 1.7rem}
-.icard{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:7px;transition:border-color .2s}
-.icard:hover{border-color:rgba(0,229,255,.25)}
-
-/* SECTION HEAD */
-.sh{display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem}
-.sn{font-family:var(--mo);font-size:.54rem;letter-spacing:.1em;color:var(--glow);opacity:.6;flex-shrink:0}
-.sl{font-family:var(--sr);font-size:1.5rem;font-style:italic;color:var(--w);letter-spacing:-.02em}
+.nl{display:flex;gap:.9rem;list-style:none;flex-wrap:wrap}
+.nl a{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,244,255,.7);text-decoration:none;transition:color .2s;cursor:pointer}
+.nl a:hover,.nl a.act{color:var(--glow)}
+#pg{position:relative;z-index:2;padding-top:52px}
+.view{display:none}.view.on{display:block}
+/* news full page */
+#news-page{min-height:100vh;padding:2rem 1.5rem 4rem;max-width:800px;margin:0 auto}
+.nphead{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--bd)}
+.back{font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid var(--bd);padding:.4rem .85rem;border-radius:4px;cursor:pointer;background:rgba(0,229,255,.04);transition:all .2s}
+.back:hover{border-color:rgba(0,229,255,.35);color:var(--glow)}
+.nptitle{font-family:var(--sr);font-size:1.8rem;font-style:italic;color:var(--w)}
+/* 2-col grid */
+.g2{display:flex;flex-direction:column;gap:1.1rem;padding:1rem 1.2rem 4rem;max-width:1200px;margin:0 auto}
+.cm{display:flex;flex-direction:column;gap:1.1rem}
+.cr{display:flex;flex-direction:column;gap:1.1rem}
+.cr::-webkit-scrollbar{width:0}
+/* top 2-col row inside left */
+.tr{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+/* card */
+.card{background:var(--gl);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid var(--bd);border-radius:11px;padding:1.4rem 1.6rem}
+.ic{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:7px;transition:border-color .2s}
+.ic:hover{border-color:rgba(0,229,255,.22)}
+.sh{display:flex;align-items:center;gap:.8rem;margin-bottom:1.3rem}
+.sn{font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;color:var(--glow);opacity:.6;flex-shrink:0}
+.sl{font-family:var(--sr);font-size:1.42rem;font-style:italic;color:var(--w);letter-spacing:-.02em}
 .sli{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,229,255,.28),transparent)}
-
-/* ABOUT */
-.ab{font-family:var(--sr);font-size:clamp(.95rem,1.3vw,1.12rem);font-style:italic;line-height:1.65;color:var(--w);margin-bottom:.7rem}
+/* about */
+.ab{font-family:var(--sr);font-size:clamp(.9rem,1.2vw,1.08rem);font-style:italic;line-height:1.62;color:var(--w);margin-bottom:.65rem}
 .ab strong{color:var(--glow);font-style:normal}
-.as{font-size:.84rem;color:var(--dim);line-height:1.85;margin-bottom:1.2rem}
+.as{font-size:.82rem;color:var(--dim);line-height:1.82;margin-bottom:1.1rem}
 .il{display:flex;flex-direction:column}
-.ir{display:flex;gap:.9rem;padding:.42rem 0;border-bottom:1px solid rgba(0,229,255,.07);font-size:.78rem}
+.ir{display:flex;gap:.8rem;padding:.4rem 0;border-bottom:1px solid rgba(0,229,255,.07);font-size:.76rem}
 .ir:first-child{border-top:1px solid rgba(0,229,255,.07)}
-.ik{font-family:var(--mo);font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:64px;flex-shrink:0;padding-top:.12rem}
-.iv{color:var(--dim)}
-
-/* NEWS */
-.ni{padding:.85rem 0;border-bottom:1px solid rgba(0,229,255,.07);display:flex;gap:.8rem;align-items:flex-start}
-.ni:first-child{border-top:1px solid rgba(0,229,255,.07)}
-.ni:last-child{border-bottom:none}
-.nb{font-family:var(--mo);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.13rem .45rem;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:.12rem}
+.ik{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:60px;flex-shrink:0;padding-top:.1rem}
+.iv{color:var(--dim);font-size:.77rem}
+/* education */
+.ec{padding:.9rem 1rem;border-radius:7px;display:flex;flex-direction:column;margin-bottom:.6rem}
+.ec:last-child{margin-bottom:0}
+.ef{flex-direction:row!important;align-items:flex-start!important;gap:1rem;background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.2)}
+.ei{width:28px;height:28px;border-radius:5px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.ei svg{width:12px;height:12px;stroke:var(--glow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ed{font-family:var(--sr);font-size:.84rem;font-style:italic;color:var(--w);margin-bottom:.1rem}
+.es{font-family:var(--mo);font-size:.53rem;color:var(--glow);margin-bottom:.1rem;opacity:.75}
+.et{font-size:.68rem;color:var(--dim);line-height:1.5}
+.ey2{font-family:var(--mo);font-size:.5rem;color:var(--d2);margin-top:.32rem}
+.badge{display:inline-block;margin-top:.26rem;font-family:var(--mo);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;padding:.08rem .34rem;border:1px solid var(--bd);color:var(--d2);border-radius:2px}
+/* news badges */
+.nb{font-family:var(--mo);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;padding:.11rem .38rem;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:.08rem}
 .nb-p{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);color:#A78BFA}
 .nb-t{background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.25);color:#FCD34D}
 .nb-a{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);color:#6EE7B7}
 .nb-n{background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.22);color:var(--glow)}
 .nb-w{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.22);color:#93C5FD}
-.nt{font-size:.84rem;color:var(--w);line-height:1.38;margin-bottom:.18rem}
-.nm{font-family:var(--mo);font-size:.55rem;color:var(--d2)}
-
-/* PUBLICATIONS (left col) */
-.pi{padding:.9rem 0;border-bottom:1px solid rgba(0,229,255,.07)}
+.ni{padding:.72rem 0;border-bottom:1px solid rgba(0,229,255,.07);display:flex;gap:.72rem;align-items:flex-start}
+.ni:first-child{border-top:1px solid rgba(0,229,255,.07)}
+.ni:last-child{border-bottom:none}
+.nt{font-size:.82rem;color:var(--w);line-height:1.33;margin-bottom:.14rem}
+.nm{font-family:var(--mo);font-size:.52rem;color:var(--d2)}
+/* pagination */
+.pag{display:flex;align-items:center;gap:.38rem;margin-top:.9rem;flex-wrap:wrap}
+.pb{font-family:var(--mo);font-size:.55rem;padding:.26rem .58rem;border:1px solid var(--bd);color:rgba(232,244,255,.6);background:transparent;cursor:pointer;border-radius:3px;transition:all .15s}
+.pb:hover{border-color:rgba(0,229,255,.3);color:var(--glow)}
+.pb.on{background:var(--glow);color:var(--bg);border-color:var(--glow)}
+.pi2{font-family:var(--mo);font-size:.52rem;color:var(--d2);margin-left:.3rem}
+/* publications */
+.pi{padding:.85rem 0;border-bottom:1px solid rgba(0,229,255,.07)}
 .pi:first-child{border-top:1px solid rgba(0,229,255,.07)}
 .pi:last-child{border-bottom:none}
-.pt{font-family:var(--sr);font-size:.86rem;font-style:italic;line-height:1.35;margin-bottom:.2rem;color:var(--w)}
-.pa{font-size:.7rem;color:var(--dim);margin-bottom:.15rem}
-.pv{font-family:var(--mo);font-size:.54rem;color:var(--glow);margin-bottom:.42rem;opacity:.65}
-.pls{display:flex;gap:.3rem;flex-wrap:wrap}
-.pl2{font-family:var(--mo);font-size:.52rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.12rem .44rem;border-radius:3px;transition:all .15s}
+.pt{font-family:var(--sr);font-size:.83rem;font-style:italic;line-height:1.3;margin-bottom:.16rem;color:var(--w)}
+.pa{font-size:.68rem;color:var(--dim);margin-bottom:.12rem}
+.pv{font-family:var(--mo);font-size:.52rem;color:var(--glow);margin-bottom:.38rem;opacity:.65}
+.pls{display:flex;gap:.28rem;flex-wrap:wrap}
+.pl2{font-family:var(--mo);font-size:.5rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.1rem .38rem;border-radius:3px;transition:all .15s}
 .pl2:hover{background:var(--glow);color:var(--bg);border-color:var(--glow)}
-
-/* LECTURES (left col) */
-.lci{padding:.85rem 0;border-bottom:1px solid rgba(0,229,255,.07)}
+/* lectures */
+.lci{padding:.8rem 0;border-bottom:1px solid rgba(0,229,255,.07)}
 .lci:first-child{border-top:1px solid rgba(0,229,255,.07)}
 .lci:last-child{border-bottom:none}
-.lt{font-family:var(--sr);font-size:.85rem;font-style:italic;color:var(--w);line-height:1.32;margin-bottom:.28rem}
-.lv{font-size:.7rem;color:var(--dim)}
+.lt{font-family:var(--sr);font-size:.82rem;font-style:italic;color:var(--w);line-height:1.3;margin-bottom:.22rem}
+.lv{font-size:.68rem;color:var(--dim)}
 .lv strong{color:rgba(0,229,255,.7);font-weight:400}
-.lf{display:flex;justify-content:space-between;align-items:center;margin-top:.28rem}
-.ly{font-family:var(--mo);font-size:.56rem;color:var(--d2)}
-.lty{font-family:var(--mo);font-size:.49rem;letter-spacing:.1em;text-transform:uppercase;padding:.1rem .38rem;border-radius:2px;white-space:nowrap}
+.lf{display:flex;justify-content:space-between;align-items:center;margin-top:.22rem}
+.ly{font-family:var(--mo);font-size:.54rem;color:rgba(232,244,255,.6)}
+.lty{font-family:var(--mo);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;padding:.09rem .36rem;border-radius:2px;white-space:nowrap}
 .tk{background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.25);color:#FCD34D}
 .ts{background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.2);color:var(--glow)}
-.tl{background:rgba(255,255,255,.04);border:1px solid var(--bd);color:var(--dim)}
+.tl{background:rgba(255,255,255,.04);border:1px solid var(--bd);color:rgba(232,244,255,.6)}
 .tw{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);color:#6EE7B7}
 .ti{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);color:#A78BFA}
-
-/* EDUCATION */
-.ec{padding:1.1rem;border-radius:7px;display:flex;flex-direction:column;margin-bottom:.7rem}
-.ec:last-child{margin-bottom:0}
-.ef{flex-direction:row!important;align-items:center!important;gap:1.1rem;background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.2)}
-.ei{width:32px;height:32px;border-radius:6px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ei svg{width:13px;height:13px;stroke:var(--glow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.ed{font-family:var(--sr);font-size:.88rem;font-style:italic;color:var(--w);margin-bottom:.14rem}
-.es{font-family:var(--mo);font-size:.56rem;color:var(--glow);margin-bottom:.15rem;opacity:.75}
-.et{font-size:.7rem;color:var(--dim);line-height:1.55}
-.ey2{font-family:var(--mo);font-size:.52rem;color:var(--d2);margin-top:.4rem}
-.badge{display:inline-block;margin-top:.3rem;font-family:var(--mo);font-size:.47rem;letter-spacing:.12em;text-transform:uppercase;padding:.1rem .38rem;border:1px solid var(--bd);color:var(--d2);border-radius:2px}
-
-/* FIGURES */
-.ff{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1.1rem}
-.ft{font-family:var(--mo);font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid var(--bd);color:var(--dim);background:transparent;cursor:pointer;border-radius:3px;transition:all .15s}
+/* figures */
+.ff{display:flex;gap:.32rem;flex-wrap:wrap;margin-bottom:1rem}
+.ft{font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid var(--bd);color:rgba(232,244,255,.6);background:transparent;cursor:pointer;border-radius:3px;transition:all .15s}
 .ft.on,.ft:hover{background:var(--glow);color:var(--bg);border-color:var(--glow)}
-.fg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
 .fc{border-radius:7px;display:flex;flex-direction:column;overflow:hidden}
 .fc.w{grid-column:1/-1}
 .fi{width:100%;background:rgba(0,229,255,.02);display:flex;align-items:center;justify-content:center;cursor:zoom-in;position:relative;border-radius:7px 7px 0 0}
-.fc:not(.w) .fi{height:155px}
-.fc.w .fi{height:210px}
-.fi .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:.9rem}
-.fz{position:absolute;bottom:.38rem;right:.38rem;background:rgba(4,7,16,.8);border:1px solid var(--bd);border-radius:3px;padding:.12rem .38rem;font-family:var(--mo);font-size:.48rem;color:var(--dim);opacity:0;transition:opacity .2s}
+.fc:not(.w) .fi{height:145px}
+.fc.w .fi{height:195px}
+.fi .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:.85rem}
+.fz{position:absolute;bottom:.35rem;right:.35rem;background:rgba(4,7,16,.8);border:1px solid var(--bd);border-radius:3px;padding:.1rem .35rem;font-family:var(--mo);font-size:.48rem;color:var(--dim);opacity:0;transition:opacity .2s}
 .fi:hover .fz{opacity:1}
-.fm{padding:.7rem .88rem .88rem;border-top:1px solid rgba(0,229,255,.1);background:rgba(0,229,255,.03)}
-.ftg{font-family:var(--mo);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--glow);margin-bottom:.15rem;opacity:.7}
-.fti{font-family:var(--sr);font-size:.84rem;font-style:italic;color:var(--w);margin-bottom:.1rem;line-height:1.28}
-.fd{font-size:.7rem;color:var(--dim);line-height:1.48}
-.fp{font-family:var(--mo);font-size:.5rem;color:rgba(0,229,255,.3);margin-top:.15rem}
+.fm{padding:.65rem .82rem .82rem;border-top:1px solid rgba(0,229,255,.1);background:rgba(0,229,255,.03)}
+.ftg{font-family:var(--mo);font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--glow);margin-bottom:.12rem;opacity:.7}
+.fti{font-family:var(--sr);font-size:.82rem;font-style:italic;color:var(--w);margin-bottom:.1rem;line-height:1.25}
+.fd{font-size:.68rem;color:var(--dim);line-height:1.45}
+.fp{font-family:var(--mo);font-size:.48rem;color:rgba(0,229,255,.3);margin-top:.12rem}
 #lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(2,4,12,.97);align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
 #lb.open{display:flex}
 #lb img{max-width:88vw;max-height:84vh;object-fit:contain;border-radius:6px;border:1px solid var(--bd)}
-#lb-x{position:absolute;top:1.4rem;right:1.4rem;background:rgba(0,229,255,.06);border:1px solid var(--bd);cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#lb-x{position:absolute;top:1.3rem;right:1.3rem;background:rgba(0,229,255,.06);border:1px solid var(--bd);cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 #lb-x svg{width:10px;height:10px;stroke:var(--w);fill:none;stroke-width:2;stroke-linecap:round}
-
-/* PROJECTS */
-.prg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
-.prc{padding:1.2rem;border-radius:7px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.38rem;transition:all .2s}
-.prc:hover{border-color:rgba(0,229,255,.3);transform:translateY(-1px)}
-.prtop{display:flex;justify-content:space-between}
-.prnum{font-family:var(--mo);font-size:.56rem;color:rgba(0,229,255,.3)}
-.prarr{width:12px;height:12px;stroke:var(--bd);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s,stroke .2s}
-.prc:hover .prarr{stroke:var(--glow);transform:translate(2px,-2px)}
-.prtl{font-family:var(--sr);font-size:.9rem;font-style:italic;color:var(--w);line-height:1.18}
-.prd{font-size:.73rem;color:var(--dim);flex:1;line-height:1.58}
-.prta{font-family:var(--mo);font-size:.52rem;color:rgba(0,229,255,.35);border-top:1px solid rgba(0,229,255,.08);padding-top:.44rem;margin-top:.18rem}
-
-/* QUIZ (right) */
-.qbox{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:7px;padding:1.2rem 1.3rem}
-.qo{width:100%;text-align:left;padding:.6rem .85rem;background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:5px;color:var(--dim);font-family:var(--mo);font-size:.7rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.55rem;margin-bottom:.45rem}
+/* contact */
+.ch2{font-family:var(--sr);font-size:clamp(1.5rem,2vw,2.4rem);font-style:italic;line-height:1.05;letter-spacing:-.02em;margin-bottom:.6rem}
+.cs{font-size:.82rem;color:var(--dim);max-width:360px;margin-bottom:1.3rem;line-height:1.82}
+.cb2{display:flex;flex-wrap:wrap;gap:.4rem}
+.cb3{display:inline-flex;align-items:center;gap:.36rem;font-family:var(--mo);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.45rem .85rem;border-radius:4px;transition:all .2s;background:rgba(0,229,255,.03)}
+.cb3 svg{width:9px;height:9px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.cb3:hover{border-color:rgba(0,229,255,.35);color:var(--glow)}
+/* quiz */
+.qbox{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:7px;padding:1.1rem 1.2rem}
+.qo{width:100%;text-align:left;padding:.58rem .82rem;background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:5px;color:rgba(232,244,255,.65);font-family:var(--mo);font-size:.68rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.52rem;margin-bottom:.42rem}
 .qo:hover:not(:disabled){border-color:rgba(0,229,255,.4);color:var(--w);background:rgba(0,229,255,.07)}
 .qo.ok{border-color:rgba(16,185,129,.7);background:rgba(16,185,129,.1);color:#6EE7B7}
 .qo.no{border-color:rgba(239,68,68,.6);background:rgba(239,68,68,.08);color:#FCA5A5}
-.qo.rv2{border-color:rgba(16,185,129,.18);color:rgba(110,231,183,.35)}
-.ql{width:18px;height:18px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.58rem;flex-shrink:0}
-.qbtn{font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.56rem 1.3rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
+.qo.dim{border-color:rgba(16,185,129,.15);color:rgba(110,231,183,.32)}
+.ql{width:17px;height:17px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.56rem;flex-shrink:0}
+.qbtn{font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.52rem 1.2rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
 .qbtn:hover{background:rgba(0,229,255,.2)}
-.qnxt{font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.44rem 1rem;background:transparent;border:1px solid var(--bd);color:var(--dim);border-radius:4px;cursor:pointer;transition:all .2s}
+.qnxt{font-family:var(--mo);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:.42rem .95rem;background:transparent;border:1px solid var(--bd);color:rgba(232,244,255,.6);border-radius:4px;cursor:pointer;transition:all .2s}
 .qnxt:hover{border-color:var(--glow);color:var(--glow)}
-.qfok{font-family:var(--mo);font-size:.65rem;color:#6EE7B7;padding:.4rem .65rem;background:rgba(16,185,129,.08);border-radius:4px;border-left:2px solid #6EE7B7;margin-top:.7rem;line-height:1.5}
-.qfno{font-family:var(--mo);font-size:.65rem;color:#FCA5A5;padding:.4rem .65rem;background:rgba(239,68,68,.07);border-radius:4px;border-left:2px solid #FCA5A5;margin-top:.7rem;line-height:1.5}
-
-/* VISITORS (right) */
-.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem}
-.vc{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:6px;padding:.8rem;text-align:center}
-.vv{font-family:var(--sr);font-size:1.5rem;font-style:italic;color:var(--glow);line-height:1}
-.vl{font-family:var(--mo);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-top:.25rem}
-.cl{display:flex;flex-wrap:wrap;gap:.35rem}
-.ct{font-family:var(--mo);font-size:.58rem;padding:.18rem .52rem;background:rgba(0,229,255,.05);border:1px solid var(--bd);border-radius:3px;color:var(--dim)}
-
-/* GUESTBOOK (right) */
-.gbf{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.2rem}
-.gbi{width:100%;padding:.55rem .75rem;background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:4px;color:var(--w);font-family:var(--mo);font-size:.7rem;outline:none;transition:border-color .2s}
+.qfok{font-family:var(--mo);font-size:.63rem;color:#6EE7B7;padding:.38rem .62rem;background:rgba(16,185,129,.08);border-radius:4px;border-left:2px solid #6EE7B7;margin-top:.65rem;line-height:1.48}
+.qfno{font-family:var(--mo);font-size:.63rem;color:#FCA5A5;padding:.38rem .62rem;background:rgba(239,68,68,.07);border-radius:4px;border-left:2px solid #FCA5A5;margin-top:.65rem;line-height:1.48}
+/* visitors */
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;margin-bottom:.9rem}
+.vc{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:6px;padding:.75rem;text-align:center}
+.vv{font-family:var(--sr);font-size:1.4rem;font-style:italic;color:var(--glow);line-height:1}
+.vl{font-family:var(--mo);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-top:.22rem}
+.cl{display:flex;flex-wrap:wrap;gap:.32rem}
+.ct{font-family:var(--mo);font-size:.56rem;padding:.16rem .48rem;background:rgba(0,229,255,.05);border:1px solid var(--bd);border-radius:3px;color:var(--dim)}
+/* guestbook */
+.gbf{display:flex;flex-direction:column;gap:.52rem;margin-bottom:1.1rem}
+.gbi{width:100%;padding:.52rem .72rem;background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:4px;color:var(--w);font-family:var(--mo);font-size:.68rem;outline:none;transition:border-color .2s}
 .gbi:focus{border-color:rgba(0,229,255,.4)}
 .gbi::placeholder{color:var(--d2)}
-textarea.gbi{resize:vertical;min-height:65px;line-height:1.5}
-.gbs{width:100%;font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
+textarea.gbi{resize:vertical;min-height:60px;line-height:1.5}
+.gbs{width:100%;font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.52rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
 .gbs:hover{background:rgba(0,229,255,.2)}
-.gbe{display:flex;flex-direction:column;gap:.55rem;max-height:260px;overflow-y:auto}
+.gbe{display:flex;flex-direction:column;gap:.52rem;max-height:240px;overflow-y:auto}
 .gbe::-webkit-scrollbar{width:3px}
 .gbe::-webkit-scrollbar-thumb{background:rgba(0,229,255,.2);border-radius:2px}
-.gbcard{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:6px;padding:.75rem .85rem}
-.gbh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.24rem;gap:.35rem;flex-wrap:wrap}
-.gbn{font-family:var(--mo);font-size:.62rem;color:var(--glow)}
-.gbm2{font-family:var(--mo);font-size:.52rem;color:var(--d2);white-space:nowrap}
-.gbmsg{font-size:.76rem;color:var(--dim);line-height:1.58}
+.gbcard{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:6px;padding:.7rem .82rem}
+.gbh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.22rem;gap:.32rem;flex-wrap:wrap}
+.gbn{font-family:var(--mo);font-size:.6rem;color:var(--glow)}
+.gbm2{font-family:var(--mo);font-size:.5rem;color:var(--d2);white-space:nowrap}
+.gbmsg{font-size:.74rem;color:var(--dim);line-height:1.55}
+footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:flex;justify-content:space-between;font-family:var(--mo);font-size:.52rem;color:var(--d2);position:relative;z-index:2;background:rgba(4,7,16,.92)}
 
-/* CONTACT */
-.ch2{font-family:var(--sr);font-size:clamp(1.6rem,2.5vw,2.6rem);font-style:italic;line-height:1.05;letter-spacing:-.02em;margin-bottom:.65rem}
-.cs{font-size:.84rem;color:var(--dim);max-width:380px;margin-bottom:1.4rem;line-height:1.85}
-.cb2{display:flex;flex-wrap:wrap;gap:.42rem}
-.cb3{display:inline-flex;align-items:center;gap:.38rem;font-family:var(--mo);font-size:.57rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.48rem .9rem;border-radius:4px;transition:all .2s;background:rgba(0,229,255,.03)}
-.cb3 svg{width:9px;height:9px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
-.cb3:hover{border-color:rgba(0,229,255,.35);color:var(--glow)}
+.btm-row{display:grid;grid-template-columns:1fr 285px;gap:1.1rem;align-items:start}
+.btm-left{display:flex;flex-direction:column;gap:1.1rem}
+.btm-right{display:flex;flex-direction:column;gap:1.1rem;position:sticky;top:60px;max-height:calc(100vh - 68px);overflow-y:auto}
+.btm-right::-webkit-scrollbar{width:0}
+@media(max-width:720px){.btm-row{grid-template-columns:1fr}.btm-right{position:static;max-height:none}}
 
-footer{padding:1.3rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:flex;justify-content:space-between;font-family:var(--mo);font-size:.54rem;color:var(--d2);position:relative;z-index:2;background:rgba(4,7,16,.92)}
-
-/* RESPONSIVE */
-@media(max-width:1100px){
-  .grid3{grid-template-columns:1fr 1fr}
-  .col-l{grid-column:1/-1;position:static;max-height:none}
-  .col-m{grid-column:1}
-  .col-r{grid-column:2;position:sticky;top:68px;max-height:calc(100vh - 80px)}
-}
-@media(max-width:700px){
-  .grid3{grid-template-columns:1fr;padding:0 .8rem 3rem}
-  .col-l,.col-m,.col-r{grid-column:1;position:static;max-height:none}
-  .nl{gap:.6rem}.nl a{font-size:.54rem}
-  #hero{padding:5rem 1.2rem 2.5rem}
-  .prg,.fg{grid-template-columns:1fr}.fc.w{grid-column:1}
+@media(max-width:720px){
+  .g2{grid-template-columns:1fr;padding:.9rem .9rem 3rem}
+  .cr{position:static;max-height:none;grid-column:1}
+  .tr{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr}.fc.w{grid-column:1}
   footer{flex-direction:column;gap:.35rem;text-align:center}
 }
 </style>
@@ -240,326 +191,301 @@ footer{padding:1.3rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 <body>
 <canvas id="bgCanvas"></canvas>
 <div id="lb"><button id="lb-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img id="lb-img" src="" alt=""/></div>
-
 <nav>
-  <a href="#hero" class="logo"><span class="dot"></span>Wahyu Rahmaniar</a>
+  <a class="logo" onclick="gomain()"><span class="dot"></span></a>
   <ul class="nl">
-    <li><a href="#about">About</a></li><li><a href="#news">News</a></li><li><a href="#education">Education</a></li>
-    <li><a href="#figures">Figures</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li>
-    <li><a href="#quiz">Quiz</a></li><li><a href="#guestbook">Guest Book</a></li>
+    <li><a id="nav-home" class="act" onclick="gomain()">Home</a></li>
+    <li><a onclick="gonews()">All News</a></li>
+    <li><a onclick="gomain();sc('pubs')">Publications</a></li>
+    <li><a onclick="gomain();sc('lec')">Lectures</a></li>
+    <li><a onclick="gomain();sc('quiz')">Quiz</a></li>
+    <li><a onclick="gomain();sc('gb')">Guest Book</a></li>
   </ul>
 </nav>
-
 <div id="pg">
 
-<section id="hero">
-  <div class="ht">
-    <div class="ey">AI · Medical Imaging Research</div>
-    <h1 class="hn">Wahyu Rahmaniar</h1>
-    <p class="hr">Associate Professor · [University Name] · Tokyo, Japan</p>
-    <div class="chips">
-      <span class="ch cc">Deep Learning</span><span class="ch cc">MRI Segmentation</span><span class="ch cc">CT Analysis</span>
-      <span class="ch cp">Computer Vision</span><span class="ch cp">Federated Learning</span><span class="ch cg">Clinical AI</span>
+<div class="view on" id="vmain">
+<div style="padding:2rem 1.2rem 0;max-width:1200px;margin:0 auto">
+  <h1 style="font-family:var(--sr);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:400;line-height:.95;letter-spacing:-.03em;color:var(--w);margin-bottom:.4rem">Wahyu Rahmaniar</h1>
+  <p style="font-family:var(--mo);font-size:.65rem;letter-spacing:.08em;color:var(--d2);margin-bottom:1.2rem">Associate Professor &middot; [University Name] &middot; Tokyo, Japan</p>
+  <div style="display:flex;flex-wrap:wrap;gap:.32rem;margin-bottom:1.4rem">
+    <span style="font-size:.6rem;padding:.2rem .58rem;border-radius:3px;font-family:var(--mo);background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)">Deep Learning</span>
+    <span style="font-size:.6rem;padding:.2rem .58rem;border-radius:3px;font-family:var(--mo);background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)">MRI Segmentation</span>
+    <span style="font-size:.6rem;padding:.2rem .58rem;border-radius:3px;font-family:var(--mo);background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.22);color:#A78BFA">Computer Vision</span>
+    <span style="font-size:.6rem;padding:.2rem .58rem;border-radius:3px;font-family:var(--mo);background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.22);color:#A78BFA">Federated Learning</span>
+    <span style="font-size:.6rem;padding:.2rem .58rem;border-radius:3px;font-family:var(--mo);background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);color:#6EE7B7">Clinical AI</span>
+  </div>
+</div>
+<div class="g2">
+<div class="cm">
+  <!-- top: about + education -->
+  <div class="tr">
+    <div class="card" id="about">
+      <div class="sh"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
+      <p class="ab">I build <strong>AI systems that see what radiologists see</strong> — segmenting tumors, quantifying disease, and detecting anomalies across MRI, CT, and histopathology.</p>
+      <p class="as">My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.</p>
+      <div class="il">
+        <div class="ir"><span class="ik">Position</span><span class="iv">Associate Professor, Dept. of Computer Science</span></div>
+        <div class="ir"><span class="ik">Lab</span><span class="iv">[Medical AI Lab], [University Name], Tokyo</span></div>
+        <div class="ir"><span class="ik">Research</span><span class="iv">Medical Image Analysis · Deep Learning · Clinical AI</span></div>
+        <div class="ir"><span class="ik">Email</span><span class="iv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6413050c1d1124110a0d120116170d101d4a05074a0e14">[email&#160;protected]</a></span></div>
+        <div class="ir"><span class="ik">Languages</span><span class="iv">English, Japanese, Indonesian</span></div>
+      </div>
     </div>
-    <p class="hd">Developing AI systems for medical image analysis — brain MRI segmentation, CT anomaly detection, and clinical decision support.</p>
-    <div class="btns">
-      <a href="#publications" class="btn bg">Publications</a>
-      <a href="#figures" class="btn bh">Figures</a>
-      <a href="/cv.pdf" class="btn bh">CV ↓</a>
+    <div class="card" id="education">
+      <div class="sh"><span class="sn">02</span><h2 class="sl">Education</h2><span class="sli"></span></div>
+      <div class="ec ef ic"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">Ph.D. Computer Science</div><div class="es">University of Tokyo, Japan</div><div class="et">"Deep Learning for Brain MRI Lesion Segmentation" · <span style="color:#6EE7B7">Distinction</span></div><span class="badge">2015–2019</span></div></div>
+      <div class="ec ic"><div><div class="ed">M.Sc. Computer Engineering</div><div class="es">Osaka University, Japan</div><div class="et">CNN-based Retinal Image Classification · GPA 3.9</div></div><div class="ey2">2013–2015</div></div>
+      <div class="ec ic"><div><div class="ed">B.Eng. Information Engineering</div><div class="es">Kyoto University, Japan</div><div class="et">Graduated top of class. Image processing.</div></div><div class="ey2">2009–2013</div></div>
     </div>
   </div>
-</section>
 
-<div class="grid3">
-
-<!-- ═══ LEFT COLUMN ═══ -->
-<div class="col-l">
-
-  <div class="card" id="publications">
-    <div class="sh"><span class="sn">Pub</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
-    <div class="pi"><p class="pt">Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data</p><p class="pa">Wahyu Rahmaniar, et al.</p><p class="pv">Medical Image Analysis · 2024</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a><a href="#" class="pl2">Code</a></div></div>
-    <div class="pi"><p class="pt">Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification</p><p class="pa">Wahyu Rahmaniar, et al.</p><p class="pv">IEEE TMI · 2023</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div>
-    <div class="pi"><p class="pt">Self-Supervised Contrastive Learning for CT Scan Anomaly Detection</p><p class="pa">Co-Author D, Wahyu Rahmaniar, et al.</p><p class="pv">MICCAI 2022</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">Slides</a></div></div>
-    <div class="pi"><p class="pt">Few-Shot Histopathology Classification via Prototype Networks</p><p class="pa">Wahyu Rahmaniar, et al.</p><p class="pv">CVPR Workshop · 2021</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div>
-    <p style="margin-top:.9rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">→ <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> · <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a></p>
+  <!-- single col: publications -->
+  <!-- publications -->
+  <div class="card" id="pubs">
+    <div class="sh"><span class="sn">04</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
+    <div id="publist"></div>
+    <div class="pag" id="pubpag"></div>
+    <p style="margin-top:.8rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">&#8594; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Scopus</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">ResearchGate</a></p>
   </div>
 
-  <div class="card" id="lectures">
-    <div class="sh"><span class="sn">Lec</span><h2 class="sl">Guest Lectures</h2><span class="sli"></span></div>
-    <div class="lci"><div class="lt">AI for Medical Image Segmentation: From U-Net to Foundation Models</div><div class="lv"><strong>Stanford Medical School</strong></div><div class="lf"><span class="ly">2025</span><span class="lty tk">Keynote</span></div></div>
-    <div class="lci"><div class="lt">Federated Learning in Clinical Imaging</div><div class="lv"><strong>Kyoto University</strong></div><div class="lf"><span class="ly">2024</span><span class="lty ts">Seminar</span></div></div>
-    <div class="lci"><div class="lt">Explainability and Trust in Medical AI</div><div class="lv"><strong>Tohoku University</strong></div><div class="lf"><span class="ly">2024</span><span class="lty tl">Lecture</span></div></div>
-    <div class="lci"><div class="lt">Foundation Models for Radiology</div><div class="lv"><strong>NII Shonan Meeting</strong></div><div class="lf"><span class="ly">2023</span><span class="lty tw">Workshop</span></div></div>
-    <div class="lci"><div class="lt">Self-Supervised Pretraining on Medical Images</div><div class="lv"><strong>National University of Singapore</strong></div><div class="lf"><span class="ly">2022</span><span class="lty ti">Invited Talk</span></div></div>
+  
+  <!-- single col: lectures -->
+  <!-- lectures -->
+  <div class="card" id="lec">
+    <div class="sh"><span class="sn">05</span><h2 class="sl">Guest Lectures</h2><span class="sli"></span></div>
+    <div id="leclist"></div>
+    <div class="pag" id="lecpag"></div>
   </div>
 
+  
 </div>
 
-<!-- ═══ MIDDLE COLUMN ═══ -->
-<div class="col-m">
-
-  <div class="card" id="about">
-    <div class="sh"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
-    <p class="ab">I build <strong>AI systems that see what radiologists see</strong> — segmenting tumors, quantifying disease, and detecting anomalies across MRI, CT, and histopathology.</p>
-    <p class="as">My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.</p>
-    <div class="il">
-      <div class="ir"><span class="ik">Position</span><span class="iv">Associate Professor, Dept. of Computer Science</span></div>
-      <div class="ir"><span class="ik">Lab</span><span class="iv">[Medical AI Lab], [University Name], Tokyo</span></div>
-      <div class="ir"><span class="ik">Research</span><span class="iv">Medical Image Analysis · Deep Learning · Clinical AI</span></div>
-      <div class="ir"><span class="ik">Email</span><span class="iv">wahyu@university.ac.jp</span></div>
-      <div class="ir"><span class="ik">Languages</span><span class="iv">English, Japanese, Indonesian</span></div>
-    </div>
-  </div>
-
+<!-- bottom double column -->
+<div class="btm-row">
+  <div class="btm-left">
+    <!-- news -->
   <div class="card" id="news">
-    <div class="sh"><span class="sn">02</span><h2 class="sl">News &amp; Topics</h2><span class="sli"></span></div>
-    <div class="ni"><span class="nb nb-p">New Paper</span><div><div class="nt">Federated Learning for Brain Tumor Segmentation accepted in Medical Image Analysis</div><div class="nm">January 2024</div></div></div>
-    <div class="ni"><span class="nb nb-t">Keynote</span><div><div class="nt">Invited keynote at Stanford Radiology AI Symposium on foundation models</div><div class="nm">March 2025</div></div></div>
-    <div class="ni"><span class="nb nb-a">Grant</span><div><div class="nt">Received JSPS Grant-in-Aid for privacy-preserving clinical AI research</div><div class="nm">April 2024</div></div></div>
-    <div class="ni"><span class="nb nb-n">Open Source</span><div><div class="nt">MedSeg Framework v2.0 released with 15+ pretrained models and MONAI integration</div><div class="nm">October 2024</div></div></div>
-    <div class="ni"><span class="nb nb-w">Workshop</span><div><div class="nt">Organizing MICCAI 2025 Workshop on Federated Learning for Medical Imaging</div><div class="nm">September 2025</div></div></div>
+    <div class="sh"><span class="sn">03</span><h2 class="sl">News &amp; Topics</h2><span class="sli"></span></div>
+    <div id="nprev"></div>
+    <div class="pag" id="npag"></div>
+    <div style="margin-top:.9rem;text-align:right"><span onclick="gonews()" style="font-family:var(--mo);font-size:.58rem;color:var(--glow);cursor:pointer;letter-spacing:.06em">View All News &#8594;</span></div>
   </div>
 
-  <div class="card" id="education">
-    <div class="sh"><span class="sn">03</span><h2 class="sl">Education</h2><span class="sli"></span></div>
-    <div class="ec ef icard"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">Ph.D. in Computer Science</div><div class="es">University of Tokyo, Japan</div><div class="et">"Deep Learning for Automated Brain MRI Lesion Segmentation" · <span style="color:#6EE7B7">Graduated with Distinction</span></div><span class="badge">Doctoral · 2015–2019</span></div></div>
-    <div class="ec icard"><div><div class="ed">M.Sc. Computer Engineering</div><div class="es">Osaka University, Japan</div><div class="et">"CNN-based Retinal Image Classification" · GPA 3.9/4.0</div></div><div class="ey2">2013 – 2015</div></div>
-    <div class="ec icard"><div><div class="ed">B.Eng. Information Engineering</div><div class="es">Kyoto University, Japan</div><div class="et">Graduated top of class. Image processing and signal analysis.</div></div><div class="ey2">2009 – 2013</div></div>
-  </div>
-
-  <div class="card" id="figures">
-    <div class="sh"><span class="sn">04</span><h2 class="sl">Research Figures</h2><span class="sli"></span></div>
+  
+    <!-- figures -->
+  <div class="card" id="fig">
+    <div class="sh"><span class="sn">06</span><h2 class="sl">Research Figures</h2><span class="sli"></span></div>
     <div class="ff"><button class="ft on" data-f="all">All</button><button class="ft" data-f="method">Method</button><button class="ft" data-f="result">Results</button><button class="ft" data-f="diagram">Diagram</button></div>
     <div class="fg">
-      <div class="fc icard w" data-cat="method"><div class="fi" data-title="TransU-Net Architecture" data-src=""><div class="ph"><svg width="100%" height="190" viewBox="0 0 540 190"><rect x="8" y="18" width="44" height="154" rx="3" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><rect x="64" y="35" width="36" height="120" rx="3" fill="rgba(0,229,255,.06)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="112" y="55" width="28" height="80" rx="3" fill="rgba(0,229,255,.09)" stroke="rgba(0,229,255,.28)" stroke-width="1"/><rect x="152" y="74" width="22" height="42" rx="3" fill="rgba(0,229,255,.13)" stroke="rgba(0,229,255,.36)" stroke-width="1"/><rect x="186" y="83" width="168" height="28" rx="4" fill="rgba(0,229,255,.16)" stroke="rgba(0,229,255,.6)" stroke-width="1.5"/><text x="270" y="102" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Transformer Bottleneck</text><rect x="366" y="74" width="22" height="42" rx="3" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><rect x="400" y="55" width="28" height="80" rx="3" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="440" y="35" width="36" height="120" rx="3" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><rect x="488" y="18" width="44" height="154" rx="3" fill="rgba(0,229,255,.03)" stroke="rgba(0,229,255,.14)" stroke-width="1"/><path d="M82 95 Q185 168 366 95" fill="none" stroke="rgba(16,185,129,.2)" stroke-width="1" stroke-dasharray="4 3"/><text x="270" y="182" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(16,185,129,.4)">skip connections</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Method · Architecture</div><div class="fti">Transformer-Enhanced U-Net</div><div class="fd">Encoder-decoder with transformer bottleneck for brain lesion segmentation.</div><div class="fp">IEEE TMI 2023</div></div></div>
-      <div class="fc icard" data-cat="result"><div class="fi" data-title="Dice Score" data-src=""><div class="ph"><svg width="100%" height="148" viewBox="0 0 230 145"><line x1="20" y1="8" x2="20" y2="116" stroke="rgba(0,229,255,.12)" stroke-width="1"/><line x1="20" y1="116" x2="210" y2="116" stroke="rgba(0,229,255,.12)" stroke-width="1"/><polyline points="30,100 65,72 100,48 135,36 170,29 205,27" fill="none" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="30,110 65,98 100,88 135,83 170,81 205,83" fill="none" stroke="rgba(0,229,255,.28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 3"/><circle cx="205" cy="27" r="3" fill="#00E5FF"/><text x="185" y="23" font-family="monospace" font-size="7" fill="#00E5FF">Ours</text><text x="158" y="96" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.4)">Baseline</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Result</div><div class="fti">Dice Score Comparison</div><div class="fd">Improvement over baseline on BraTS2023.</div><div class="fp">MIA 2024</div></div></div>
-      <div class="fc icard" data-cat="diagram"><div class="fi" data-title="Federated Learning" data-src=""><div class="ph"><svg width="100%" height="148" viewBox="0 0 230 145"><rect x="70" y="55" width="90" height="30" rx="4" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/><text x="115" y="75" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Global Model</text><rect x="4" y="6" width="50" height="24" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="29" y="22" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital A</text><rect x="176" y="6" width="50" height="24" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="201" y="22" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital B</text><rect x="4" y="115" width="50" height="24" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="29" y="131" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital C</text><rect x="176" y="115" width="50" height="24" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="201" y="131" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital D</text><line x1="54" y1="18" x2="70" y2="65" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a2)"/><line x1="176" y1="18" x2="160" y2="65" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a2)"/><line x1="54" y1="127" x2="70" y2="85" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a2)"/><line x1="176" y1="127" x2="160" y2="85" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a2)"/><defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="rgba(0,229,255,.35)" stroke-width="1.5" stroke-linecap="round"/></marker></defs></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Diagram</div><div class="fti">Federated Multi-Hospital Training</div><div class="fd">Gradient aggregation, no patient data shared.</div><div class="fp">MIA 2024</div></div></div>
+      <div class="fc ic w" data-cat="method"><div class="fi" data-title="TransU-Net Architecture" data-src=""><div class="ph"><svg width="100%" height="185" viewBox="0 0 530 185"><rect x="8" y="16" width="42" height="153" rx="3" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><rect x="62" y="32" width="34" height="121" rx="3" fill="rgba(0,229,255,.06)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="108" y="52" width="26" height="81" rx="3" fill="rgba(0,229,255,.09)" stroke="rgba(0,229,255,.28)" stroke-width="1"/><rect x="146" y="70" width="21" height="45" rx="3" fill="rgba(0,229,255,.13)" stroke="rgba(0,229,255,.36)" stroke-width="1"/><rect x="179" y="79" width="172" height="27" rx="4" fill="rgba(0,229,255,.16)" stroke="rgba(0,229,255,.6)" stroke-width="1.5"/><text x="265" y="97" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Transformer Bottleneck</text><rect x="363" y="70" width="21" height="45" rx="3" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><rect x="396" y="52" width="26" height="81" rx="3" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="434" y="32" width="34" height="121" rx="3" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><rect x="480" y="16" width="42" height="153" rx="3" fill="rgba(0,229,255,.03)" stroke="rgba(0,229,255,.14)" stroke-width="1"/><path d="M79 92 Q180 162 363 92" fill="none" stroke="rgba(16,185,129,.2)" stroke-width="1" stroke-dasharray="4 3"/><text x="265" y="176" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(16,185,129,.4)">skip connections</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Method</div><div class="fti">Transformer-Enhanced U-Net</div><div class="fd">Encoder-decoder with transformer bottleneck for brain lesion segmentation.</div><div class="fp">IEEE TMI 2023</div></div></div>
+      <div class="fc ic" data-cat="result"><div class="fi" data-title="Dice Score" data-src=""><div class="ph"><svg width="100%" height="138" viewBox="0 0 220 135"><line x1="18" y1="7" x2="18" y2="108" stroke="rgba(0,229,255,.12)" stroke-width="1"/><line x1="18" y1="108" x2="202" y2="108" stroke="rgba(0,229,255,.12)" stroke-width="1"/><polyline points="28,95 62,68 96,44 130,33 164,27 196,25" fill="none" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="28,104 62,92 96,82 130,77 164,75 196,77" fill="none" stroke="rgba(0,229,255,.28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 3"/><circle cx="196" cy="25" r="3" fill="#00E5FF"/><text x="176" y="21" font-family="monospace" font-size="7" fill="#00E5FF">Ours</text><text x="148" y="88" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.4)">Baseline</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Result</div><div class="fti">Dice Score Comparison</div><div class="fd">Improvement over baseline on BraTS2023.</div><div class="fp">MIA 2024</div></div></div>
+      <div class="fc ic" data-cat="diagram"><div class="fi" data-title="Federated Learning" data-src=""><div class="ph"><svg width="100%" height="138" viewBox="0 0 220 135"><rect x="65" y="50" width="90" height="28" rx="4" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/><text x="110" y="69" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Global Model</text><rect x="3" y="5" width="48" height="22" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="27" y="20" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital A</text><rect x="169" y="5" width="48" height="22" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="193" y="20" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital B</text><rect x="3" y="108" width="48" height="22" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="27" y="123" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital C</text><rect x="169" y="108" width="48" height="22" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="193" y="123" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#6EE7B7">Hospital D</text><line x1="51" y1="16" x2="65" y2="60" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#am)"/><line x1="169" y1="16" x2="155" y2="60" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#am)"/><line x1="51" y1="119" x2="65" y2="79" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#am)"/><line x1="169" y1="119" x2="155" y2="79" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#am)"/><defs><marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="rgba(0,229,255,.35)" stroke-width="1.5" stroke-linecap="round"/></marker></defs></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Diagram</div><div class="fti">Federated Multi-Hospital Training</div><div class="fd">Gradient aggregation, no patient data shared.</div><div class="fp">MIA 2024</div></div></div>
     </div>
   </div>
 
-  <div class="card" id="projects">
-    <div class="sh"><span class="sn">05</span><h2 class="sl">Projects</h2><span class="sli"></span></div>
-    <div class="prg">
-      <a href="#" class="prc icard"><div class="prtop"><span class="prnum">01</span><svg class="prarr" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div><p class="prtl">MedSeg Framework</p><p class="prd">Open-source segmentation — 15+ pretrained models.</p><span class="prta">Python · PyTorch · MONAI</span></a>
-      <a href="#" class="prc icard"><div class="prtop"><span class="prnum">02</span><svg class="prarr" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div><p class="prtl">FedMed</p><p class="prd">Federated learning platform with differential privacy.</p><span class="prta">Python · Flower · DP</span></a>
-      <a href="#" class="prc icard"><div class="prtop"><span class="prnum">03</span><svg class="prarr" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div><p class="prtl">RadExplain</p><p class="prd">Grad-CAM explainability for DICOM viewers.</p><span class="prta">Python · React · XAI</span></a>
-      <a href="#" class="prc icard"><div class="prtop"><span class="prnum">04</span><svg class="prarr" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div><p class="prtl">PathAI Bench</p><p class="prd">Benchmarking for histopathology AI across 8 datasets.</p><span class="prta">Python · PyTorch · WSI</span></a>
-    </div>
-  </div>
-
+  
+    <!-- contact -->
   <div class="card" id="contact">
-    <div class="sh"><span class="sn">06</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
+    <div class="sh"><span class="sn">07</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
     <h2 class="ch2">Open to collaboration<br><em>and clinical partnership.</em></h2>
     <p class="cs">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
     <div class="cb2">
-      <a href="mailto:wahyu@university.ac.jp" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
+      <a href="/cdn-cgi/l/email-protection#7205131a0b0732071c1b041700011b060b5c13115c1802" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
       <a href="https://github.com/ahyurahmaniar" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
       <a href="https://scholar.google.com" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>Scholar</a>
       <a href="/cv.pdf" class="cb3"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV</a>
     </div>
   </div>
 
-</div>
-
-<!-- ═══ RIGHT COLUMN ═══ -->
-<div class="col-r">
-
+  </div>
+  <div class="btm-right">
+    <div class="cr">
   <div class="card" id="quiz">
     <div class="sh"><span class="sn">A</span><h2 class="sl">Quiz</h2><span class="sli"></span></div>
-    <p style="font-size:.75rem;color:var(--dim);margin-bottom:1rem;font-family:var(--mo)">8 questions · Think carefully</p>
+    <p style="font-size:.72rem;color:var(--dim);margin-bottom:.9rem;font-family:var(--mo)">8 questions · Think carefully</p>
     <div class="qbox">
-      <div id="q-start" style="text-align:center;padding:1rem 0">
-        <div style="font-size:1.9rem;margin-bottom:.55rem">🧠</div>
-        <h3 style="font-family:var(--sr);font-size:1.1rem;font-style:italic;margin-bottom:.38rem">AI &amp; Medical Imaging Quiz</h3>
-        <p style="font-size:.72rem;color:var(--dim);margin-bottom:1.3rem">Test your knowledge</p>
-        <button class="qbtn" id="q-s">Start Quiz →</button>
+      <div id="q-start" style="text-align:center;padding:.9rem 0">
+        <div style="font-size:1.8rem;margin-bottom:.5rem">&#129504;</div>
+        <h3 style="font-family:var(--sr);font-size:1.05rem;font-style:italic;margin-bottom:.35rem">AI &amp; Medical Imaging Quiz</h3>
+        <p style="font-size:.7rem;color:var(--dim);margin-bottom:1.2rem">Test your knowledge</p>
+        <button class="qbtn" id="q-s">Start Quiz &#8594;</button>
       </div>
       <div id="q-play" style="display:none">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;gap:.7rem">
-          <span id="q-c" style="font-family:var(--mo);font-size:.56rem;color:var(--d2);white-space:nowrap"></span>
-          <div style="flex:1;height:3px;background:rgba(0,229,255,.1);border-radius:2px"><div id="q-b" style="height:100%;background:var(--glow);border-radius:2px;transition:width .4s;width:0"></div></div>
-          <span id="q-sc" style="font-family:var(--mo);font-size:.56rem;color:var(--glow);white-space:nowrap"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem;gap:.65rem">
+          <span id="q-c" style="font-family:var(--mo);font-size:.54rem;color:var(--d2);white-space:nowrap"></span>
+          <div style="flex:1;height:3px;background:rgba(0,229,255,.1);border-radius:2px"><div id="q-b" style="height:100%;background:var(--glow);border-radius:2px;transition:width .4s;width:0%"></div></div>
+          <span id="q-sc" style="font-family:var(--mo);font-size:.54rem;color:var(--glow);white-space:nowrap"></span>
         </div>
-        <div id="q-q" style="font-family:var(--sr);font-size:.92rem;font-style:italic;line-height:1.48;margin-bottom:1rem;color:var(--w)"></div>
-        <div id="q-op"></div>
-        <div id="q-fb"></div>
-        <div style="text-align:right;margin-top:.7rem"><button class="qnxt" id="q-n" style="display:none">Next →</button></div>
+        <div id="q-q" style="font-family:var(--sr);font-size:.9rem;font-style:italic;line-height:1.45;margin-bottom:.9rem;color:var(--w)"></div>
+        <div id="q-op"></div><div id="q-fb"></div>
+        <div style="text-align:right;margin-top:.65rem"><button class="qnxt" id="q-n" style="display:none">Next &#8594;</button></div>
       </div>
-      <div id="q-end" style="display:none;text-align:center;padding:1rem 0">
-        <div id="q-em" style="font-size:2rem;margin-bottom:.55rem"></div>
-        <h3 id="q-ti" style="font-family:var(--sr);font-size:1.1rem;font-style:italic;margin-bottom:.32rem"></h3>
-        <p id="q-sk" style="font-family:var(--mo);font-size:.88rem;color:var(--glow);margin-bottom:.38rem"></p>
-        <p id="q-mg" style="font-size:.72rem;color:var(--dim);margin-bottom:1.3rem"></p>
-        <button class="qbtn" id="q-r">Try Again ↺</button>
+      <div id="q-end" style="display:none;text-align:center;padding:.9rem 0">
+        <div id="q-em" style="font-size:1.9rem;margin-bottom:.5rem"></div>
+        <h3 id="q-ti" style="font-family:var(--sr);font-size:1.05rem;font-style:italic;margin-bottom:.3rem"></h3>
+        <p id="q-sk" style="font-family:var(--mo);font-size:.85rem;color:var(--glow);margin-bottom:.35rem"></p>
+        <p id="q-mg" style="font-size:.7rem;color:var(--dim);margin-bottom:1.2rem"></p>
+        <button class="qbtn" id="q-r">Try Again &#8635;</button>
       </div>
     </div>
   </div>
-
   <div class="card" id="visitors">
     <div class="sh"><span class="sn">B</span><h2 class="sl">Visitors</h2><span class="sli"></span></div>
-    <div class="vg">
-      <div class="vc"><div class="vv">1,285</div><div class="vl">Total</div></div>
-      <div class="vc"><div class="vv">18</div><div class="vl">Today</div></div>
-      <div class="vc"><div class="vv">10</div><div class="vl">Countries</div></div>
-    </div>
-    <p style="font-family:var(--mo);font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.6rem">Visitors from</p>
-    <div class="cl"><span class="ct">&#127471;&#127477; Japan</span><span class="ct">&#127482;&#127480; United States</span><span class="ct">&#127468;&#127463; United Kingdom</span><span class="ct">&#127480;&#127468; Singapore</span><span class="ct">&#127462;&#127482; Australia</span><span class="ct">&#127465;&#127466; Germany</span><span class="ct">&#127472;&#127479; South Korea</span><span class="ct">&#127464;&#127462; Canada</span><span class="ct">&#127467;&#127479; France</span><span class="ct">&#127480;&#127462; Saudi Arabia</span></div>
+    <div class="vg"><div class="vc"><div class="vv">1,285</div><div class="vl">Total</div></div><div class="vc"><div class="vv">18</div><div class="vl">Today</div></div><div class="vc"><div class="vv">10</div><div class="vl">Countries</div></div></div>
+    <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Visitors from</p>
+    <div class="cl"><span class="ct">&#127471;&#127477; Japan</span><span class="ct">&#127482;&#127480; United States</span><span class="ct">&#127468;&#127463; UK</span><span class="ct">&#127480;&#127468; Singapore</span><span class="ct">&#127462;&#127482; Australia</span><span class="ct">&#127465;&#127466; Germany</span><span class="ct">&#127472;&#127479; South Korea</span><span class="ct">&#127464;&#127462; Canada</span><span class="ct">&#127467;&#127479; France</span><span class="ct">&#127480;&#127462; Saudi Arabia</span></div>
   </div>
-
-  <div class="card" id="guestbook">
+  <div class="card" id="gb">
     <div class="sh"><span class="sn">C</span><h2 class="sl">Guest Book</h2><span class="sli"></span></div>
-    <p style="font-size:.75rem;color:var(--dim);margin-bottom:1.1rem;line-height:1.7">Leave a message or say hello 👋</p>
+    <p style="font-size:.72rem;color:var(--dim);margin-bottom:1rem;line-height:1.65">Leave a message or say hello &#128075;</p>
     <div class="gbf">
       <input class="gbi" id="gb-nm" type="text" placeholder="Your name *" maxlength="60"/>
       <input class="gbi" id="gb-or" type="text" placeholder="Affiliation" maxlength="80"/>
       <textarea class="gbi" id="gb-ms" placeholder="Your message *" maxlength="400"></textarea>
-      <button class="gbs" id="gb-bt">Leave a Message ↵</button>
-      <div id="gb-st" style="font-family:var(--mo);font-size:.62rem;min-height:.85rem"></div>
+      <button class="gbs" id="gb-bt">Leave a Message &#8629;</button>
+      <div id="gb-st" style="font-family:var(--mo);font-size:.6rem;min-height:.8rem"></div>
     </div>
-    <p style="font-family:var(--mo);font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.6rem">Messages</p>
+    <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Messages</p>
     <div class="gbe" id="gb-en"></div>
   </div>
-
+</div><!-- cr -->
+  </div>
 </div>
 
-</div><!-- end grid3 -->
-</div><!-- end pg -->
-<footer><span>© 2026 Wahyu Rahmaniar</span><span>AI · Medical Imaging · ahyurahmaniar.github.io</span></footer>
+</div><!-- g2 -->
+</div><!-- vmain -->
 
-<script>
-// ── Neuron background ──
-(function(){
-  var bgC = document.getElementById('bgCanvas');
-  if(!bgC) return;
-  var ctx = bgC.getContext('2d');
-  var CYAN='#00E5FF', PURP='#8B5CF6';
-  var W,H,nodes=[],edges=[],pulses=[],fr=0;
+<!-- news full page -->
+<div class="view" id="vnews">
+  <div id="news-page">
+    <div class="nphead">
+      <button class="back" onclick="gomain()">&#8592; Back</button>
+      <h1 class="nptitle">News &amp; Topics</h1>
+    </div>
+    <div id="nall"></div>
+    <div class="pag" id="nallpag" style="margin-top:1.4rem"></div>
+  </div>
+</div>
 
-  function branch(x,y,a,len,dep,segs){
-    if(dep<=0||len<5)return;
-    var ex=x+Math.cos(a)*len, ey=y+Math.sin(a)*len;
-    segs.push({x1:x,y1:y,x2:ex,y2:ey,lw:Math.max(0.2,dep*0.3),al:0.06+dep*0.04});
-    var sp=0.5+Math.random()*0.3;
-    branch(ex,ey,a-sp,len*0.6,dep-1,segs);
-    branch(ex,ey,a+sp,len*0.6,dep-1,segs);
+</div><!-- pg -->
+<footer><span>&#169; 2026 Wahyu Rahmaniar</span><span>AI &#183; Medical Imaging &#183; ahyurahmaniar.github.io</span></footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// DATA
+var NA=[
+  {b:'nb-p',l:'New Paper',t:'Federated Learning for Brain Tumor Segmentation accepted in Medical Image Analysis',d:'January 2024'},
+  {b:'nb-t',l:'Keynote',t:'Invited keynote at Stanford Radiology AI Symposium on foundation models',d:'March 2025'},
+  {b:'nb-a',l:'Grant',t:'Received JSPS Grant-in-Aid for privacy-preserving clinical AI research',d:'April 2024'},
+  {b:'nb-n',l:'Open Source',t:'MedSeg Framework v2.0 released — 15+ pretrained models, MONAI integration',d:'October 2024'},
+  {b:'nb-w',l:'Workshop',t:'Organizing MICCAI 2025 Workshop on Federated Learning for Medical Imaging',d:'September 2025'},
+  {b:'nb-t',l:'Invited Talk',t:'Talk at NeurIPS 2024 Workshop on Medical Imaging and AI Safety',d:'December 2024'},
+  {b:'nb-p',l:'Preprint',t:'Foundation Models for Radiology: A Survey of Current Approaches and Clinical Validation',d:'February 2025'},
+  {b:'nb-a',l:'Award',t:'Best Paper Award at MICCAI 2024 for cardiac MRI segmentation work',d:'October 2024'},
+  {b:'nb-n',l:'New Course',t:'Launched online course: Deep Learning for Medical Imaging on OpenCourse platform',d:'April 2025'},
+  {b:'nb-w',l:'Media',t:'Research featured in Nature Methods highlight on privacy-preserving AI in healthcare',d:'November 2024'},
+];
+var PU=[
+  {t:'Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data',a:'Wahyu Rahmaniar, Co-Author A, Co-Author B',v:'Medical Image Analysis · Elsevier · 2024',ls:['PDF','DOI','Code']},
+  {t:'Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification',a:'Wahyu Rahmaniar, Co-Author C',v:'IEEE Transactions on Medical Imaging · Vol. 42 · 2023',ls:['PDF','DOI']},
+  {t:'Self-Supervised Contrastive Learning for CT Scan Anomaly Detection',a:'Co-Author D, Wahyu Rahmaniar, Co-Author E',v:'MICCAI 2022',ls:['PDF','DOI','Slides']},
+  {t:'Few-Shot Histopathology Classification via Prototype Networks with Domain Adaptation',a:'Wahyu Rahmaniar, Co-Author F',v:'CVPR Workshop on Medical Computer Vision · 2021',ls:['PDF','DOI']},
+  {t:'Attention-Guided U-Net for Automated Retinal Lesion Segmentation in Fundus Images',a:'Wahyu Rahmaniar, Co-Author G, Co-Author H',v:'Computers in Biology and Medicine · 2020',ls:['PDF','DOI']},
+  {t:'Deep Learning Based Lung Nodule Detection in Low-Dose CT with Data Augmentation',a:'Co-Author I, Wahyu Rahmaniar',v:'Medical Physics · Vol. 47 · 2019',ls:['PDF','DOI']},
+];
+var LE=[
+  {t:'AI for Medical Image Segmentation: From U-Net to Foundation Models',v:'Stanford Medical School',y:'2025',ty:'tk',tl:'Keynote'},
+  {t:'Federated Learning in Clinical Imaging: Challenges and Opportunities',v:'Kyoto University',y:'2024',ty:'ts',tl:'Seminar'},
+  {t:'Explainability and Trust in Medical AI Diagnostic Systems',v:'Tohoku University',y:'2024',ty:'tl',tl:'Lecture'},
+  {t:'Foundation Models for Radiology: Opportunities and Risks',v:'NII Shonan Meeting',y:'2023',ty:'tw',tl:'Workshop'},
+  {t:'Self-Supervised Pretraining on Unlabeled Medical Images',v:'National University of Singapore',y:'2022',ty:'ti',tl:'Invited Talk'},
+  {t:'Privacy-Preserving AI in Healthcare: Federated Learning Approaches',v:'University of Oxford, UK',y:'2022',ty:'ts',tl:'Seminar'},
+  {t:'Clinical Deployment of AI: Regulatory and Safety Considerations',v:'RIKEN Center for Medical Sciences',y:'2021',ty:'tl',tl:'Lecture'},
+];
+var QS=[
+  {q:"What does the U-Net U-shape represent?",o:["Uncertainty","Encoder-decoder with skip connections","Unsupervised learning","Universal features"],a:1,e:"U-Net's U-shape is its symmetric encoder-decoder connected by skip connections, enabling precise localization."},
+  {q:"Which MRI sequence best shows peritumoral brain edema?",o:["T1-weighted","T1 with Gadolinium","T2-FLAIR","Diffusion-Weighted"],a:2,e:"T2-FLAIR suppresses CSF signal, making edema clearly visible as a bright region."},
+  {q:"In federated learning, what is shared between hospitals?",o:["Patient imaging data","Model weights or gradients","De-identified metadata","Diagnosis reports"],a:1,e:"Only model weights/gradients are shared — never raw patient data — preserving patient privacy."},
+  {q:"What does the Dice coefficient measure?",o:["Pixel intensity difference","Overlap between predicted and ground-truth masks","Training speed","Parameter count"],a:1,e:"Dice = 2|A intersect B|/(|A|+|B|). It measures mask overlap from 0 to 1."},
+  {q:"Which is NOT a real MRI sequence?",o:["T1-weighted","T2-weighted","T3-weighted","FLAIR"],a:2,e:"There is no T3-weighted sequence. MRI uses tissue relaxation times T1 and T2."},
+  {q:"What is hallucination in medical AI?",o:["Confident but fabricated findings","GPU overflow","Visual scan artifacts","Synthetic augmentation"],a:0,e:"AI hallucination means generating plausible-looking but incorrect findings — a critical patient safety concern."},
+  {q:"Hounsfield Units are used in which modality?",o:["MRI","Ultrasound","CT Computed Tomography","PET scan"],a:2,e:"HU measures X-ray attenuation in CT: water=0 HU, air=-1000 HU, dense bone ~+1000 HU."},
+  {q:"What does Grad-CAM visualize?",o:["Training loss","Influential image regions for a prediction","Optimization paths","Camera calibration"],a:1,e:"Grad-CAM highlights which image regions most influenced the model decision — key for explainability."},
+];
+
+// VIEW SWITCHING
+function gomain(){
+  document.getElementById('vmain').className='view on';
+  document.getElementById('vnews').className='view';
+  document.getElementById('nav-home').className='act';
+  window.scrollTo(0,0);
+}
+function gonews(){
+  document.getElementById('vmain').className='view';
+  document.getElementById('vnews').className='view on';
+  document.getElementById('nav-home').className='';
+  rna(0);
+  window.scrollTo(0,0);
+}
+function sc(id){setTimeout(function(){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},60);}
+
+// PAGINATION
+var npg=0,ppg=0,lpg=0,napg=0;
+
+function pag(cid,total,per,cur,fn){
+  var el=document.getElementById(cid);
+  if(!el)return;
+  var pages=Math.ceil(total/per);
+  if(pages<=1){el.innerHTML='';return;}
+  var h='';
+  for(var i=0;i<pages;i++){
+    h+='<button class="pb'+(i===cur?' on':'')+'" data-pg="'+i+'" data-fn="'+fn+'">'+( i+1)+'</button>';
   }
-
-  function rebuild(){
-    W = bgC.width = window.innerWidth;
-    H = bgC.height = window.innerHeight;
-    nodes=[]; edges=[]; pulses=[];
-    var cls=[
-      {cx:.15,cy:.35,n:11,sp:.10},{cx:.30,cy:.18,n:10,sp:.09},{cx:.50,cy:.13,n:9,sp:.08},
-      {cx:.70,cy:.18,n:10,sp:.09},{cx:.85,cy:.35,n:9,sp:.09},{cx:.18,cy:.55,n:10,sp:.09},
-      {cx:.42,cy:.42,n:12,sp:.10},{cx:.58,cy:.42,n:12,sp:.10},{cx:.82,cy:.55,n:10,sp:.09},
-      {cx:.25,cy:.74,n:8,sp:.08},{cx:.50,cy:.76,n:9,sp:.08},{cx:.75,cy:.74,n:8,sp:.08}
-    ];
-    cls.forEach(function(cl){
-      for(var i=0;i<cl.n;i++){
-        var a=Math.random()*Math.PI*2, d=Math.pow(Math.random(),0.5)*cl.sp;
-        var x=Math.max(30,Math.min(W-30,(cl.cx+Math.cos(a)*d)*W));
-        var y=Math.max(30,Math.min(H-30,(cl.cy+Math.sin(a)*d)*H));
-        var soma=Math.random()<0.35, isC=Math.random()<0.65, ds=[];
-        if(soma){
-          var nd=4+Math.floor(Math.random()*4);
-          for(var j=0;j<nd;j++) branch(x,y,(j/nd)*Math.PI*2+(Math.random()-0.5)*0.5,14+Math.random()*16,2,ds);
-        }
-        nodes.push({x:x,y:y,soma:soma,r:soma?2.5+Math.random()*2.5:1.2+Math.random()*1.5,
-          col:isC?CYAN:PURP,g:0,ph:Math.random()*Math.PI*2,ds:ds});
-      }
+  h+='<span class="pi2">Page '+(cur+1)+' of '+pages+'</span>';
+  el.innerHTML=h;
+  el.querySelectorAll('.pb').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var fn=this.dataset.fn, pg=parseInt(this.dataset.pg);
+      if(fn==='rnp')rnp(pg);
+      else if(fn==='rpu')rpu(pg);
+      else if(fn==='rle')rle(pg);
+      else if(fn==='rna')rna(pg);
     });
-    var mD=Math.min(W,H)*0.16;
-    for(var i=0;i<nodes.length;i++){
-      var cn=0;
-      for(var j=i+1;j<nodes.length;j++){
-        var dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
-        var dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<mD && cn<7){
-          var mx=(nodes[i].x+nodes[j].x)/2, my=(nodes[i].y+nodes[j].y)/2;
-          var p=(Math.random()-0.5)*dist*0.35;
-          edges.push({a:nodes[i],b:nodes[j],cpx:mx-(dy/dist)*p,cpy:my+(dx/dist)*p,ac:0});
-          cn++;
-        }
-      }
-    }
-  }
+  });
+}
 
-  function spawnPulse(){
-    if(!edges.length) return;
-    var e=edges[Math.floor(Math.random()*edges.length)];
-    pulses.push({e:e,t:0,fwd:Math.random()>0.5,sp:0.007+Math.random()*0.013});
-  }
+function ni(n){return '<div class="ni"><span class="nb '+n.b+'">'+n.l+'</span><div><div class="nt">'+n.t+'</div><div class="nm">'+n.d+'</div></div></div>';}
 
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    var t=fr*0.01;
+function rnp(pg){
+  npg=pg;var per=5,s=pg*per,items=NA.slice(s,s+per);
+  document.getElementById('nprev').innerHTML=items.map(ni).join('');
+  pag('npag',NA.length,per,pg,'rnp');
+}
+function rpu(pg){
+  ppg=pg;var per=3,s=pg*per,items=PU.slice(s,s+per),h='';
+  items.forEach(function(p){
+    var ls=p.ls.map(function(l){return '<a href="#" class="pl2">'+l+'</a>';}).join('');
+    h+='<div class="pi"><p class="pt">'+p.t+'</p><p class="pa">'+p.a+'</p><p class="pv">'+p.v+'</p><div class="pls">'+ls+'</div></div>';
+  });
+  document.getElementById('publist').innerHTML=h;
+  pag('pubpag',PU.length,per,pg,'rpu');
+}
+function rle(pg){
+  lpg=pg;var per=3,s=pg*per,items=LE.slice(s,s+per),h='';
+  items.forEach(function(l){
+    h+='<div class="lci"><div class="lt">'+l.t+'</div><div class="lv"><strong>'+l.v+'</strong></div><div class="lf"><span class="ly">'+l.y+'</span><span class="lty '+l.ty+'">'+l.tl+'</span></div></div>';
+  });
+  document.getElementById('leclist').innerHTML=h;
+  pag('lecpag',LE.length,per,pg,'rle');
+}
+function rna(pg){
+  napg=pg;var per=5,s=pg*per,items=NA.slice(s,s+per);
+  document.getElementById('nall').innerHTML=items.map(ni).join('');
+  pag('nallpag',NA.length,per,pg,'rna');
+}
 
-    // Dendrites
-    nodes.forEach(function(n){
-      n.ds.forEach(function(s){
-        ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(s.x2,s.y2);
-        ctx.strokeStyle=n.col===CYAN?'rgba(0,229,255,'+(s.al+n.g*0.05)+')':'rgba(139,92,246,'+(s.al+n.g*0.05)+')';
-        ctx.lineWidth=s.lw; ctx.stroke();
-      });
-    });
+rnp(0);rpu(0);rle(0);
 
-    // Edges
-    edges.forEach(function(e){
-      ctx.beginPath(); ctx.moveTo(e.a.x,e.a.y);
-      ctx.quadraticCurveTo(e.cpx,e.cpy,e.b.x,e.b.y);
-      var base = e.ac>0.05 ? 0.06+e.ac*0.2 : 0.055;
-      ctx.strokeStyle='rgba(0,229,255,'+base+')';
-      ctx.lineWidth=0.5+e.ac*0.4; ctx.stroke();
-      if(e.ac>0) e.ac-=0.02;
-    });
-
-    // Nodes
-    nodes.forEach(function(n){
-      var b=0.1+Math.sin(t+n.ph)*0.06;
-      var r=Math.max(0.5,n.r*(1+b*0.25+n.g*0.4));
-      var isC=n.col===CYAN;
-      if(n.soma){
-        ctx.shadowColor=n.col; ctx.shadowBlur=6+n.g*10;
-        ctx.beginPath(); ctx.arc(n.x,n.y,Math.max(0.5,r*1.7),0,Math.PI*2);
-        ctx.strokeStyle=isC?'rgba(0,229,255,'+(0.2+n.g*0.25)+')':'rgba(139,92,246,'+(0.2+n.g*0.25)+')';
-        ctx.lineWidth=0.5; ctx.stroke();
-      }
-      ctx.shadowColor=n.col; ctx.shadowBlur=n.soma?10+n.g*14:5+n.g*8;
-      ctx.beginPath(); ctx.arc(n.x,n.y,Math.max(0.5,r),0,Math.PI*2);
-      ctx.fillStyle=isC?'rgba(0,229,255,'+(0.5+b+n.g*0.4)+')':'rgba(139,92,246,'+(0.5+b+n.g*0.4)+')';
-      ctx.fill(); ctx.shadowBlur=0;
-      if(n.g>0) n.g-=0.02;
-    });
-
-    // Pulses
-    pulses=pulses.filter(function(p){return p.t<=1;});
-    pulses.forEach(function(p){
-      p.t+=p.sp;
-      var tt=Math.min(p.t,1);
-      var sx=p.fwd?p.e.a.x:p.e.b.x, sy=p.fwd?p.e.a.y:p.e.b.y;
-      var ex=p.fwd?p.e.b.x:p.e.a.x, ey=p.fwd?p.e.b.y:p.e.a.y;
-      var px=(1-tt)*(1-tt)*sx+2*(1-tt)*tt*p.e.cpx+tt*tt*ex;
-      var py=(1-tt)*(1-tt)*sy+2*(1-tt)*tt*p.e.cpy+tt*tt*ey;
-      ctx.shadowColor=CYAN; ctx.shadowBlur=14;
-      ctx.beginPath(); ctx.arc(px,py,Math.max(0.5,2.5),0,Math.PI*2);
-      ctx.fillStyle='rgba(180,255,255,0.9)'; ctx.fill(); ctx.shadowBlur=0;
-      if(p.t>=0.94){
-        var tgt=p.fwd?p.e.b:p.e.a;
-        tgt.g=1; p.e.ac=1;
-      }
-    });
-
-    if(fr%14===0 && pulses.length<28) spawnPulse();
-    fr++;
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize',rebuild);
-  rebuild();
-  draw();
-})();
-
-// ── Figure filter ──
+// FIGURE FILTER
 document.querySelectorAll('.ft').forEach(function(t){
   t.addEventListener('click',function(){
     document.querySelectorAll('.ft').forEach(function(x){x.classList.remove('on');});
@@ -569,94 +495,141 @@ document.querySelectorAll('.ft').forEach(function(t){
   });
 });
 
-// ── Lightbox ──
-var lb=document.getElementById('lb'),lbI=document.getElementById('lb-img'),lbC=document.getElementById('lb-cap');
+// LIGHTBOX
+var lb=document.getElementById('lb'),lbI=document.getElementById('lb-img');
 document.querySelectorAll('.fi').forEach(function(el){
-  el.addEventListener('click',function(){lbI.src=el.dataset.src||'';lbI.alt=el.dataset.title||'';lbC.textContent=el.dataset.title||'';lb.classList.add('open');});
+  el.addEventListener('click',function(){lbI.src=el.dataset.src||'';lbI.alt=el.dataset.title||'';lb.classList.add('open');});
 });
 document.getElementById('lb-x').addEventListener('click',function(){lb.classList.remove('open');});
 lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open');});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
 
-// ── Quiz ──
-var QS=[
-  {q:"What does the 'U' shape in U-Net represent?",opts:["Uncertainty in predictions","Encoder-decoder with skip connections","Unsupervised learning","Universal feature mapping"],ans:1,exp:"U-Net's U-shape is its symmetric encoder-decoder connected by skip connections, enabling precise localization."},
-  {q:"Which MRI sequence best detects peritumoral brain edema?",opts:["T1-weighted","T1 with Gadolinium","T2-FLAIR","Diffusion-Weighted (DWI)"],ans:2,exp:"T2-FLAIR suppresses CSF signal, making edema appear bright and clearly distinguishable from healthy tissue."},
-  {q:"In federated learning, what is shared between hospitals?",opts:["Patient imaging data","Model weights or gradients","De-identified metadata","Diagnosis reports"],ans:1,exp:"Only model weights/gradients are shared — never raw patient data — preserving patient privacy."},
-  {q:"What does the Dice coefficient measure?",opts:["Pixel intensity difference","Overlap between predicted and ground-truth masks","Training speed","Model parameter count"],ans:1,exp:"Dice = 2|A∩B|/(|A|+|B|). It measures mask overlap from 0 to 1 (perfect)."},
-  {q:"Which of these is NOT a real MRI sequence?",opts:["T1-weighted","T2-weighted","T3-weighted","FLAIR"],ans:2,exp:"There is no T3-weighted sequence. MRI uses tissue relaxation times T1 and T2."},
-  {q:"What is 'hallucination' in medical AI?",opts:["Confident but fabricated findings","GPU memory overflow","Visual scan artifacts","Synthetic data augmentation"],ans:0,exp:"AI hallucination means generating plausible-looking but incorrect findings — a critical patient safety concern."},
-  {q:"Hounsfield Units (HU) are used in which modality?",opts:["MRI","Ultrasound","CT (Computed Tomography)","PET scan"],ans:2,exp:"HU measures X-ray attenuation in CT: water=0 HU, air=-1000 HU, dense bone~+1000 HU."},
-  {q:"What does Grad-CAM visualize?",opts:["Training loss curves","Image regions most influential for a prediction","Optimization paths","Camera calibration maps"],ans:1,exp:"Grad-CAM highlights which image regions most influenced the model's decision — key for explainability in medical AI."},
-];
-var qi=0,qs=0,qa=false,qset=QS.slice();
+// QUIZ
+var qi=0,qs=0,qa=false,qset=[];
 function shuf(a){return a.slice().sort(function(){return Math.random()-0.5;});}
-function $$(id){return document.getElementById(id);}
+function el(id){return document.getElementById(id);}
 function qR(){
   var q=qset[qi];
-  $$('q-c').textContent='Q'+(qi+1)+'/'+qset.length;
-  $$('q-sc').textContent=qs+'/'+qi;
-  $$('q-b').style.width=(qi/qset.length*100)+'%';
-  $$('q-q').textContent=q.q;
-  $$('q-fb').innerHTML='';
-  $$('q-n').style.display='none';
+  el('q-c').textContent='Q'+(qi+1)+'/'+qset.length;
+  el('q-sc').textContent=qs+'/'+qi;
+  el('q-b').style.width=(qi/qset.length*100)+'%';
+  el('q-q').textContent=q.q;
+  el('q-fb').innerHTML='';
+  el('q-n').style.display='none';
   qa=false;
-  var L=['A','B','C','D'],o=$$('q-op');o.innerHTML='';
-  q.opts.forEach(function(op,i){
-    var b=document.createElement('button');b.className='qo';
+  var L=['A','B','C','D'],o=el('q-op');o.innerHTML='';
+  q.o.forEach(function(op,i){
+    var b=document.createElement('button');
+    b.className='qo';
     b.innerHTML='<span class="ql">'+L[i]+'</span>'+op;
-    b.onclick=function(){qA(i);};o.appendChild(b);
+    b.onclick=function(){qA(i);};
+    o.appendChild(b);
   });
 }
 function qA(c){
   if(qa)return;qa=true;
-  var q=qset[qi],ok=c===q.ans;if(ok)qs++;
+  var q=qset[qi],ok=(c===q.a);
+  if(ok)qs++;
   document.querySelectorAll('.qo').forEach(function(b,i){
     b.disabled=true;
-    if(i===q.ans)b.classList.add('ok');
+    if(i===q.a)b.classList.add('ok');
     else if(i===c&&!ok)b.classList.add('no');
-    else b.classList.add('rv2');
+    else b.classList.add('dim');
   });
-  $$('q-fb').innerHTML='<div class="'+(ok?'qfok':'qfno')+'">'+(ok?'✓ Correct! ':'✗ Incorrect. ')+q.exp+'</div>';
-  $$('q-n').style.display='inline-block';
+  el('q-fb').innerHTML='<div class="'+(ok?'qfok':'qfno')+'">'+(ok?'Correct! ':'Incorrect. ')+q.e+'</div>';
+  el('q-n').style.display='inline-block';
 }
 function qEnd(){
-  $$('q-play').style.display='none';$$('q-end').style.display='block';$$('q-b').style.width='100%';
+  el('q-play').style.display='none';el('q-end').style.display='block';el('q-b').style.width='100%';
   var pct=Math.round(qs/qset.length*100);
-  var d=pct>=87?['🏆','Outstanding!','Expert-level AI & medical imaging knowledge.']:
-    pct>=62?['🎯','Well done!','Solid understanding with a few areas to review.']:
-    pct>=37?['📚','Keep learning!','Good start — revisit the core concepts.']:
-    ['🔬','Keep exploring!','Every question teaches something new.'];
-  $$('q-em').textContent=d[0];$$('q-ti').textContent=d[1];$$('q-sk').textContent=qs+'/'+qset.length+' correct ('+pct+'%)';$$('q-mg').textContent=d[2];
+  var d=pct>=87?['Outstanding!','Expert-level knowledge.']:pct>=62?['Well done!','Solid understanding.']:pct>=37?['Keep learning!','Revisit the core concepts.']:['Keep exploring!','Every question teaches something new.'];
+  el('q-em').textContent=pct>=87?'Trophy':pct>=62?'Target':pct>=37?'Book':'Microscope';
+  el('q-ti').textContent=d[0];el('q-sk').textContent=qs+'/'+qset.length+' correct ('+pct+'%)';el('q-mg').textContent=d[1];
 }
-function qStart(){qi=0;qs=0;qset=shuf(QS);$$('q-start').style.display='none';$$('q-end').style.display='none';$$('q-play').style.display='block';qR();}
-$$('q-s').onclick=qStart;
-$$('q-n').onclick=function(){qi++;if(qi>=qset.length)qEnd();else qR();};
-$$('q-r').onclick=qStart;
+function qStart(){qi=0;qs=0;qset=shuf(QS);el('q-start').style.display='none';el('q-end').style.display='none';el('q-play').style.display='block';qR();}
+el('q-s').onclick=qStart;
+el('q-n').onclick=function(){qi++;if(qi>=qset.length)qEnd();else qR();};
+el('q-r').onclick=qStart;
 
-// ── Guestbook ──
+// GUESTBOOK
 var GB=[
-  {name:'Yuki Tanaka',org:'Kyoto University',flag:'🇯🇵',msg:'Great work on the federated learning paper! Looking forward to collaborating on multi-site MRI studies.',ts:Date.now()-172800000},
-  {name:'Sarah Chen',org:'Stanford Medical School',flag:'🇺🇸',msg:'Your talk on foundation models for radiology was inspiring. Would love to discuss a research exchange.',ts:Date.now()-86400000},
-  {name:'Ahmad Al-Hassan',org:'King Faisal Specialist Hospital',flag:'🇸🇦',msg:'We are building a clinical AI pipeline for CT diagnosis. Your MedSeg framework looks very promising!',ts:Date.now()-43200000},
+  {n:'Yuki Tanaka',o:'Kyoto University',f:'JP',m:'Great work on the federated learning paper! Looking forward to collaborating on multi-site MRI studies.',ts:Date.now()-172800000},
+  {n:'Sarah Chen',o:'Stanford Medical School',f:'US',m:'Your talk on foundation models for radiology was inspiring. Would love to discuss a research exchange.',ts:Date.now()-86400000},
+  {n:'Ahmad Al-Hassan',o:'King Faisal Specialist Hospital',f:'SA',m:'We are building a clinical AI pipeline for CT diagnosis. Your MedSeg framework looks very promising!',ts:Date.now()-43200000},
 ];
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function ago(ts){var s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
+function flags(c){var m={JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;'};return m[c]||'&#127758;';}
 function gbR(){
-  document.getElementById('gb-en').innerHTML=GB.slice().reverse().map(function(e){
-    return '<div class="gbcard"><div class="gbh"><span class="gbn">'+esc(e.name)+(e.org?' <span style="opacity:.5;font-size:.85em">· '+esc(e.org)+'</span>':'')+'</span><span class="gbm2">'+(e.flag||'')+' '+ago(e.ts)+'</span></div><div class="gbmsg">'+esc(e.msg)+'</div></div>';
+  el('gb-en').innerHTML=GB.slice().reverse().map(function(e){
+    return '<div class="gbcard"><div class="gbh"><span class="gbn">'+esc(e.n)+(e.o?' <span style="opacity:.5">&#183; '+esc(e.o)+'</span>':'')+'</span><span class="gbm2">'+flags(e.f)+' '+ago(e.ts)+'</span></div><div class="gbmsg">'+esc(e.m)+'</div></div>';
   }).join('');
 }
-document.getElementById('gb-bt').onclick=function(){
-  var name=$$('gb-nm').value.trim(),org=$$('gb-or').value.trim(),msg=$$('gb-ms').value.trim(),st=$$('gb-st');
-  if(!name){st.textContent='Please enter your name.';st.style.color='#FCA5A5';return;}
-  if(msg.length<5){st.textContent='Message too short.';st.style.color='#FCA5A5';return;}
-  GB.push({name:name,org:org,msg:msg,flag:'🌍',ts:Date.now()});gbR();
-  $$('gb-nm').value='';$$('gb-or').value='';$$('gb-ms').value='';
-  st.style.color='var(--glow)';st.textContent='✓ Message posted! Thank you.';
-  setTimeout(function(){st.textContent='';},3000);
+el('gb-bt').onclick=function(){
+  var n=el('gb-nm').value.trim(),o=el('gb-or').value.trim(),m=el('gb-ms').value.trim(),s=el('gb-st');
+  if(!n){s.textContent='Please enter your name.';s.style.color='#FCA5A5';return;}
+  if(m.length<5){s.textContent='Message too short.';s.style.color='#FCA5A5';return;}
+  GB.push({n:n,o:o,m:m,f:'',ts:Date.now()});gbR();
+  el('gb-nm').value='';el('gb-or').value='';el('gb-ms').value='';
+  s.style.color='var(--glow)';s.textContent='Message posted! Thank you.';
+  setTimeout(function(){s.textContent='';},3000);
 };
 gbR();
+
+// NEURON BACKGROUND
+(function(){
+  var c=document.getElementById('bgCanvas');
+  if(!c)return;
+  var x=c.getContext('2d'),W,H,N=[],E=[],P=[],fr=0;
+  var CY='#00E5FF',PU='#8B5CF6';
+  function br(px,py,a,l,d,s){
+    if(d<=0||l<5)return;
+    var ex=px+Math.cos(a)*l,ey=py+Math.sin(a)*l;
+    s.push({x1:px,y1:py,x2:ex,y2:ey,lw:Math.max(0.2,d*0.3),al:0.06+d*0.04});
+    var sp=0.5+Math.random()*0.3;
+    br(ex,ey,a-sp,l*0.6,d-1,s);br(ex,ey,a+sp,l*0.6,d-1,s);
+  }
+  function rb(){
+    W=c.width=window.innerWidth;H=c.height=window.innerHeight;N=[];E=[];P=[];
+    var cls=[
+      {cx:.15,cy:.35,n:11,sp:.10},{cx:.30,cy:.18,n:10,sp:.09},{cx:.50,cy:.13,n:9,sp:.08},
+      {cx:.70,cy:.18,n:10,sp:.09},{cx:.85,cy:.35,n:9,sp:.09},{cx:.18,cy:.55,n:10,sp:.09},
+      {cx:.42,cy:.42,n:12,sp:.10},{cx:.58,cy:.42,n:12,sp:.10},{cx:.82,cy:.55,n:10,sp:.09},
+      {cx:.25,cy:.74,n:8,sp:.08},{cx:.50,cy:.76,n:9,sp:.08},{cx:.75,cy:.74,n:8,sp:.08}
+    ];
+    cls.forEach(function(cl){
+      for(var i=0;i<cl.n;i++){
+        var a=Math.random()*Math.PI*2,d=Math.pow(Math.random(),0.5)*cl.sp;
+        var nx=Math.max(30,Math.min(W-30,(cl.cx+Math.cos(a)*d)*W));
+        var ny=Math.max(30,Math.min(H-30,(cl.cy+Math.sin(a)*d)*H));
+        var sm=Math.random()<0.35,ic=Math.random()<0.65,ds=[];
+        if(sm){var nd=4+Math.floor(Math.random()*4);for(var j=0;j<nd;j++)br(nx,ny,(j/nd)*Math.PI*2+(Math.random()-0.5)*0.5,14+Math.random()*16,2,ds);}
+        N.push({x:nx,y:ny,sm:sm,r:sm?2.5+Math.random()*2.5:1.2+Math.random()*1.5,col:ic?CY:PU,g:0,ph:Math.random()*Math.PI*2,ds:ds});
+      }
+    });
+    var mD=Math.min(W,H)*0.16;
+    for(var i=0;i<N.length;i++){var cn=0;for(var j=i+1;j<N.length;j++){
+      var dx=N[i].x-N[j].x,dy=N[i].y-N[j].y,ds=Math.sqrt(dx*dx+dy*dy);
+      if(ds<mD&&cn<7){var mx=(N[i].x+N[j].x)/2,my=(N[i].y+N[j].y)/2,p=(Math.random()-0.5)*ds*0.35;
+      E.push({a:N[i],b:N[j],cpx:mx-(dy/ds)*p,cpy:my+(dx/ds)*p,ac:0});cn++;}
+    }}
+  }
+  function sp(){if(!E.length)return;var e=E[Math.floor(Math.random()*E.length)];P.push({e:e,t:0,fw:Math.random()>0.5,s:0.007+Math.random()*0.013});}
+  function dr(){
+    x.clearRect(0,0,W,H);var t=fr*0.01;
+    N.forEach(function(n){n.ds.forEach(function(s){x.beginPath();x.moveTo(s.x1,s.y1);x.lineTo(s.x2,s.y2);x.strokeStyle=n.col===CY?'rgba(0,229,255,'+(s.al+n.g*0.05)+')':'rgba(139,92,246,'+(s.al+n.g*0.05)+')';x.lineWidth=s.lw;x.stroke();});});
+    E.forEach(function(e){x.beginPath();x.moveTo(e.a.x,e.a.y);x.quadraticCurveTo(e.cpx,e.cpy,e.b.x,e.b.y);x.strokeStyle='rgba(0,229,255,'+(e.ac>0.05?0.06+e.ac*0.2:0.055)+')';x.lineWidth=0.5+e.ac*0.4;x.stroke();if(e.ac>0)e.ac-=0.02;});
+    N.forEach(function(n){var b=0.1+Math.sin(t+n.ph)*0.06,r=Math.max(0.5,n.r*(1+b*0.25+n.g*0.4)),ic=n.col===CY;
+      if(n.sm){x.shadowColor=n.col;x.shadowBlur=6+n.g*10;x.beginPath();x.arc(n.x,n.y,Math.max(0.5,r*1.7),0,Math.PI*2);x.strokeStyle=ic?'rgba(0,229,255,'+(0.2+n.g*0.25)+')':'rgba(139,92,246,'+(0.2+n.g*0.25)+')';x.lineWidth=0.5;x.stroke();}
+      x.shadowColor=n.col;x.shadowBlur=n.sm?10+n.g*14:5+n.g*8;x.beginPath();x.arc(n.x,n.y,Math.max(0.5,r),0,Math.PI*2);x.fillStyle=ic?'rgba(0,229,255,'+(0.5+b+n.g*0.4)+')':'rgba(139,92,246,'+(0.5+b+n.g*0.4)+')';x.fill();x.shadowBlur=0;if(n.g>0)n.g-=0.02;});
+    P=P.filter(function(p){return p.t<=1;});
+    P.forEach(function(p){p.t+=p.s;var tt=Math.min(p.t,1),sx=p.fw?p.e.a.x:p.e.b.x,sy=p.fw?p.e.a.y:p.e.b.y,ex=p.fw?p.e.b.x:p.e.a.x,ey=p.fw?p.e.b.y:p.e.a.y,px=(1-tt)*(1-tt)*sx+2*(1-tt)*tt*p.e.cpx+tt*tt*ex,py=(1-tt)*(1-tt)*sy+2*(1-tt)*tt*p.e.cpy+tt*tt*ey;
+      x.shadowColor=CY;x.shadowBlur=14;x.beginPath();x.arc(px,py,Math.max(0.5,2.5),0,Math.PI*2);x
+      if(p.t>=0.94){var tg=p.fw?p.e.b:p.e.a;tg.g=1;p.e.ac=1;}});
+    if(fr%14===0&&P.length<28)sp();fr++;requestAnimationFrame(dr);
+  }
+  window.addEventListener('resize',rb);rb();dr();
+})();
 </script>
 </body>
 </html>

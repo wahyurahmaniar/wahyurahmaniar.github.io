@@ -9,7 +9,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#040710;--glow:#00E5FF;--p:#8B5CF6;--w:#E8F4FF;--dim:rgba(232,244,255,.5);--d2:rgba(232,244,255,.22);--bd:rgba(0,229,255,.14);--gl:rgba(4,7,16,.8);--sr:'Instrument Serif',serif;--ss:'Geist',sans-serif;--mo:'Geist Mono',monospace}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--w);font-family:var(--ss);font-size:14px;line-height:1.7;overflow-x:hidden}
+html{background:var(--bg)}body{color:var(--w);font-family:var(--ss);font-size:14px;line-height:1.7;overflow-x:hidden}
 #bgCanvas{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;display:flex;justify-content:space-between;align-items:center;background:rgba(4,7,16,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
 .logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;cursor:pointer}
@@ -476,17 +476,18 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 
 
 <!-- DATA FILES — edit files in data/ folder, upload both index.html and data/ folder -->
-<script src="data/About.js"></script>
-<script src="data/Education.js"></script>
-<script src="data/News.js"></script>
-<script src="data/Publications.js"></script>
-<script src="data/Lectures.js"></script>
-<script src="data/Figures.js"></script>
-<script src="data/Quiz.js"></script>
+
+
+<!-- DATA FILES — edit in data/ folder -->
+<script src="data/about.js"></script>
+<script src="data/education.js"></script>
+<script src="data/news.js"></script>
+<script src="data/publications.js"></script>
+<script src="data/lectures.js"></script>
+<script src="data/figures.js"></script>
+<script src="data/quiz.js"></script>
 
 <script>
-
-
 // ── VIEW SWITCHING ──────────────────────────────────────────────────────
 function gomain(){
   document.getElementById('vmain').className='view on';
@@ -846,7 +847,7 @@ rnp(0); rpu(0); rle(0); gbR();
         });
 
         edges.forEach(function(e) {
-          var op = e.ac > 0.05 ? 0.12 + e.ac * 0.25 : 0.08;
+          var op = e.ac > 0.05 ? 0.18 + e.ac * 0.3 : 0.12;
           ctx.beginPath();
           ctx.moveTo(e.a.x, e.a.y);
           ctx.quadraticCurveTo(e.cpx, e.cpy, e.b.x, e.b.y);
@@ -860,7 +861,7 @@ rnp(0); rpu(0); rle(0); gbR();
           var b = 0.12 + Math.sin(t + n.ph) * 0.07;
           var r = Math.max(0.5, n.r * (1 + b * 0.3 + n.glow * 0.5));
           var col = n.col === 0 ? CY : PU;
-          var al = Math.min(1, 0.6 + b + n.glow * 0.35);
+          var al = Math.min(1, 0.8 + b + n.glow * 0.35);
           if (n.soma) {
             ctx.shadowColor = n.col === 0 ? '#00E5FF' : '#8B5CF6';
             ctx.shadowBlur = 8 + n.glow * 12;
@@ -871,7 +872,7 @@ rnp(0); rpu(0); rle(0); gbR();
             ctx.stroke();
           }
           ctx.shadowColor = n.col === 0 ? '#00E5FF' : '#8B5CF6';
-          ctx.shadowBlur = n.soma ? 12 + n.glow * 16 : 6 + n.glow * 10;
+          ctx.shadowBlur = n.soma ? 18 + n.glow * 20 : 10 + n.glow * 14;
           ctx.beginPath();
           ctx.arc(n.x, n.y, Math.max(0.5, r), 0, Math.PI * 2);
           ctx.fillStyle = col + al + ')';
@@ -888,7 +889,7 @@ rnp(0); rpu(0); rle(0); gbR();
           var px = (1-tt)*(1-tt)*sx + 2*(1-tt)*tt*p.e.cpx + tt*tt*ex;
           var py = (1-tt)*(1-tt)*sy + 2*(1-tt)*tt*p.e.cpy + tt*tt*ey;
           ctx.shadowColor = '#00E5FF'; ctx.shadowBlur = 16;
-          ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2);
+          ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(180,255,255,0.95)'; ctx.fill();
           ctx.shadowBlur = 0;
           if (p.t >= 0.92) { var tg = p.fw ? p.e.b : p.e.a; tg.glow = 1; p.e.ac = 1; }
@@ -903,8 +904,6 @@ rnp(0); rpu(0); rle(0); gbR();
     draw();
   } catch(e) { console.error('Neuron init error:', e); }
 })();
-
-
 </script>
 </body>
 </html>

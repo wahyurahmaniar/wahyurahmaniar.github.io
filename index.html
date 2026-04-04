@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#040710;--glow:#00E5FF;--p:#8B5CF6;--w:#E8F4FF;--dim:rgba(232,244,255,.5);--d2:rgba(232,244,255,.22);--bd:rgba(0,229,255,.14);--gl:rgba(4,7,16,.72);--sr:'Instrument Serif',serif;--ss:'Geist',sans-serif;--mo:'Geist Mono',monospace;--ez:cubic-bezier(.22,1,.36,1)}
+:root{--bg:#040710;--glow:#00E5FF;--p:#8B5CF6;--w:#E8F4FF;--dim:rgba(232,244,255,.5);--:rgba(232,244,255,.22);--bd:rgba(0,229,255,.14);--gl:rgba(4,7,16,.72);--sr:'Instrument Serif',serif;--ss:'Geist',sans-serif;--mo:'Geist Mono',monospace;--ez:cubic-bezier(.22,1,.36,1)}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--w);font-family:var(--ss);font-size:15px;line-height:1.7;overflow-x:hidden}
 #cv{position:fixed;inset:0;z-index:0;pointer-events:none}
@@ -16,16 +16,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .dot{width:7px;height:7px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px var(--glow);animation:dp 2.5s ease-in-out infinite}
 @keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
 .nl{display:flex;gap:1.2rem;list-style:none}
-.nl a{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);text-decoration:none;transition:color .2s}
+.nl a{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--);text-decoration:none;transition:color .2s}
 .nl a:hover{color:var(--glow)}
 #pg{position:relative;z-index:2;padding-top:60px}
-#hero{min-height:100vh;display:flex;align-items:center;padding:5rem 2.5rem}
+#hero{min-height:auto;display:flex;align-items:center;padding:8rem 2.5rem 5rem}
 .ht{max-width:500px}
 .ey{font-family:var(--mo);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--glow);opacity:.8;display:flex;align-items:center;gap:.6rem;margin-bottom:1.4rem}
 .ey::before{content:'';width:18px;height:1px;background:var(--glow);box-shadow:0 0 6px var(--glow)}
 .hn{font-family:var(--sr);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;line-height:.93;letter-spacing:-.03em;margin-bottom:.6rem}
 .hn .dr{display:block;font-style:italic;color:var(--glow);font-size:.55em;margin-bottom:.1em}
-.hr{font-family:var(--mo);font-size:.65rem;letter-spacing:.08em;color:var(--d2);margin-bottom:1.4rem}
+.hr{font-family:var(--mo);font-size:.65rem;letter-spacing:.08em;color:var(--);margin-bottom:1.4rem}
 .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.6rem}
 .ch{font-size:.62rem;padding:.25rem .65rem;border-radius:3px;font-family:var(--mo)}
 .cc{background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)}
@@ -46,11 +46,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .sli{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,229,255,.3),transparent)}
 .card{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:10px;transition:border-color .3s}
 .card:hover{border-color:rgba(0,229,255,.28)}
-.rv{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ez),transform .65s var(--ez)}
-.rv.on{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+.{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ez),transform .65s var(--ez)}
+..on{opacity:1;transform:none}
+.{transition-delay:.07s}.{transition-delay:.14s}.{transition-delay:.21s}.{transition-delay:.28s}
 /* About */
-.ag{display:grid;grid-template-columns:1fr 185px;gap:2.5rem;align-items:start}
+.ag{display:block}
 .ab{font-family:var(--sr);font-size:clamp(1rem,1.7vw,1.3rem);font-style:italic;line-height:1.65;color:var(--w);margin-bottom:.8rem}
 .ab strong{color:var(--glow);font-style:normal}
 .as{font-size:.87rem;color:var(--dim);line-height:1.85;margin-bottom:1.4rem}
@@ -59,10 +59,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .ir:first-child{border-top:1px solid rgba(0,229,255,.07)}
 .ik{font-family:var(--mo);font-size:.57rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:70px;flex-shrink:0;padding-top:.15rem}
 .iv{color:var(--dim)}
-.pb{width:100%;aspect-ratio:3/4;border-radius:8px;background:rgba(0,229,255,.04);border:1px solid var(--bd);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:.8rem;position:relative;overflow:hidden}
+.pb{display:none!important;width:100%;aspect-ratio:3/4;border-radius:8px;background:rgba(0,229,255,.04);border:1px solid var(--bd);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:.8rem;position:relative;overflow:hidden}
 .pp{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .pp svg{opacity:.08}
-.pl{position:relative;z-index:1;font-family:var(--mo);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2)}
+.pl{position:relative;z-index:1;font-family:var(--mo);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--)}
 /* Education */
 .eg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem}
 .ec{padding:1.3rem;border-radius:9px;display:flex;flex-direction:column;justify-content:space-between}
@@ -72,8 +72,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .ed{font-family:var(--sr);font-size:.94rem;font-style:italic;color:var(--w);margin-bottom:.18rem}
 .es{font-family:var(--mo);font-size:.58rem;color:var(--glow);margin-bottom:.2rem;opacity:.75}
 .et{font-size:.73rem;color:var(--dim);line-height:1.6}
-.ey2{font-family:var(--mo);font-size:.54rem;color:var(--d2);margin-top:.5rem}
-.badge{display:inline-block;margin-top:.4rem;font-family:var(--mo);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;padding:.12rem .44rem;border:1px solid var(--bd);color:var(--d2);border-radius:2px}
+.ey2{font-family:var(--mo);font-size:.54rem;color:var(--);margin-top:.5rem}
+.badge{display:inline-block;margin-top:.4rem;font-family:var(--mo);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;padding:.12rem .44rem;border:1px solid var(--bd);color:var(--);border-radius:2px}
 /* Publications */
 .pi{display:grid;grid-template-columns:34px 1fr;gap:1.4rem;padding:1.6rem 0;border-bottom:1px solid rgba(0,229,255,.07)}
 .pi:first-child{border-top:1px solid rgba(0,229,255,.07)}
@@ -115,7 +115,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .lv{font-size:.73rem;color:var(--dim)}
 .lv strong{color:rgba(0,229,255,.7);font-weight:400}
 .lf{display:flex;justify-content:space-between;align-items:center;margin-top:.3rem}
-.ly{font-family:var(--mo);font-size:.6rem;color:var(--d2)}
+.ly{font-family:var(--mo);font-size:.6rem;color:var(--)}
 .lty{font-family:var(--mo);font-size:.51rem;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .44rem;border-radius:2px;white-space:nowrap}
 .tk{background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.25);color:#FCD34D}
 .ts{background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.2);color:var(--glow)}
@@ -151,7 +151,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .vg{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:1.3rem}
 .vc{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:8px;padding:1.1rem;text-align:center}
 .vv{font-family:var(--sr);font-size:1.9rem;font-style:italic;color:var(--glow);line-height:1}
-.vl{font-family:var(--mo);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-top:.3rem}
+.vl{font-family:var(--mo);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--);margin-top:.3rem}
 .cl{display:flex;flex-wrap:wrap;gap:.45rem}
 .ct{font-family:var(--mo);font-size:.63rem;padding:.22rem .65rem;background:rgba(0,229,255,.05);border:1px solid var(--bd);border-radius:3px;color:var(--dim)}
 /* Guestbook */
@@ -159,7 +159,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .gbr{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 .gbi{width:100%;padding:.6rem .85rem;background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:5px;color:var(--w);font-family:var(--mo);font-size:.73rem;outline:none;transition:border-color .2s}
 .gbi:focus{border-color:rgba(0,229,255,.4)}
-.gbi::placeholder{color:var(--d2)}
+.gbi::placeholder{color:var(--)}
 textarea.gbi{resize:vertical;min-height:78px;line-height:1.5}
 .gbs{align-self:flex-end;font-family:var(--mo);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;padding:.62rem 1.5rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
 .gbs:hover{background:rgba(0,229,255,.2)}
@@ -169,7 +169,7 @@ textarea.gbi{resize:vertical;min-height:78px;line-height:1.5}
 .gbcard{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:7px;padding:.9rem 1rem}
 .gbh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.32rem;flex-wrap:wrap;gap:.4rem}
 .gbn{font-family:var(--mo);font-size:.68rem;color:var(--glow)}
-.gbm2{font-family:var(--mo);font-size:.56rem;color:var(--d2)}
+.gbm2{font-family:var(--mo);font-size:.56rem;color:var(--)}
 .gbmsg{font-size:.8rem;color:var(--dim);line-height:1.6}
 /* Contact */
 .ch2{font-family:var(--sr);font-size:clamp(1.9rem,4vw,3.5rem);font-style:italic;line-height:1.05;letter-spacing:-.02em;margin-bottom:.8rem}
@@ -178,7 +178,7 @@ textarea.gbi{resize:vertical;min-height:78px;line-height:1.5}
 .cb3{display:inline-flex;align-items:center;gap:.42rem;font-family:var(--mo);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.52rem 1rem;border-radius:4px;transition:all .2s;background:rgba(0,229,255,.03)}
 .cb3 svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
 .cb3:hover{border-color:rgba(0,229,255,.35);color:var(--glow)}
-footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex;justify-content:space-between;font-family:var(--mo);font-size:.57rem;color:var(--d2);position:relative;z-index:2;background:rgba(4,7,16,.9)}
+footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex;justify-content:space-between;font-family:var(--mo);font-size:.57rem;color:var(--);position:relative;z-index:2;background:rgba(4,7,16,.9)}
 @media(max-width:768px){
   nav{padding:.8rem 1.1rem}.nl{gap:.8rem}.nl a{font-size:.57rem}
   #hero{padding:3.5rem 1.2rem}
@@ -222,20 +222,19 @@ footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex
 
 <section class="sec" id="about">
   <div class="si">
-    <div class="sh rv"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
+    <div class="sh"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
     <div class="ag">
       <div>
-        <p class="ab rv d1">I build <strong>AI systems that see what radiologists see</strong> — segmenting tumors, quantifying disease, and detecting anomalies across MRI, CT, and histopathology.</p>
-        <p class="as rv d2">My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.</p>
-        <div class="il rv d3">
+        <p class="ab">I build <strong>AI systems that see what radiologists see</strong> — segmenting tumors, quantifying disease, and detecting anomalies across MRI, CT, and histopathology.</p>
+        <p class="as">My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.</p>
+        <div class="il">
           <div class="ir"><span class="ik">Position</span><span class="iv">Associate Professor, Dept. of Computer Science</span></div>
           <div class="ir"><span class="ik">Lab</span><span class="iv">[Medical AI Lab], [University Name], Tokyo</span></div>
           <div class="ir"><span class="ik">Research</span><span class="iv">Medical Image Analysis · Deep Learning · Clinical AI</span></div>
-          <div class="ir"><span class="ik">Email</span><span class="iv">yourname@university.ac.jp</span></div>
+          <div class="ir"><span class="ik">Email</span><span class="iv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cdb4a2b8bfa3aca0a88db8a3a4bba8bfbea4b9b4e3acaee3a7bd">[email&#160;protected]</a></span></div>
           <div class="ir"><span class="ik">Languages</span><span class="iv">English, Japanese</span></div>
         </div>
       </div>
-      <div class="rv d2"><div class="pb"><div class="pp"><svg width="60" height="60" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="30" r="18" fill="rgba(0,229,255,.1)"/><ellipse cx="40" cy="72" rx="30" ry="20" fill="rgba(0,229,255,.1)"/></svg></div><span class="pl">Your photo here</span></div></div>
     </div>
   </div>
 </section>
@@ -253,7 +252,7 @@ footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex
       </div>
       <div id="q-play" style="display:none">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.3rem;gap:1rem">
-          <span id="q-c" style="font-family:var(--mo);font-size:.6rem;color:var(--d2);white-space:nowrap"></span>
+          <span id="q-c" style="font-family:var(--mo);font-size:.6rem;color:var(--);white-space:nowrap"></span>
           <div style="flex:1;height:3px;background:rgba(0,229,255,.1);border-radius:2px"><div id="q-b" style="height:100%;background:var(--glow);border-radius:2px;transition:width .4s;width:0"></div></div>
           <span id="q-sc" style="font-family:var(--mo);font-size:.6rem;color:var(--glow);white-space:nowrap"></span>
         </div>
@@ -281,7 +280,7 @@ footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex
       <div class="vc"><div class="vv" id="v-td">18</div><div class="vl">Today</div></div>
       <div class="vc"><div class="vv" id="v-cn">10</div><div class="vl">Countries</div></div>
     </div>
-    <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.7rem">Recent visitors from</p>
+    <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--);margin-bottom:.7rem">Recent visitors from</p>
     <div class="cl" id="v-cl">
       <span class="ct">🇯🇵 Japan</span><span class="ct">🇺🇸 United States</span><span class="ct">🇬🇧 United Kingdom</span>
       <span class="ct">🇸🇬 Singapore</span><span class="ct">🇦🇺 Australia</span><span class="ct">🇩🇪 Germany</span>
@@ -303,40 +302,40 @@ footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex
       <button class="gbs" id="gb-bt">Leave a Message ↵</button>
       <div id="gb-st" style="font-family:var(--mo);font-size:.66rem;min-height:.9rem"></div>
     </div>
-    <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.7rem">Messages</p>
+    <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--);margin-bottom:.7rem">Messages</p>
     <div class="gbe" id="gb-en"></div>
   </div>
 </section>
 
 <section class="sec" id="education">
   <div class="si">
-    <div class="sh rv"><span class="sn">05</span><h2 class="sl">Education</h2><span class="sli"></span></div>
+    <div class="sh"><span class="sn">05</span><h2 class="sl">Education</h2><span class="sli"></span></div>
     <div class="eg">
-      <div class="ec ef card rv d1"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">Ph.D. in Computer Science</div><div class="es">University of Tokyo, Japan</div><div class="et">"Deep Learning for Automated Brain MRI Lesion Segmentation" · <span style="color:#6EE7B7">Graduated with Distinction</span></div><span class="badge">Doctoral · 2015–2019</span></div></div>
-      <div class="ec card rv d2"><div><div class="ed">M.Sc. Computer Engineering</div><div class="es">Osaka University, Japan</div><div class="et">"CNN-based Retinal Image Classification" · GPA 3.9/4.0</div></div><div class="ey2">2013 – 2015</div></div>
-      <div class="ec card rv d3"><div><div class="ed">B.Eng. Information Engineering</div><div class="es">Kyoto University, Japan</div><div class="et">Graduated top of class. Image processing and signal analysis.</div></div><div class="ey2">2009 – 2013</div></div>
+      <div class="ec ef card"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">Ph.D. in Computer Science</div><div class="es">University of Tokyo, Japan</div><div class="et">"Deep Learning for Automated Brain MRI Lesion Segmentation" · <span style="color:#6EE7B7">Graduated with Distinction</span></div><span class="badge">Doctoral · 2015–2019</span></div></div>
+      <div class="ec card"><div><div class="ed">M.Sc. Computer Engineering</div><div class="es">Osaka University, Japan</div><div class="et">"CNN-based Retinal Image Classification" · GPA 3.9/4.0</div></div><div class="ey2">2013 – 2015</div></div>
+      <div class="ec card"><div><div class="ed">B.Eng. Information Engineering</div><div class="es">Kyoto University, Japan</div><div class="et">Graduated top of class. Image processing and signal analysis.</div></div><div class="ey2">2009 – 2013</div></div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="publications">
   <div class="si">
-    <div class="sh rv"><span class="sn">06</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
+    <div class="sh"><span class="sn">06</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
     <div>
-      <div class="pi rv d1"><div class="pn">1</div><div><p class="pt">Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data</p><p class="pa">Your Name, Co-Author A, Co-Author B</p><p class="pv">Medical Image Analysis · Elsevier · 2024</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a><a href="#" class="pl2">Code</a></div></div></div>
-      <div class="pi rv d2"><div class="pn">2</div><div><p class="pt">Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification</p><p class="pa">Your Name, Co-Author C</p><p class="pv">IEEE Transactions on Medical Imaging · Vol. 42 · 2023</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div></div>
-      <div class="pi rv d3"><div class="pn">3</div><div><p class="pt">Self-Supervised Contrastive Learning for CT Scan Anomaly Detection</p><p class="pa">Co-Author D, Your Name, Co-Author E</p><p class="pv">MICCAI 2022 · Medical Image Computing and Computer Assisted Intervention</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a><a href="#" class="pl2">Slides</a></div></div></div>
-      <div class="pi rv d4"><div class="pn">4</div><div><p class="pt">Few-Shot Histopathology Classification via Prototype Networks with Domain Adaptation</p><p class="pa">Your Name, Co-Author F</p><p class="pv">CVPR Workshop on Medical Computer Vision · 2021</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div></div>
+      <div class="pi"><div class="pn">1</div><div><p class="pt">Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data</p><p class="pa">Your Name, Co-Author A, Co-Author B</p><p class="pv">Medical Image Analysis · Elsevier · 2024</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a><a href="#" class="pl2">Code</a></div></div></div>
+      <div class="pi"><div class="pn">2</div><div><p class="pt">Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification</p><p class="pa">Your Name, Co-Author C</p><p class="pv">IEEE Transactions on Medical Imaging · Vol. 42 · 2023</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div></div>
+      <div class="pi"><div class="pn">3</div><div><p class="pt">Self-Supervised Contrastive Learning for CT Scan Anomaly Detection</p><p class="pa">Co-Author D, Your Name, Co-Author E</p><p class="pv">MICCAI 2022 · Medical Image Computing and Computer Assisted Intervention</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a><a href="#" class="pl2">Slides</a></div></div></div>
+      <div class="pi"><div class="pn">4</div><div><p class="pt">Few-Shot Histopathology Classification via Prototype Networks with Domain Adaptation</p><p class="pa">Your Name, Co-Author F</p><p class="pv">CVPR Workshop on Medical Computer Vision · 2021</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div></div>
     </div>
-    <p style="margin-top:1.1rem;font-family:var(--mo);font-size:.6rem;color:var(--d2)" class="rv">→ <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> · <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a></p>
+    <p style="margin-top:1.1rem;font-family:var(--mo);font-size:.6rem;color:var(--)" class="">→ <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> · <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a></p>
   </div>
 </section>
 
 <section class="sec" id="figures">
   <div class="si">
-    <div class="sh rv"><span class="sn">07</span><h2 class="sl">Research Figures</h2><span class="sli"></span></div>
-    <div class="ff rv d1"><button class="ft on" data-f="all">All</button><button class="ft" data-f="method">Method</button><button class="ft" data-f="result">Results</button><button class="ft" data-f="diagram">Diagram</button></div>
-    <div class="fg rv d2">
+    <div class="sh"><span class="sn">07</span><h2 class="sl">Research Figures</h2><span class="sli"></span></div>
+    <div class="ff"><button class="ft on" data-f="all">All</button><button class="ft" data-f="method">Method</button><button class="ft" data-f="result">Results</button><button class="ft" data-f="diagram">Diagram</button></div>
+    <div class="fg">
       <div class="fc card w" data-cat="method"><div class="fi" data-title="TransU-Net Architecture" data-src=""><div class="ph"><svg width="100%" height="230" viewBox="0 0 580 230"><rect x="10" y="25" width="50" height="180" rx="3" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><text x="35" y="118" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,229,255,.35)" transform="rotate(-90,35,118)">256x256</text><rect x="72" y="45" width="40" height="140" rx="3" fill="rgba(0,229,255,.06)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="124" y="65" width="32" height="100" rx="3" fill="rgba(0,229,255,.09)" stroke="rgba(0,229,255,.28)" stroke-width="1"/><rect x="168" y="85" width="27" height="60" rx="3" fill="rgba(0,229,255,.13)" stroke="rgba(0,229,255,.36)" stroke-width="1"/><rect x="207" y="98" width="166" height="34" rx="5" fill="rgba(0,229,255,.16)" stroke="rgba(0,229,255,.6)" stroke-width="1.5"/><text x="290" y="119" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Transformer Bottleneck</text><rect x="385" y="85" width="27" height="60" rx="3" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><rect x="424" y="65" width="32" height="100" rx="3" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="468" y="45" width="40" height="140" rx="3" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><rect x="520" y="25" width="50" height="180" rx="3" fill="rgba(0,229,255,.03)" stroke="rgba(0,229,255,.14)" stroke-width="1"/><text x="545" y="118" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,229,255,.3)" transform="rotate(-90,545,118)">Seg Map</text><path d="M92 115 Q195 200 385 115" fill="none" stroke="rgba(16,185,129,.2)" stroke-width="1" stroke-dasharray="4 3"/><text x="290" y="217" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(16,185,129,.4)">skip connections</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Method · Architecture</div><div class="fti">Transformer-Enhanced U-Net</div><div class="fd">Encoder-decoder with transformer bottleneck for brain lesion segmentation.</div><div class="fp">IEEE TMI 2023 — Figure 2</div></div></div>
       <div class="fc card" data-cat="result"><div class="fi" data-title="Dice Score" data-src=""><div class="ph"><svg width="100%" height="175" viewBox="0 0 250 165"><line x1="25" y1="10" x2="25" y2="132" stroke="rgba(0,229,255,.12)" stroke-width="1"/><line x1="25" y1="132" x2="232" y2="132" stroke="rgba(0,229,255,.12)" stroke-width="1"/><polyline points="35,112 75,82 115,55 155,42 195,35 228,33" fill="none" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="35,125 75,111 115,98 155,92 195,90 228,92" fill="none" stroke="rgba(0,229,255,.28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 3"/><circle cx="228" cy="33" r="3.5" fill="#00E5FF"/><text x="210" y="29" font-family="monospace" font-size="7.5" fill="#00E5FF">Ours</text><text x="190" y="106" font-family="monospace" font-size="7.5" fill="rgba(0,229,255,.4)">Baseline</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Result · Performance</div><div class="fti">Dice Score Comparison</div><div class="fd">Improvement over baseline across all BraTS2023 tumor sub-regions.</div><div class="fp">MIA 2024 — Figure 5</div></div></div>
       <div class="fc card" data-cat="diagram"><div class="fi" data-title="Federated Learning" data-src=""><div class="ph"><svg width="100%" height="175" viewBox="0 0 250 165"><rect x="80" y="63" width="90" height="36" rx="4" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/><text x="125" y="86" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Global Model</text><rect x="5" y="7" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="32" y="25" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital A</text><rect x="190" y="7" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="217" y="25" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital B</text><rect x="5" y="130" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="32" y="148" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital C</text><rect x="190" y="130" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="217" y="148" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital D</text><line x1="60" y1="21" x2="80" y2="73" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><line x1="190" y1="21" x2="170" y2="73" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><line x1="60" y1="144" x2="80" y2="97" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><line x1="190" y1="144" x2="170" y2="97" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="rgba(0,229,255,.35)" stroke-width="1.5" stroke-linecap="round"/></marker></defs></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Diagram · Federated Learning</div><div class="fti">Privacy-Preserving Multi-Hospital Training</div><div class="fd">Gradient aggregation without sharing patient data.</div><div class="fp">MIA 2024 — Figure 1</div></div></div>
@@ -346,11 +345,11 @@ footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex
 
 <section class="sec" id="contact">
   <div class="si">
-    <div class="sh rv"><span class="sn">08</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
-    <h2 class="ch2 rv d1">Open to collaboration<br><em>and clinical partnership.</em></h2>
-    <p class="cs rv d2">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
-    <div class="cb2 rv d3">
-      <a href="mailto:you@university.ac.jp" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
+    <div class="sh"><span class="sn">08</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
+    <h2 class="ch2">Open to collaboration<br><em>and clinical partnership.</em></h2>
+    <p class="cs">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
+    <div class="cb2">
+      <a href="/cdn-cgi/l/email-protection#a8d1c7dde8ddc6c1decddadbc1dcd186c9cb86c2d8" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
       <a href="https://github.com/yourusername" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
       <a href="https://scholar.google.com" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>Scholar</a>
       <a href="/cv.pdf" class="cb3"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV</a>
@@ -359,7 +358,7 @@ footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex
 </section>
 </div>
 <footer><span>© 2026 Dr. Your Name · [University Name]</span><span>AI · Medical Imaging · GitHub Pages</span></footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Neuron background ──
 const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
 const C='#00E5FF',P='#8B5CF6';
@@ -426,10 +425,7 @@ function draw(){
 window.addEventListener('resize',rebuild);rebuild();draw();
 
 // ── Scroll reveal ──
-new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07})
-  .observe && document.querySelectorAll('.rv').forEach(el=>
-    new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07}).observe(el)
-  );
+
 
 // ── Figure filter ──
 document.querySelectorAll('.ft').forEach(t=>{t.addEventListener('click',()=>{
@@ -497,12 +493,4 @@ function gbR(){
 document.getElementById('gb-bt').onclick=()=>{
   const name=$('gb-nm').value.trim(),org=$('gb-or').value.trim(),msg=$('gb-ms').value.trim(),st=$('gb-st');
   if(!name){st.textContent='⚠ Please enter your name.';st.style.color='#FCA5A5';return;}
-  if(msg.length<5){st.textContent='⚠ Message too short.';st.style.color='#FCA5A5';return;}
-  GB.push({name,org,msg,flag:'🌍',ts:Date.now()});gbR();
-  $('gb-nm').value='';$('gb-or').value='';$('gb-ms').value='';
-  st.style.color='var(--glow)';st.textContent='✓ Message posted! Thank you.';setTimeout(()=>st.textContent='',3000);
-};
-gbR();
-</script>
-</body>
-</html>
+  if(msg.length<5){st.textContent='⚠ Message too short.';st.style.color='#FCA5A5';return;

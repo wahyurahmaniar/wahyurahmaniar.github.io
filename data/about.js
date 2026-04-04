@@ -23,10 +23,8 @@ var PROFILE = {
   about_sub:  'My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.',
 
   info: [
-    {k:'Position',  v:'Associate Professor, Dept. of Computer Science'},
-    {k:'Lab',       v:'[Medical AI Lab], [University Name], Tokyo'},
-    {k:'Research',  v:'Medical Image Analysis · Deep Learning · Clinical AI'},
-    {k:'Email',     v:'wahyu@university.ac.jp'},
-    {k:'Languages', v:'English, Japanese, Indonesian'}
+    {k:'Position',  v:'Assustant Professor (specially appointed), Institute of Integrated Research'},
+    {k:'Lab',       v:'BioMedical Imaging Unit (BMAI), Institute of Science Tokyo'},
+    {k:'Research',  v:'Medical Image Analysis · Deep Learning · Computer Vision'},
   ]
 };

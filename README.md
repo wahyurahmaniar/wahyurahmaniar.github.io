@@ -1,7 +1,7 @@
 # Wahyu Rahmaniar — Academic Portfolio
 > AI & Medical Imaging Research · GitHub Pages Portfolio
 
-Live site: **https://ahyurahmaniar.github.io**
+Live site: **https://wahyurahmaniar.github.io**
 
 ---
 

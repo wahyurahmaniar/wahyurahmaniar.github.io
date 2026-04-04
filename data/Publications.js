@@ -1,0 +1,51 @@
+// ls: link button labels.  ab: abstract.  fig: SVG string  OR  img:'figures/file.png'
+var PU = [
+  {
+    t:'Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data',
+    a:'Wahyu Rahmaniar, Co-Author A, Co-Author B',
+    v:'Medical Image Analysis &middot; Elsevier &middot; 2024',
+    ls:['PDF','DOI','Code'],
+    ab:'We propose a federated learning framework for brain tumor segmentation that enables multi-site MRI training without sharing patient data. Our approach uses gradient aggregation with differential privacy, outperforming centralized baselines by 12% Dice score on BraTS2023.',
+    fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="15" width="55" height="80" rx="3" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><text x="37" y="60" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,229,255,.6)">MRI</text><rect x="80" y="25" width="40" height="60" rx="3" fill="rgba(0,229,255,.08)" stroke="rgba(0,229,255,.35)" stroke-width="1"/><rect x="135" y="38" width="30" height="34" rx="3" fill="rgba(0,229,255,.15)" stroke="rgba(0,229,255,.55)" stroke-width="1.5"/><text x="150" y="57" text-anchor="middle" font-family="monospace" font-size="6" fill="#00E5FF">FedAvg</text><rect x="180" y="25" width="40" height="60" rx="3" fill="rgba(0,229,255,.08)" stroke="rgba(0,229,255,.35)" stroke-width="1"/><rect x="235" y="15" width="55" height="80" rx="3" fill="rgba(16,185,129,.05)" stroke="rgba(16,185,129,.3)" stroke-width="1"/><text x="262" y="60" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(16,185,129,.6)">Mask</text><line x1="65" y1="55" x2="80" y2="55" stroke="rgba(0,229,255,.4)" stroke-width="1"/><line x1="120" y1="55" x2="135" y2="55" stroke="rgba(0,229,255,.4)" stroke-width="1"/><line x1="165" y1="55" x2="180" y2="55" stroke="rgba(0,229,255,.4)" stroke-width="1"/><line x1="220" y1="55" x2="235" y2="55" stroke="rgba(0,229,255,.4)" stroke-width="1"/></svg>'
+  },
+  {
+    t:'Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification',
+    a:'Wahyu Rahmaniar, Co-Author C',
+    v:'IEEE Transactions on Medical Imaging &middot; Vol. 42 &middot; 2023',
+    ls:['PDF','DOI'],
+    ab:'A transformer-based U-Net for cardiac MRI segmentation providing pixel-wise uncertainty estimates via Monte Carlo dropout. Uncertainty maps help clinicians identify regions where model predictions are less reliable, improving clinical trust.',
+    fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="20" width="60" height="70" rx="3" fill="rgba(139,92,246,.05)" stroke="rgba(139,92,246,.3)" stroke-width="1"/><text x="40" y="58" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(139,92,246,.7)">Cardiac MRI</text><rect x="90" y="30" width="120" height="50" rx="4" fill="rgba(0,229,255,.08)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/><text x="150" y="52" text-anchor="middle" font-family="monospace" font-size="7" fill="#00E5FF">Transformer</text><text x="150" y="63" text-anchor="middle" font-family="monospace" font-size="7" fill="#00E5FF">U-Net</text><rect x="230" y="20" width="60" height="30" rx="3" fill="rgba(16,185,129,.05)" stroke="rgba(16,185,129,.3)" stroke-width="1"/><text x="260" y="38" text-anchor="middle" font-family="monospace" font-size="6" fill="#6EE7B7">Segmentation</text><rect x="230" y="60" width="60" height="30" rx="3" fill="rgba(245,158,11,.05)" stroke="rgba(245,158,11,.3)" stroke-width="1"/><text x="260" y="78" text-anchor="middle" font-family="monospace" font-size="6" fill="#FCD34D">Uncertainty</text></svg>'
+  },
+  {
+    t:'Self-Supervised Contrastive Learning for CT Scan Anomaly Detection',
+    a:'Co-Author D, Wahyu Rahmaniar, Co-Author E',
+    v:'MICCAI 2022',
+    ls:['PDF','DOI','Slides'],
+    ab:'Self-supervised contrastive learning for CT anomaly detection without labeled data during pretraining. By learning representations from unlabeled CT scans, the model detects anomalies as out-of-distribution samples, achieving competitive performance with only 10% labeled data.',
+    fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><circle cx="80" cy="55" r="35" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><text x="80" y="50" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.7)">Normal</text><text x="80" y="62" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.7)">CT Scans</text><rect x="128" y="42" width="44" height="26" rx="4" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.5)" stroke-width="1.5"/><text x="150" y="58" text-anchor="middle" font-family="monospace" font-size="6" fill="#00E5FF">Contrastive</text><circle cx="225" cy="40" r="18" fill="rgba(16,185,129,.05)" stroke="rgba(16,185,129,.3)" stroke-width="1"/><text x="225" y="43" text-anchor="middle" font-family="monospace" font-size="6" fill="#6EE7B7">Normal</text><circle cx="255" cy="75" r="14" fill="rgba(239,68,68,.07)" stroke="rgba(239,68,68,.35)" stroke-width="1.5"/><text x="255" y="78" text-anchor="middle" font-family="monospace" font-size="6" fill="#FCA5A5">Anomaly</text></svg>'
+  },
+  {
+    t:'Few-Shot Histopathology Classification via Prototype Networks with Domain Adaptation',
+    a:'Wahyu Rahmaniar, Co-Author F',
+    v:'CVPR Workshop on Medical Computer Vision &middot; 2021',
+    ls:['PDF','DOI'],
+    ab:'Combines prototype networks with domain adaptation for histopathology classification with as few as 5 labeled examples per cancer type, enabling rapid deployment to new cancer subtypes and staining protocols.',
+    fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="25" width="50" height="60" rx="3" fill="rgba(139,92,246,.05)" stroke="rgba(139,92,246,.25)" stroke-width="1"/><text x="35" y="55" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(139,92,246,.7)">Histopath</text><text x="35" y="65" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(139,92,246,.7)">Patches</text><circle cx="125" cy="35" r="12" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.4)" stroke-width="1"/><circle cx="125" cy="75" r="12" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.4)" stroke-width="1"/><circle cx="155" cy="55" r="12" fill="rgba(245,158,11,.07)" stroke="rgba(245,158,11,.4)" stroke-width="1"/><text x="140" y="100" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(0,229,255,.5)">Prototypes</text><rect x="195" y="25" width="95" height="60" rx="4" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.2)" stroke-width="1"/><text x="242" y="52" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(0,229,255,.7)">Cancer Type A</text><text x="242" y="65" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(16,185,129,.7)">Cancer Type B</text></svg>'
+  },
+  {
+    t:'Attention-Guided U-Net for Automated Retinal Lesion Segmentation in Fundus Images',
+    a:'Wahyu Rahmaniar, Co-Author G, Co-Author H',
+    v:'Computers in Biology and Medicine &middot; 2020',
+    ls:['PDF','DOI'],
+    ab:'Attention gates selectively suppress irrelevant background regions and highlight lesion features across multiple scales, improving detection of hard exudates, microaneurysms, and hemorrhages in retinal fundus images.',
+    fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><circle cx="55" cy="55" r="38" fill="rgba(139,92,246,.04)" stroke="rgba(139,92,246,.2)" stroke-width="1"/><circle cx="55" cy="55" r="25" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.3)" stroke-width="1"/><circle cx="55" cy="43" r="5" fill="rgba(239,68,68,.5)" stroke="rgba(239,68,68,.8)" stroke-width="1"/><circle cx="67" cy="60" r="3" fill="rgba(245,158,11,.6)"/><circle cx="43" cy="62" r="4" fill="rgba(239,68,68,.4)"/><text x="55" y="100" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(139,92,246,.6)">Retinal Fundus</text><rect x="128" y="28" width="142" height="54" rx="4" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.25)" stroke-width="1"/><text x="199" y="50" text-anchor="middle" font-family="monospace" font-size="7" fill="#00E5FF">Attention U-Net</text><circle cx="165" cy="65" r="4" fill="rgba(239,68,68,.5)"/><circle cx="185" cy="62" r="3" fill="rgba(245,158,11,.5)"/><circle cx="205" cy="65" r="4" fill="rgba(239,68,68,.4)"/></svg>'
+  },
+  {
+    t:'Deep Learning Based Lung Nodule Detection in Low-Dose CT with Data Augmentation',
+    a:'Co-Author I, Wahyu Rahmaniar',
+    v:'Medical Physics &middot; Vol. 47 &middot; 2019',
+    ls:['PDF','DOI'],
+    ab:'3D convolutional neural network for lung nodule detection in low-dose CT with aggressive data augmentation. Achieves 94.2% sensitivity at 1 false positive per scan on the LUNA16 challenge dataset.',
+    fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="15" width="80" height="80" rx="4" fill="rgba(0,0,0,.2)" stroke="rgba(0,229,255,.2)" stroke-width="1"/><circle cx="50" cy="55" r="28" fill="rgba(100,100,100,.12)" stroke="rgba(150,150,150,.2)" stroke-width="0.5"/><circle cx="55" cy="48" r="7" fill="rgba(239,68,68,.3)" stroke="rgba(239,68,68,.7)" stroke-width="1.5"/><text x="50" y="100" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(0,229,255,.5)">Low-Dose CT</text><rect x="115" y="35" width="70" height="40" rx="4" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.4)" stroke-width="1.5"/><text x="150" y="52" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00E5FF">3D CNN</text><text x="150" y="63" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00E5FF">Detector</text><rect x="210" y="15" width="80" height="80" rx="4" fill="rgba(0,0,0,.2)" stroke="rgba(16,185,129,.2)" stroke-width="1"/><circle cx="250" cy="55" r="28" fill="rgba(100,100,100,.12)" stroke="rgba(150,150,150,.2)" stroke-width="0.5"/><circle cx="255" cy="48" r="7" fill="none" stroke="rgba(16,185,129,.9)" stroke-width="1.5" stroke-dasharray="2 1"/><text x="250" y="100" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(16,185,129,.6)">Detected</text></svg>'
+  }
+];

@@ -485,25 +485,6 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 <script src="data/Quiz.js"></script>
 
 <script>
-// Safety check — warn if data files failed to load
-(function(){
-  var missing = [];
-  if(typeof PROFILE === 'undefined') missing.push('data/about.js');
-  if(typeof EDU === 'undefined') missing.push('data/education.js');
-  if(typeof NA === 'undefined') missing.push('data/news.js');
-  if(typeof PU === 'undefined') missing.push('data/publications.js');
-  if(typeof LE === 'undefined') missing.push('data/lectures.js');
-  if(typeof FIGURES === 'undefined') missing.push('data/figures.js');
-  if(typeof QS === 'undefined') missing.push('data/quiz.js');
-  if(missing.length){
-    console.error('Portfolio: missing data files:', missing.join(', '));
-    document.body.insertAdjacentHTML('afterbegin',
-      '<div style="position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:9999;background:#1a0a00;border:1px solid #f97316;color:#fb923c;font-family:monospace;font-size:.75rem;padding:.8rem 1.2rem;border-radius:6px;max-width:90vw">'+
-      '&#9888; Missing data files: '+missing.join(', ')+'<br>Upload the <strong>data/</strong> folder to GitHub alongside index.html</div>'
-    );
-  }
-})();
-
 
 
 // ── VIEW SWITCHING ──────────────────────────────────────────────────────

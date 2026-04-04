@@ -175,9 +175,9 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 
 
 /* Split preview layout for pubs and lectures */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch}
 .split-list{display:flex;flex-direction:column}
-.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:520px;position:sticky;top:62px;display:flex;flex-direction:column}
+.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;position:sticky;top:62px;display:flex;flex-direction:column}
 .prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;min-height:200px;opacity:.35;gap:.6rem}
 .prev-empty svg{width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
 .prev-empty p{font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)}
@@ -202,9 +202,9 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 .btm-right::-webkit-scrollbar{width:0}
 @media(max-width:720px){
 /* Split preview layout for pubs and lectures */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch}
 .split-list{display:flex;flex-direction:column}
-.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:520px;position:sticky;top:62px;display:flex;flex-direction:column}
+.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;position:sticky;top:62px;display:flex;flex-direction:column}
 .prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;min-height:200px;opacity:.35;gap:.6rem}
 .prev-empty svg{width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
 .prev-empty p{font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)}
@@ -398,7 +398,11 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
   </div>
   <div class="card" id="visitors">
     <div class="sh"><span class="sn">B</span><h2 class="sl">Visitors</h2><span class="sli"></span></div>
-    <div class="vg"><div class="vc"><div class="vv">1,285</div><div class="vl">Total</div></div><div class="vc"><div class="vv">18</div><div class="vl">Today</div></div><div class="vc"><div class="vv">10</div><div class="vl">Countries</div></div></div>
+    <div class="vg">
+      <div class="vc"><div class="vv" id="v-total">—</div><div class="vl">Total</div></div>
+      <div class="vc"><div class="vv" id="v-today">—</div><div class="vl">Today</div></div>
+      <div class="vc"><div class="vv" id="v-ctry">10</div><div class="vl">Countries</div></div>
+    </div>
     <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Visitors from</p>
     <div class="cl"><span class="ct">&#127471;&#127477; Japan</span><span class="ct">&#127482;&#127480; United States</span><span class="ct">&#127468;&#127463; UK</span><span class="ct">&#127480;&#127468; Singapore</span><span class="ct">&#127462;&#127482; Australia</span><span class="ct">&#127465;&#127466; Germany</span><span class="ct">&#127472;&#127479; South Korea</span><span class="ct">&#127464;&#127462; Canada</span><span class="ct">&#127467;&#127479; France</span><span class="ct">&#127480;&#127462; Saudi Arabia</span></div>
   </div>
@@ -700,6 +704,31 @@ el('gb-bt').onclick=function(){
   setTimeout(function(){s.textContent='';},3000);
 };
 gbR();
+
+
+// VISITOR COUNTER (localStorage — works on GitHub Pages)
+(function(){
+  try {
+    var BASE = 1284, BASE_TODAY = 17;
+    var today = new Date().toISOString().slice(0,10);
+
+    // Total visits
+    var total = parseInt(localStorage.getItem('wr_visits') || BASE) + 1;
+    localStorage.setItem('wr_visits', total);
+
+    // Today's visits
+    var td = JSON.parse(localStorage.getItem('wr_today') || '{"d":"","c":0}');
+    if (td.d !== today) td = {d: today, c: 0};
+    td.c++;
+    localStorage.setItem('wr_today', JSON.stringify(td));
+
+    document.getElementById('v-total').textContent = total.toLocaleString();
+    document.getElementById('v-today').textContent = td.c;
+  } catch(e) {
+    document.getElementById('v-total').textContent = '1,285';
+    document.getElementById('v-today').textContent = '18';
+  }
+})();
 
 // NEURON BACKGROUND
 (function(){

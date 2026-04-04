@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dr. Your Name — AI · Medical Imaging</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#040710;--glow:#00E5FF;--p:#8B5CF6;--w:#E8F4FF;--dim:rgba(232,244,255,.5);--d2:rgba(232,244,255,.22);--bd:rgba(0,229,255,.14);--gl:rgba(4,7,16,.72);--sr:'Instrument Serif',serif;--ss:'Geist',sans-serif;--mo:'Geist Mono',monospace;--ez:cubic-bezier(.22,1,.36,1)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--w);font-family:var(--ss);font-size:15px;line-height:1.7;overflow-x:hidden}
+#cv{position:fixed;inset:0;z-index:0;pointer-events:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(4,7,16,.65);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:var(--sr);font-size:.95rem;font-style:italic;color:var(--w);text-decoration:none}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px var(--glow);animation:dp 2.5s ease-in-out infinite}
+@keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
+.nl{display:flex;gap:1.2rem;list-style:none}
+.nl a{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);text-decoration:none;transition:color .2s}
+.nl a:hover{color:var(--glow)}
+#pg{position:relative;z-index:2;padding-top:60px}
+#hero{min-height:100vh;display:flex;align-items:center;padding:5rem 2.5rem}
+.ht{max-width:500px}
+.ey{font-family:var(--mo);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--glow);opacity:.8;display:flex;align-items:center;gap:.6rem;margin-bottom:1.4rem}
+.ey::before{content:'';width:18px;height:1px;background:var(--glow);box-shadow:0 0 6px var(--glow)}
+.hn{font-family:var(--sr);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;line-height:.93;letter-spacing:-.03em;margin-bottom:.6rem}
+.hn .dr{display:block;font-style:italic;color:var(--glow);font-size:.55em;margin-bottom:.1em}
+.hr{font-family:var(--mo);font-size:.65rem;letter-spacing:.08em;color:var(--d2);margin-bottom:1.4rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.6rem}
+.ch{font-size:.62rem;padding:.25rem .65rem;border-radius:3px;font-family:var(--mo)}
+.cc{background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)}
+.cp{background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.22);color:#A78BFA}
+.cg{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);color:#6EE7B7}
+.hd{font-size:.9rem;font-weight:300;color:var(--dim);max-width:400px;line-height:1.85;margin-bottom:1.8rem}
+.btns{display:flex;gap:.6rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;font-family:var(--mo);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.65rem 1.3rem;border-radius:4px;transition:all .2s}
+.bg{background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.45);color:var(--glow)}
+.bg:hover{background:rgba(0,229,255,.2);transform:translateY(-1px)}
+.bh{border:1px solid var(--bd);color:var(--dim)}
+.bh:hover{border-color:rgba(0,229,255,.3);color:var(--glow)}
+.sec{padding:3.5rem 1.5rem}
+.si{max-width:880px;margin:0 auto;background:var(--gl);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid var(--bd);border-radius:14px;padding:2.2rem 2.8rem}
+.sh{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.sn{font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;color:var(--glow);opacity:.6}
+.sl{font-family:var(--sr);font-size:1.9rem;font-style:italic;color:var(--w);letter-spacing:-.02em}
+.sli{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,229,255,.3),transparent)}
+.card{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:10px;transition:border-color .3s}
+.card:hover{border-color:rgba(0,229,255,.28)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ez),transform .65s var(--ez)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+/* About */
+.ag{display:grid;grid-template-columns:1fr 185px;gap:2.5rem;align-items:start}
+.ab{font-family:var(--sr);font-size:clamp(1rem,1.7vw,1.3rem);font-style:italic;line-height:1.65;color:var(--w);margin-bottom:.8rem}
+.ab strong{color:var(--glow);font-style:normal}
+.as{font-size:.87rem;color:var(--dim);line-height:1.85;margin-bottom:1.4rem}
+.il{display:flex;flex-direction:column}
+.ir{display:flex;gap:1rem;padding:.48rem 0;border-bottom:1px solid rgba(0,229,255,.07);font-size:.82rem}
+.ir:first-child{border-top:1px solid rgba(0,229,255,.07)}
+.ik{font-family:var(--mo);font-size:.57rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:70px;flex-shrink:0;padding-top:.15rem}
+.iv{color:var(--dim)}
+.pb{width:100%;aspect-ratio:3/4;border-radius:8px;background:rgba(0,229,255,.04);border:1px solid var(--bd);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:.8rem;position:relative;overflow:hidden}
+.pp{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.pp svg{opacity:.08}
+.pl{position:relative;z-index:1;font-family:var(--mo);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2)}
+/* Education */
+.eg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem}
+.ec{padding:1.3rem;border-radius:9px;display:flex;flex-direction:column;justify-content:space-between}
+.ef{grid-column:1/-1;flex-direction:row;align-items:center;gap:1.4rem;background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.22)}
+.ei{width:36px;height:36px;border-radius:7px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ei svg{width:15px;height:15px;stroke:var(--glow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ed{font-family:var(--sr);font-size:.94rem;font-style:italic;color:var(--w);margin-bottom:.18rem}
+.es{font-family:var(--mo);font-size:.58rem;color:var(--glow);margin-bottom:.2rem;opacity:.75}
+.et{font-size:.73rem;color:var(--dim);line-height:1.6}
+.ey2{font-family:var(--mo);font-size:.54rem;color:var(--d2);margin-top:.5rem}
+.badge{display:inline-block;margin-top:.4rem;font-family:var(--mo);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;padding:.12rem .44rem;border:1px solid var(--bd);color:var(--d2);border-radius:2px}
+/* Publications */
+.pi{display:grid;grid-template-columns:34px 1fr;gap:1.4rem;padding:1.6rem 0;border-bottom:1px solid rgba(0,229,255,.07)}
+.pi:first-child{border-top:1px solid rgba(0,229,255,.07)}
+.pn{font-family:var(--sr);font-size:1.9rem;font-style:italic;color:rgba(0,229,255,.1);line-height:1;user-select:none}
+.pt{font-family:var(--sr);font-size:.98rem;font-style:italic;line-height:1.4;margin-bottom:.28rem;color:var(--w)}
+.pa{font-size:.75rem;color:var(--dim);margin-bottom:.2rem}
+.pv{font-family:var(--mo);font-size:.58rem;color:var(--glow);margin-bottom:.55rem;opacity:.65}
+.pls{display:flex;gap:.4rem;flex-wrap:wrap}
+.pl2{font-family:var(--mo);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.16rem .5rem;border-radius:3px;transition:all .15s}
+.pl2:hover{background:var(--glow);color:var(--bg);border-color:var(--glow)}
+/* Figures */
+.ff{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.3rem}
+.ft{font-family:var(--mo);font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.26rem .72rem;border:1px solid var(--bd);color:var(--dim);background:transparent;cursor:pointer;border-radius:3px;transition:all .15s}
+.ft.on,.ft:hover{background:var(--glow);color:var(--bg);border-color:var(--glow)}
+.fg{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.fc{border-radius:9px;display:flex;flex-direction:column;overflow:hidden}
+.fc.w{grid-column:1/-1}
+.fi{width:100%;background:rgba(0,229,255,.02);display:flex;align-items:center;justify-content:center;cursor:zoom-in;position:relative;overflow:hidden;border-radius:9px 9px 0 0}
+.fc:not(.w) .fi{height:190px}
+.fc.w .fi{height:255px}
+.fi .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:1.2rem}
+.fz{position:absolute;bottom:.5rem;right:.5rem;background:rgba(4,7,16,.8);border:1px solid var(--bd);border-radius:3px;padding:.18rem .45rem;font-family:var(--mo);font-size:.5rem;color:var(--dim);opacity:0;transition:opacity .2s}
+.fi:hover .fz{opacity:1}
+.fm{padding:.8rem 1rem 1rem;border-top:1px solid rgba(0,229,255,.1);background:rgba(0,229,255,.03)}
+.ftg{font-family:var(--mo);font-size:.53rem;letter-spacing:.14em;text-transform:uppercase;color:var(--glow);margin-bottom:.2rem;opacity:.7}
+.fti{font-family:var(--sr);font-size:.9rem;font-style:italic;color:var(--w);margin-bottom:.15rem;line-height:1.3}
+.fd{font-size:.73rem;color:var(--dim);line-height:1.5}
+.fp{font-family:var(--mo);font-size:.54rem;color:rgba(0,229,255,.3);margin-top:.2rem}
+#lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(2,4,12,.97);align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+#lb.open{display:flex}
+#lb img{max-width:88vw;max-height:84vh;object-fit:contain;border-radius:6px;border:1px solid var(--bd)}
+#lb-x{position:absolute;top:1.5rem;right:1.5rem;background:rgba(0,229,255,.06);border:1px solid var(--bd);cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#lb-x svg{width:12px;height:12px;stroke:var(--w);fill:none;stroke-width:2;stroke-linecap:round}
+/* Lectures */
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.lc{padding:1.2rem;border-radius:9px;display:flex;flex-direction:column;gap:.38rem;transition:all .2s}
+.lc:hover{border-color:rgba(0,229,255,.3)}
+.lt{font-family:var(--sr);font-size:.88rem;font-style:italic;color:var(--w);line-height:1.38}
+.lv{font-size:.73rem;color:var(--dim)}
+.lv strong{color:rgba(0,229,255,.7);font-weight:400}
+.lf{display:flex;justify-content:space-between;align-items:center;margin-top:.3rem}
+.ly{font-family:var(--mo);font-size:.6rem;color:var(--d2)}
+.lty{font-family:var(--mo);font-size:.51rem;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .44rem;border-radius:2px;white-space:nowrap}
+.tk{background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.25);color:#FCD34D}
+.ts{background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.2);color:var(--glow)}
+.tl{background:rgba(255,255,255,.04);border:1px solid var(--bd);color:var(--dim)}
+.tw{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);color:#6EE7B7}
+.ti{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);color:#A78BFA}
+/* Projects */
+.prg{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.prc{padding:1.5rem;border-radius:9px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.44rem;transition:all .2s}
+.prc:hover{border-color:rgba(0,229,255,.3);transform:translateY(-2px)}
+.prt{display:flex;justify-content:space-between;align-items:flex-start}
+.prn{font-family:var(--mo);font-size:.6rem;color:rgba(0,229,255,.3)}
+.pra{width:14px;height:14px;stroke:var(--bd);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s,stroke .2s}
+.prc:hover .pra{stroke:var(--glow);transform:translate(3px,-3px)}
+.prtl{font-family:var(--sr);font-size:.98rem;font-style:italic;color:var(--w);line-height:1.2}
+.prd{font-size:.78rem;color:var(--dim);flex:1;line-height:1.62}
+.prta{font-family:var(--mo);font-size:.57rem;color:rgba(0,229,255,.35);border-top:1px solid rgba(0,229,255,.08);padding-top:.52rem;margin-top:.2rem}
+/* Quiz */
+.qbox{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:10px;padding:1.6rem 1.8rem}
+.qo{width:100%;text-align:left;padding:.7rem .95rem;background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:6px;color:var(--dim);font-family:var(--mo);font-size:.74rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.65rem;margin-bottom:.55rem}
+.qo:hover:not(:disabled){border-color:rgba(0,229,255,.4);color:var(--w);background:rgba(0,229,255,.07)}
+.qo.ok{border-color:rgba(16,185,129,.7);background:rgba(16,185,129,.1);color:#6EE7B7}
+.qo.no{border-color:rgba(239,68,68,.6);background:rgba(239,68,68,.08);color:#FCA5A5}
+.qo.rv2{border-color:rgba(16,185,129,.22);color:rgba(110,231,183,.4)}
+.ql{width:20px;height:20px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.63rem;flex-shrink:0}
+.qbtn{font-family:var(--mo);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.6rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
+.qbtn:hover{background:rgba(0,229,255,.2)}
+.qnxt{font-family:var(--mo);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.52rem 1.2rem;background:transparent;border:1px solid var(--bd);color:var(--dim);border-radius:4px;cursor:pointer;transition:all .2s}
+.qnxt:hover{border-color:var(--glow);color:var(--glow)}
+.qfok{font-family:var(--mo);font-size:.7rem;color:#6EE7B7;padding:.45rem .75rem;background:rgba(16,185,129,.08);border-radius:4px;border-left:2px solid #6EE7B7;margin-top:.9rem}
+.qfno{font-family:var(--mo);font-size:.7rem;color:#FCA5A5;padding:.45rem .75rem;background:rgba(239,68,68,.07);border-radius:4px;border-left:2px solid #FCA5A5;margin-top:.9rem}
+/* Visitors */
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:1.3rem}
+.vc{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:8px;padding:1.1rem;text-align:center}
+.vv{font-family:var(--sr);font-size:1.9rem;font-style:italic;color:var(--glow);line-height:1}
+.vl{font-family:var(--mo);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-top:.3rem}
+.cl{display:flex;flex-wrap:wrap;gap:.45rem}
+.ct{font-family:var(--mo);font-size:.63rem;padding:.22rem .65rem;background:rgba(0,229,255,.05);border:1px solid var(--bd);border-radius:3px;color:var(--dim)}
+/* Guestbook */
+.gbf{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.8rem}
+.gbr{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.gbi{width:100%;padding:.6rem .85rem;background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:5px;color:var(--w);font-family:var(--mo);font-size:.73rem;outline:none;transition:border-color .2s}
+.gbi:focus{border-color:rgba(0,229,255,.4)}
+.gbi::placeholder{color:var(--d2)}
+textarea.gbi{resize:vertical;min-height:78px;line-height:1.5}
+.gbs{align-self:flex-end;font-family:var(--mo);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;padding:.62rem 1.5rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
+.gbs:hover{background:rgba(0,229,255,.2)}
+.gbe{display:flex;flex-direction:column;gap:.7rem;max-height:340px;overflow-y:auto}
+.gbe::-webkit-scrollbar{width:3px}
+.gbe::-webkit-scrollbar-thumb{background:rgba(0,229,255,.2);border-radius:2px}
+.gbcard{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:7px;padding:.9rem 1rem}
+.gbh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.32rem;flex-wrap:wrap;gap:.4rem}
+.gbn{font-family:var(--mo);font-size:.68rem;color:var(--glow)}
+.gbm2{font-family:var(--mo);font-size:.56rem;color:var(--d2)}
+.gbmsg{font-size:.8rem;color:var(--dim);line-height:1.6}
+/* Contact */
+.ch2{font-family:var(--sr);font-size:clamp(1.9rem,4vw,3.5rem);font-style:italic;line-height:1.05;letter-spacing:-.02em;margin-bottom:.8rem}
+.cs{font-size:.87rem;color:var(--dim);max-width:400px;margin-bottom:1.7rem;line-height:1.85}
+.cb2{display:flex;flex-wrap:wrap;gap:.5rem}
+.cb3{display:inline-flex;align-items:center;gap:.42rem;font-family:var(--mo);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.52rem 1rem;border-radius:4px;transition:all .2s;background:rgba(0,229,255,.03)}
+.cb3 svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.cb3:hover{border-color:rgba(0,229,255,.35);color:var(--glow)}
+footer{padding:1.6rem 2rem;border-top:1px solid rgba(0,229,255,.07);display:flex;justify-content:space-between;font-family:var(--mo);font-size:.57rem;color:var(--d2);position:relative;z-index:2;background:rgba(4,7,16,.9)}
+@media(max-width:768px){
+  nav{padding:.8rem 1.1rem}.nl{gap:.8rem}.nl a{font-size:.57rem}
+  #hero{padding:3.5rem 1.2rem}
+  .si{padding:1.8rem 1.4rem;border-radius:12px}
+  .ag,.eg,.fg,.lg,.prg,.gbr{grid-template-columns:1fr}
+  .ec.ef{flex-direction:column;gap:1rem}
+  .pb,.pn{display:none}
+  .pi{grid-template-columns:1fr}
+  .fc.w{grid-column:1}
+  footer{flex-direction:column;gap:.4rem;text-align:center}
+}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+<div id="lb"><button id="lb-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img id="lb-img" src="" alt=""/><p id="lb-cap"></p></div>
+<nav>
+  <a href="#hero" class="logo"><span class="dot"></span>Dr. Your Name</a>
+  <ul class="nl">
+    <li><a href="#about">About</a></li><li><a href="#quiz">Quiz</a></li>
+    <li><a href="#visitors">Visitors</a></li><li><a href="#guestbook">Guest Book</a></li>
+    <li><a href="#education">Education</a></li><li><a href="#publications">Publications</a></li>
+    <li><a href="#figures">Figures</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<div id="pg">
+
+<section id="hero">
+  <div class="ht">
+    <div class="ey">AI · Medical Imaging Research</div>
+    <h1 class="hn"><span class="dr">Dr.</span>Your Full Name</h1>
+    <p class="hr">Associate Professor · [University Name] · Tokyo, Japan</p>
+    <div class="chips">
+      <span class="ch cc">Deep Learning</span><span class="ch cc">MRI Segmentation</span><span class="ch cc">CT Analysis</span>
+      <span class="ch cp">Computer Vision</span><span class="ch cp">Federated Learning</span><span class="ch cg">Clinical AI</span>
+    </div>
+    <p class="hd">Developing AI systems for medical image analysis — brain MRI segmentation, CT anomaly detection, and clinical decision support.</p>
+    <div class="btns"><a href="#publications" class="btn bg">Publications</a><a href="#figures" class="btn bh">Figures</a><a href="/cv.pdf" class="btn bh">CV ↓</a></div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="si">
+    <div class="sh rv"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
+    <div class="ag">
+      <div>
+        <p class="ab rv d1">I build <strong>AI systems that see what radiologists see</strong> — segmenting tumors, quantifying disease, and detecting anomalies across MRI, CT, and histopathology.</p>
+        <p class="as rv d2">My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.</p>
+        <div class="il rv d3">
+          <div class="ir"><span class="ik">Position</span><span class="iv">Associate Professor, Dept. of Computer Science</span></div>
+          <div class="ir"><span class="ik">Lab</span><span class="iv">[Medical AI Lab], [University Name], Tokyo</span></div>
+          <div class="ir"><span class="ik">Research</span><span class="iv">Medical Image Analysis · Deep Learning · Clinical AI</span></div>
+          <div class="ir"><span class="ik">Email</span><span class="iv">yourname@university.ac.jp</span></div>
+          <div class="ir"><span class="ik">Languages</span><span class="iv">English, Japanese</span></div>
+        </div>
+      </div>
+      <div class="rv d2"><div class="pb"><div class="pp"><svg width="60" height="60" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="30" r="18" fill="rgba(0,229,255,.1)"/><ellipse cx="40" cy="72" rx="30" ry="20" fill="rgba(0,229,255,.1)"/></svg></div><span class="pl">Your photo here</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="quiz">
+  <div class="si">
+    <div class="sh"><span class="sn">02</span><h2 class="sl">Quick Quiz</h2><span class="sli"></span></div>
+    <p style="font-size:.82rem;color:var(--dim);margin-bottom:1.6rem;font-family:var(--mo)">Test your AI &amp; medical imaging knowledge — 8 questions.</p>
+    <div class="qbox">
+      <div id="q-start" style="text-align:center;padding:1.5rem 0">
+        <div style="font-size:2.2rem;margin-bottom:.7rem">🧠</div>
+        <h3 style="font-family:var(--sr);font-size:1.3rem;font-style:italic;margin-bottom:.5rem">AI &amp; Medical Imaging Quiz</h3>
+        <p style="font-size:.78rem;color:var(--dim);margin-bottom:1.8rem">8 questions · Multiple choice · Think carefully</p>
+        <button class="qbtn" id="q-s">Start Quiz →</button>
+      </div>
+      <div id="q-play" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.3rem;gap:1rem">
+          <span id="q-c" style="font-family:var(--mo);font-size:.6rem;color:var(--d2);white-space:nowrap"></span>
+          <div style="flex:1;height:3px;background:rgba(0,229,255,.1);border-radius:2px"><div id="q-b" style="height:100%;background:var(--glow);border-radius:2px;transition:width .4s;width:0"></div></div>
+          <span id="q-sc" style="font-family:var(--mo);font-size:.6rem;color:var(--glow);white-space:nowrap"></span>
+        </div>
+        <div id="q-q" style="font-family:var(--sr);font-size:1.05rem;font-style:italic;line-height:1.5;margin-bottom:1.3rem;color:var(--w)"></div>
+        <div id="q-op"></div>
+        <div id="q-fb"></div>
+        <div style="text-align:right;margin-top:.9rem"><button class="qnxt" id="q-n" style="display:none">Next →</button></div>
+      </div>
+      <div id="q-end" style="display:none;text-align:center;padding:1.5rem 0">
+        <div id="q-em" style="font-size:2.5rem;margin-bottom:.7rem"></div>
+        <h3 id="q-ti" style="font-family:var(--sr);font-size:1.3rem;font-style:italic;margin-bottom:.4rem"></h3>
+        <p id="q-sk" style="font-family:var(--mo);font-size:1rem;color:var(--glow);margin-bottom:.5rem"></p>
+        <p id="q-mg" style="font-size:.8rem;color:var(--dim);margin-bottom:1.8rem"></p>
+        <button class="qbtn" id="q-r">Try Again ↺</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visitors">
+  <div class="si">
+    <div class="sh"><span class="sn">03</span><h2 class="sl">Visitors</h2><span class="sli"></span></div>
+    <div class="vg">
+      <div class="vc"><div class="vv" id="v-tot">1,285</div><div class="vl">Total Visits</div></div>
+      <div class="vc"><div class="vv" id="v-td">18</div><div class="vl">Today</div></div>
+      <div class="vc"><div class="vv" id="v-cn">10</div><div class="vl">Countries</div></div>
+    </div>
+    <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.7rem">Recent visitors from</p>
+    <div class="cl" id="v-cl">
+      <span class="ct">🇯🇵 Japan</span><span class="ct">🇺🇸 United States</span><span class="ct">🇬🇧 United Kingdom</span>
+      <span class="ct">🇸🇬 Singapore</span><span class="ct">🇦🇺 Australia</span><span class="ct">🇩🇪 Germany</span>
+      <span class="ct">🇰🇷 South Korea</span><span class="ct">🇨🇦 Canada</span><span class="ct">🇫🇷 France</span><span class="ct">🇸🇦 Saudi Arabia</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="guestbook">
+  <div class="si">
+    <div class="sh"><span class="sn">04</span><h2 class="sl">Guest Book</h2><span class="sli"></span></div>
+    <p style="font-size:.82rem;color:var(--dim);margin-bottom:1.4rem;line-height:1.7">Leave a message — a question, collaboration interest, or just hello. 👋</p>
+    <div class="gbf">
+      <div class="gbr">
+        <input class="gbi" id="gb-nm" type="text" placeholder="Your name *" maxlength="60"/>
+        <input class="gbi" id="gb-or" type="text" placeholder="Affiliation / Institution" maxlength="80"/>
+      </div>
+      <textarea class="gbi" id="gb-ms" placeholder="Your message *" maxlength="400"></textarea>
+      <button class="gbs" id="gb-bt">Leave a Message ↵</button>
+      <div id="gb-st" style="font-family:var(--mo);font-size:.66rem;min-height:.9rem"></div>
+    </div>
+    <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.7rem">Messages</p>
+    <div class="gbe" id="gb-en"></div>
+  </div>
+</section>
+
+<section class="sec" id="education">
+  <div class="si">
+    <div class="sh rv"><span class="sn">05</span><h2 class="sl">Education</h2><span class="sli"></span></div>
+    <div class="eg">
+      <div class="ec ef card rv d1"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">Ph.D. in Computer Science</div><div class="es">University of Tokyo, Japan</div><div class="et">"Deep Learning for Automated Brain MRI Lesion Segmentation" · <span style="color:#6EE7B7">Graduated with Distinction</span></div><span class="badge">Doctoral · 2015–2019</span></div></div>
+      <div class="ec card rv d2"><div><div class="ed">M.Sc. Computer Engineering</div><div class="es">Osaka University, Japan</div><div class="et">"CNN-based Retinal Image Classification" · GPA 3.9/4.0</div></div><div class="ey2">2013 – 2015</div></div>
+      <div class="ec card rv d3"><div><div class="ed">B.Eng. Information Engineering</div><div class="es">Kyoto University, Japan</div><div class="et">Graduated top of class. Image processing and signal analysis.</div></div><div class="ey2">2009 – 2013</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="publications">
+  <div class="si">
+    <div class="sh rv"><span class="sn">06</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
+    <div>
+      <div class="pi rv d1"><div class="pn">1</div><div><p class="pt">Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data</p><p class="pa">Your Name, Co-Author A, Co-Author B</p><p class="pv">Medical Image Analysis · Elsevier · 2024</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a><a href="#" class="pl2">Code</a></div></div></div>
+      <div class="pi rv d2"><div class="pn">2</div><div><p class="pt">Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification</p><p class="pa">Your Name, Co-Author C</p><p class="pv">IEEE Transactions on Medical Imaging · Vol. 42 · 2023</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div></div>
+      <div class="pi rv d3"><div class="pn">3</div><div><p class="pt">Self-Supervised Contrastive Learning for CT Scan Anomaly Detection</p><p class="pa">Co-Author D, Your Name, Co-Author E</p><p class="pv">MICCAI 2022 · Medical Image Computing and Computer Assisted Intervention</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a><a href="#" class="pl2">Slides</a></div></div></div>
+      <div class="pi rv d4"><div class="pn">4</div><div><p class="pt">Few-Shot Histopathology Classification via Prototype Networks with Domain Adaptation</p><p class="pa">Your Name, Co-Author F</p><p class="pv">CVPR Workshop on Medical Computer Vision · 2021</p><div class="pls"><a href="#" class="pl2">PDF</a><a href="#" class="pl2">DOI</a></div></div></div>
+    </div>
+    <p style="margin-top:1.1rem;font-family:var(--mo);font-size:.6rem;color:var(--d2)" class="rv">→ <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> · <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a></p>
+  </div>
+</section>
+
+<section class="sec" id="figures">
+  <div class="si">
+    <div class="sh rv"><span class="sn">07</span><h2 class="sl">Research Figures</h2><span class="sli"></span></div>
+    <div class="ff rv d1"><button class="ft on" data-f="all">All</button><button class="ft" data-f="method">Method</button><button class="ft" data-f="result">Results</button><button class="ft" data-f="diagram">Diagram</button></div>
+    <div class="fg rv d2">
+      <div class="fc card w" data-cat="method"><div class="fi" data-title="TransU-Net Architecture" data-src=""><div class="ph"><svg width="100%" height="230" viewBox="0 0 580 230"><rect x="10" y="25" width="50" height="180" rx="3" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><text x="35" y="118" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,229,255,.35)" transform="rotate(-90,35,118)">256x256</text><rect x="72" y="45" width="40" height="140" rx="3" fill="rgba(0,229,255,.06)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="124" y="65" width="32" height="100" rx="3" fill="rgba(0,229,255,.09)" stroke="rgba(0,229,255,.28)" stroke-width="1"/><rect x="168" y="85" width="27" height="60" rx="3" fill="rgba(0,229,255,.13)" stroke="rgba(0,229,255,.36)" stroke-width="1"/><rect x="207" y="98" width="166" height="34" rx="5" fill="rgba(0,229,255,.16)" stroke="rgba(0,229,255,.6)" stroke-width="1.5"/><text x="290" y="119" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Transformer Bottleneck</text><rect x="385" y="85" width="27" height="60" rx="3" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><rect x="424" y="65" width="32" height="100" rx="3" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><rect x="468" y="45" width="40" height="140" rx="3" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.18)" stroke-width="1"/><rect x="520" y="25" width="50" height="180" rx="3" fill="rgba(0,229,255,.03)" stroke="rgba(0,229,255,.14)" stroke-width="1"/><text x="545" y="118" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,229,255,.3)" transform="rotate(-90,545,118)">Seg Map</text><path d="M92 115 Q195 200 385 115" fill="none" stroke="rgba(16,185,129,.2)" stroke-width="1" stroke-dasharray="4 3"/><text x="290" y="217" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(16,185,129,.4)">skip connections</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Method · Architecture</div><div class="fti">Transformer-Enhanced U-Net</div><div class="fd">Encoder-decoder with transformer bottleneck for brain lesion segmentation.</div><div class="fp">IEEE TMI 2023 — Figure 2</div></div></div>
+      <div class="fc card" data-cat="result"><div class="fi" data-title="Dice Score" data-src=""><div class="ph"><svg width="100%" height="175" viewBox="0 0 250 165"><line x1="25" y1="10" x2="25" y2="132" stroke="rgba(0,229,255,.12)" stroke-width="1"/><line x1="25" y1="132" x2="232" y2="132" stroke="rgba(0,229,255,.12)" stroke-width="1"/><polyline points="35,112 75,82 115,55 155,42 195,35 228,33" fill="none" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="35,125 75,111 115,98 155,92 195,90 228,92" fill="none" stroke="rgba(0,229,255,.28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 3"/><circle cx="228" cy="33" r="3.5" fill="#00E5FF"/><text x="210" y="29" font-family="monospace" font-size="7.5" fill="#00E5FF">Ours</text><text x="190" y="106" font-family="monospace" font-size="7.5" fill="rgba(0,229,255,.4)">Baseline</text></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Result · Performance</div><div class="fti">Dice Score Comparison</div><div class="fd">Improvement over baseline across all BraTS2023 tumor sub-regions.</div><div class="fp">MIA 2024 — Figure 5</div></div></div>
+      <div class="fc card" data-cat="diagram"><div class="fi" data-title="Federated Learning" data-src=""><div class="ph"><svg width="100%" height="175" viewBox="0 0 250 165"><rect x="80" y="63" width="90" height="36" rx="4" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/><text x="125" y="86" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00E5FF">Global Model</text><rect x="5" y="7" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="32" y="25" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital A</text><rect x="190" y="7" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="217" y="25" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital B</text><rect x="5" y="130" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="32" y="148" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital C</text><rect x="190" y="130" width="55" height="28" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="1"/><text x="217" y="148" text-anchor="middle" font-family="monospace" font-size="7" fill="#6EE7B7">Hospital D</text><line x1="60" y1="21" x2="80" y2="73" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><line x1="190" y1="21" x2="170" y2="73" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><line x1="60" y1="144" x2="80" y2="97" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><line x1="190" y1="144" x2="170" y2="97" stroke="rgba(0,229,255,.22)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#a)"/><defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="rgba(0,229,255,.35)" stroke-width="1.5" stroke-linecap="round"/></marker></defs></svg></div><div class="fz">zoom</div></div><div class="fm"><div class="ftg">Diagram · Federated Learning</div><div class="fti">Privacy-Preserving Multi-Hospital Training</div><div class="fd">Gradient aggregation without sharing patient data.</div><div class="fp">MIA 2024 — Figure 1</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="si">
+    <div class="sh rv"><span class="sn">08</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
+    <h2 class="ch2 rv d1">Open to collaboration<br><em>and clinical partnership.</em></h2>
+    <p class="cs rv d2">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
+    <div class="cb2 rv d3">
+      <a href="mailto:you@university.ac.jp" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
+      <a href="https://github.com/yourusername" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+      <a href="https://scholar.google.com" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>Scholar</a>
+      <a href="/cv.pdf" class="cb3"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV</a>
+    </div>
+  </div>
+</section>
+</div>
+<footer><span>© 2026 Dr. Your Name · [University Name]</span><span>AI · Medical Imaging · GitHub Pages</span></footer>
+<script>
+// ── Neuron background ──
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const C='#00E5FF',P='#8B5CF6';
+let W,H,nodes=[],edges=[],pulses=[],fr=0;
+
+function branch(x,y,a,l,d,s){
+  if(d<=0||l<5)return;
+  const ex=x+Math.cos(a)*l,ey=y+Math.sin(a)*l;
+  s.push({x1:x,y1:y,x2:ex,y2:ey,lw:Math.max(.2,d*.3),al:.06+d*.04});
+  const sp=.5+Math.random()*.3;
+  branch(ex,ey,a-sp,l*.6,d-1,s);branch(ex,ey,a+sp,l*.6,d-1,s);
+}
+
+function rebuild(){
+  W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;
+  nodes=[];edges=[];pulses=[];
+  const cls=[
+    {cx:.15,cy:.35,n:11,sp:.10},{cx:.30,cy:.18,n:10,sp:.09},{cx:.50,cy:.13,n:9,sp:.08},
+    {cx:.70,cy:.18,n:10,sp:.09},{cx:.85,cy:.35,n:9,sp:.09},{cx:.18,cy:.55,n:10,sp:.09},
+    {cx:.42,cy:.42,n:12,sp:.10},{cx:.58,cy:.42,n:12,sp:.10},{cx:.82,cy:.55,n:10,sp:.09},
+    {cx:.25,cy:.74,n:8,sp:.08},{cx:.50,cy:.76,n:9,sp:.08},{cx:.75,cy:.74,n:8,sp:.08},
+  ];
+  cls.forEach(cl=>{
+    for(let i=0;i<cl.n;i++){
+      const a=Math.random()*Math.PI*2,d=Math.pow(Math.random(),.5)*cl.sp;
+      const x=Math.max(30,Math.min(W-30,(cl.cx+Math.cos(a)*d)*W));
+      const y=Math.max(30,Math.min(H-30,(cl.cy+Math.sin(a)*d)*H));
+      const soma=Math.random()<.35,isC=Math.random()<.65,ds=[];
+      if(soma){for(let j=0;j<4+Math.floor(Math.random()*4);j++)branch(x,y,(j/(4+Math.floor(Math.random()*4)))*Math.PI*2+(Math.random()-.5)*.5,14+Math.random()*16,2,ds);}
+      nodes.push({x,y,soma,r:soma?2.5+Math.random()*2.5:1.2+Math.random()*1.5,c:isC?C:P,g:0,ph:Math.random()*Math.PI*2,ds});
+    }
+  });
+  const mD=Math.min(W,H)*.16;
+  for(let i=0;i<nodes.length;i++){let cn=0;for(let j=i+1;j<nodes.length;j++){
+    const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<mD&&cn<7){const mx=(nodes[i].x+nodes[j].x)/2,my=(nodes[i].y+nodes[j].y)/2,p=(Math.random()-.5)*d*.35;
+    edges.push({a:nodes[i],b:nodes[j],cpx:mx-(dy/d)*p,cpy:my+(dx/d)*p,ac:0});cn++;}
+  }}
+}
+
+function spawnPulse(){
+  if(!edges.length)return;
+  const e=edges[Math.floor(Math.random()*edges.length)];
+  pulses.push({e,t:0,fwd:Math.random()>.5,sp:.007+Math.random()*.013});
+}
+
+function draw(){
+  try{
+    ctx.clearRect(0,0,W,H);const t=fr*.01;
+    nodes.forEach(n=>{const isC=n.c===C;n.ds.forEach(s=>{ctx.beginPath();ctx.moveTo(s.x1,s.y1);ctx.lineTo(s.x2,s.y2);ctx.strokeStyle=isC?`rgba(0,229,255,${s.al+n.g*.05})`:`rgba(139,92,246,${s.al+n.g*.05})`;ctx.lineWidth=s.lw;ctx.stroke();});});
+    edges.forEach(e=>{const isC=e.a.c===C;ctx.beginPath();ctx.moveTo(e.a.x,e.a.y);ctx.quadraticCurveTo(e.cpx,e.cpy,e.b.x,e.b.y);ctx.strokeStyle=e.ac>.05?(isC?`rgba(0,229,255,${.06+e.ac*.2})`:`rgba(139,92,246,${.06+e.ac*.2})`):'rgba(0,229,255,0.055)';ctx.lineWidth=.5+e.ac*.4;ctx.stroke();if(e.ac>0)e.ac-=.02;});
+    nodes.forEach(n=>{const b=.1+Math.sin(t+n.ph)*.06,r=Math.max(.5,n.r*(1+b*.25+n.g*.4)),isC=n.c===C;
+      if(n.soma){ctx.shadowColor=n.c;ctx.shadowBlur=6+n.g*10;ctx.beginPath();ctx.arc(n.x,n.y,Math.max(.5,r*1.7),0,Math.PI*2);ctx.strokeStyle=isC?`rgba(0,229,255,${.2+n.g*.25})`:`rgba(139,92,246,${.2+n.g*.25})`;ctx.lineWidth=.5;ctx.stroke();}
+      ctx.shadowColor=n.c;ctx.shadowBlur=n.soma?10+n.g*14:5+n.g*8;ctx.beginPath();ctx.arc(n.x,n.y,Math.max(.5,r),0,Math.PI*2);ctx.fillStyle=isC?`rgba(0,229,255,${.5+b+n.g*.4})`:`rgba(139,92,246,${.5+b+n.g*.4})`;ctx.fill();ctx.shadowBlur=0;if(n.g>0)n.g-=.02;});
+    pulses=pulses.filter(p=>p.t<=1);
+    pulses.forEach(p=>{p.t+=p.sp;const tt=Math.min(p.t,1),sx=p.fwd?p.e.a.x:p.e.b.x,sy=p.fwd?p.e.a.y:p.e.b.y,ex=p.fwd?p.e.b.x:p.e.a.x,ey=p.fwd?p.e.b.y:p.e.a.y,px=(1-tt)*(1-tt)*sx+2*(1-tt)*tt*p.e.cpx+tt*tt*ex,py=(1-tt)*(1-tt)*sy+2*(1-tt)*tt*p.e.cpy+tt*tt*ey;
+      ctx.shadowColor=C;ctx.shadowBlur=14;ctx.beginPath();ctx.arc(px,py,Math.max(.5,2.5),0,Math.PI*2);ctx.fillStyle='rgba(180,255,255,.9)';ctx.fill();ctx.shadowBlur=0;
+      if(p.t>=.94){const tgt=p.fwd?p.e.b:p.e.a;tgt.g=1;p.e.ac=1;}});
+    if(fr%14===0&&pulses.length<28)spawnPulse();
+    fr++;
+  }catch(e){fr++;}
+  requestAnimationFrame(draw);
+}
+window.addEventListener('resize',rebuild);rebuild();draw();
+
+// ── Scroll reveal ──
+new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07})
+  .observe && document.querySelectorAll('.rv').forEach(el=>
+    new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07}).observe(el)
+  );
+
+// ── Figure filter ──
+document.querySelectorAll('.ft').forEach(t=>{t.addEventListener('click',()=>{
+  document.querySelectorAll('.ft').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+  const f=t.dataset.f;document.querySelectorAll('.fc').forEach(c=>{c.style.display=(f==='all'||c.dataset.cat===f)?'flex':'none';});
+});});
+
+// ── Lightbox ──
+const lb=document.getElementById('lb'),lbI=document.getElementById('lb-img'),lbC=document.getElementById('lb-cap');
+document.querySelectorAll('.fi').forEach(el=>{el.addEventListener('click',()=>{lbI.src=el.dataset.src||'';lbI.alt=el.dataset.title||'';lbC.textContent=el.dataset.title||'';lb.classList.add('open');});});
+document.getElementById('lb-x').addEventListener('click',()=>lb.classList.remove('open'));
+lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open');});
+
+// ── Quiz ──
+const QS=[
+  {q:"What does the 'U' shape in U-Net represent?",opts:["Uncertainty in predictions","Encoder-decoder with skip connections","Unsupervised learning","Universal feature mapping"],ans:1,exp:"U-Net's U-shape is its symmetric encoder-decoder connected by skip connections, enabling precise localization."},
+  {q:"Which MRI sequence best detects peritumoral brain edema?",opts:["T1-weighted","T1 with Gadolinium","T2-FLAIR","Diffusion-Weighted (DWI)"],ans:2,exp:"T2-FLAIR suppresses CSF signal, making edema appear bright and clearly distinguishable from healthy tissue."},
+  {q:"In federated learning, what is shared between hospitals?",opts:["Patient imaging data","Model weights or gradients","De-identified metadata","Diagnosis reports"],ans:1,exp:"Only model weights/gradients are shared — never raw patient data — preserving patient privacy."},
+  {q:"What does the Dice coefficient measure?",opts:["Pixel intensity difference","Overlap between predicted and ground-truth masks","Training convergence speed","Model parameter count"],ans:1,exp:"Dice = 2|A∩B|/(|A|+|B|). It measures mask overlap from 0 to 1."},
+  {q:"Which of these is NOT a real MRI sequence?",opts:["T1-weighted","T2-weighted","T3-weighted","FLAIR"],ans:2,exp:"There is no T3-weighted sequence. MRI sequences are based on tissue relaxation times T1 and T2."},
+  {q:"What is 'hallucination' in medical AI?",opts:["Confident but fabricated findings","GPU memory overflow","Visual scan artifacts","Synthetic data augmentation"],ans:0,exp:"AI hallucination means generating plausible-looking but incorrect findings — a critical patient safety concern."},
+  {q:"Hounsfield Units (HU) are used in which modality?",opts:["MRI","Ultrasound","CT (Computed Tomography)","PET scan"],ans:2,exp:"HU measures X-ray attenuation in CT: water=0 HU, air=−1000 HU, dense bone≈+1000 HU."},
+  {q:"What does Grad-CAM visualize?",opts:["Training loss curves","Image regions most influential for a prediction","Optimization paths","Camera calibration maps"],ans:1,exp:"Grad-CAM highlights which image regions most influenced the model's decision — essential for explainability."},
+];
+let qi=0,qs=0,qa=false,qset=[...QS];
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+const $=id=>document.getElementById(id);
+function qR(){
+  const q=qset[qi];
+  $('q-c').textContent=`Q${qi+1}/${qset.length}`;$('q-sc').textContent=`${qs}/${qi}`;
+  $('q-b').style.width=`${(qi/qset.length)*100}%`;
+  $('q-q').textContent=q.q;$('q-fb').innerHTML='';$('q-n').style.display='none';qa=false;
+  const L=['A','B','C','D'],o=$('q-op');o.innerHTML='';
+  q.opts.forEach((op,i)=>{const b=document.createElement('button');b.className='qo';b.innerHTML=`<span class="ql">${L[i]}</span>${op}`;b.onclick=()=>qA(i);o.appendChild(b);});
+}
+function qA(c){
+  if(qa)return;qa=true;const q=qset[qi],ok=c===q.ans;if(ok)qs++;
+  document.querySelectorAll('.qo').forEach((b,i)=>{b.disabled=true;if(i===q.ans)b.classList.add('ok');else if(i===c&&!ok)b.classList.add('no');else b.classList.add('rv2');});
+  $('q-fb').innerHTML=`<div class="${ok?'qfok':'qfno'}">${ok?'✓ Correct! ':'✗ Incorrect. '}${q.exp}</div>`;
+  $('q-n').style.display='inline-block';
+}
+function qEnd(){
+  $('q-play').style.display='none';$('q-end').style.display='block';$('q-b').style.width='100%';
+  const pct=Math.round(qs/qset.length*100);
+  const d=pct>=87?['🏆','Outstanding!','Expert-level AI & medical imaging knowledge.']:pct>=62?['🎯','Well done!','Solid understanding with a few areas to review.']:pct>=37?['📚','Keep learning!','Good start — revisit the core concepts.']:['🔬','Keep exploring!','Every question teaches something new.'];
+  $('q-em').textContent=d[0];$('q-ti').textContent=d[1];$('q-sk').textContent=`${qs}/${qset.length} correct (${pct}%)`;$('q-mg').textContent=d[2];
+}
+function qStart(){qi=0;qs=0;qset=shuf(QS);$('q-start').style.display='none';$('q-end').style.display='none';$('q-play').style.display='block';qR();}
+$('q-s').onclick=qStart;
+$('q-n').onclick=()=>{qi++;if(qi>=qset.length)qEnd();else qR();};
+$('q-r').onclick=qStart;
+
+// ── Guestbook ──
+const GB=[
+  {name:'Yuki Tanaka',org:'Kyoto University',flag:'🇯🇵',msg:'Great work on the federated learning paper! Looking forward to collaborating on multi-site MRI studies.',ts:Date.now()-172800000},
+  {name:'Sarah Chen',org:'Stanford Medical School',flag:'🇺🇸',msg:'Your talk on foundation models for radiology was inspiring. Would love to discuss a research exchange.',ts:Date.now()-86400000},
+  {name:'Ahmad Al-Hassan',org:'King Faisal Specialist Hospital',flag:'🇸🇦',msg:'We are building a clinical AI pipeline for CT diagnosis. Your MedSeg framework looks very promising!',ts:Date.now()-43200000},
+];
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function ago(ts){const s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
+function gbR(){
+  document.getElementById('gb-en').innerHTML=[...GB].reverse().map(e=>`<div class="gbcard"><div class="gbh"><span class="gbn">${esc(e.name)}${e.org?` <span style="opacity:.5;font-size:.85em">· ${esc(e.org)}</span>`:''}</span><span class="gbm2">${e.flag||''} ${ago(e.ts)}</span></div><div class="gbmsg">${esc(e.msg)}</div></div>`).join('');
+}
+document.getElementById('gb-bt').onclick=()=>{
+  const name=$('gb-nm').value.trim(),org=$('gb-or').value.trim(),msg=$('gb-ms').value.trim(),st=$('gb-st');
+  if(!name){st.textContent='⚠ Please enter your name.';st.style.color='#FCA5A5';return;}
+  if(msg.length<5){st.textContent='⚠ Message too short.';st.style.color='#FCA5A5';return;}
+  GB.push({name,org,msg,flag:'🌍',ts:Date.now()});gbR();
+  $('gb-nm').value='';$('gb-or').value='';$('gb-ms').value='';
+  st.style.color='var(--glow)';st.textContent='✓ Message posted! Thank you.';setTimeout(()=>st.textContent='',3000);
+};
+gbR();
+</script>
+</body>
+</html>

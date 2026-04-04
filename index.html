@@ -163,7 +163,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 textarea.gbi{resize:vertical;min-height:60px;line-height:1.5}
 .gbs{width:100%;font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.52rem;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--glow);border-radius:4px;cursor:pointer;transition:all .2s}
 .gbs:hover{background:rgba(0,229,255,.2)}
-.gbe{display:flex;flex-direction:column;gap:.52rem;max-height:240px;overflow-y:auto}
+.gbe{display:flex;flex-direction:column;gap:.52rem;max-height:600px;overflow-y:auto;flex:1}
 .gbe::-webkit-scrollbar{width:3px}
 .gbe::-webkit-scrollbar-thumb{background:rgba(0,229,255,.2);border-radius:2px}
 .gbcard{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:6px;padding:.7rem .82rem}
@@ -173,11 +173,57 @@ textarea.gbi{resize:vertical;min-height:60px;line-height:1.5}
 .gbmsg{font-size:.74rem;color:var(--dim);line-height:1.55}
 footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:flex;justify-content:space-between;font-family:var(--mo);font-size:.52rem;color:var(--d2);position:relative;z-index:2;background:rgba(4,7,16,.92)}
 
+
+/* Split preview layout for pubs and lectures */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.split-list{display:flex;flex-direction:column}
+.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:280px;position:sticky;top:62px}
+.prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:220px;opacity:.35;gap:.6rem}
+.prev-empty svg{width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
+.prev-empty p{font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)}
+.prev-title{font-family:var(--sr);font-size:1rem;font-style:italic;color:var(--w);line-height:1.38;margin-bottom:.5rem}
+.prev-authors{font-size:.72rem;color:var(--dim);margin-bottom:.3rem}
+.prev-venue{font-family:var(--mo);font-size:.56rem;color:var(--glow);opacity:.7;margin-bottom:.9rem}
+.prev-abstract{font-size:.76rem;color:var(--dim);line-height:1.65;margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px solid rgba(0,229,255,.08)}
+.prev-fig{width:100%;background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:5px;display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;overflow:hidden}
+.prev-lnks{display:flex;gap:.35rem;flex-wrap:wrap}
+.pi.sel{background:rgba(0,229,255,.07);border-radius:5px;margin-left:-.5rem;padding-left:.5rem}
+.lci.sel{background:rgba(0,229,255,.07);border-radius:5px;margin-left:-.5rem;padding-left:.5rem}
+.prev-tag{font-family:var(--mo);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--glow);opacity:.65;margin-bottom:.35rem}
+.prev-desc{font-size:.76rem;color:var(--dim);line-height:1.65;margin-bottom:.9rem}
+.prev-links-row{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(0,229,255,.08)}
+.prev-chip{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.12rem .42rem;border-radius:3px;transition:all .15s;cursor:pointer}
+.prev-chip:hover{background:var(--glow);color:var(--bg);border-color:var(--glow)}
+@media(max-width:900px){.split{grid-template-columns:1fr}.split-preview{position:static;min-height:auto}}
+
 .btm-row{display:grid;grid-template-columns:1fr 285px;gap:1.1rem;align-items:start}
 .btm-left{display:flex;flex-direction:column;gap:1.1rem}
-.btm-right{display:flex;flex-direction:column;gap:1.1rem;position:sticky;top:60px;max-height:calc(100vh - 68px);overflow-y:auto}
+.btm-right{display:flex;flex-direction:column;gap:1.1rem;position:sticky;top:60px}
 .btm-right::-webkit-scrollbar{width:0}
-@media(max-width:720px){.btm-row{grid-template-columns:1fr}.btm-right{position:static;max-height:none}}
+@media(max-width:720px){
+/* Split preview layout for pubs and lectures */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.split-list{display:flex;flex-direction:column}
+.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:280px;position:sticky;top:62px}
+.prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:220px;opacity:.35;gap:.6rem}
+.prev-empty svg{width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
+.prev-empty p{font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)}
+.prev-title{font-family:var(--sr);font-size:1rem;font-style:italic;color:var(--w);line-height:1.38;margin-bottom:.5rem}
+.prev-authors{font-size:.72rem;color:var(--dim);margin-bottom:.3rem}
+.prev-venue{font-family:var(--mo);font-size:.56rem;color:var(--glow);opacity:.7;margin-bottom:.9rem}
+.prev-abstract{font-size:.76rem;color:var(--dim);line-height:1.65;margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px solid rgba(0,229,255,.08)}
+.prev-fig{width:100%;background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:5px;display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;overflow:hidden}
+.prev-lnks{display:flex;gap:.35rem;flex-wrap:wrap}
+.pi.sel{background:rgba(0,229,255,.07);border-radius:5px;margin-left:-.5rem;padding-left:.5rem}
+.lci.sel{background:rgba(0,229,255,.07);border-radius:5px;margin-left:-.5rem;padding-left:.5rem}
+.prev-tag{font-family:var(--mo);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--glow);opacity:.65;margin-bottom:.35rem}
+.prev-desc{font-size:.76rem;color:var(--dim);line-height:1.65;margin-bottom:.9rem}
+.prev-links-row{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(0,229,255,.08)}
+.prev-chip{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--dim);border:1px solid var(--bd);padding:.12rem .42rem;border-radius:3px;transition:all .15s;cursor:pointer}
+.prev-chip:hover{background:var(--glow);color:var(--bg);border-color:var(--glow)}
+@media(max-width:900px){.split{grid-template-columns:1fr}.split-preview{position:static;min-height:auto}}
+
+.btm-row{grid-template-columns:1fr}.btm-right{position:static;max-height:none}}
 
 @media(max-width:720px){
   .g2{grid-template-columns:1fr;padding:.9rem .9rem 3rem}
@@ -244,9 +290,19 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
   <!-- publications -->
   <div class="card" id="pubs">
     <div class="sh"><span class="sn">04</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
-    <div id="publist"></div>
-    <div class="pag" id="pubpag"></div>
-    <p style="margin-top:.8rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">&#8594; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Scopus</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">ResearchGate</a></p>
+    <div class="split">
+      <div class="split-list">
+        <div id="publist"></div>
+        <div class="pag" id="pubpag"></div>
+        <p style="margin-top:.8rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">&#8594; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Scopus</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">ResearchGate</a></p>
+      </div>
+      <div class="split-preview" id="pub-preview">
+        <div class="prev-empty">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <p>Click a paper to preview</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   
@@ -254,8 +310,18 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
   <!-- lectures -->
   <div class="card" id="lec">
     <div class="sh"><span class="sn">05</span><h2 class="sl">Guest Lectures</h2><span class="sli"></span></div>
-    <div id="leclist"></div>
-    <div class="pag" id="lecpag"></div>
+    <div class="split">
+      <div class="split-list">
+        <div id="leclist"></div>
+        <div class="pag" id="lecpag"></div>
+      </div>
+      <div class="split-preview" id="lec-preview">
+        <div class="prev-empty">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <p>Click a lecture to preview</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   
@@ -336,7 +402,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
     <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Visitors from</p>
     <div class="cl"><span class="ct">&#127471;&#127477; Japan</span><span class="ct">&#127482;&#127480; United States</span><span class="ct">&#127468;&#127463; UK</span><span class="ct">&#127480;&#127468; Singapore</span><span class="ct">&#127462;&#127482; Australia</span><span class="ct">&#127465;&#127466; Germany</span><span class="ct">&#127472;&#127479; South Korea</span><span class="ct">&#127464;&#127462; Canada</span><span class="ct">&#127467;&#127479; France</span><span class="ct">&#127480;&#127462; Saudi Arabia</span></div>
   </div>
-  <div class="card" id="gb">
+  <div class="card" id="gb" style="flex:1;display:flex;flex-direction:column">
     <div class="sh"><span class="sn">C</span><h2 class="sl">Guest Book</h2><span class="sli"></span></div>
     <p style="font-size:.72rem;color:var(--dim);margin-bottom:1rem;line-height:1.65">Leave a message or say hello &#128075;</p>
     <div class="gbf">
@@ -385,21 +451,47 @@ var NA=[
   {b:'nb-w',l:'Media',t:'Research featured in Nature Methods highlight on privacy-preserving AI in healthcare',d:'November 2024'},
 ];
 var PU=[
-  {t:'Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data',a:'Wahyu Rahmaniar, Co-Author A, Co-Author B',v:'Medical Image Analysis · Elsevier · 2024',ls:['PDF','DOI','Code']},
-  {t:'Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification',a:'Wahyu Rahmaniar, Co-Author C',v:'IEEE Transactions on Medical Imaging · Vol. 42 · 2023',ls:['PDF','DOI']},
-  {t:'Self-Supervised Contrastive Learning for CT Scan Anomaly Detection',a:'Co-Author D, Wahyu Rahmaniar, Co-Author E',v:'MICCAI 2022',ls:['PDF','DOI','Slides']},
-  {t:'Few-Shot Histopathology Classification via Prototype Networks with Domain Adaptation',a:'Wahyu Rahmaniar, Co-Author F',v:'CVPR Workshop on Medical Computer Vision · 2021',ls:['PDF','DOI']},
-  {t:'Attention-Guided U-Net for Automated Retinal Lesion Segmentation in Fundus Images',a:'Wahyu Rahmaniar, Co-Author G, Co-Author H',v:'Computers in Biology and Medicine · 2020',ls:['PDF','DOI']},
-  {t:'Deep Learning Based Lung Nodule Detection in Low-Dose CT with Data Augmentation',a:'Co-Author I, Wahyu Rahmaniar',v:'Medical Physics · Vol. 47 · 2019',ls:['PDF','DOI']},
+  {t:'Federated Learning for Privacy-Preserving Brain Tumor Segmentation Across Multi-Site MRI Data',a:'Wahyu Rahmaniar, Co-Author A, Co-Author B',v:'Medical Image Analysis · Elsevier · 2024',ls:['PDF','DOI','Code'],
+   ab:'We propose a federated learning framework for brain tumor segmentation that enables multi-site MRI training without sharing patient data. Our approach uses gradient aggregation with differential privacy to achieve strong segmentation performance across heterogeneous hospital datasets, outperforming centralized baselines by 12% Dice score on BraTS2023.',
+   fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="15" width="55" height="80" rx="3" fill="rgba(0,229,255,.06)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><text x="37" y="58" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,229,255,.6)" transform="rotate(-90,37,58)">MRI Input</text><rect x="80" y="25" width="40" height="60" rx="3" fill="rgba(0,229,255,.09)" stroke="rgba(0,229,255,.35)" stroke-width="1"/><rect x="135" y="38" width="30" height="34" rx="3" fill="rgba(0,229,255,.16)" stroke="rgba(0,229,255,.55)" stroke-width="1.5"/><text x="150" y="58" text-anchor="middle" font-family="monospace" font-size="6" fill="#00E5FF">FedAvg</text><rect x="180" y="25" width="40" height="60" rx="3" fill="rgba(0,229,255,.09)" stroke="rgba(0,229,255,.35)" stroke-width="1"/><rect x="235" y="15" width="55" height="80" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.3)" stroke-width="1"/><text x="262" y="58" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(16,185,129,.6)" transform="rotate(-90,262,58)">Seg. Mask</text><path d="M65 55 L80 55 M120 55 L135 55 M165 55 L180 55 M220 55 L235 55" stroke="rgba(0,229,255,.4)" stroke-width="1" fill="none"/></svg>'},
+  {t:'Transformer-based Cardiac MRI Segmentation with Uncertainty Quantification',a:'Wahyu Rahmaniar, Co-Author C',v:'IEEE Transactions on Medical Imaging · Vol. 42 · 2023',ls:['PDF','DOI'],
+   ab:'This work introduces a transformer-based U-Net architecture for cardiac MRI segmentation that provides pixel-wise uncertainty estimates using Monte Carlo dropout. The uncertainty maps help clinicians identify regions where the model prediction is less reliable, improving clinical trust and enabling targeted manual review.',
+   fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="20" width="60" height="70" rx="3" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.3)" stroke-width="1"/><text x="40" y="58" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(139,92,246,.7)">Cardiac MRI</text><rect x="90" y="30" width="120" height="50" rx="4" fill="rgba(0,229,255,.08)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/><text x="150" y="52" text-anchor="middle" font-family="monospace" font-size="7" fill="#00E5FF">Transformer</text><text x="150" y="63" text-anchor="middle" font-family="monospace" font-size="7" fill="#00E5FF">U-Net</text><rect x="230" y="20" width="60" height="30" rx="3" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.3)" stroke-width="1"/><text x="260" y="38" text-anchor="middle" font-family="monospace" font-size="6" fill="#6EE7B7">Segmentation</text><rect x="230" y="60" width="60" height="30" rx="3" fill="rgba(245,158,11,.06)" stroke="rgba(245,158,11,.3)" stroke-width="1"/><text x="260" y="78" text-anchor="middle" font-family="monospace" font-size="6" fill="#FCD34D">Uncertainty</text></svg>'},
+  {t:'Self-Supervised Contrastive Learning for CT Scan Anomaly Detection',a:'Co-Author D, Wahyu Rahmaniar, Co-Author E',v:'MICCAI 2022',ls:['PDF','DOI','Slides'],
+   ab:'We present a self-supervised contrastive learning approach for CT anomaly detection that does not require labeled data during pretraining. By learning representations from unlabeled CT scans, the model detects anomalies as out-of-distribution samples, achieving competitive performance with fully-supervised methods using only 10% labeled data.',
+   fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><circle cx="80" cy="55" r="35" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><text x="80" y="50" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.7)">Normal</text><text x="80" y="62" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.7)">CT Scans</text><rect x="128" y="42" width="44" height="26" rx="4" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.5)" stroke-width="1.5"/><text x="150" y="55" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00E5FF">Contrastive</text><text x="150" y="64" text-anchor="middle" font-family="monospace" font-size="6" fill="#00E5FF">Encoder</text><circle cx="225" cy="40" r="18" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.3)" stroke-width="1"/><text x="225" y="43" text-anchor="middle" font-family="monospace" font-size="6" fill="#6EE7B7">Normal</text><circle cx="255" cy="75" r="14" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.35)" stroke-width="1.5"/><text x="255" y="78" text-anchor="middle" font-family="monospace" font-size="6" fill="#FCA5A5">Anomaly</text></svg>'},
+  {t:'Few-Shot Histopathology Classification via Prototype Networks with Domain Adaptation',a:'Wahyu Rahmaniar, Co-Author F',v:'CVPR Workshop on Medical Computer Vision · 2021',ls:['PDF','DOI'],
+   ab:'We address the challenge of limited labeled data in histopathology by combining prototype networks with domain adaptation. Our few-shot learning approach achieves strong classification performance with as few as 5 labeled examples per cancer type, enabling rapid deployment to new cancer subtypes and staining protocols.',
+   fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="25" width="50" height="60" rx="3" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.25)" stroke-width="1"/><text x="35" y="55" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(139,92,246,.7)">Histopathology</text><text x="35" y="65" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(139,92,246,.7)">Patches</text><circle cx="125" cy="35" r="12" fill="rgba(0,229,255,.08)" stroke="rgba(0,229,255,.4)" stroke-width="1"/><circle cx="125" cy="75" r="12" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.4)" stroke-width="1"/><circle cx="155" cy="55" r="12" fill="rgba(245,158,11,.08)" stroke="rgba(245,158,11,.4)" stroke-width="1"/><text x="140" y="100" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(0,229,255,.5)">Prototypes</text><rect x="195" y="30" width="95" height="50" rx="4" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.25)" stroke-width="1"/><text x="242" y="52" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.7)">Cancer Type A</text><text x="242" y="64" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(16,185,129,.7)">Cancer Type B</text></svg>'},
+  {t:'Attention-Guided U-Net for Automated Retinal Lesion Segmentation',a:'Wahyu Rahmaniar, Co-Author G, Co-Author H',v:'Computers in Biology and Medicine · 2020',ls:['PDF','DOI'],
+   ab:'We propose an attention-guided U-Net for automated retinal lesion segmentation in fundus images. Attention gates selectively suppress irrelevant background regions and highlight lesion features across multiple scales, improving detection of hard exudates, microaneurysms, and hemorrhages.',
+   fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><circle cx="55" cy="55" r="40" fill="none" stroke="rgba(139,92,246,.2)" stroke-width="1"/><circle cx="55" cy="55" r="28" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.3)" stroke-width="1"/><circle cx="55" cy="43" r="5" fill="rgba(239,68,68,.5)" stroke="rgba(239,68,68,.8)" stroke-width="1"/><circle cx="68" cy="60" r="3" fill="rgba(245,158,11,.6)"/><circle cx="42" cy="62" r="4" fill="rgba(239,68,68,.4)"/><text x="55" y="95" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(139,92,246,.6)">Retinal Fundus</text><rect x="130" y="30" width="140" height="50" rx="4" fill="rgba(0,229,255,.05)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><text x="200" y="50" text-anchor="middle" font-family="monospace" font-size="7" fill="#00E5FF">Attention U-Net</text><circle cx="165" cy="65" r="4" fill="rgba(239,68,68,.5)"/><circle cx="185" cy="62" r="3" fill="rgba(245,158,11,.5)"/><circle cx="205" cy="66" r="4" fill="rgba(239,68,68,.4)"/><text x="200" y="90" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(16,185,129,.6)">Detected Lesions</text></svg>'},
+  {t:'Deep Learning Based Lung Nodule Detection in Low-Dose CT',a:'Co-Author I, Wahyu Rahmaniar',v:'Medical Physics · Vol. 47 · 2019',ls:['PDF','DOI'],
+   ab:'This paper presents a 3D convolutional neural network for lung nodule detection in low-dose CT scans with aggressive data augmentation to address the scarcity of annotated data. Our model achieves 94.2% sensitivity at 1 false positive per scan on the LUNA16 challenge dataset.',
+   fig:'<svg width="100%" height="110" viewBox="0 0 300 110"><rect x="10" y="15" width="80" height="80" rx="4" fill="rgba(0,0,0,.2)" stroke="rgba(0,229,255,.2)" stroke-width="1"/><circle cx="50" cy="55" r="30" fill="rgba(100,100,100,.15)" stroke="rgba(150,150,150,.3)" stroke-width="0.5"/><circle cx="55" cy="48" r="7" fill="rgba(239,68,68,.3)" stroke="rgba(239,68,68,.7)" stroke-width="1.5"/><text x="50" y="100" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(0,229,255,.5)">Low-Dose CT</text><rect x="115" y="35" width="70" height="40" rx="4" fill="rgba(0,229,255,.08)" stroke="rgba(0,229,255,.4)" stroke-width="1.5"/><text x="150" y="52" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00E5FF">3D CNN</text><text x="150" y="63" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00E5FF">Detector</text><rect x="210" y="15" width="80" height="80" rx="4" fill="rgba(0,0,0,.2)" stroke="rgba(16,185,129,.2)" stroke-width="1"/><circle cx="250" cy="55" r="30" fill="rgba(100,100,100,.15)" stroke="rgba(150,150,150,.3)" stroke-width="0.5"/><circle cx="255" cy="48" r="7" fill="none" stroke="rgba(16,185,129,.9)" stroke-width="1.5" stroke-dasharray="2 1"/><text x="250" y="100" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(16,185,129,.6)">Detected Nodule</text></svg>'},
 ];
 var LE=[
-  {t:'AI for Medical Image Segmentation: From U-Net to Foundation Models',v:'Stanford Medical School',y:'2025',ty:'tk',tl:'Keynote'},
-  {t:'Federated Learning in Clinical Imaging: Challenges and Opportunities',v:'Kyoto University',y:'2024',ty:'ts',tl:'Seminar'},
-  {t:'Explainability and Trust in Medical AI Diagnostic Systems',v:'Tohoku University',y:'2024',ty:'tl',tl:'Lecture'},
-  {t:'Foundation Models for Radiology: Opportunities and Risks',v:'NII Shonan Meeting',y:'2023',ty:'tw',tl:'Workshop'},
-  {t:'Self-Supervised Pretraining on Unlabeled Medical Images',v:'National University of Singapore',y:'2022',ty:'ti',tl:'Invited Talk'},
-  {t:'Privacy-Preserving AI in Healthcare: Federated Learning Approaches',v:'University of Oxford, UK',y:'2022',ty:'ts',tl:'Seminar'},
-  {t:'Clinical Deployment of AI: Regulatory and Safety Considerations',v:'RIKEN Center for Medical Sciences',y:'2021',ty:'tl',tl:'Lecture'},
+  {t:'AI for Medical Image Segmentation: From U-Net to Foundation Models',v:'Stanford Medical School',y:'2025',ty:'tk',tl:'Keynote',
+   desc:'A comprehensive keynote covering the evolution of medical image segmentation — from classic U-Net architectures to vision transformers and recent foundation models like SAM and MedSAM. Special focus on clinical translation challenges, dataset curation, and real-world deployment in radiology workflows.',
+   links:['Slides (PDF)','Video Recording'],tags:['U-Net','Foundation Models','Clinical AI']},
+  {t:'Federated Learning in Clinical Imaging: Challenges and Opportunities',v:'Kyoto University',y:'2024',ty:'ts',tl:'Seminar',
+   desc:'An in-depth seminar on federated learning for multi-hospital MRI analysis. Covered privacy-preserving gradient aggregation, handling data heterogeneity across sites, and our FedMed platform implementation across 6 Japanese hospital networks.',
+   links:['Slides (PDF)','Code Repository'],tags:['Federated Learning','Privacy','MRI']},
+  {t:'Explainability and Trust in Medical AI Diagnostic Systems',v:'Tohoku University',y:'2024',ty:'tl',tl:'Lecture',
+   desc:'Guest lecture on XAI methods for clinical AI — covering Grad-CAM, SHAP, and prototype-based explanations. Discussed regulatory requirements (EU AI Act, FDA guidelines) and practical integration of explainability tools into DICOM viewers used by radiologists.',
+   links:['Lecture Notes','Slides'],tags:['XAI','Grad-CAM','Regulation']},
+  {t:'Foundation Models for Radiology: Opportunities and Risks',v:'NII Shonan Meeting',y:'2023',ty:'tw',tl:'Workshop',
+   desc:'Workshop presentation examining large vision-language models (GPT-4V, Flamingo, Med-Gemini) for radiology report generation. Critically analyzed hallucination risks, biases from training data, and evaluation challenges in clinical settings.',
+   links:['Workshop Paper','Slides (PDF)'],tags:['Foundation Models','LLMs','Safety']},
+  {t:'Self-Supervised Pretraining on Unlabeled Medical Images',v:'National University of Singapore',y:'2022',ty:'ti',tl:'Invited Talk',
+   desc:'Invited talk presenting our contrastive self-supervised learning approach for medical image pretraining. Showed that SSL pretraining on 500K unlabeled CT scans significantly reduces labeled data requirements for downstream segmentation tasks.',
+   links:['Paper (MICCAI)','Slides'],tags:['Self-Supervised','Contrastive Learning','CT']},
+  {t:'Privacy-Preserving AI in Healthcare: Federated Learning Approaches',v:'University of Oxford, UK',y:'2022',ty:'ts',tl:'Seminar',
+   desc:'Seminar on federated learning with differential privacy for healthcare AI. Covered our privacy analysis framework, epsilon-delta guarantees on gradient sharing, and compliance with GDPR and HIPAA regulations in practice.',
+   links:['Slides (PDF)'],tags:['Privacy','Differential Privacy','GDPR']},
+  {t:'Clinical Deployment of AI: Regulatory and Safety Considerations',v:'RIKEN Center for Medical Sciences',y:'2021',ty:'tl',tl:'Lecture',
+   desc:'Lecture on the full pipeline from AI research to clinical deployment — covering FDA 510(k) submissions, ISO 13485 requirements, post-market surveillance, and lessons learned from deploying our segmentation models in a clinical setting.',
+   links:['Lecture Slides','Reference Checklist'],tags:['Regulation','FDA','Clinical Deployment']},
 ];
 var QS=[
   {q:"What does the U-Net U-shape represent?",o:["Uncertainty","Encoder-decoder with skip connections","Unsupervised learning","Universal features"],a:1,e:"U-Net's U-shape is its symmetric encoder-decoder connected by skip connections, enabling precise localization."},
@@ -460,19 +552,52 @@ function rnp(pg){
   document.getElementById('nprev').innerHTML=items.map(ni).join('');
   pag('npag',NA.length,per,pg,'rnp');
 }
+var selPub=-1;
+function showPubPreview(idx){
+  selPub=idx;
+  var p=PU[idx];
+  var ls=p.ls.map(function(l){return '<a href="#" class="prev-chip">'+l+'</a>';}).join('');
+  var tags=p.ls.map(function(l){return '<span class="prev-chip">'+l+'</span>';}).join('');
+  document.getElementById('pub-preview').innerHTML=
+    '<div class="prev-tag">Publication Preview</div>'+
+    '<div class="prev-title">'+p.t+'</div>'+
+    '<div class="prev-authors">'+p.a+'</div>'+
+    '<div class="prev-venue">'+p.v+'</div>'+
+    '<div class="prev-abstract">'+p.ab+'</div>'+
+    '<div class="prev-fig" style="height:120px">'+p.fig+'</div>'+
+    '<div class="prev-links-row">'+ls+'</div>';
+  document.querySelectorAll('.pi').forEach(function(el,i){el.classList.remove('sel');});
+  var items=document.querySelectorAll('.pi');
+  if(items[idx%3])items[idx%3].classList.add('sel');
+}
 function rpu(pg){
   ppg=pg;var per=3,s=pg*per,items=PU.slice(s,s+per),h='';
-  items.forEach(function(p){
+  items.forEach(function(p,i){
     var ls=p.ls.map(function(l){return '<a href="#" class="pl2">'+l+'</a>';}).join('');
-    h+='<div class="pi"><p class="pt">'+p.t+'</p><p class="pa">'+p.a+'</p><p class="pv">'+p.v+'</p><div class="pls">'+ls+'</div></div>';
+    var gi=s+i;
+    h+='<div class="pi" style="cursor:pointer" onclick="showPubPreview('+gi+')"><p class="pt">'+p.t+'</p><p class="pa">'+p.a+'</p><p class="pv">'+p.v+'</p><div class="pls">'+ls+'</div></div>';
   });
   document.getElementById('publist').innerHTML=h;
   pag('pubpag',PU.length,per,pg,'rpu');
 }
+var selLec=-1;
+function showLecPreview(idx){
+  selLec=idx;
+  var l=LE[idx];
+  var lnks=l.links.map(function(lk){return '<a href="#" class="prev-chip">'+lk+'</a>';}).join('');
+  var tgs=l.tags.map(function(tg){return '<span style="font-family:var(--mo);font-size:.52rem;padding:.12rem .42rem;border-radius:3px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)">'+tg+'</span>';}).join('');
+  document.getElementById('lec-preview').innerHTML=
+    '<div class="prev-tag">'+l.tl+' &middot; '+l.v+' &middot; '+l.y+'</div>'+
+    '<div class="prev-title">'+l.t+'</div>'+
+    '<div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem">'+tgs+'</div>'+
+    '<div class="prev-desc">'+l.desc+'</div>'+
+    '<div class="prev-links-row">'+lnks+'</div>';
+}
 function rle(pg){
   lpg=pg;var per=3,s=pg*per,items=LE.slice(s,s+per),h='';
-  items.forEach(function(l){
-    h+='<div class="lci"><div class="lt">'+l.t+'</div><div class="lv"><strong>'+l.v+'</strong></div><div class="lf"><span class="ly">'+l.y+'</span><span class="lty '+l.ty+'">'+l.tl+'</span></div></div>';
+  items.forEach(function(l,i){
+    var gi=s+i;
+    h+='<div class="lci" style="cursor:pointer" onclick="showLecPreview('+gi+')"><div class="lt">'+l.t+'</div><div class="lv"><strong>'+l.v+'</strong></div><div class="lf"><span class="ly">'+l.y+'</span><span class="lty '+l.ty+'">'+l.tl+'</span></div></div>';
   });
   document.getElementById('leclist').innerHTML=h;
   pag('lecpag',LE.length,per,pg,'rle');
@@ -578,58 +703,159 @@ gbR();
 
 // NEURON BACKGROUND
 (function(){
-  var c=document.getElementById('bgCanvas');
-  if(!c)return;
-  var x=c.getContext('2d'),W,H,N=[],E=[],P=[],fr=0;
-  var CY='#00E5FF',PU='#8B5CF6';
-  function br(px,py,a,l,d,s){
-    if(d<=0||l<5)return;
-    var ex=px+Math.cos(a)*l,ey=py+Math.sin(a)*l;
-    s.push({x1:px,y1:py,x2:ex,y2:ey,lw:Math.max(0.2,d*0.3),al:0.06+d*0.04});
-    var sp=0.5+Math.random()*0.3;
-    br(ex,ey,a-sp,l*0.6,d-1,s);br(ex,ey,a+sp,l*0.6,d-1,s);
+  var canvas = document.getElementById('bgCanvas');
+  if (!canvas) { console.warn('No bgCanvas'); return; }
+  var ctx = canvas.getContext('2d');
+  var W = 0, H = 0;
+  var nodes = [], edges = [], pulses = [], frame = 0;
+  var CYAN = 'rgba(0,229,255,', PURP = 'rgba(139,92,246,';
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    build();
   }
-  function rb(){
-    W=c.width=window.innerWidth;H=c.height=window.innerHeight;N=[];E=[];P=[];
-    var cls=[
-      {cx:.15,cy:.35,n:11,sp:.10},{cx:.30,cy:.18,n:10,sp:.09},{cx:.50,cy:.13,n:9,sp:.08},
-      {cx:.70,cy:.18,n:10,sp:.09},{cx:.85,cy:.35,n:9,sp:.09},{cx:.18,cy:.55,n:10,sp:.09},
-      {cx:.42,cy:.42,n:12,sp:.10},{cx:.58,cy:.42,n:12,sp:.10},{cx:.82,cy:.55,n:10,sp:.09},
-      {cx:.25,cy:.74,n:8,sp:.08},{cx:.50,cy:.76,n:9,sp:.08},{cx:.75,cy:.74,n:8,sp:.08}
+
+  function build() {
+    nodes = []; edges = []; pulses = [];
+    var clusters = [
+      {cx:0.12,cy:0.30,n:14},{cx:0.30,cy:0.15,n:13},{cx:0.50,cy:0.10,n:12},
+      {cx:0.70,cy:0.15,n:13},{cx:0.88,cy:0.30,n:12},{cx:0.15,cy:0.55,n:13},
+      {cx:0.40,cy:0.45,n:16},{cx:0.60,cy:0.45,n:16},{cx:0.85,cy:0.55,n:13},
+      {cx:0.22,cy:0.78,n:11},{cx:0.50,cy:0.82,n:12},{cx:0.78,cy:0.78,n:11},
+      {cx:0.50,cy:0.55,n:10}
     ];
-    cls.forEach(function(cl){
-      for(var i=0;i<cl.n;i++){
-        var a=Math.random()*Math.PI*2,d=Math.pow(Math.random(),0.5)*cl.sp;
-        var nx=Math.max(30,Math.min(W-30,(cl.cx+Math.cos(a)*d)*W));
-        var ny=Math.max(30,Math.min(H-30,(cl.cy+Math.sin(a)*d)*H));
-        var sm=Math.random()<0.35,ic=Math.random()<0.65,ds=[];
-        if(sm){var nd=4+Math.floor(Math.random()*4);for(var j=0;j<nd;j++)br(nx,ny,(j/nd)*Math.PI*2+(Math.random()-0.5)*0.5,14+Math.random()*16,2,ds);}
-        N.push({x:nx,y:ny,sm:sm,r:sm?2.5+Math.random()*2.5:1.2+Math.random()*1.5,col:ic?CY:PU,g:0,ph:Math.random()*Math.PI*2,ds:ds});
+    var spread = Math.min(W,H) * 0.09;
+    clusters.forEach(function(cl) {
+      for (var i = 0; i < cl.n; i++) {
+        var ang = Math.random() * Math.PI * 2;
+        var dist = Math.pow(Math.random(), 0.5) * spread;
+        var x = Math.max(20, Math.min(W-20, cl.cx*W + Math.cos(ang)*dist));
+        var y = Math.max(20, Math.min(H-20, cl.cy*H + Math.sin(ang)*dist));
+        var soma = Math.random() < 0.3;
+        nodes.push({
+          x: x, y: y, bx: x, by: y,
+          soma: soma,
+          r: soma ? 2.5 + Math.random()*2.5 : 1.2 + Math.random()*1.8,
+          col: Math.random() < 0.65 ? 0 : 1,
+          glow: 0,
+          phase: Math.random() * Math.PI * 2,
+          speed: (Math.random()-0.5)*0.3,
+          speed2: (Math.random()-0.5)*0.25
+        });
       }
     });
-    var mD=Math.min(W,H)*0.16;
-    for(var i=0;i<N.length;i++){var cn=0;for(var j=i+1;j<N.length;j++){
-      var dx=N[i].x-N[j].x,dy=N[i].y-N[j].y,ds=Math.sqrt(dx*dx+dy*dy);
-      if(ds<mD&&cn<7){var mx=(N[i].x+N[j].x)/2,my=(N[i].y+N[j].y)/2,p=(Math.random()-0.5)*ds*0.35;
-      E.push({a:N[i],b:N[j],cpx:mx-(dy/ds)*p,cpy:my+(dx/ds)*p,ac:0});cn++;}
-    }}
+
+    var maxD = Math.min(W,H) * 0.17;
+    for (var i = 0; i < nodes.length; i++) {
+      var cnt = 0;
+      for (var j = i+1; j < nodes.length; j++) {
+        var dx = nodes[i].bx - nodes[j].bx;
+        var dy = nodes[i].by - nodes[j].by;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d < maxD && cnt < 6) {
+          var mx = (nodes[i].bx + nodes[j].bx)/2;
+          var my = (nodes[i].by + nodes[j].by)/2;
+          var perp = (Math.random()-0.5)*d*0.4;
+          edges.push({
+            a: nodes[i], b: nodes[j],
+            cpx: mx - (dy/d)*perp,
+            cpy: my + (dx/d)*perp,
+            active: 0
+          });
+          cnt++;
+        }
+      }
+    }
   }
-  function sp(){if(!E.length)return;var e=E[Math.floor(Math.random()*E.length)];P.push({e:e,t:0,fw:Math.random()>0.5,s:0.007+Math.random()*0.013});}
-  function dr(){
-    x.clearRect(0,0,W,H);var t=fr*0.01;
-    N.forEach(function(n){n.ds.forEach(function(s){x.beginPath();x.moveTo(s.x1,s.y1);x.lineTo(s.x2,s.y2);x.strokeStyle=n.col===CY?'rgba(0,229,255,'+(s.al+n.g*0.05)+')':'rgba(139,92,246,'+(s.al+n.g*0.05)+')';x.lineWidth=s.lw;x.stroke();});});
-    E.forEach(function(e){x.beginPath();x.moveTo(e.a.x,e.a.y);x.quadraticCurveTo(e.cpx,e.cpy,e.b.x,e.b.y);x.strokeStyle='rgba(0,229,255,'+(e.ac>0.05?0.06+e.ac*0.2:0.055)+')';x.lineWidth=0.5+e.ac*0.4;x.stroke();if(e.ac>0)e.ac-=0.02;});
-    N.forEach(function(n){var b=0.1+Math.sin(t+n.ph)*0.06,r=Math.max(0.5,n.r*(1+b*0.25+n.g*0.4)),ic=n.col===CY;
-      if(n.sm){x.shadowColor=n.col;x.shadowBlur=6+n.g*10;x.beginPath();x.arc(n.x,n.y,Math.max(0.5,r*1.7),0,Math.PI*2);x.strokeStyle=ic?'rgba(0,229,255,'+(0.2+n.g*0.25)+')':'rgba(139,92,246,'+(0.2+n.g*0.25)+')';x.lineWidth=0.5;x.stroke();}
-      x.shadowColor=n.col;x.shadowBlur=n.sm?10+n.g*14:5+n.g*8;x.beginPath();x.arc(n.x,n.y,Math.max(0.5,r),0,Math.PI*2);x.fillStyle=ic?'rgba(0,229,255,'+(0.5+b+n.g*0.4)+')':'rgba(139,92,246,'+(0.5+b+n.g*0.4)+')';x.fill();x.shadowBlur=0;if(n.g>0)n.g-=0.02;});
-    P=P.filter(function(p){return p.t<=1;});
-    P.forEach(function(p){p.t+=p.s;var tt=Math.min(p.t,1),sx=p.fw?p.e.a.x:p.e.b.x,sy=p.fw?p.e.a.y:p.e.b.y,ex=p.fw?p.e.b.x:p.e.a.x,ey=p.fw?p.e.b.y:p.e.a.y,px=(1-tt)*(1-tt)*sx+2*(1-tt)*tt*p.e.cpx+tt*tt*ex,py=(1-tt)*(1-tt)*sy+2*(1-tt)*tt*p.e.cpy+tt*tt*ey;
-      x.shadowColor=CY;x.shadowBlur=14;x.beginPath();x.arc(px,py,Math.max(0.5,2.5),0,Math.PI*2);x
-      if(p.t>=0.94){var tg=p.fw?p.e.b:p.e.a;tg.g=1;p.e.ac=1;}});
-    if(fr%14===0&&P.length<28)sp();fr++;requestAnimationFrame(dr);
+
+  function spawnPulse() {
+    if (!edges.length) return;
+    var e = edges[Math.floor(Math.random()*edges.length)];
+    pulses.push({ e:e, t:0, fwd:Math.random()>0.5, spd:0.008+Math.random()*0.014 });
   }
-  window.addEventListener('resize',rb);rb();dr();
+
+  function draw() {
+    requestAnimationFrame(draw);
+    try {
+      ctx.clearRect(0, 0, W, H);
+      var t = frame * 0.012;
+      frame++;
+
+      // Update node positions (gentle floating)
+      nodes.forEach(function(n) {
+        n.x = n.bx + Math.sin(t * 0.7 + n.phase) * 4;
+        n.y = n.by + Math.cos(t * 0.5 + n.phase * 1.3) * 3;
+        if (n.glow > 0) n.glow -= 0.025;
+      });
+
+      // Draw edges
+      edges.forEach(function(e) {
+        var op = e.active > 0 ? 0.12 + e.active * 0.25 : 0.08;
+        ctx.beginPath();
+        ctx.moveTo(e.a.x, e.a.y);
+        ctx.quadraticCurveTo(e.cpx, e.cpy, e.b.x, e.b.y);
+        ctx.strokeStyle = CYAN + op + ')';
+        ctx.lineWidth = 0.6 + e.active * 0.5;
+        ctx.stroke();
+        if (e.active > 0) e.active -= 0.018;
+      });
+
+      // Draw nodes
+      nodes.forEach(function(n) {
+        var breathe = 0.12 + Math.sin(t + n.phase) * 0.07;
+        var r = Math.max(0.5, n.r * (1 + breathe*0.3 + n.glow*0.5));
+        var col = n.col === 0 ? CYAN : PURP;
+        var alpha = 0.6 + breathe + n.glow * 0.35;
+
+        if (n.soma) {
+          ctx.shadowColor = n.col===0 ? '#00E5FF' : '#8B5CF6';
+          ctx.shadowBlur = 8 + n.glow * 12;
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, Math.max(0.5, r*1.6), 0, Math.PI*2);
+          ctx.strokeStyle = col + (0.22 + n.glow*0.28) + ')';
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+
+        ctx.shadowColor = n.col===0 ? '#00E5FF' : '#8B5CF6';
+        ctx.shadowBlur = n.soma ? 12 + n.glow*16 : 6 + n.glow*10;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, Math.max(0.5, r), 0, Math.PI*2);
+        ctx.fillStyle = col + Math.min(1, alpha) + ')';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      // Draw pulses
+      pulses = pulses.filter(function(p) { return p.t <= 1; });
+      pulses.forEach(function(p) {
+        p.t += p.spd;
+        var tt = Math.min(p.t, 1);
+        var sx = p.fwd ? p.e.a.x : p.e.b.x, sy = p.fwd ? p.e.a.y : p.e.b.y;
+        var ex = p.fwd ? p.e.b.x : p.e.a.x, ey = p.fwd ? p.e.b.y : p.e.a.y;
+        var px = (1-tt)*(1-tt)*sx + 2*(1-tt)*tt*p.e.cpx + tt*tt*ex;
+        var py = (1-tt)*(1-tt)*sy + 2*(1-tt)*tt*p.e.cpy + tt*tt*ey;
+
+        ctx.shadowColor = '#00E5FF'; ctx.shadowBlur = 16;
+        ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(180,255,255,0.95)'; ctx.fill();
+        ctx.shadowBlur = 0;
+
+        if (p.t >= 0.92) {
+          var tgt = p.fwd ? p.e.b : p.e.a;
+          tgt.glow = 1; p.e.active = 1;
+        }
+      });
+
+      if (frame % 10 === 0 && pulses.length < 40) spawnPulse();
+
+    } catch(err) { /* keep animating */ }
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
 })();
 </script>
-</body>
-</html>
+</body></html>

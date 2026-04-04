@@ -177,8 +177,8 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 /* Split preview layout for pubs and lectures */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
 .split-list{display:flex;flex-direction:column}
-.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:280px;position:sticky;top:62px}
-.prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:220px;opacity:.35;gap:.6rem}
+.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:520px;position:sticky;top:62px;display:flex;flex-direction:column}
+.prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;min-height:200px;opacity:.35;gap:.6rem}
 .prev-empty svg{width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
 .prev-empty p{font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)}
 .prev-title{font-family:var(--sr);font-size:1rem;font-style:italic;color:var(--w);line-height:1.38;margin-bottom:.5rem}
@@ -204,8 +204,8 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 /* Split preview layout for pubs and lectures */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
 .split-list{display:flex;flex-direction:column}
-.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:280px;position:sticky;top:62px}
-.prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:220px;opacity:.35;gap:.6rem}
+.split-preview{background:rgba(0,229,255,.03);border:1px solid var(--bd);border-radius:8px;padding:1.2rem;min-height:520px;position:sticky;top:62px;display:flex;flex-direction:column}
+.prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;min-height:200px;opacity:.35;gap:.6rem}
 .prev-empty svg{width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
 .prev-empty p{font-family:var(--mo);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)}
 .prev-title{font-family:var(--sr);font-size:1rem;font-style:italic;color:var(--w);line-height:1.38;margin-bottom:.5rem}
@@ -719,16 +719,19 @@ gbR();
   function build() {
     nodes = []; edges = []; pulses = [];
     var clusters = [
-      // Right side — heavily populated (visible area)
-      {cx:0.78,cy:0.18,n:18},{cx:0.88,cy:0.35,n:18},{cx:0.95,cy:0.20,n:14},
-      {cx:0.82,cy:0.52,n:18},{cx:0.92,cy:0.65,n:16},{cx:0.75,cy:0.70,n:16},
-      {cx:0.88,cy:0.82,n:14},{cx:0.70,cy:0.88,n:14},{cx:0.95,cy:0.45,n:12},
-      // Top strip — visible above content
-      {cx:0.35,cy:0.06,n:12},{cx:0.55,cy:0.05,n:12},{cx:0.65,cy:0.08,n:10},
-      // Bottom strip
-      {cx:0.30,cy:0.94,n:10},{cx:0.55,cy:0.96,n:10},
-      // Left edge (partially visible)
-      {cx:0.05,cy:0.25,n:10},{cx:0.05,cy:0.60,n:10},{cx:0.05,cy:0.85,n:8}
+      // Top-right — main focus
+      {cx:0.72,cy:0.06,n:20},{cx:0.83,cy:0.12,n:22},{cx:0.93,cy:0.08,n:18},
+      {cx:0.98,cy:0.20,n:16},{cx:0.78,cy:0.22,n:20},{cx:0.90,cy:0.30,n:18},
+      // Right side mid
+      {cx:0.95,cy:0.42,n:16},{cx:0.83,cy:0.50,n:16},{cx:0.93,cy:0.60,n:14},
+      // Right side bottom
+      {cx:0.80,cy:0.72,n:14},{cx:0.92,cy:0.80,n:12},{cx:0.75,cy:0.88,n:12},
+      // Top strip center
+      {cx:0.35,cy:0.05,n:10},{cx:0.52,cy:0.04,n:10},{cx:0.62,cy:0.07,n:10},
+      // Left edge
+      {cx:0.04,cy:0.22,n:8},{cx:0.04,cy:0.55,n:8},{cx:0.04,cy:0.82,n:7},
+      // Bottom
+      {cx:0.35,cy:0.96,n:8},{cx:0.55,cy:0.97,n:8}
     ];
     var spread = Math.min(W,H) * 0.09;
     clusters.forEach(function(cl) {

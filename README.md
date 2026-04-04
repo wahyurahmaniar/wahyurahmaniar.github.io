@@ -30,7 +30,7 @@ A dark-themed, single-page academic portfolio built with pure HTML/CSS/JavaScrip
 ## File Structure
 
 ```
-ahyurahmaniar.github.io/
+wahyurahmaniar.github.io/
 ├── index.html              ← Main shell (CSS, layout, JS logic)
 └── data/
     ├── about.js            ← Personal info, bio, research chips

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Wahyu Rahmaniar — AI · Medical Imaging</title>
+<title>Wahyu Rahmaniar — AI &middot; Medical Imaging</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -184,9 +184,9 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 /* About photo */
 .about-layout{display:grid;grid-template-columns:1fr 150px;gap:1.5rem;align-items:start}
 .about-photo{display:flex;flex-direction:column;align-items:center;gap:.6rem}
-.photo-frame{width:140px;height:175px;border-radius:8px;overflow:hidden;border:1px solid var(--bd);background:rgba(0,229,255,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.photo-frame{width:140px;height:175px;border-radius:8px;overflow:hidden;border:1px solid rgba(0,229,255,.35);background:rgba(0,229,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px rgba(0,229,255,.08)}
 .photo-frame img{width:100%;height:100%;object-fit:cover;border-radius:8px}
-.photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:.3;width:100%;height:100%}
+.photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:.6;width:100%;height:100%;cursor:pointer}
 .photo-placeholder svg{width:38px;height:38px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
 .photo-placeholder p{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--glow)}
 .photo-name{font-family:var(--sr);font-size:.82rem;font-style:italic;color:var(--w);text-align:center;line-height:1.3}
@@ -239,9 +239,9 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 /* About photo */
 .about-layout{display:grid;grid-template-columns:1fr 150px;gap:1.5rem;align-items:start}
 .about-photo{display:flex;flex-direction:column;align-items:center;gap:.6rem}
-.photo-frame{width:140px;height:175px;border-radius:8px;overflow:hidden;border:1px solid var(--bd);background:rgba(0,229,255,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.photo-frame{width:140px;height:175px;border-radius:8px;overflow:hidden;border:1px solid rgba(0,229,255,.35);background:rgba(0,229,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px rgba(0,229,255,.08)}
 .photo-frame img{width:100%;height:100%;object-fit:cover;border-radius:8px}
-.photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:.3;width:100%;height:100%}
+.photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:.6;width:100%;height:100%;cursor:pointer}
 .photo-placeholder svg{width:38px;height:38px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round}
 .photo-placeholder p{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--glow)}
 .photo-name{font-family:var(--sr);font-size:.82rem;font-style:italic;color:var(--w);text-align:center;line-height:1.3}
@@ -293,6 +293,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 <body>
 <canvas id="bgCanvas"></canvas>
 <div id="lb"><button id="lb-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img id="lb-img" src="" alt=""/></div>
+
 <nav>
   <a class="logo" onclick="gomain()"><span class="dot"></span></a>
   <ul class="nl">
@@ -304,176 +305,166 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
     <li><a onclick="gomain();sc('gb')">Guest Book</a></li>
   </ul>
 </nav>
+
 <div id="pg">
 
+<!-- ═══ MAIN VIEW ═══ -->
 <div class="view on" id="vmain">
-<div id="profile-header" style="padding:2rem 1.2rem 0;max-width:1200px;margin:0 auto"></div>
-<div class="g2">
-<div class="cm">
-  <!-- top: about + education -->
-  <div class="tr">
-    <div class="card" id="about">
-      <div class="sh"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
-      <p class="ab">I build <strong>AI systems that see what radiologists see</strong> — segmenting tumors, quantifying disease, and detecting anomalies across MRI, CT, and histopathology.</p>
-      <p class="as">My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.</p>
-      <div class="il">
-        <div class="ir"><span class="ik">Position</span><span class="iv">Associate Professor, Dept. of Computer Science</span></div>
-        <div class="ir"><span class="ik">Lab</span><span class="iv">[Medical AI Lab], [University Name], Tokyo</span></div>
-        <div class="ir"><span class="ik">Research</span><span class="iv">Medical Image Analysis · Deep Learning · Clinical AI</span></div>
-        <div class="ir"><span class="ik">Email</span><span class="iv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6413050c1d1124110a0d120116170d101d4a05074a0e14">[email&#160;protected]</a></span></div>
-        <div class="ir"><span class="ik">Languages</span><span class="iv">English, Japanese, Indonesian</span></div>
-      </div>
-    </div>
-    <div class="card" id="education">
-      <div class="sh"><span class="sn">02</span><h2 class="sl">Education</h2><span class="sli"></span></div>
-      <div class="ec ef ic"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">Ph.D. Computer Science</div><div class="es">University of Tokyo, Japan</div><div class="et">"Deep Learning for Brain MRI Lesion Segmentation" · <span style="color:#6EE7B7">Distinction</span></div><span class="badge">2015–2019</span></div></div>
-      <div class="ec ic"><div><div class="ed">M.Sc. Computer Engineering</div><div class="es">Osaka University, Japan</div><div class="et">CNN-based Retinal Image Classification · GPA 3.9</div></div><div class="ey2">2013–2015</div></div>
-      <div class="ec ic"><div><div class="ed">B.Eng. Information Engineering</div><div class="es">Kyoto University, Japan</div><div class="et">Graduated top of class. Image processing.</div></div><div class="ey2">2009–2013</div></div>
-    </div>
-  </div>
+  <div id="profile-header" style="padding:2rem 1.2rem 0;max-width:1200px;margin:0 auto"></div>
+  <div class="g2">
+    <div class="cm">
 
-  <!-- single col: publications -->
-  <!-- publications -->
-  <div class="card" id="pubs">
-    <div class="sh"><span class="sn">04</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
-    <div class="split">
-      <div class="split-list">
-        <div id="publist"></div>
-        <div class="pag" id="pubpag"></div>
-        <p style="margin-top:.8rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">&#8594; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Scopus</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">ResearchGate</a></p>
-      </div>
-      <div class="split-preview" id="pub-preview">
-        <div class="prev-empty">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          <p>Click a paper to preview</p>
+      <!-- About + Education -->
+      <div class="tr">
+        <div class="card" id="about">
+          <div class="sh"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
+          <div id="about-content"></div>
+        </div>
+        <div class="card" id="education">
+          <div class="sh"><span class="sn">02</span><h2 class="sl">Education</h2><span class="sli"></span></div>
+          <div id="edu-list"></div>
         </div>
       </div>
-    </div>
-  </div>
 
-  
-  <!-- single col: lectures -->
-  <!-- lectures -->
-  <div class="card" id="lec">
-    <div class="sh"><span class="sn">05</span><h2 class="sl">Guest Lectures</h2><span class="sli"></span></div>
-    <div class="split">
-      <div class="split-list">
-        <div id="leclist"></div>
-        <div class="pag" id="lecpag"></div>
-      </div>
-      <div class="split-preview" id="lec-preview">
-        <div class="prev-empty">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <p>Click a lecture to preview</p>
+      <!-- Publications -->
+      <div class="card" id="pubs">
+        <div class="sh"><span class="sn">04</span><h2 class="sl">Publications</h2><span class="sli"></span></div>
+        <div class="split">
+          <div class="split-list">
+            <div id="publist"></div>
+            <div class="pag" id="pubpag"></div>
+            <p style="margin-top:.8rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">&#8594; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Scopus</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">ResearchGate</a></p>
+          </div>
+          <div class="split-preview" id="pub-preview">
+            <div class="prev-empty">
+              <svg viewBox="0 0 24 24" style="width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)">Click a paper to preview</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  
-</div>
-
-<!-- bottom double column -->
-<div class="btm-row">
-  <div class="btm-left">
-    <!-- news -->
-  <div class="card" id="news">
-    <div class="sh"><span class="sn">03</span><h2 class="sl">News</h2><span class="sli"></span></div>
-    <div id="nprev"></div>
-    <div class="pag" id="npag"></div>
-    <div style="margin-top:.9rem;text-align:right"><span onclick="gonews()" style="font-family:var(--mo);font-size:.58rem;color:var(--glow);cursor:pointer;letter-spacing:.06em">View All News &#8594;</span></div>
-  </div>
-
-  
-    <!-- figures -->
-  <div class="card" id="fig">
-    <div class="sh"><span class="sn">06</span><h2 class="sl">Topics</h2><span class="sli"></span></div>
-    <div class="ff" id="fig-filters"></div>
-    <div class="fg" id="fig-grid"></div>
-  </div>
-
-  
-    <!-- contact -->
-  <div class="card" id="contact">
-    <div class="sh"><span class="sn">07</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
-    <h2 class="ch2">Open to collaboration<br><em>and clinical partnership.</em></h2>
-    <p class="cs">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
-    <div class="cb2">
-      <a href="/cdn-cgi/l/email-protection#7205131a0b0732071c1b041700011b060b5c13115c1802" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
-      <a href="https://github.com/ahyurahmaniar" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
-      <a href="https://scholar.google.com" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>Scholar</a>
-      <a href="/cv.pdf" class="cb3"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV</a>
-    </div>
-  </div>
-
-  </div>
-  <div class="btm-right">
-    <div class="cr">
-  <div class="card" id="quiz">
-    <div class="sh"><span class="sn">A</span><h2 class="sl">Quiz</h2><span class="sli"></span></div>
-    <p style="font-size:.72rem;color:var(--dim);margin-bottom:.9rem;font-family:var(--mo)">8 questions · Think carefully</p>
-    <div class="qbox">
-      <div id="q-start" style="text-align:center;padding:.9rem 0">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">&#129504;</div>
-        <h3 style="font-family:var(--sr);font-size:1.05rem;font-style:italic;margin-bottom:.35rem">AI &amp; Medical Imaging Quiz</h3>
-        <p style="font-size:.7rem;color:var(--dim);margin-bottom:1.2rem">Test your knowledge</p>
-        <button class="qbtn" id="q-s">Start Quiz &#8594;</button>
-      </div>
-      <div id="q-play" style="display:none">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem;gap:.65rem">
-          <span id="q-c" style="font-family:var(--mo);font-size:.54rem;color:var(--d2);white-space:nowrap"></span>
-          <div style="flex:1;height:3px;background:rgba(0,229,255,.1);border-radius:2px"><div id="q-b" style="height:100%;background:var(--glow);border-radius:2px;transition:width .4s;width:0%"></div></div>
-          <span id="q-sc" style="font-family:var(--mo);font-size:.54rem;color:var(--glow);white-space:nowrap"></span>
+      <!-- Lectures -->
+      <div class="card" id="lec">
+        <div class="sh"><span class="sn">05</span><h2 class="sl">Guest Lectures</h2><span class="sli"></span></div>
+        <div class="split">
+          <div class="split-list">
+            <div id="leclist"></div>
+            <div class="pag" id="lecpag"></div>
+          </div>
+          <div class="split-preview" id="lec-preview">
+            <div class="prev-empty">
+              <svg viewBox="0 0 24 24" style="width:32px;height:32px;stroke:var(--glow);fill:none;stroke-width:1.2;stroke-linecap:round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <p style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--glow)">Click a lecture to preview</p>
+            </div>
+          </div>
         </div>
-        <div id="q-q" style="font-family:var(--sr);font-size:.9rem;font-style:italic;line-height:1.45;margin-bottom:.9rem;color:var(--w)"></div>
-        <div id="q-op"></div><div id="q-fb"></div>
-        <div style="text-align:right;margin-top:.65rem"><button class="qnxt" id="q-n" style="display:none">Next &#8594;</button></div>
       </div>
-      <div id="q-end" style="display:none;text-align:center;padding:.9rem 0">
-        <div id="q-em" style="font-size:1.9rem;margin-bottom:.5rem"></div>
-        <h3 id="q-ti" style="font-family:var(--sr);font-size:1.05rem;font-style:italic;margin-bottom:.3rem"></h3>
-        <p id="q-sk" style="font-family:var(--mo);font-size:.85rem;color:var(--glow);margin-bottom:.35rem"></p>
-        <p id="q-mg" style="font-size:.7rem;color:var(--dim);margin-bottom:1.2rem"></p>
-        <button class="qbtn" id="q-r">Try Again &#8635;</button>
-      </div>
-    </div>
-  </div>
-  <div class="card" id="visitors">
-    <div class="sh"><span class="sn">B</span><h2 class="sl">Visitors</h2><span class="sli"></span></div>
-    <div class="vg">
-      <div class="vc"><div class="vv" id="v-total">—</div><div class="vl">Total</div></div>
-      <div class="vc"><div class="vv" id="v-today">—</div><div class="vl">Today</div></div>
-      <div class="vc"><div class="vv" id="v-ctry">10</div><div class="vl">Countries</div></div>
-    </div>
-    <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Visitors from</p>
-    <div class="cl" id="v-country-list"><span class="ct">&#127758; Loading...</span></div>
-  </div>
-  <div class="card" id="gb" style="flex:1;display:flex;flex-direction:column">
-    <div class="sh"><span class="sn">C</span><h2 class="sl">Guest Book</h2><span class="sli"></span></div>
-    <p style="font-size:.72rem;color:var(--dim);margin-bottom:1rem;line-height:1.65">Leave a message or say hello &#128075;</p>
-    <div class="gbf">
-      <input class="gbi" id="gb-nm" type="text" placeholder="Your name *" maxlength="60"/>
-      <input class="gbi" id="gb-or" type="text" placeholder="Affiliation" maxlength="80"/>
-      <textarea class="gbi" id="gb-ms" placeholder="Your message *" maxlength="400"></textarea>
-      <button class="gbs" id="gb-bt">Leave a Message &#8629;</button>
-      <div id="gb-st" style="font-family:var(--mo);font-size:.6rem;min-height:.8rem"></div>
-    </div>
-    <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Messages</p>
-    <div class="gbe" id="gb-en"></div>
-  </div>
-</div><!-- cr -->
-  </div>
-</div>
 
-</div><!-- g2 -->
+      <!-- bottom double-col: News+Topics+Contact | Quiz+Visitors+Guestbook -->
+      <div class="btm-row">
+        <div class="btm-left">
+
+          <!-- News -->
+          <div class="card" id="news">
+            <div class="sh"><span class="sn">03</span><h2 class="sl">News</h2><span class="sli"></span></div>
+            <div id="nprev"></div>
+            <div class="pag" id="npag"></div>
+            <div style="margin-top:.9rem;text-align:right">
+              <span onclick="gonews()" style="font-family:var(--mo);font-size:.58rem;color:var(--glow);cursor:pointer;letter-spacing:.06em">View All News &#8594;</span>
+            </div>
+          </div>
+
+          <!-- Topics -->
+          <div class="card" id="fig">
+            <div class="sh"><span class="sn">06</span><h2 class="sl">Topics</h2><span class="sli"></span></div>
+            <div class="ff" id="fig-filters"></div>
+            <div class="fg" id="fig-grid"></div>
+          </div>
+
+          <!-- Contact -->
+          <div class="card" id="contact">
+            <div class="sh"><span class="sn">07</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
+            <h2 class="ch2">Open to collaboration<br><em>and clinical partnership.</em></h2>
+            <p class="cs">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
+            <div class="cb2" id="contact-links"></div>
+          </div>
+
+        </div><!-- btm-left -->
+
+        <div class="btm-right">
+
+          <!-- Quiz -->
+          <div class="card" id="quiz">
+            <div class="sh"><span class="sn">A</span><h2 class="sl">Quiz</h2><span class="sli"></span></div>
+            <p style="font-size:.72rem;color:var(--dim);margin-bottom:.9rem;font-family:var(--mo)">8 questions &middot; Think carefully</p>
+            <div class="qbox">
+              <div id="q-start" style="text-align:center;padding:.9rem 0">
+                <div style="font-size:1.8rem;margin-bottom:.5rem">&#129504;</div>
+                <h3 style="font-family:var(--sr);font-size:1.05rem;font-style:italic;margin-bottom:.35rem">AI &amp; Medical Imaging Quiz</h3>
+                <p style="font-size:.7rem;color:var(--dim);margin-bottom:1.2rem">Test your knowledge</p>
+                <button class="qbtn" id="q-s">Start Quiz &#8594;</button>
+              </div>
+              <div id="q-play" style="display:none">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem;gap:.65rem">
+                  <span id="q-c" style="font-family:var(--mo);font-size:.54rem;color:var(--d2);white-space:nowrap"></span>
+                  <div style="flex:1;height:3px;background:rgba(0,229,255,.1);border-radius:2px"><div id="q-b" style="height:100%;background:var(--glow);border-radius:2px;transition:width .4s;width:0%"></div></div>
+                  <span id="q-sc" style="font-family:var(--mo);font-size:.54rem;color:var(--glow);white-space:nowrap"></span>
+                </div>
+                <div id="q-q" style="font-family:var(--sr);font-size:.9rem;font-style:italic;line-height:1.45;margin-bottom:.9rem;color:var(--w)"></div>
+                <div id="q-op"></div><div id="q-fb"></div>
+                <div style="text-align:right;margin-top:.65rem"><button class="qnxt" id="q-n" style="display:none">Next &#8594;</button></div>
+              </div>
+              <div id="q-end" style="display:none;text-align:center;padding:.9rem 0">
+                <div id="q-em" style="font-size:1.9rem;margin-bottom:.5rem"></div>
+                <h3 id="q-ti" style="font-family:var(--sr);font-size:1.05rem;font-style:italic;margin-bottom:.3rem"></h3>
+                <p id="q-sk" style="font-family:var(--mo);font-size:.85rem;color:var(--glow);margin-bottom:.35rem"></p>
+                <p id="q-mg" style="font-size:.7rem;color:var(--dim);margin-bottom:1.2rem"></p>
+                <button class="qbtn" id="q-r">Try Again &#8635;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visitors -->
+          <div class="card" id="visitors">
+            <div class="sh"><span class="sn">B</span><h2 class="sl">Visitors</h2><span class="sli"></span></div>
+            <div class="vg">
+              <div class="vc"><div class="vv" id="v-total">&#8212;</div><div class="vl">Total</div></div>
+              <div class="vc"><div class="vv" id="v-today">&#8212;</div><div class="vl">Today</div></div>
+              <div class="vc"><div class="vv" id="v-ctry">&#8212;</div><div class="vl">Countries</div></div>
+            </div>
+            <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Visitors from</p>
+            <div class="cl" id="v-country-list"><span class="ct">&#127758; Detecting...</span></div>
+          </div>
+
+          <!-- Guest Book -->
+          <div class="card" id="gb" style="flex:1;display:flex;flex-direction:column">
+            <div class="sh"><span class="sn">C</span><h2 class="sl">Guest Book</h2><span class="sli"></span></div>
+            <p style="font-size:.72rem;color:var(--dim);margin-bottom:1rem;line-height:1.65">Leave a message or say hello &#128075;</p>
+            <div class="gbf">
+              <input class="gbi" id="gb-nm" type="text" placeholder="Your name *" maxlength="60"/>
+              <input class="gbi" id="gb-or" type="text" placeholder="Affiliation" maxlength="80"/>
+              <textarea class="gbi" id="gb-ms" placeholder="Your message *" maxlength="400"></textarea>
+              <button class="gbs" id="gb-bt">Leave a Message &#8629;</button>
+              <div id="gb-st" style="font-family:var(--mo);font-size:.6rem;min-height:.8rem"></div>
+            </div>
+            <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Messages</p>
+            <div class="gbe" id="gb-en"></div>
+          </div>
+
+        </div><!-- btm-right -->
+      </div><!-- btm-row -->
+
+    </div><!-- cm -->
+  </div><!-- g2 -->
 </div><!-- vmain -->
 
-<!-- news full page -->
+<!-- ═══ NEWS FULL PAGE ═══ -->
 <div class="view" id="vnews">
-  <div id="news-page">
-    <div class="nphead">
-      <button class="back" onclick="gomain()">&#8592; Back</button>
-      <h1 class="nptitle">News</h1>
+  <div style="max-width:800px;margin:0 auto;padding:2rem 1.5rem 4rem">
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--bd)">
+      <button onclick="gomain()" style="font-family:var(--mo);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid var(--bd);padding:.4rem .85rem;border-radius:4px;cursor:pointer;background:rgba(0,229,255,.04);transition:all .2s">&#8592; Back</button>
+      <h1 style="font-family:var(--sr);font-size:1.8rem;font-style:italic;color:var(--w)">News &amp; Topics</h1>
     </div>
     <div id="nall"></div>
     <div class="pag" id="nallpag" style="margin-top:1.4rem"></div>
@@ -481,18 +472,18 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 </div>
 
 </div><!-- pg -->
-<footer><span>&#169; 2026 Wahyu Rahmaniar</span><span>AI &#183; Medical Imaging &#183; ahyurahmaniar.github.io</span></footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="data/about.js"></script>
+<footer><span>&#169; 2026 Wahyu Rahmaniar</span><span>AI &middot; Medical Imaging &middot; ahyurahmaniar.github.io</span></footer>
+
+<!-- DATA FILES (edit in data/*.js) -->
+<script src="data/about.js"></script>
 <script src="data/education.js"></script>
-<script src="data/figures.js"></script>
 <script src="data/news.js"></script>
 <script src="data/publications.js"></script>
 <script src="data/lectures.js"></script>
+<script src="data/figures.js"></script>
 <script src="data/quiz.js"></script>
 <script>
-// Data loaded from external files (see data/ folder)
-// Edit data/about.js, data/publications.js, data/news.js, data/lectures.js, data/quiz.js
-// VIEW SWITCHING
+// ── VIEW SWITCHING ──────────────────────────────────────────────────────
 function gomain(){
   document.getElementById('vmain').className='view on';
   document.getElementById('vnews').className='view';
@@ -503,656 +494,342 @@ function gonews(){
   document.getElementById('vmain').className='view';
   document.getElementById('vnews').className='view on';
   document.getElementById('nav-home').className='';
-  rna(0);
-  window.scrollTo(0,0);
+  rna(0); window.scrollTo(0,0);
 }
 function sc(id){setTimeout(function(){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},60);}
 
-// PAGINATION
-var npg=0,ppg=0,lpg=0,napg=0;
+// ── HELPERS ─────────────────────────────────────────────────────────────
+function el(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
+// ── PAGINATION ──────────────────────────────────────────────────────────
 function pag(cid,total,per,cur,fn){
-  var el=document.getElementById(cid);
-  if(!el)return;
+  var c=el(cid); if(!c)return;
   var pages=Math.ceil(total/per);
-  if(pages<=1){el.innerHTML='';return;}
+  if(pages<=1){c.innerHTML='';return;}
   var h='';
-  for(var i=0;i<pages;i++){
-    h+='<button class="pb'+(i===cur?' on':'')+'" data-pg="'+i+'" data-fn="'+fn+'">'+( i+1)+'</button>';
-  }
+  for(var i=0;i<pages;i++) h+='<button class="pb'+(i===cur?' on':'')+'" data-pg="'+i+'" data-fn="'+fn+'">'+(i+1)+'</button>';
   h+='<span class="pi2">Page '+(cur+1)+' of '+pages+'</span>';
-  el.innerHTML=h;
-  el.querySelectorAll('.pb').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var fn=this.dataset.fn, pg=parseInt(this.dataset.pg);
-      if(fn==='rnp')rnp(pg);
-      else if(fn==='rpu')rpu(pg);
-      else if(fn==='rle')rle(pg);
-      else if(fn==='rna')rna(pg);
+  c.innerHTML=h;
+  c.querySelectorAll('.pb').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=this.dataset.fn, p=parseInt(this.dataset.pg);
+      if(f==='rnp')rnp(p); else if(f==='rpu')rpu(p); else if(f==='rle')rle(p); else if(f==='rna')rna(p);
     });
   });
 }
 
+// ── NEWS ────────────────────────────────────────────────────────────────
 function ni(n){return '<div class="ni"><span class="nb '+n.b+'">'+n.l+'</span><div><div class="nt">'+n.t+'</div><div class="nm">'+n.d+'</div></div></div>';}
+var npg=0;
+function rnp(pg){npg=pg;var s=pg*5,items=NA.slice(s,s+5);el('nprev').innerHTML=items.map(ni).join('');pag('npag',NA.length,5,pg,'rnp');}
+var napg=0;
+function rna(pg){napg=pg;var s=pg*5,items=NA.slice(s,s+5);el('nall').innerHTML=items.map(ni).join('');pag('nallpag',NA.length,5,pg,'rna');}
 
-function rnp(pg){
-  npg=pg;var per=5,s=pg*per,items=NA.slice(s,s+per);
-  document.getElementById('nprev').innerHTML=items.map(ni).join('');
-  pag('npag',NA.length,per,pg,'rnp');
-}
-var selPub=-1, pubTabIdx=0;
-var PUB_TABS=['Overview','Abstract','Figure','Links'];
-
+// ── PUBLICATIONS ────────────────────────────────────────────────────────
+var PUB_TABS=['Overview','Abstract','Figure','Links'], pubTabIdx=0;
 function showPubTab(ti){
   pubTabIdx=ti;
   document.querySelectorAll('.prev-tab').forEach(function(t,i){t.classList.toggle('on',i===ti);});
   document.querySelectorAll('.prev-panel').forEach(function(p,i){p.classList.toggle('on',i===ti);});
-  var arr=document.getElementById('pub-prev-btn');
-  var anxt=document.getElementById('pub-next-btn');
-  if(arr){arr.disabled=(ti===0);}
-  if(anxt){anxt.disabled=(ti===PUB_TABS.length-1);}
+  var pb=el('pub-prev-btn'), nb=el('pub-next-btn');
+  if(pb) pb.disabled=(ti===0);
+  if(nb) nb.disabled=(ti===PUB_TABS.length-1);
 }
-
 function showPubPreview(idx){
-  selPub=idx; pubTabIdx=0;
-  var p=PU[idx];
+  var p=PU[idx]; pubTabIdx=0;
   var ls=p.ls.map(function(l){return '<a href="#" class="prev-chip">'+l+'</a>';}).join('');
-  var tabs=PUB_TABS.map(function(t,i){
-    return '<button class="prev-tab'+(i===0?' on':'')+'" onclick="showPubTab('+i+')">'+t+'</button>';
-  }).join('');
-  var figContent = p.img
-    ? '<img src="'+p.img+'" style="width:100%;object-fit:contain;border-radius:5px;max-height:160px"/>'
-    : '<div style="height:160px;display:flex;align-items:center;justify-content:center">'+p.fig+'</div>';
-
-  document.getElementById('pub-preview').innerHTML=
-    '<div class="prev-tabs">'+
-      tabs+
-      '<div class="prev-tab-nav">'+
-        '<button class="prev-arr" id="pub-prev-btn" disabled onclick="showPubTab(pubTabIdx-1)">&#8592;</button>'+
-        '<button class="prev-arr" id="pub-next-btn" onclick="showPubTab(pubTabIdx+1)">&#8594;</button>'+
-      '</div>'+
-    '</div>'+
-    // Panel 0: Overview
-    '<div class="prev-panel on">'+
-      '<div class="prev-title">'+p.t+'</div>'+
-      '<div class="prev-kv">'+
-        '<span class="prev-k">Authors</span><span class="prev-v">'+p.a+'</span>'+
-        '<span class="prev-k">Venue</span><span class="prev-v">'+p.v+'</span>'+
-      '</div>'+
-      '<div class="prev-links-row">'+ls+'</div>'+
-    '</div>'+
-    // Panel 1: Abstract
-    '<div class="prev-panel">'+
-      '<div class="prev-tag" style="margin-bottom:.6rem">Abstract</div>'+
-      '<div class="prev-abstract">'+p.ab+'</div>'+
-    '</div>'+
-    // Panel 2: Figure
-    '<div class="prev-panel">'+
-      '<div class="prev-tag" style="margin-bottom:.6rem">Key Figure</div>'+
-      '<div class="prev-fig" style="padding:.5rem;background:rgba(0,229,255,.02);border:1px solid var(--bd);border-radius:6px;margin-bottom:.6rem">'+figContent+'</div>'+
-      '<div style="font-size:.72rem;color:var(--dim);font-style:italic">'+p.t+'</div>'+
-    '</div>'+
-    // Panel 3: Links
-    '<div class="prev-panel">'+
-      '<div class="prev-tag" style="margin-bottom:.6rem">Access &amp; Links</div>'+
-      '<div style="display:flex;flex-direction:column;gap:.5rem">'+
-        p.ls.map(function(l){
-          return '<a href="#" class="prev-chip" style="display:block;text-align:center;padding:.5rem">'+l+'</a>';
-        }).join('')+
-      '</div>'+
-    '</div>';
-
-  document.querySelectorAll('.pi').forEach(function(el){el.classList.remove('sel');});
-  var items=document.querySelectorAll('.pi');
-  if(items[idx%3])items[idx%3].classList.add('sel');
+  var tabs=PUB_TABS.map(function(t,i){return '<button class="prev-tab'+(i===0?' on':'')+'" onclick="showPubTab('+i+')">'+t+'</button>';}).join('');
+  var fig=(p.img)?'<img src="'+p.img+'" style="width:100%;max-height:150px;object-fit:contain"/>':'<div style="display:flex;align-items:center;justify-content:center;height:150px">'+p.fig+'</div>';
+  el('pub-preview').innerHTML=
+    '<div class="prev-tabs">'+tabs+'<div class="prev-tab-nav"><button class="prev-arr" id="pub-prev-btn" disabled onclick="showPubTab(pubTabIdx-1)">&#8592;</button><button class="prev-arr" id="pub-next-btn" onclick="showPubTab(pubTabIdx+1)">&#8594;</button></div></div>'+
+    '<div class="prev-panel on"><div class="prev-title">'+p.t+'</div><div class="prev-kv"><span class="prev-k">Authors</span><span class="prev-v">'+p.a+'</span><span class="prev-k">Venue</span><span class="prev-v">'+p.v+'</span></div><div class="prev-links-row">'+ls+'</div></div>'+
+    '<div class="prev-panel"><div class="prev-tag" style="margin-bottom:.6rem">Abstract</div><div class="prev-abstract">'+(p.ab||'No abstract provided.')+'</div></div>'+
+    '<div class="prev-panel"><div class="prev-tag" style="margin-bottom:.6rem">Key Figure</div><div class="prev-fig" style="padding:.5rem;background:rgba(0,229,255,.02);border:1px solid var(--bd);border-radius:6px">'+fig+'</div></div>'+
+    '<div class="prev-panel"><div class="prev-tag" style="margin-bottom:.6rem">Access &amp; Links</div>'+p.ls.map(function(l){return '<a href="#" class="prev-chip" style="display:block;text-align:center;padding:.55rem;margin-bottom:.4rem">'+l+'</a>';}).join('')+'</div>';
+  document.querySelectorAll('.pi').forEach(function(e){e.classList.remove('sel');});
+  var items=document.querySelectorAll('.pi'); if(items[idx%3])items[idx%3].classList.add('sel');
 }
+var ppg=0;
 function rpu(pg){
-  ppg=pg;var per=3,s=pg*per,items=PU.slice(s,s+per),h='';
+  ppg=pg;var s=pg*3,items=PU.slice(s,s+3),h='';
   items.forEach(function(p,i){
     var ls=p.ls.map(function(l){return '<a href="#" class="pl2">'+l+'</a>';}).join('');
-    var gi=s+i;
-    h+='<div class="pi" style="cursor:pointer" onclick="showPubPreview('+gi+')"><p class="pt">'+p.t+'</p><p class="pa">'+p.a+'</p><p class="pv">'+p.v+'</p><div class="pls">'+ls+'</div></div>';
+    h+='<div class="pi" style="cursor:pointer" onclick="showPubPreview('+(s+i)+')"><p class="pt">'+p.t+'</p><p class="pa">'+p.a+'</p><p class="pv">'+p.v+'</p><div class="pls">'+ls+'</div></div>';
   });
-  document.getElementById('publist').innerHTML=h;
-  pag('pubpag',PU.length,per,pg,'rpu');
+  el('publist').innerHTML=h; pag('pubpag',PU.length,3,pg,'rpu');
 }
-var selLec=-1;
+
+// ── LECTURES ────────────────────────────────────────────────────────────
 function showLecPreview(idx){
-  selLec=idx;
   var l=LE[idx];
   var lnks=l.links.map(function(lk){return '<a href="#" class="prev-chip">'+lk+'</a>';}).join('');
   var tgs=l.tags.map(function(tg){return '<span style="font-family:var(--mo);font-size:.52rem;padding:.12rem .42rem;border-radius:3px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)">'+tg+'</span>';}).join('');
-  document.getElementById('lec-preview').innerHTML=
+  el('lec-preview').innerHTML=
     '<div class="prev-tag">'+l.tl+' &middot; '+l.v+' &middot; '+l.y+'</div>'+
     '<div class="prev-title">'+l.t+'</div>'+
     '<div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem">'+tgs+'</div>'+
-    '<div class="prev-desc">'+l.desc+'</div>'+
+    '<div class="prev-desc">'+(l.desc||'')+'</div>'+
     '<div class="prev-links-row">'+lnks+'</div>';
 }
+var lpg=0;
 function rle(pg){
-  lpg=pg;var per=3,s=pg*per,items=LE.slice(s,s+per),h='';
+  lpg=pg;var s=pg*3,items=LE.slice(s,s+3),h='';
   items.forEach(function(l,i){
-    var gi=s+i;
-    h+='<div class="lci" style="cursor:pointer" onclick="showLecPreview('+gi+')"><div class="lt">'+l.t+'</div><div class="lv"><strong>'+l.v+'</strong></div><div class="lf"><span class="ly">'+l.y+'</span><span class="lty '+l.ty+'">'+l.tl+'</span></div></div>';
+    h+='<div class="lci" style="cursor:pointer" onclick="showLecPreview('+(s+i)+')"><div class="lt">'+l.t+'</div><div class="lv"><strong>'+l.v+'</strong></div><div class="lf"><span class="ly">'+l.y+'</span><span class="lty '+l.ty+'">'+l.tl+'</span></div></div>';
   });
-  document.getElementById('leclist').innerHTML=h;
-  pag('lecpag',LE.length,per,pg,'rle');
-}
-function rna(pg){
-  napg=pg;var per=5,s=pg*per,items=NA.slice(s,s+per);
-  document.getElementById('nall').innerHTML=items.map(ni).join('');
-  pag('nallpag',NA.length,per,pg,'rna');
+  el('leclist').innerHTML=h; pag('lecpag',LE.length,3,pg,'rle');
 }
 
-rnp(0);rpu(0);rle(0);
-
-// ── RENDER FROM DATA FILES ─────────────────────────────
-function initProfile() {
-  var P = PROFILE;
-
-  // Header
-  var chipHtml = P.chips.map(function(ch){
-    var bg = ch.cls==='cc'?'rgba(0,229,255,.07)':ch.cls==='cp'?'rgba(139,92,246,.07)':'rgba(16,185,129,.07)';
-    var bd = ch.cls==='cc'?'rgba(0,229,255,.2)':ch.cls==='cp'?'rgba(139,92,246,.22)':'rgba(16,185,129,.2)';
-    var col = ch.cls==='cc'?'var(--glow)':ch.cls==='cp'?'#A78BFA':'#6EE7B7';
+// ── RENDER FROM DATA FILES ──────────────────────────────────────────────
+function initProfile(){
+  var P=PROFILE;
+  var chipHtml=P.chips.map(function(ch){
+    var bg=ch.cls==='cc'?'rgba(0,229,255,.07)':ch.cls==='cp'?'rgba(139,92,246,.07)':'rgba(16,185,129,.07)';
+    var bd=ch.cls==='cc'?'rgba(0,229,255,.2)':ch.cls==='cp'?'rgba(139,92,246,.22)':'rgba(16,185,129,.2)';
+    var col=ch.cls==='cc'?'var(--glow)':ch.cls==='cp'?'#A78BFA':'#6EE7B7';
     return '<span style="font-size:.6rem;padding:.2rem .58rem;border-radius:3px;font-family:var(--mo);background:'+bg+';border:1px solid '+bd+';color:'+col+'">'+ch.t+'</span>';
   }).join('');
-  document.getElementById('profile-header').innerHTML =
+  el('profile-header').innerHTML=
     '<h1 style="font-family:var(--sr);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:400;line-height:.95;letter-spacing:-.03em;color:var(--w);margin-bottom:.4rem">'+P.name+'</h1>'+
     '<p style="font-family:var(--mo);font-size:.65rem;letter-spacing:.08em;color:var(--d2);margin-bottom:1.2rem">'+P.role+' &middot; '+P.uni+' &middot; '+P.location+'</p>'+
     '<div style="display:flex;flex-wrap:wrap;gap:.32rem;margin-bottom:1.4rem">'+chipHtml+'</div>';
-
-  // About
-  var infoHtml = P.info.map(function(r){
-    return '<div class="ir"><span class="ik">'+r.k+'</span><span class="iv">'+r.v+'</span></div>';
-  }).join('');
-  var photoHtml = P.photo
-    ? '<img src="'+P.photo+'" alt="'+P.name+'"/>'
-    : '<div class="photo-placeholder"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><p>Add photo</p></div>';
-  document.getElementById('about-content').innerHTML =
+  var photoHtml=P.photo
+    ?'<img src="'+P.photo+'" alt="'+P.name+'" style="width:100%;height:100%;object-fit:cover"/>'
+    :'<div class="photo-placeholder"><svg viewBox="0 0 24 24" style="width:42px;height:42px;stroke:var(--glow);fill:none;stroke-width:1.3;stroke-linecap:round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><p style="font-family:var(--mo);font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--glow);text-align:center">Your Photo<br/>See about.js</p></div>';
+  var infoHtml=P.info.map(function(r){return '<div class="ir"><span class="ik">'+r.k+'</span><span class="iv">'+r.v+'</span></div>';}).join('');
+  el('about-content').innerHTML=
     '<div class="about-layout">'+
-      '<div>'+
-        '<p class="ab">'+P.about_text+'</p>'+
-        '<p class="as">'+P.about_sub+'</p>'+
-        '<div class="il">'+infoHtml+'</div>'+
-      '</div>'+
-      '<div class="about-photo">'+
-        '<div class="photo-frame">'+photoHtml+'</div>'+
-        '<div class="photo-name">'+P.name+'</div>'+
-        '<div class="photo-role">'+P.role+'</div>'+
-      '</div>'+
+      '<div><p class="ab">'+P.about_text+'</p><p class="as">'+P.about_sub+'</p><div class="il">'+infoHtml+'</div></div>'+
+      '<div class="about-photo"><div class="photo-frame">'+photoHtml+'</div><div class="photo-name">'+P.name+'</div><div class="photo-role">'+P.role+'</div></div>'+
     '</div>';
-
-  // Contact links
-  document.getElementById('contact-links').innerHTML =
+  el('contact-links').innerHTML=
     '<a href="mailto:'+P.email+'" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>'+
     '<a href="'+P.github+'" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>'+
     '<a href="'+P.scholar+'" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>Scholar</a>'+
     '<a href="'+P.cv+'" class="cb3"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV</a>';
 }
-initProfile();
 
-function initEdu() {
-  var h = '';
-  EDU.forEach(function(e) {
-    if (e.featured) {
-      h += '<div class="ec ef ic"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div>' +
-           '<div class="ed">'+e.deg+'</div><div class="es">'+e.school+'</div>' +
-           '<div class="et">'+e.desc+'</div><span class="badge">'+e.year+'</span></div></div>';
+function initEdu(){
+  var h='';
+  EDU.forEach(function(e){
+    if(e.featured){
+      h+='<div class="ec ef ic"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">'+e.deg+'</div><div class="es">'+e.school+'</div><div class="et">'+e.desc+'</div><span class="badge">'+e.year+'</span></div></div>';
     } else {
-      h += '<div class="ec ic"><div><div class="ed">'+e.deg+'</div><div class="es">'+e.school+'</div>' +
-           '<div class="et">'+e.desc+'</div></div><div class="ey2">'+e.year+'</div></div>';
+      h+='<div class="ec ic"><div><div class="ed">'+e.deg+'</div><div class="es">'+e.school+'</div><div class="et">'+e.desc+'</div></div><div class="ey2">'+e.year+'</div></div>';
     }
   });
-  document.getElementById('edu-list').innerHTML = h;
+  el('edu-list').innerHTML=h;
 }
-initEdu();
 
-function initFigures() {
-  var cats = ['all'];
-  FIGURES.forEach(function(f){ if (cats.indexOf(f.cat)===-1) cats.push(f.cat); });
-  var catLabels = {all:'All',method:'Method',result:'Results',diagram:'Diagram'};
-  var fh = cats.map(function(cat,i){
-    return '<button class="ft'+(i===0?' on':'')+'" data-f="'+cat+'">'+(catLabels[cat]||cat)+'</button>';
-  }).join('');
-  document.getElementById('fig-filters').innerHTML = fh;
-
-  function renderFigs(filter) {
-    var gh = '';
-    FIGURES.forEach(function(f) {
-      if (filter !== 'all' && f.cat !== filter) return;
-      var inner = f.img
-        ? '<img src="'+f.img+'" style="width:100%;height:100%;object-fit:contain;padding:.8rem"/>'
-        : '<div class="ph">'+f.svg+'</div>';
-      gh += '<div class="fc ic'+(f.wide?' w':'')+'" data-cat="'+f.cat+'">' +
-            '<div class="fi" data-title="'+f.title+'" data-src="'+(f.img||'')+'">'+inner+
-            '<div class="fz">zoom</div></div>' +
-            '<div class="fm"><div class="ftg">'+f.tag+'</div><div class="fti">'+f.title+'</div>' +
-            '<div class="fd">'+f.desc+'</div><div class="fp">'+f.pub+'</div></div></div>';
+function initFigures(){
+  var cats=['all'];
+  FIGURES.forEach(function(f){if(cats.indexOf(f.cat)===-1)cats.push(f.cat);});
+  var catLabels={all:'All',method:'Method',result:'Results',diagram:'Diagram',concept:'Concept',tutorial:'Tutorial'};
+  el('fig-filters').innerHTML=cats.map(function(cat,i){return '<button class="ft'+(i===0?' on':'')+'" data-f="'+cat+'">'+(catLabels[cat]||cat)+'</button>';}).join('');
+  function renderFigs(filter){
+    var h='';
+    FIGURES.forEach(function(f){
+      if(filter!=='all'&&f.cat!==filter)return;
+      var inner=f.img?'<img src="'+f.img+'" style="width:100%;height:100%;object-fit:contain;padding:.8rem"/>':'<div class="ph">'+f.svg+'</div>';
+      h+='<div class="fc ic'+(f.wide?' w':'')+'" data-cat="'+f.cat+'"><div class="fi" data-title="'+f.title+'" data-src="'+(f.img||'')+'">'+inner+'<div class="fz">zoom</div></div><div class="fm"><div class="ftg">'+f.tag+'</div><div class="fti">'+f.title+'</div><div class="fd">'+f.desc+'</div><div class="fp">'+f.pub+'</div></div></div>';
     });
-    document.getElementById('fig-grid').innerHTML = gh;
-    // Re-attach lightbox listeners
-    document.querySelectorAll('.fi').forEach(function(el){
-      el.addEventListener('click',function(){
-        document.getElementById('lb-img').src=el.dataset.src||'';
-        document.getElementById('lb-img').alt=el.dataset.title||'';
-        document.getElementById('lb').classList.add('open');
-      });
+    el('fig-grid').innerHTML=h;
+    el('fig-grid').querySelectorAll('.fi').forEach(function(fi){
+      fi.addEventListener('click',function(){el('lb-img').src=fi.dataset.src||'';el('lb-img').alt=fi.dataset.title||'';el('lb').classList.add('open');});
     });
   }
   renderFigs('all');
-
-  document.getElementById('fig-filters').addEventListener('click', function(e){
-    if (!e.target.classList.contains('ft')) return;
+  el('fig-filters').addEventListener('click',function(e){
+    if(!e.target.classList.contains('ft'))return;
     document.querySelectorAll('.ft').forEach(function(b){b.classList.remove('on');});
-    e.target.classList.add('on');
-    renderFigs(e.target.dataset.f);
+    e.target.classList.add('on'); renderFigs(e.target.dataset.f);
   });
 }
-initFigures();
 
-
-
-// Figure filter handled by initFigures()
-
-// Lightbox listeners reattached in initFigures()
-var lb=document.getElementById('lb');
-document.getElementById('lb-x').addEventListener('click',function(){lb.classList.remove('open');});
+// ── LIGHTBOX ────────────────────────────────────────────────────────────
+var lb=el('lb');
+el('lb-x').addEventListener('click',function(){lb.classList.remove('open');});
 lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open');});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
 
-// QUIZ
+// ── QUIZ ────────────────────────────────────────────────────────────────
 var qi=0,qs=0,qa=false,qset=[];
-function shuf(a){return a.slice().sort(function(){return Math.random()-0.5;});}
-function el(id){return document.getElementById(id);}
+function shuf(a){return a.slice().sort(function(){return Math.random()-.5;});}
 function qR(){
   var q=qset[qi];
   el('q-c').textContent='Q'+(qi+1)+'/'+qset.length;
   el('q-sc').textContent=qs+'/'+qi;
   el('q-b').style.width=(qi/qset.length*100)+'%';
-  el('q-q').textContent=q.q;
-  el('q-fb').innerHTML='';
-  el('q-n').style.display='none';
-  qa=false;
-  var L=['A','B','C','D'],o=el('q-op');o.innerHTML='';
+  el('q-q').textContent=q.q; el('q-fb').innerHTML=''; el('q-n').style.display='none'; qa=false;
+  var L=['A','B','C','D'],o=el('q-op'); o.innerHTML='';
   q.o.forEach(function(op,i){
-    var b=document.createElement('button');
-    b.className='qo';
+    var b=document.createElement('button'); b.className='qo';
     b.innerHTML='<span class="ql">'+L[i]+'</span>'+op;
-    b.onclick=function(){qA(i);};
+    b.onclick=function(){
+      if(qa)return; qa=true; var ok=(i===q.a); if(ok)qs++;
+      document.querySelectorAll('.qo').forEach(function(btn,j){
+        btn.disabled=true;
+        if(j===q.a)btn.classList.add('ok');
+        else if(j===i&&!ok)btn.classList.add('no');
+        else btn.classList.add('dim');
+      });
+      el('q-fb').innerHTML='<div class="'+(ok?'qfok':'qfno')+'">'+(ok?'&#10003; Correct! ':'&#10007; Incorrect. ')+q.e+'</div>';
+      el('q-n').style.display='inline-block';
+    };
     o.appendChild(b);
   });
 }
-function qA(c){
-  if(qa)return;qa=true;
-  var q=qset[qi],ok=(c===q.a);
-  if(ok)qs++;
-  document.querySelectorAll('.qo').forEach(function(b,i){
-    b.disabled=true;
-    if(i===q.a)b.classList.add('ok');
-    else if(i===c&&!ok)b.classList.add('no');
-    else b.classList.add('dim');
-  });
-  el('q-fb').innerHTML='<div class="'+(ok?'qfok':'qfno')+'">'+(ok?'Correct! ':'Incorrect. ')+q.e+'</div>';
-  el('q-n').style.display='inline-block';
-}
 function qEnd(){
-  el('q-play').style.display='none';el('q-end').style.display='block';el('q-b').style.width='100%';
+  el('q-play').style.display='none'; el('q-end').style.display='block'; el('q-b').style.width='100%';
   var pct=Math.round(qs/qset.length*100);
-  var d=pct>=87?['Outstanding!','Expert-level knowledge.']:pct>=62?['Well done!','Solid understanding.']:pct>=37?['Keep learning!','Revisit the core concepts.']:['Keep exploring!','Every question teaches something new.'];
-  el('q-em').textContent=pct>=87?'Trophy':pct>=62?'Target':pct>=37?'Book':'Microscope';
-  el('q-ti').textContent=d[0];el('q-sk').textContent=qs+'/'+qset.length+' correct ('+pct+'%)';el('q-mg').textContent=d[1];
+  var em=pct>=87?'&#127942;':pct>=62?'&#127919;':pct>=37?'&#128218;':'&#128302;';
+  var ti=pct>=87?'Outstanding!':pct>=62?'Well done!':pct>=37?'Keep learning!':'Keep exploring!';
+  var mg=pct>=87?'Expert-level knowledge.':pct>=62?'Solid understanding.':pct>=37?'Revisit the core concepts.':'Every question teaches something new.';
+  el('q-em').innerHTML=em; el('q-ti').textContent=ti;
+  el('q-sk').textContent=qs+'/'+qset.length+' correct ('+pct+'%)';
+  el('q-mg').textContent=mg;
 }
 function qStart(){qi=0;qs=0;qset=shuf(QS);el('q-start').style.display='none';el('q-end').style.display='none';el('q-play').style.display='block';qR();}
 el('q-s').onclick=qStart;
 el('q-n').onclick=function(){qi++;if(qi>=qset.length)qEnd();else qR();};
 el('q-r').onclick=qStart;
 
-// GUESTBOOK (localStorage-persisted)
-var GB_KEY = 'wr_guestbook_v1';
-var GB_SEED = [
+// ── GUESTBOOK ───────────────────────────────────────────────────────────
+var GB_KEY='wr_guestbook_v1';
+var GB_SEED=[
   {n:'Yuki Tanaka',o:'Kyoto University',f:'JP',m:'Great work on the federated learning paper! Looking forward to collaborating on multi-site MRI studies.',ts:Date.now()-172800000},
   {n:'Sarah Chen',o:'Stanford Medical School',f:'US',m:'Your talk on foundation models for radiology was inspiring. Would love to discuss a research exchange.',ts:Date.now()-86400000},
-  {n:'Ahmad Al-Hassan',o:'King Faisal Specialist Hospital',f:'SA',m:'We are building a clinical AI pipeline for CT diagnosis. Your MedSeg framework looks very promising!',ts:Date.now()-43200000},
+  {n:'Ahmad Al-Hassan',o:'King Faisal Specialist Hospital',f:'SA',m:'We are building a clinical AI pipeline for CT diagnosis. Your MedSeg framework looks very promising!',ts:Date.now()-43200000}
 ];
-
-function gbLoad(){
-  try {
-    var stored = localStorage.getItem(GB_KEY);
-    if (!stored) {
-      // First time — save seed data
-      localStorage.setItem(GB_KEY, JSON.stringify(GB_SEED));
-      return GB_SEED.slice();
-    }
-    return JSON.parse(stored);
-  } catch(e) { return GB_SEED.slice(); }
-}
-
-function gbSave(entries){
-  try { localStorage.setItem(GB_KEY, JSON.stringify(entries.slice(-60))); } catch(e) {}
-}
-
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var FLAGS={JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;',ID:'&#127470;&#127465;',SG:'&#127480;&#127468;',AU:'&#127462;&#127482;',DE:'&#127465;&#127466;',KR:'&#127472;&#127479;',CA:'&#127464;&#127462;',FR:'&#127467;&#127479;'};
 function ago(ts){var s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
-function flagFrom(code){var m={JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;',ID:'&#127470;&#127465;',SG:'&#127480;&#127468;',AU:'&#127462;&#127482;',DE:'&#127465;&#127466;',KR:'&#127472;&#127479;',CA:'&#127464;&#127462;',FR:'&#127467;&#127479;'};return m[code]||'&#127758;';}
-
+function gbLoad(){try{var s=localStorage.getItem(GB_KEY);if(!s){localStorage.setItem(GB_KEY,JSON.stringify(GB_SEED));return GB_SEED.slice();}return JSON.parse(s);}catch(e){return GB_SEED.slice();}}
+function gbSave(entries){try{localStorage.setItem(GB_KEY,JSON.stringify(entries.slice(-60)));}catch(e){}}
 function gbR(){
-  var entries = gbLoad();
-  var container = el('gb-en');
-  if (!container) return;
-  if (!entries.length) {
-    container.innerHTML = '<div style="font-family:var(--mo);font-size:.65rem;color:var(--d2);text-align:center;padding:1.5rem">No messages yet — be the first!</div>';
-    return;
-  }
-  container.innerHTML = entries.slice().reverse().map(function(e){
-    var ff = e.f ? flagFrom(e.f) + ' ' : '';
-    return '<div class="gbcard"><div class="gbh">'+
-      '<span class="gbn">'+esc(e.n)+(e.o?' <span style="opacity:.5">&#183; '+esc(e.o)+'</span>':'')+'</span>'+
-      '<span class="gbm2">'+ff+ago(e.ts)+'</span>'+
-      '</div><div class="gbmsg">'+esc(e.m)+'</div></div>';
+  var entries=gbLoad(), c=el('gb-en'); if(!c)return;
+  if(!entries.length){c.innerHTML='<div style="font-family:var(--mo);font-size:.65rem;color:var(--d2);text-align:center;padding:1.5rem">No messages yet — be the first!</div>';return;}
+  c.innerHTML=entries.slice().reverse().map(function(e){
+    return '<div class="gbcard"><div class="gbh"><span class="gbn">'+esc(e.n)+(e.o?' <span style="opacity:.5">&middot; '+esc(e.o)+'</span>':'')+'</span><span class="gbm2">'+(FLAGS[e.f]||'&#127758;')+' '+ago(e.ts)+'</span></div><div class="gbmsg">'+esc(e.m)+'</div></div>';
   }).join('');
 }
-
 el('gb-bt').onclick=function(){
   var n=el('gb-nm').value.trim(),o=el('gb-or').value.trim(),m=el('gb-ms').value.trim(),s=el('gb-st');
   if(!n){s.textContent='Please enter your name.';s.style.color='#FCA5A5';return;}
   if(m.length<5){s.textContent='Message too short.';s.style.color='#FCA5A5';return;}
-
-  // Get detected country code from localStorage
-  var fc = '';
-  try {
-    var ctries = JSON.parse(localStorage.getItem('wr_countries_v3') || '{}');
-    var latest = Object.keys(ctries).sort(function(a,b){return (ctries[b].ts||0)-(ctries[a].ts||0);})[0];
-    if (latest && ctries[latest].flag) {
-      // Find country code from flag emoji
-      var countryFlags = {JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;',ID:'&#127470;&#127465;',SG:'&#127480;&#127468;',AU:'&#127462;&#127482;',DE:'&#127465;&#127466;',KR:'&#127472;&#127479;',CA:'&#127464;&#127462;',FR:'&#127467;&#127479;'};
-      for (var code in countryFlags) {
-        if (ctries[latest] && ctries[latest].flag === countryFlags[code]) { fc = code; break; }
-      }
-    }
-  } catch(eee) {}
-
-  var entries = gbLoad();
-  entries.push({n:n, o:o, m:m, f:fc, ts:Date.now()});
-  gbSave(entries);
-  gbR();
-
-  el('gb-nm').value=''; el('gb-or').value=''; el('gb-ms').value='';
-  s.style.color='var(--glow)'; s.textContent='&#10003; Message saved! Thank you.';
-  setTimeout(function(){s.textContent='';}, 3000);
+  var entries=gbLoad();
+  entries.push({n:n,o:o,m:m,f:'',ts:Date.now()});
+  gbSave(entries); gbR();
+  el('gb-nm').value='';el('gb-or').value='';el('gb-ms').value='';
+  s.style.color='var(--glow)';s.textContent='&#10003; Message saved! Thank you.';
+  setTimeout(function(){s.textContent='';},3000);
 };
 
-gbR();
-
-
-// VISITOR COUNTER + COUNTRY DETECTION
+// ── VISITOR COUNTER ─────────────────────────────────────────────────────
 (function(){
-  var CKEY = 'wr_countries_v3';
-  var VKEY = 'wr_visits_v2';
-  var TKEY = 'wr_today_v2';
-  var BASE_VISITS = 1284;
-
-  // Flag emoji from country code
-  function flag(code) {
-    if (!code || code.length !== 2) return '';
-    try {
-      return String.fromCodePoint(
-        0x1F1E6 + code.charCodeAt(0) - 65,
-        0x1F1E6 + code.charCodeAt(1) - 65
-      );
-    } catch(e) { return ''; }
+  var CKEY='wr_countries_v3', VKEY='wr_visits_v2', TKEY='wr_today_v2';
+  function flag(c){try{return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65,0x1F1E6+c.charCodeAt(1)-65);}catch(e){return '';}}
+  var countries={};
+  try{countries=JSON.parse(localStorage.getItem(CKEY)||'{}');}catch(e){}
+  if(!Object.keys(countries).length){
+    [{n:'Japan',f:'JP'},{n:'United States',f:'US'},{n:'United Kingdom',f:'GB'},{n:'Singapore',f:'SG'},{n:'Australia',f:'AU'},{n:'Germany',f:'DE'},{n:'South Korea',f:'KR'},{n:'Canada',f:'CA'},{n:'France',f:'FR'},{n:'Saudi Arabia',f:'SA'}].forEach(function(s,i){countries[s.n]={flag:flag(s.f),ts:Date.now()-i*86400000};});
   }
-
-  // Render countries list
-  function renderCountries(countries) {
-    var el = document.getElementById('v-country-list');
-    var ctEl = document.getElementById('v-ctry');
-    if (!el) return;
-    var sorted = Object.keys(countries).sort(function(a,b){
-      return (countries[b].ts || 0) - (countries[a].ts || 0);
-    }).slice(0, 15);
-    if (ctEl) ctEl.textContent = sorted.length;
-    if (sorted.length === 0) {
-      el.innerHTML = '<span class="ct">&#127758; Detecting...</span>';
-      return;
-    }
-    el.innerHTML = sorted.map(function(name) {
-      var d = countries[name];
-      return '<span class="ct">' + (d.flag || '') + ' ' + name + '</span>';
-    }).join('');
+  function renderC(){
+    var sorted=Object.keys(countries).sort(function(a,b){return (countries[b].ts||0)-(countries[a].ts||0);}).slice(0,15);
+    var ce=el('v-country-list'), cte=el('v-ctry');
+    if(cte)cte.textContent=sorted.length;
+    if(ce)ce.innerHTML=sorted.map(function(n){return '<span class="ct">'+(countries[n].flag||'')+'  '+n+'</span>';}).join('');
   }
-
-  // Load stored countries
-  var countries = {};
-  try { countries = JSON.parse(localStorage.getItem(CKEY) || '{}'); } catch(e) {}
-
-  // Seed with base countries if empty (first visit ever)
-  if (Object.keys(countries).length === 0) {
-    var seeds = [
-      {n:'Japan',f:'JP'},{n:'United States',f:'US'},{n:'United Kingdom',f:'GB'},
-      {n:'Singapore',f:'SG'},{n:'Australia',f:'AU'},{n:'Germany',f:'DE'},
-      {n:'South Korea',f:'KR'},{n:'Canada',f:'CA'},{n:'France',f:'FR'},{n:'Saudi Arabia',f:'SA'}
-    ];
-    seeds.forEach(function(s,i){
-      countries[s.n] = {flag: flag(s.f), ts: Date.now() - (i * 86400000)};
-    });
-  }
-
-  // Increment visit counters
-  var today = new Date().toISOString().slice(0,10);
-  var total = (parseInt(localStorage.getItem(VKEY)) || BASE_VISITS) + 1;
-  localStorage.setItem(VKEY, total);
-  var td = {};
-  try { td = JSON.parse(localStorage.getItem(TKEY) || '{"d":"","c":0}'); } catch(e) { td = {d:'',c:0}; }
-  if (td.d !== today) td = {d: today, c: 0};
-  td.c++;
-  localStorage.setItem(TKEY, JSON.stringify(td));
-
-  document.getElementById('v-total').textContent = total.toLocaleString();
-  document.getElementById('v-today').textContent = td.c;
-  renderCountries(countries);
-
-  // Detect this visitor's country via ipapi.co (free, ~1000 req/day)
-  fetch('https://ipapi.co/json/')
-    .then(function(r) { return r.json(); })
-    .then(function(geo) {
-      if (geo && geo.country_name && geo.country_code) {
-        var name = geo.country_name;
-        var code = geo.country_code.toUpperCase();
-        countries[name] = { flag: flag(code), ts: Date.now() };
-        localStorage.setItem(CKEY, JSON.stringify(countries));
-        renderCountries(countries);
-      }
-    })
-    .catch(function() {
-      // ipapi.co unavailable — try backup
-      fetch('https://ipwhois.app/json/')
-        .then(function(r) { return r.json(); })
-        .then(function(geo) {
-          if (geo && geo.country && geo.country_code) {
-            var name = geo.country;
-            var code = geo.country_code.toUpperCase();
-            countries[name] = { flag: flag(code), ts: Date.now() };
-            localStorage.setItem(CKEY, JSON.stringify(countries));
-            renderCountries(countries);
-          }
-        })
-        .catch(function(){});
-    });
+  var today=new Date().toISOString().slice(0,10);
+  var total=(parseInt(localStorage.getItem(VKEY))||1284)+1;
+  localStorage.setItem(VKEY,total);
+  var td={}; try{td=JSON.parse(localStorage.getItem(TKEY)||'{"d":"","c":0}');}catch(e){td={d:'',c:0};}
+  if(td.d!==today)td={d:today,c:0}; td.c++;
+  localStorage.setItem(TKEY,JSON.stringify(td));
+  var vt=el('v-total'), vd=el('v-today');
+  if(vt)vt.textContent=total.toLocaleString();
+  if(vd)vd.textContent=td.c;
+  renderC();
+  fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(g){
+    if(g&&g.country_name&&g.country_code){countries[g.country_name]={flag:flag(g.country_code),ts:Date.now()};localStorage.setItem(CKEY,JSON.stringify(countries));renderC();}
+  }).catch(function(){
+    fetch('https://ipwhois.app/json/').then(function(r){return r.json();}).then(function(g){
+      if(g&&g.country&&g.country_code){countries[g.country]={flag:flag(g.country_code),ts:Date.now()};localStorage.setItem(CKEY,JSON.stringify(countries));renderC();}
+    }).catch(function(){});
+  });
 })();
 
-// NEURON BACKGROUND
+// ── INIT ────────────────────────────────────────────────────────────────
+initProfile(); initEdu(); initFigures();
+rnp(0); rpu(0); rle(0); gbR();
+
+// ── NEURON BACKGROUND ───────────────────────────────────────────────────
 (function(){
-  var canvas = document.getElementById('bgCanvas');
-  if (!canvas) { console.warn('No bgCanvas'); return; }
-  var ctx = canvas.getContext('2d');
-  var W = 0, H = 0;
-  var nodes = [], edges = [], pulses = [], frame = 0;
-  var CYAN = 'rgba(0,229,255,', PURP = 'rgba(139,92,246,';
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    build();
-  }
-
-  function build() {
-    nodes = []; edges = []; pulses = [];
-    var clusters = [
-      // ── TOP-RIGHT DENSE ZONE ──────────────────────────
-      {cx:0.68,cy:0.03,n:22,sp:0.07},{cx:0.78,cy:0.02,n:24,sp:0.07},
-      {cx:0.88,cy:0.03,n:24,sp:0.07},{cx:0.96,cy:0.05,n:20,sp:0.06},
-      {cx:0.74,cy:0.10,n:26,sp:0.08},{cx:0.85,cy:0.10,n:28,sp:0.08},
-      {cx:0.96,cy:0.14,n:22,sp:0.07},{cx:0.70,cy:0.20,n:24,sp:0.09},
-      {cx:0.82,cy:0.20,n:26,sp:0.09},{cx:0.94,cy:0.24,n:20,sp:0.08},
-      {cx:0.76,cy:0.30,n:22,sp:0.08},{cx:0.90,cy:0.34,n:20,sp:0.08},
-      // ── RIGHT SIDE MID ────────────────────────────────
-      {cx:0.97,cy:0.42,n:18,sp:0.07},{cx:0.85,cy:0.46,n:18,sp:0.08},
-      {cx:0.96,cy:0.56,n:16,sp:0.07},{cx:0.80,cy:0.58,n:16,sp:0.08},
-      // ── RIGHT BOTTOM ──────────────────────────────────
-      {cx:0.88,cy:0.70,n:14,sp:0.08},{cx:0.78,cy:0.76,n:14,sp:0.08},
-      {cx:0.96,cy:0.80,n:12,sp:0.07},{cx:0.84,cy:0.88,n:12,sp:0.08},
-      // ── TOP STRIP CENTER ──────────────────────────────
-      {cx:0.30,cy:0.03,n:12,sp:0.07},{cx:0.48,cy:0.02,n:12,sp:0.07},
-      {cx:0.60,cy:0.05,n:12,sp:0.07},
-      // ── LEFT EDGE ─────────────────────────────────────
-      {cx:0.03,cy:0.20,n:9,sp:0.06},{cx:0.03,cy:0.50,n:9,sp:0.06},
-      {cx:0.03,cy:0.78,n:8,sp:0.06},
-      // ── BOTTOM ────────────────────────────────────────
-      {cx:0.30,cy:0.97,n:9,sp:0.07},{cx:0.52,cy:0.98,n:9,sp:0.07},
+  var canvas=document.getElementById('bgCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d'), W=0, H=0;
+  var nodes=[], edges=[], pulses=[], frame=0;
+  var CY='rgba(0,229,255,', PU='rgba(139,92,246,';
+  function resize(){
+    W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight;
+    nodes=[]; edges=[]; pulses=[];
+    var clusters=[
+      {cx:.68,cy:.03,n:22,sp:.07},{cx:.78,cy:.02,n:24,sp:.07},{cx:.88,cy:.03,n:24,sp:.07},
+      {cx:.96,cy:.05,n:20,sp:.06},{cx:.74,cy:.10,n:26,sp:.08},{cx:.85,cy:.10,n:28,sp:.08},
+      {cx:.96,cy:.14,n:22,sp:.07},{cx:.70,cy:.20,n:24,sp:.09},{cx:.82,cy:.20,n:26,sp:.09},
+      {cx:.94,cy:.24,n:20,sp:.08},{cx:.76,cy:.30,n:22,sp:.08},{cx:.90,cy:.34,n:20,sp:.08},
+      {cx:.97,cy:.42,n:18,sp:.07},{cx:.85,cy:.46,n:18,sp:.08},{cx:.96,cy:.56,n:16,sp:.07},
+      {cx:.80,cy:.58,n:16,sp:.08},{cx:.88,cy:.70,n:14,sp:.08},{cx:.78,cy:.76,n:14,sp:.08},
+      {cx:.96,cy:.80,n:12,sp:.07},{cx:.84,cy:.88,n:12,sp:.08},
+      {cx:.30,cy:.03,n:12,sp:.07},{cx:.48,cy:.02,n:12,sp:.07},{cx:.60,cy:.05,n:12,sp:.07},
+      {cx:.03,cy:.20,n:9,sp:.06},{cx:.03,cy:.50,n:9,sp:.06},{cx:.03,cy:.78,n:8,sp:.06},
+      {cx:.30,cy:.97,n:9,sp:.07},{cx:.52,cy:.98,n:9,sp:.07}
     ];
-    
-    clusters.forEach(function(cl) {
-      var spread = Math.min(W,H) * (cl.sp || 0.09);
-      for (var i = 0; i < cl.n; i++) {
-        var ang = Math.random() * Math.PI * 2;
-        var dist = Math.pow(Math.random(), 0.5) * spread;
-        var x = Math.max(20, Math.min(W-20, cl.cx*W + Math.cos(ang)*dist));
-        var y = Math.max(20, Math.min(H-20, cl.cy*H + Math.sin(ang)*dist));
-        var soma = Math.random() < 0.3;
-        nodes.push({
-          x: x, y: y, bx: x, by: y,
-          soma: soma,
-          r: soma ? 2.5 + Math.random()*2.5 : 1.2 + Math.random()*1.8,
-          col: Math.random() < 0.65 ? 0 : 1,
-          glow: 0,
-          phase: Math.random() * Math.PI * 2,
-          speed: (Math.random()-0.5)*0.3,
-          speed2: (Math.random()-0.5)*0.25
-        });
+    clusters.forEach(function(cl){
+      var sp=Math.min(W,H)*(cl.sp||.09);
+      for(var i=0;i<cl.n;i++){
+        var a=Math.random()*Math.PI*2, d=Math.pow(Math.random(),.5)*sp;
+        var x=Math.max(20,Math.min(W-20,cl.cx*W+Math.cos(a)*d));
+        var y=Math.max(20,Math.min(H-20,cl.cy*H+Math.sin(a)*d));
+        nodes.push({x:x,y:y,bx:x,by:y,soma:Math.random()<.3,r:Math.random()<.3?2.5+Math.random()*2.5:1.2+Math.random()*1.8,col:Math.random()<.65?0:1,glow:0,ph:Math.random()*Math.PI*2});
       }
     });
-
-    var maxD = Math.min(W,H) * 0.19;
-    for (var i = 0; i < nodes.length; i++) {
-      var cnt = 0;
-      for (var j = i+1; j < nodes.length; j++) {
-        var dx = nodes[i].bx - nodes[j].bx;
-        var dy = nodes[i].by - nodes[j].by;
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if (d < maxD && cnt < 6) {
-          var mx = (nodes[i].bx + nodes[j].bx)/2;
-          var my = (nodes[i].by + nodes[j].by)/2;
-          var perp = (Math.random()-0.5)*d*0.4;
-          edges.push({
-            a: nodes[i], b: nodes[j],
-            cpx: mx - (dy/d)*perp,
-            cpy: my + (dx/d)*perp,
-            active: 0
-          });
-          cnt++;
-        }
-      }
-    }
+    var mD=Math.min(W,H)*.19;
+    for(var i=0;i<nodes.length;i++){var cn=0;for(var j=i+1;j<nodes.length;j++){
+      var dx=nodes[i].bx-nodes[j].bx,dy=nodes[i].by-nodes[j].by,ds=Math.sqrt(dx*dx+dy*dy);
+      if(ds<mD&&cn<6){var mx=(nodes[i].bx+nodes[j].bx)/2,my=(nodes[i].by+nodes[j].by)/2,p=(Math.random()-.5)*ds*.4;
+      edges.push({a:nodes[i],b:nodes[j],cpx:mx-(dy/ds)*p,cpy:my+(dx/ds)*p,ac:0});cn++;}
+    }}
   }
-
-  function spawnPulse() {
-    if (!edges.length) return;
-    var e = edges[Math.floor(Math.random()*edges.length)];
-    pulses.push({ e:e, t:0, fwd:Math.random()>0.5, spd:0.008+Math.random()*0.014 });
-  }
-
-  function draw() {
+  function sp(){if(!edges.length)return;var e=edges[Math.floor(Math.random()*edges.length)];pulses.push({e:e,t:0,fw:Math.random()>.5,s:.008+Math.random()*.014});}
+  function draw(){
     requestAnimationFrame(draw);
-    try {
-      ctx.clearRect(0, 0, W, H);
-      var t = frame * 0.012;
-      frame++;
-
-      // Update node positions (gentle floating)
-      nodes.forEach(function(n) {
-        n.x = n.bx + Math.sin(t * 0.7 + n.phase) * 4;
-        n.y = n.by + Math.cos(t * 0.5 + n.phase * 1.3) * 3;
-        if (n.glow > 0) n.glow -= 0.025;
+    try{
+      ctx.clearRect(0,0,W,H); var t=frame*.012; frame++;
+      nodes.forEach(function(n){n.x=n.bx+Math.sin(t*.7+n.ph)*4;n.y=n.by+Math.cos(t*.5+n.ph*1.3)*3;if(n.glow>0)n.glow-=.025;});
+      edges.forEach(function(e){
+        var op=e.ac>.05?.12+e.ac*.25:.08;
+        ctx.beginPath();ctx.moveTo(e.a.x,e.a.y);ctx.quadraticCurveTo(e.cpx,e.cpy,e.b.x,e.b.y);
+        ctx.strokeStyle=CY+op+')';ctx.lineWidth=.6+e.ac*.5;ctx.stroke();if(e.ac>0)e.ac-=.018;
       });
-
-      // Draw edges
-      edges.forEach(function(e) {
-        var op = e.active > 0 ? 0.12 + e.active * 0.25 : 0.08;
-        ctx.beginPath();
-        ctx.moveTo(e.a.x, e.a.y);
-        ctx.quadraticCurveTo(e.cpx, e.cpy, e.b.x, e.b.y);
-        ctx.strokeStyle = CYAN + op + ')';
-        ctx.lineWidth = 0.6 + e.active * 0.5;
-        ctx.stroke();
-        if (e.active > 0) e.active -= 0.018;
+      nodes.forEach(function(n){
+        var b=.12+Math.sin(t+n.ph)*.07,r=Math.max(.5,n.r*(1+b*.3+n.glow*.5)),col=n.col===0?CY:PU,al=.6+b+n.glow*.35;
+        if(n.soma){ctx.shadowColor=n.col===0?'#00E5FF':'#8B5CF6';ctx.shadowBlur=8+n.glow*12;ctx.beginPath();ctx.arc(n.x,n.y,Math.max(.5,r*1.6),0,Math.PI*2);ctx.strokeStyle=col+(0.22+n.glow*.28)+')';ctx.lineWidth=.7;ctx.stroke();}
+        ctx.shadowColor=n.col===0?'#00E5FF':'#8B5CF6';ctx.shadowBlur=n.soma?12+n.glow*16:6+n.glow*10;
+        ctx.beginPath();ctx.arc(n.x,n.y,Math.max(.5,r),0,Math.PI*2);ctx.fillStyle=col+Math.min(1,al)+')';ctx.fill();ctx.shadowBlur=0;
       });
-
-      // Draw nodes
-      nodes.forEach(function(n) {
-        var breathe = 0.12 + Math.sin(t + n.phase) * 0.07;
-        var r = Math.max(0.5, n.r * (1 + breathe*0.3 + n.glow*0.5));
-        var col = n.col === 0 ? CYAN : PURP;
-        var alpha = 0.6 + breathe + n.glow * 0.35;
-
-        if (n.soma) {
-          ctx.shadowColor = n.col===0 ? '#00E5FF' : '#8B5CF6';
-          ctx.shadowBlur = 8 + n.glow * 12;
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, Math.max(0.5, r*1.6), 0, Math.PI*2);
-          ctx.strokeStyle = col + (0.22 + n.glow*0.28) + ')';
-          ctx.lineWidth = 0.7;
-          ctx.stroke();
-        }
-
-        ctx.shadowColor = n.col===0 ? '#00E5FF' : '#8B5CF6';
-        ctx.shadowBlur = n.soma ? 12 + n.glow*16 : 6 + n.glow*10;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, Math.max(0.5, r), 0, Math.PI*2);
-        ctx.fillStyle = col + Math.min(1, alpha) + ')';
-        ctx.fill();
-        ctx.shadowBlur = 0;
+      pulses=pulses.filter(function(p){return p.t<=1;});
+      pulses.forEach(function(p){
+        p.t+=p.s; var tt=Math.min(p.t,1),sx=p.fw?p.e.a.x:p.e.b.x,sy=p.fw?p.e.a.y:p.e.b.y,ex=p.fw?p.e.b.x:p.e.a.x,ey=p.fw?p.e.b.y:p.e.a.y;
+        var px=(1-tt)*(1-tt)*sx+2*(1-tt)*tt*p.e.cpx+tt*tt*ex,py=(1-tt)*(1-tt)*sy+2*(1-tt)*tt*p.e.cpy+tt*tt*ey;
+        ctx.shadowColor='#00E5FF';ctx.shadowBlur=16;ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);ctx.fillStyle='rgba(180,255,255,.95)';ctx.fill();ctx.shadowBlur=0;
+        if(p.t>=.92){var tg=p.fw?p.e.b:p.e.a;tg.glow=1;p.e.ac=1;}
       });
-
-      // Draw pulses
-      pulses = pulses.filter(function(p) { return p.t <= 1; });
-      pulses.forEach(function(p) {
-        p.t += p.spd;
-        var tt = Math.min(p.t, 1);
-        var sx = p.fwd ? p.e.a.x : p.e.b.x, sy = p.fwd ? p.e.a.y : p.e.b.y;
-        var ex = p.fwd ? p.e.b.x : p.e.a.x, ey = p.fwd ? p.e.b.y : p.e.a.y;
-        var px = (1-tt)*(1-tt)*sx + 2*(1-tt)*tt*p.e.cpx + tt*tt*ex;
-        var py = (1-tt)*(1-tt)*sy + 2*(1-tt)*tt*p.e.cpy + tt*tt*ey;
-
-        ctx.shadowColor = '#00E5FF'; ctx.shadowBlur = 16;
-        ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(180,255,255,0.95)'; ctx.fill();
-        ctx.shadowBlur = 0;
-
-        if (p.t >= 0.92) {
-          var tgt = p.fwd ? p.e.b : p.e.a;
-          tgt.glow = 1; p.e.active = 1;
-        }
-      });
-
-      if (frame % 6 === 0 && pulses.length < 70) spawnPulse();
-
-    } catch(err) { /* keep animating */ }
+      if(frame%6===0&&pulses.length<70)sp();
+    }catch(err){}
   }
-
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
+  window.addEventListener('resize',resize); resize(); draw();
 })();
 </script>
-</body></html>
+</body>
+</html>

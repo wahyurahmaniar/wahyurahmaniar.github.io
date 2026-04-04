@@ -32,7 +32,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 .cr{display:flex;flex-direction:column;gap:1.1rem}
 .cr::-webkit-scrollbar{width:0}
 /* top 2-col row inside left */
-.tr{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.tr{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;align-items:stretch}
 /* card */
 .card{background:var(--gl);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid var(--bd);border-radius:11px;padding:1.4rem 1.6rem}
 .ic{background:rgba(0,229,255,.04);border:1px solid var(--bd);border-radius:7px;transition:border-color .2s}
@@ -45,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 .ab{font-family:var(--sr);font-size:clamp(.9rem,1.2vw,1.08rem);font-style:italic;line-height:1.62;color:var(--w);margin-bottom:.65rem}
 .ab strong{color:var(--glow);font-style:normal}
 .as{font-size:.82rem;color:var(--dim);line-height:1.82;margin-bottom:1.1rem}
-.il{display:flex;flex-direction:column}
+.il{display:flex;flex-direction:column;flex:1}
 .ir{display:flex;gap:.8rem;padding:.4rem 0;border-bottom:1px solid rgba(0,229,255,.07);font-size:.76rem}
 .ir:first-child{border-top:1px solid rgba(0,229,255,.07)}
 .ik{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:60px;flex-shrink:0;padding-top:.1rem}
@@ -320,9 +320,9 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <div class="sh"><span class="sn">01</span><h2 class="sl">About</h2><span class="sli"></span></div>
           <div id="about-content"></div>
         </div>
-        <div class="card" id="education">
+        <div class="card" id="education" style="display:flex;flex-direction:column">
           <div class="sh"><span class="sn">02</span><h2 class="sl">Education</h2><span class="sli"></span></div>
-          <div id="edu-list"></div>
+          <div id="edu-list" style="flex:1"></div>
         </div>
       </div>
 
@@ -606,7 +606,7 @@ function initProfile(){
   el('about-content').innerHTML=
     '<div class="about-layout">'+
       '<div><p class="ab">'+P.about_text+'</p><p class="as">'+P.about_sub+'</p><div class="il">'+infoHtml+'</div></div>'+
-      '<div class="about-photo"><div class="photo-frame">'+photoHtml+'</div><div class="photo-name">'+P.name+'</div><div class="photo-role">'+P.role+'</div></div>'+
+      '<div class="about-photo"><div class="photo-frame">'+photoHtml+'</div></div>'+
     '</div>';
   el('contact-links').innerHTML=
     '<a href="mailto:'+P.email+'" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>'+

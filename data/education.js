@@ -1,23 +1,23 @@
 var EDU = [
   {
-    deg: 'Ph.D. Computer Science',
-    school: 'University of Tokyo, Japan',
-    desc: '"Deep Learning for Brain MRI Lesion Segmentation" &middot; <span style="color:#6EE7B7">Graduated with Distinction</span>',
-    year: '2015&ndash;2019',
+    deg: 'Ph.D. Electrical Engineering',
+    school: 'National Central University, Taiwan',
+    desc: 'Real-time object detection, computer vision, artificial intelligence, medical imaging',
+    year: '2014&ndash;2020',
     featured: true
   },
   {
-    deg: 'M.Sc. Computer Engineering',
-    school: 'Osaka University, Japan',
-    desc: 'CNN-based Retinal Image Classification &middot; GPA 3.9/4.0',
-    year: '2013&ndash;2015',
+    deg: '(Fastrack master degree)',
+    school: 'National Central University, Taiwan',
+    desc: 'UAV robotic, sensors integration, computer vision',
+    year: '2013&ndash;2014',
     featured: false
   },
   {
-    deg: 'B.Eng. Information Engineering',
-    school: 'Kyoto University, Japan',
-    desc: 'Graduated top of class. Image processing and signal analysis.',
-    year: '2009&ndash;2013',
+    deg: 'B.Sc. Electronics and Instrumentation',
+    school: 'Universitas Gadjah Mada, Indonesia',
+    desc: 'Mobile robots, telemetry, sensors, interface',
+    year: '2005&ndash;2009',
     featured: false
   }
 ];

@@ -54,9 +54,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 .ik{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:60px;flex-shrink:0;padding-top:.1rem}
 .iv{color:var(--dim);font-size:.77rem}
 /* education */
-.ec{padding:1.2rem 1rem;border-radius:7px;display:flex;flex-direction:column;flex:1;justify-content:center;margin-bottom:.65rem}
+.ec{padding:1.4rem 1rem;border-radius:7px;display:flex;flex-direction:row;align-items:center;gap:1rem;flex:1}
 
-.ef{flex-direction:row!important;align-items:center!important;gap:1rem;background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.2)}
+.ef{background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.2)}
 .ei{width:28px;height:28px;border-radius:5px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
 .ei svg{width:12px;height:12px;stroke:var(--glow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ed{font-family:var(--sr);font-size:.84rem;font-style:italic;color:var(--w);margin-bottom:.1rem}
@@ -324,9 +324,9 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <div id="about-content"></div>
           <div id="academic-links" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid rgba(0,229,255,.08)"></div>
         </div>
-        <div class="card" id="education" style="display:flex;flex-direction:column">
+        <div class="card" id="education" style="display:flex;flex-direction:column;gap:.65rem;flex:1">
           <div class="sh"><span class="sn">02</span><h2 class="sl">Education</h2><span class="sli"></span></div>
-          <div id="edu-list" style="flex:1;display:flex;flex-direction:column"></div>
+          <div id="edu-list" style="display:flex;flex-direction:column;gap:.65rem;flex:1"></div>
         </div>
       </div>
       <div class="card" id="pubs">
@@ -378,7 +378,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
             <p style="font-family:var(--mo);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--d2);margin-bottom:.55rem">Visitors from</p>
             <div class="cl" id="v-country-list"><span class="ct">&#127758; Detecting...</span></div>
           </div>
-          <div class="card" id="gb" style="flex:1;display:flex;flex-direction:column">
+          <div class="card" id="gb" style="display:flex;flex-direction:column;gap:.65rem;flex:1">
             <div class="sh"><span class="sn">C</span><h2 class="sl">Guest Book</h2><span class="sli"></span></div>
             <p style="font-size:.72rem;color:var(--dim);margin-bottom:1rem;line-height:1.65">Leave a message or say hello &#128075;</p>
             <div class="gbf"><input class="gbi" id="gb-nm" type="text" placeholder="Your name *" maxlength="60"/><input class="gbi" id="gb-or" type="text" placeholder="Affiliation" maxlength="80"/><textarea class="gbi" id="gb-ms" placeholder="Your message *" maxlength="400"></textarea><button class="gbs" id="gb-bt">Leave a Message &#8629;</button><div id="gb-st" style="font-family:var(--mo);font-size:.6rem;min-height:.8rem"></div></div>
@@ -665,4 +665,4 @@ initProfile();initEdu();initFigures();rnp(0);rpu(0);rle(0);gbR();
 })();
 </script>
 </body>
-</html>
+  </html>

@@ -6,17 +6,15 @@ var PROFILE = {
   role:     'Assistant Professor',
   uni:      'Institute of Science Tokyo',
   location: 'Tokyo, Japan',
-  email:    'wahyu@university.ac.jp',
-  github:   'https://github.com/ahyurahmaniar',
+  github:   'https://github.com/wahyurahmaniar',
   scholar:  'https://scholar.google.com',
-  cv:       '/cv.pdf',
 
   chips: [
     {t:'Deep Learning',     cls:'cc'},
-    {t:'MRI Segmentation',  cls:'cc'},
+    {t:'Segmentation',  cls:'cc'},
     {t:'Computer Vision',   cls:'cp'},
     {t:'Federated Learning',cls:'cp'},
-    {t:'Clinical AI',       cls:'cg'}
+    {t:'Classfication',cls:'cg'}
   ],
 
   about_text: 'I build <strong>AI systems that see what radiologists see</strong> — tumor segmentation, lesion classification, and detecting anomalies on MRI, CT, X-rays, and other modalities.',

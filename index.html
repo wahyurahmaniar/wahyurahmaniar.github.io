@@ -4,6 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Wahyu Rahmaniar &#8212; AI &middot; Medical Imaging</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="shortcut icon" href="favicon.svg"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDQwNzEwIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzAwRTVGRiI+V1I8L3RleHQ+Cjwvc3ZnPg=="/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -289,13 +292,16 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
   footer{flex-direction:column;gap:.35rem;text-align:center}
 }
 </style>
+<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 </head>
 <body>
 <canvas id="bgCanvas"></canvas>
 <div id="lb"><button id="lb-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img id="lb-img" src="" alt=""/></div>
 
 <nav>
-  <a class="logo" onclick="gomain()"><span class="dot"></span></a>
+  <a class="logo" onclick="gomain()" style="font-family:var(--sr);font-style:italic;font-size:1.1rem;color:var(--glow);text-shadow:0 0 12px rgba(0,229,255,.5);letter-spacing:-.02em;cursor:pointer">WR</a>
   <ul class="nl">
     <li><a id="nav-home" class="act" onclick="gomain()">Home</a></li>
     <li><a onclick="gonews()">All News</a></li>
@@ -559,24 +565,22 @@ el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').valu
   var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoY252c2J0dHRkZWp6ZmJkZHZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzODgzNTksImV4cCI6MjA5MDk2NDM1OX0.Y2XaXhkdZJFXH73X4lADkxeHWMlIadUvpmGfMwSdyhc';
   var SB_H={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'};
   function flag(code){try{return String.fromCodePoint(0x1F1E6+code.charCodeAt(0)-65,0x1F1E6+code.charCodeAt(1)-65);}catch(e){return '';}}
-  // Only count once per browser session (sessionStorage resets on new tab/window)
-  var alreadyCounted = sessionStorage.getItem('wr_counted');
+  // sessionStorage resets when browser tab/window is closed — one count per visit
+  var alreadyCounted = sessionStorage.getItem('wr_v3_counted');
 
-  // Today counter — count unique days, not page loads
-  var today = new Date().toISOString().slice(0,10);
-  var td = {d:'',c:0};
-  try{td = JSON.parse(localStorage.getItem(TKEY)||'{"d":"","c":0}');}catch(e){}
-  if(td.d !== today) td = {d:today, c:0};
-  if(!alreadyCounted) { td.c++; localStorage.setItem(TKEY, JSON.stringify(td)); }
-  if(el('v-today')) el('v-today').textContent = td.c;
-
-  // Load visitor data from Supabase
+  // Load ALL visitor data from Supabase and derive counts from it
   function loadV(){
-    fetch(SB_URL+'?select=country,country_code,flag&order=visited_at.desc',{headers:SB_H})
+    fetch(SB_URL+'?select=country,country_code,flag,visited_at&order=visited_at.desc',{headers:SB_H})
     .then(function(r){return r.json();})
     .then(function(rows){
       if(!Array.isArray(rows))return;
+      // Total = all rows in Supabase
       if(el('v-total'))el('v-total').textContent=rows.length.toLocaleString();
+      // Today = rows from today (UTC date)
+      var todayStr=new Date().toISOString().slice(0,10);
+      var todayCount=rows.filter(function(r){return r.visited_at&&r.visited_at.slice(0,10)===todayStr;}).length;
+      if(el('v-today'))el('v-today').textContent=todayCount;
+      // Unique countries
       var seen={},unique=[];
       rows.forEach(function(r){
         if(r.country&&!seen[r.country]){seen[r.country]=true;unique.push({name:r.country,flag:r.flag||flag(r.country_code||'')});}
@@ -589,8 +593,8 @@ el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').valu
 
   // Insert visit to Supabase only once per session
   function insertV(country,code,fl){
-    if(alreadyCounted) return; // already counted this session
-    sessionStorage.setItem('wr_counted','1');
+    if(alreadyCounted) return;
+    sessionStorage.setItem('wr_v3_counted','1');
     fetch(SB_URL,{method:'POST',headers:SB_H,body:JSON.stringify({country:country,country_code:code,flag:fl})})
     .then(function(){loadV();}).catch(function(){});
   }

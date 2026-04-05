@@ -19,8 +19,8 @@ var PROFILE = {
     {t:'Clinical AI',       cls:'cg'}
   ],
 
-  about_text: 'I build <strong>AI systems that see what radiologists see</strong> — segmenting tumors, quantifying disease, and detecting anomalies across MRI, CT, and histopathology.',
-  about_sub:  'My work bridges deep learning research and clinical practice. Before academia, I built production computer vision systems at scale in industry.',
+  about_text: 'I build <strong>AI systems that see what radiologists see</strong> — tumor segmentation, lesion classification, and detecting anomalies on MRI, CT, X-rays, and other modalities.',
+  about_sub:  'My work bridges deep learning research and clinical practice.',
 
   info: [
     {k:'Position',  v:'Assistant Professor (specially appointed), Institute of Science Tokyo'},

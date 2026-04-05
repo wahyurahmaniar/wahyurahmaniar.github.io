@@ -8,7 +8,11 @@ var PROFILE = {
   location: 'Tokyo, Japan',
   email:    'rahmaniar.w.aa@m.titech.ac.jp',
   github:   'https://github.com/wahyurahmaniar',
-  scholar:  'https://scholar.google.com/citations?hl=en&user=V81MER8AAAAJ&view_op=list_works',
+  scholar:  'https://scholar.google.com/citations?user=V81MER8AAAAJ&hl=en',
+  scopus:   'https://www.scopus.com/authid/detail.uri?authorId=56982984800',
+  researchgate: 'https://www.researchgate.net/profile/Wahyu-Rahmaniar',
+  orcid:        'https://orcid.org/0000-0002-6902-5455',
+  dblp:         'https://dblp.org/pid/197/0345.html',
 
   chips: [
     {t:'Artificial Intelligence',     cls:'cc'},

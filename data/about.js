@@ -27,7 +27,7 @@ var PROFILE = {
 
   info: [
     {k:'Position',  v:'Assistant Professor (specially appointed), Institute of Science Tokyo'},
-    {k:'Lab',       v:'BioMedical Imaging Unit (BMAI)'},
+    {k:'Lab',       v:'BioMedical Artificial Intelligence (BMAI)'},
     {k:'Research',  v:'Medical Image Analysis · Deep Learning · Computer Vision'},
   ]
 };

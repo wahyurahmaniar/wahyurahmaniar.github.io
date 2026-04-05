@@ -6,7 +6,6 @@ var PROFILE = {
   role:     'Assistant Professor',
   uni:      'Institute of Science Tokyo',
   location: 'Tokyo, Japan',
-  email:    'rahmaniar.w.aa@m.titech.ac.jp',
   github:   'https://github.com/wahyurahmaniar',
   scholar:  'https://scholar.google.com/citations?user=V81MER8AAAAJ&hl=en',
   scopus:   'https://www.scopus.com/authid/detail.uri?authorId=56982984800',

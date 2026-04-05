@@ -10,11 +10,11 @@ var PROFILE = {
   scholar:  'https://scholar.google.com',
 
   chips: [
-    {t:'Deep Learning',     cls:'cc'},
-    {t:'Segmentation',  cls:'cc'},
+    {t:'Artificial Intelligence',     cls:'cc'},
+    {t:'Deep Learning',  cls:'cc'},
     {t:'Computer Vision',   cls:'cp'},
-    {t:'Federated Learning',cls:'cp'},
-    {t:'Classfication',cls:'cg'}
+    {t:'Medical Imaging',cls:'cp'},
+    {t:'Image Processing',cls:'cg'}
   ],
 
   about_text: 'I build <strong>AI systems that see what radiologists see</strong> — tumor segmentation, lesion classification, and detecting anomalies on MRI, CT, X-rays, and other modalities.',

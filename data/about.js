@@ -6,8 +6,9 @@ var PROFILE = {
   role:     'Assistant Professor',
   uni:      'Institute of Science Tokyo',
   location: 'Tokyo, Japan',
+  email:    'rahmaniar.w.aa@m.titech.ac.jp',
   github:   'https://github.com/wahyurahmaniar',
-  scholar:  'https://scholar.google.com',
+  scholar:  'https://scholar.google.com/citations?hl=en&user=V81MER8AAAAJ&view_op=list_works',
 
   chips: [
     {t:'Artificial Intelligence',     cls:'cc'},

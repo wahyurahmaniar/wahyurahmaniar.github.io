@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Wahyu Rahmaniar &#8212; AI &middot; Medical Imaging</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" href="favicon.png"/>
 <link rel="shortcut icon" href="favicon.svg"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDQwNzEwIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzAwRTVGRiI+V1I8L3RleHQ+Cjwvc3ZnPg=="/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
@@ -54,9 +54,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 .ik{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:60px;flex-shrink:0;padding-top:.1rem}
 .iv{color:var(--dim);font-size:.77rem}
 /* education */
-.ec{padding:.9rem 1rem;border-radius:7px;display:flex;flex-direction:column;flex:1}
+.ec{padding:.9rem 1rem;border-radius:7px;display:flex;flex-direction:column;flex:1;justify-content:center}
 
-.ef{flex-direction:row!important;align-items:flex-start!important;gap:1rem;background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.2)}
+.ef{flex-direction:row!important;align-items:center!important;gap:1rem;background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.2)}
 .ei{width:28px;height:28px;border-radius:5px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
 .ei svg{width:12px;height:12px;stroke:var(--glow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ed{font-family:var(--sr);font-size:.84rem;font-style:italic;color:var(--w);margin-bottom:.1rem}
@@ -499,10 +499,29 @@ function initProfile(){
 
 // EDUCATION
 function initEdu(){
+  // Icons for different degree levels
+  var ICONS = {
+    phd:   '<path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><line x1="12" y1="22" x2="12" y2="16"/>',
+    master:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+    bachelor:'<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>'
+  };
+  function getIcon(deg){
+    var d=deg.toLowerCase();
+    if(d.indexOf('ph')>=0||d.indexOf('dr')>=0)return ICONS.phd;
+    if(d.indexOf('m.sc')>=0||d.indexOf('m.eng')>=0||d.indexOf('master')>=0||d.indexOf('msc')>=0)return ICONS.master;
+    return ICONS.bachelor;
+  }
   var h='';
   EDU.forEach(function(e){
-    if(e.featured){h+='<div class="ec ef ic"><div class="ei"><svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="ed">'+e.deg+'</div><div class="es">'+e.school+'</div><div class="et">'+e.desc+'</div><span class="badge">'+e.year+'</span></div></div>';}
-    else{h+='<div class="ec ic"><div><div class="ed">'+e.deg+'</div><div class="es">'+e.school+'</div><div class="et">'+e.desc+'</div></div><div class="ey2">'+e.year+'</div></div>';}
+    var icon=getIcon(e.deg);
+    h+='<div class="ec ef ic" style="flex:1;justify-content:center">'+
+       '<div class="ei"><svg viewBox="0 0 24 24">'+icon+'</svg></div>'+
+       '<div style="display:flex;flex-direction:column;justify-content:center">'+
+       '<div class="ed">'+e.deg+'</div>'+
+       '<div class="es">'+e.school+'</div>'+
+       '<div class="et">'+e.desc+'</div>'+
+       '<span class="badge">'+e.year+'</span>'+
+       '</div></div>';
   });
   el('edu-list').innerHTML=h;
 }

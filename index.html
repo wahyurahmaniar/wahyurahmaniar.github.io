@@ -59,7 +59,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 .ed{font-family:var(--sr);font-size:.84rem;font-style:italic;color:var(--w);margin-bottom:.1rem}
 .es{font-family:var(--mo);font-size:.53rem;color:var(--glow);margin-bottom:.1rem;opacity:.75}
 .et{font-size:.68rem;color:var(--dim);line-height:1.5}
-.ey2{font-family:var(--mo);font-size:.5rem;color:var(--d2);margin-top:.32rem}
+.ey2{font-family:var(--mo);font-size:.5rem;color:rgba(232,244,255,.6);margin-top:.32rem}
 .badge{display:inline-block;margin-top:.26rem;font-family:var(--mo);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;padding:.08rem .34rem;border:1px solid var(--bd);color:var(--d2);border-radius:2px}
 /* news badges */
 .nb{font-family:var(--mo);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;padding:.11rem .38rem;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:.08rem}
@@ -731,39 +731,74 @@ el('gb-bt').onclick=function(){
 };
 
 // ── VISITOR COUNTER ─────────────────────────────────────────────────────
+// Global shared total via CountAPI (real count across ALL visitors)
+// Country detection via ipapi.co (ALL countries supported)
 (function(){
-  var CKEY='wr_countries_v3', VKEY='wr_visits_v2', TKEY='wr_today_v2';
-  function flag(c){try{return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65,0x1F1E6+c.charCodeAt(1)-65);}catch(e){return '';}}
+  var CKEY='wr_countries_v3', TKEY='wr_today_v2';
+
+  function flag(code){
+    try{return String.fromCodePoint(0x1F1E6+code.charCodeAt(0)-65,0x1F1E6+code.charCodeAt(1)-65);}
+    catch(e){return '';}
+  }
+
   var countries={};
   try{countries=JSON.parse(localStorage.getItem(CKEY)||'{}');}catch(e){}
   if(!Object.keys(countries).length){
-    [{n:'Japan',f:'JP'},{n:'United States',f:'US'},{n:'United Kingdom',f:'GB'},{n:'Singapore',f:'SG'},{n:'Australia',f:'AU'},{n:'Germany',f:'DE'},{n:'South Korea',f:'KR'},{n:'Canada',f:'CA'},{n:'France',f:'FR'},{n:'Saudi Arabia',f:'SA'}].forEach(function(s,i){countries[s.n]={flag:flag(s.f),ts:Date.now()-i*86400000};});
+    [{n:'Japan',f:'JP'},{n:'United States',f:'US'},{n:'United Kingdom',f:'GB'},
+     {n:'Singapore',f:'SG'},{n:'Australia',f:'AU'},{n:'Germany',f:'DE'},
+     {n:'South Korea',f:'KR'},{n:'Canada',f:'CA'},{n:'France',f:'FR'},
+     {n:'Saudi Arabia',f:'SA'}].forEach(function(s,i){
+      countries[s.n]={flag:flag(s.f),ts:Date.now()-i*86400000};
+    });
   }
-  function renderC(){
-    var sorted=Object.keys(countries).sort(function(a,b){return (countries[b].ts||0)-(countries[a].ts||0);}).slice(0,15);
-    var ce=el('v-country-list'), cte=el('v-ctry');
-    if(cte)cte.textContent=sorted.length;
-    if(ce)ce.innerHTML=sorted.map(function(n){return '<span class="ct">'+(countries[n].flag||'')+'  '+n+'</span>';}).join('');
-  }
-  var today=new Date().toISOString().slice(0,10);
-  var total=(parseInt(localStorage.getItem(VKEY))||1284)+1;
-  localStorage.setItem(VKEY,total);
-  var td={}; try{td=JSON.parse(localStorage.getItem(TKEY)||'{"d":"","c":0}');}catch(e){td={d:'',c:0};}
-  if(td.d!==today)td={d:today,c:0}; td.c++;
-  localStorage.setItem(TKEY,JSON.stringify(td));
-  var vt=el('v-total'), vd=el('v-today');
-  if(vt)vt.textContent=total.toLocaleString();
-  if(vd)vd.textContent=td.c;
-  renderC();
-  fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(g){
-    if(g&&g.country_name&&g.country_code){countries[g.country_name]={flag:flag(g.country_code),ts:Date.now()};localStorage.setItem(CKEY,JSON.stringify(countries));renderC();}
-  }).catch(function(){
-    fetch('https://ipwhois.app/json/').then(function(r){return r.json();}).then(function(g){
-      if(g&&g.country&&g.country_code){countries[g.country]={flag:flag(g.country_code),ts:Date.now()};localStorage.setItem(CKEY,JSON.stringify(countries));renderC();}
-    }).catch(function(){});
-  });
-})();
 
+  var today=new Date().toISOString().slice(0,10);
+  var td={d:'',c:0};
+  try{td=JSON.parse(localStorage.getItem(TKEY)||'{"d":"","c":0}');}catch(e){}
+  if(td.d!==today)td={d:today,c:0};
+  td.c++; localStorage.setItem(TKEY,JSON.stringify(td));
+  if(el('v-today'))el('v-today').textContent=td.c;
+
+  function renderC(){
+    var sorted=Object.keys(countries).sort(function(a,b){return (countries[b].ts||0)-(countries[a].ts||0);}).slice(0,20);
+    var ce=el('v-country-list'),cte=el('v-ctry');
+    if(cte)cte.textContent=sorted.length;
+    if(ce)ce.innerHTML=sorted.map(function(n){return '<span class="ct">'+(countries[n].flag||'')+' '+n+'</span>';}).join('');
+  }
+  renderC();
+
+  // Global shared counter — CountAPI (free, no signup, shared across ALL visitors)
+  fetch('https://api.countapi.xyz/hit/wahyurahmaniar/portfolio-visits')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d&&d.value&&el('v-total'))el('v-total').textContent=Number(d.value).toLocaleString();
+    })
+    .catch(function(){
+      var fb=(parseInt(localStorage.getItem('wr_v2'))||1284)+1;
+      localStorage.setItem('wr_v2',fb);
+      if(el('v-total'))el('v-total').textContent=fb.toLocaleString();
+    });
+
+  // Detect visitor country — ipapi.co supports ALL countries worldwide
+  fetch('https://ipapi.co/json/')
+    .then(function(r){return r.json();})
+    .then(function(g){
+      if(g&&g.country_name&&g.country_code){
+        countries[g.country_name]={flag:flag(g.country_code.toUpperCase()),ts:Date.now()};
+        localStorage.setItem(CKEY,JSON.stringify(countries)); renderC();
+      }
+    })
+    .catch(function(){
+      fetch('https://ipwhois.app/json/')
+        .then(function(r){return r.json();})
+        .then(function(g){
+          if(g&&g.country&&g.country_code){
+            countries[g.country]={flag:flag(g.country_code.toUpperCase()),ts:Date.now()};
+            localStorage.setItem(CKEY,JSON.stringify(countries)); renderC();
+          }
+        }).catch(function(){});
+    });
+})();
 // ── INIT ────────────────────────────────────────────────────────────────
 initProfile(); initEdu(); initFigures();
 rnp(0); rpu(0); rle(0); gbR();

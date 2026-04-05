@@ -1,5 +1,5 @@
 var PROFILE = {
-  photo:    ayu-pic.jpg,
+  photo:    'ayu-pic.jpg',
   // To add your photo: upload photo.jpg to repo root, then change null to 'photo.jpg'
 
   name:     'Wahyu Rahmaniar',

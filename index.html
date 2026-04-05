@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Wahyu Rahmaniar &#8212; AI &middot; Medical Imaging</title>
-<link rel="icon" type="image/png" href="favicon.png"/>
-<link rel="shortcut icon" href="favicon.svg"/>
+<link rel="icon" type="image/png" href="favicon.png?v=2"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDQwNzEwIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzAwRTVGRiI+V1I8L3RleHQ+Cjwvc3ZnPg=="/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
@@ -54,7 +54,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 .ik{font-family:var(--mo);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,229,255,.45);min-width:60px;flex-shrink:0;padding-top:.1rem}
 .iv{color:var(--dim);font-size:.77rem}
 /* education */
-.ec{padding:.9rem 1rem;border-radius:7px;display:flex;flex-direction:column;flex:1;justify-content:center}
+.ec{padding:1.2rem 1rem;border-radius:7px;display:flex;flex-direction:column;flex:1;justify-content:center;margin-bottom:.65rem}
 
 .ef{flex-direction:row!important;align-items:center!important;gap:1rem;background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,229,255,.02));border-color:rgba(0,229,255,.2)}
 .ei{width:28px;height:28px;border-radius:5px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
@@ -63,7 +63,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 1.8rem;displa
 .es{font-family:var(--mo);font-size:.53rem;color:var(--glow);margin-bottom:.1rem;opacity:.75}
 .et{font-size:.68rem;color:var(--dim);line-height:1.5}
 .ey2{font-family:var(--mo);font-size:.5rem;color:rgba(232,244,255,.6);margin-top:.32rem}
-.badge{display:inline-block;margin-top:.26rem;font-family:var(--mo);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;padding:.08rem .34rem;border:1px solid var(--bd);color:rgba(232,244,255,.6);border-radius:2px}
+.badge{display:inline-block;margin-top:.26rem;font-family:var(--mo);font-size:.5rem;color:rgba(232,244,255,.6)}
 /* news badges */
 .nb{font-family:var(--mo);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;padding:.11rem .38rem;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:.08rem}
 .nb-p{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);color:#A78BFA}
@@ -293,7 +293,8 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
 }
 </style>
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="icon" type="image/png" href="favicon.png?v=2"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 </head>
 <body>
@@ -325,7 +326,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
         </div>
         <div class="card" id="education" style="display:flex;flex-direction:column">
           <div class="sh"><span class="sn">02</span><h2 class="sl">Education</h2><span class="sli"></span></div>
-          <div id="edu-list" style="flex:1;display:flex;flex-direction:column;gap:.65rem"></div>
+          <div id="edu-list" style="flex:1;display:flex;flex-direction:column"></div>
         </div>
       </div>
       <div class="card" id="pubs">
@@ -514,7 +515,7 @@ function initEdu(){
   var h='';
   EDU.forEach(function(e){
     var icon=getIcon(e.deg);
-    h+='<div class="ec ef ic" style="flex:1;justify-content:center">'+
+    h+='<div class="ec ef ic">'+
        '<div class="ei"><svg viewBox="0 0 24 24">'+icon+'</svg></div>'+
        '<div style="display:flex;flex-direction:column;justify-content:center">'+
        '<div class="ed">'+e.deg+'</div>'+

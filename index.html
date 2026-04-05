@@ -333,7 +333,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <div class="split-list">
             <div id="publist"></div>
             <div class="pag" id="pubpag"></div>
-            <p style="margin-top:.8rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">&#8594; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Scopus</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">ResearchGate</a></p>
+
           </div>
           <div class="split-preview" id="pub-preview">
             <div class="prev-empty">
@@ -385,8 +385,9 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <!-- Contact -->
           <div class="card" id="contact">
             <div class="sh"><span class="sn">07</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
-            <h2 class="ch2">Open to collaboration<br><em>and clinical partnership.</em></h2>
-            <p class="cs">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
+            <h2 class="ch2">Open to collaboration<br><em>and clinical partnership</em></h2>
+            <p class="cs">I welcome research collaboration, clinical AI partnerships, and speaking invitations</p>
+            <div id="academic-links" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(0,229,255,.08)"></div>
             <div class="cb2" id="contact-links"></div>
           </div>
 
@@ -608,6 +609,17 @@ function initProfile(){
       '<div><p class="ab">'+P.about_text+'</p><p class="as">'+P.about_sub+'</p><div class="il">'+infoHtml+'</div></div>'+
       '<div class="about-photo"><div class="photo-frame">'+photoHtml+'</div></div>'+
     '</div>';
+  // Academic profile links
+  var alinks = [];
+  if(P.scholar)    alinks.push({l:'Google Scholar', u:P.scholar});
+  if(P.scopus)     alinks.push({l:'Scopus',         u:P.scopus});
+  if(P.researchgate) alinks.push({l:'ResearchGate', u:P.researchgate});
+  if(P.orcid)      alinks.push({l:'ORCID',          u:P.orcid});
+  if(P.dblp)       alinks.push({l:'DBLP',           u:P.dblp});
+  var al = el('academic-links');
+  if(al) al.innerHTML = alinks.map(function(a){
+    return '<a href="'+a.u+'" target="_blank" style="display:inline-flex;align-items:center;font-family:var(--mo);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--glow);border:1px solid rgba(0,229,255,.25);padding:.38rem .75rem;border-radius:4px;background:rgba(0,229,255,.05);transition:all .2s">'+a.l+'</a>';
+  }).join('');
   el('contact-links').innerHTML=
     '<a href="mailto:'+P.email+'" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>'+
     '<a href="'+P.github+'" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>'+
@@ -703,9 +715,9 @@ el('q-r').onclick=qStart;
 // ── GUESTBOOK ───────────────────────────────────────────────────────────
 var GB_KEY='wr_guestbook_v1';
 var GB_SEED=[
-  {n:'Yuki Tanaka',o:'Kyoto University',f:'JP',m:'Great work on the federated learning book! Looking forward to collaborating on multi-site MRI studies.',ts:Date.now()-172800000},
+  {n:'Yuki Tanaka',o:'Kyoto University',f:'JP',m:'Great work on the federated learning paper! Looking forward to collaborating on multi-site MRI studies.',ts:Date.now()-172800000},
   {n:'Sarah Chen',o:'Stanford Medical School',f:'US',m:'Your talk on foundation models for radiology was inspiring. Would love to discuss a research exchange.',ts:Date.now()-86400000},
-  {n:'Ahmad Al-Hassan',o:'King Faisal Specialist Hospital',f:'SA',m:'We are building a clinical AI pipeline for CT diagnosis. Your framework looks very promising!',ts:Date.now()-43200000}
+  {n:'Ahmad Al-Hassan',o:'King Faisal Specialist Hospital',f:'SA',m:'We are building a clinical AI pipeline for CT diagnosis. Your MedSeg framework looks very promising!',ts:Date.now()-43200000}
 ];
 var FLAGS={JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;',ID:'&#127470;&#127465;',SG:'&#127480;&#127468;',AU:'&#127462;&#127482;',DE:'&#127465;&#127466;',KR:'&#127472;&#127479;',CA:'&#127464;&#127462;',FR:'&#127467;&#127479;'};
 function ago(ts){var s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
@@ -1169,7 +1181,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <div class="split-list">
             <div id="publist"></div>
             <div class="pag" id="pubpag"></div>
-            <p style="margin-top:.8rem;font-family:var(--mo);font-size:.56rem;color:var(--d2)">&#8594; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Google Scholar</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">DBLP</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">Scopus</a> &middot; <a href="#" style="color:var(--glow);text-decoration:none;opacity:.75">ResearchGate</a></p>
+
           </div>
           <div class="split-preview" id="pub-preview">
             <div class="prev-empty">
@@ -1222,7 +1234,8 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <div class="card" id="contact">
             <div class="sh"><span class="sn">07</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
             <h2 class="ch2">Open to collaboration<br><em>and clinical partnership.</em></h2>
-            <p class="cs">I welcome research collaboration, clinical AI partnerships, and speaking invitations.</p>
+            <p class="cs">I welcome research collaboration, clinical AI partnerships, speaking invitations, and student inquiries.</p>
+            <div id="academic-links" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(0,229,255,.08)"></div>
             <div class="cb2" id="contact-links"></div>
           </div>
 
@@ -1444,6 +1457,17 @@ function initProfile(){
       '<div><p class="ab">'+P.about_text+'</p><p class="as">'+P.about_sub+'</p><div class="il">'+infoHtml+'</div></div>'+
       '<div class="about-photo"><div class="photo-frame">'+photoHtml+'</div></div>'+
     '</div>';
+  // Academic profile links
+  var alinks = [];
+  if(P.scholar)    alinks.push({l:'Google Scholar', u:P.scholar});
+  if(P.scopus)     alinks.push({l:'Scopus',         u:P.scopus});
+  if(P.researchgate) alinks.push({l:'ResearchGate', u:P.researchgate});
+  if(P.orcid)      alinks.push({l:'ORCID',          u:P.orcid});
+  if(P.dblp)       alinks.push({l:'DBLP',           u:P.dblp});
+  var al = el('academic-links');
+  if(al) al.innerHTML = alinks.map(function(a){
+    return '<a href="'+a.u+'" target="_blank" style="display:inline-flex;align-items:center;font-family:var(--mo);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--glow);border:1px solid rgba(0,229,255,.25);padding:.38rem .75rem;border-radius:4px;background:rgba(0,229,255,.05);transition:all .2s">'+a.l+'</a>';
+  }).join('');
   el('contact-links').innerHTML=
     '<a href="mailto:'+P.email+'" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>'+
     '<a href="'+P.github+'" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>'+

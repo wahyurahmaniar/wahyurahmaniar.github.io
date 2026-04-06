@@ -620,7 +620,7 @@ el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').valu
       // Unique countries
       var seen={},unique=[];
       rows.forEach(function(r){
-        if(r.country&&!seen[r.country]){seen[r.country]=true;unique.push({name:r.country,flag:r.flag||flag(r.country_code||'')});}
+        if(r.country&&!seen[r.country]){seen[r.country]=true;unique.push({name:r.country,flag:flag(r.country_code||'')});}
       });
       if(el('v-ctry'))el('v-ctry').textContent=unique.length;
       if(el('v-country-list'))el('v-country-list').innerHTML=unique.slice(0,20).map(function(u){return '<span class="ct">'+u.flag+u.name+'</span>';}).join('');

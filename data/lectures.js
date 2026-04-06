@@ -1,4 +1,16 @@
-// ty: tk=Keynote  ts=Seminar  tl=Lecture  tw=Workshop  ti=InvitedTalk
+// ─────────────────────────────────────────────────────────────────
+// GUEST LECTURES — add your lectures here
+// Fields:
+//   t:     lecture title
+//   v:     venue (university/institution name)
+//   y:     year
+//   ty:    type class: tk=Keynote  ts=Seminar  tl=Lecture  tw=Workshop  ti=InvitedTalk
+//   tl:    type label shown on badge
+//   desc:  description of lecture content (shown in preview)
+//   links: link labels e.g. ['Slides (PDF)', 'Video Recording']
+//   tags:  topic tags e.g. ['Deep Learning', 'MRI']
+//   img:   'figures/lecture1.png'  ← upload slide/poster image to figures/ folder
+// ─────────────────────────────────────────────────────────────────
 var LE = [
   {t:'AI for Medical Image Segmentation: From U-Net to Foundation Models', v:'Stanford Medical School', y:'2025', ty:'tk', tl:'Keynote',
    desc:'A comprehensive keynote covering the evolution of medical image segmentation from classic U-Net to vision transformers and foundation models like SAM and MedSAM. Special focus on clinical translation challenges and real-world deployment.',

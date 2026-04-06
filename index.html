@@ -575,7 +575,7 @@ function qStart(){qi=0;qs=0;qset=shuf(QS);el('q-start').style.display='none';el(
 el('q-s').onclick=qStart;el('q-n').onclick=function(){qi++;if(qi>=qset.length)qEnd();else qR();};el('q-r').onclick=qStart;
 
 // GUESTBOOK
-var GB_KEY='wr_guestbook_v1';
+var GB_KEY='wr_guestbook_v2';
 var GB_SEED=[];
 var FLAGS={JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;',ID:'&#127470;&#127465;',SG:'&#127480;&#127468;',AU:'&#127462;&#127482;',DE:'&#127465;&#127466;',KR:'&#127472;&#127479;',CA:'&#127464;&#127462;',FR:'&#127467;&#127479;'};
 function ago(ts){var s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}

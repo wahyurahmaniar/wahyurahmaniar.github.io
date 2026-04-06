@@ -447,12 +447,12 @@ function showPubPreview(idx){
   var p=PU[idx];pubTabIdx=0;
   var ls=p.ls.map(function(l){return '<a href="#" class="prev-chip">'+l+'</a>';}).join('');
   var tabs=PUB_TABS.map(function(t,i){return '<button class="prev-tab'+(i===0?' on':'')+'" onclick="showPubTab('+i+')">'+t+'</button>';}).join('');
-  var fig=p.img?'<img src="'+p.img+'" style="width:100%;max-height:150px;object-fit:contain"/>':'<div style="display:flex;align-items:center;justify-content:center;height:150px">'+(p.fig||'')+'</div>';
+  var fig=p.img?'<img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:5px"/>':'<div style="display:flex;align-items:center;justify-content:center;height:150px">'+(p.fig||'')+'</div>';
   el('pub-preview').innerHTML=
     '<div class="prev-tabs">'+tabs+'<div class="prev-tab-nav"><button class="prev-arr" id="pub-prev-btn" disabled onclick="showPubTab(pubTabIdx-1)">&#8592;</button><button class="prev-arr" id="pub-next-btn" onclick="showPubTab(pubTabIdx+1)">&#8594;</button></div></div>'+
     '<div class="prev-panel on"><div class="prev-title">'+p.t+'</div><div class="prev-kv"><span class="prev-k">Authors</span><span class="prev-v">'+p.a+'</span><span class="prev-k">Venue</span><span class="prev-v">'+p.v+'</span></div><div class="prev-links-row">'+ls+'</div></div>'+
     '<div class="prev-panel"><div class="prev-tag" style="margin-bottom:.6rem">Abstract</div><div class="prev-abstract">'+(p.ab||'No abstract.')+'</div></div>'+
-    '<div class="prev-panel"><div class="prev-tag" style="margin-bottom:.6rem">Figure</div><div class="prev-fig" style="padding:.5rem;background:rgba(0,229,255,.02);border:1px solid var(--bd);border-radius:6px">'+fig+'</div></div>'+
+    '<div class="prev-panel"><div class="prev-tag" style="margin-bottom:.4rem">Figure</div><div style="width:100%;border-radius:6px;overflow:hidden;border:1px solid var(--bd)">'+fig+'</div></div>'+
     '<div class="prev-panel"><div class="prev-tag" style="margin-bottom:.6rem">Links</div>'+p.ls.map(function(l){return '<a href="#" class="prev-chip" style="display:block;text-align:center;padding:.55rem;margin-bottom:.4rem">'+l+'</a>';}).join('')+'</div>';
   document.querySelectorAll('.pi').forEach(function(e){e.classList.remove('sel');});
   var items=document.querySelectorAll('.pi');if(items[idx%3])items[idx%3].classList.add('sel');

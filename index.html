@@ -492,9 +492,16 @@ function initProfile(){
   if(P.researchgate)alinks.push({l:'ResearchGate',u:P.researchgate});
   if(P.orcid)alinks.push({l:'ORCID',u:P.orcid});
   if(P.dblp)alinks.push({l:'DBLP',u:P.dblp});
+  var AICONS={
+    'Google Scholar':'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>',
+    'Scopus':'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>',
+    'ResearchGate':'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+    'ORCID':'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+    'DBLP':'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
+  };
   var al=el('academic-links');
-  if(al)al.innerHTML=alinks.map(function(a){return '<a href="'+a.u+'" target="_blank" style="display:inline-flex;align-items:center;font-family:var(--mo);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--glow);border:1px solid rgba(0,229,255,.25);padding:.38rem .75rem;border-radius:4px;background:rgba(0,229,255,.05)">'+a.l+'</a>';}).join('');
-  el('contact-links').innerHTML='<a href="mailto:'+P.email+'" class="cb3"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a><a href="'+P.github+'" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a><a href="'+P.scholar+'" target="_blank" class="cb3"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>Scholar</a><a href="'+P.cv+'" class="cb3"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV</a>';
+  if(al)al.innerHTML=alinks.map(function(a){var ico=AICONS[a.l]||'';return '<a href="'+a.u+'" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mo);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--glow);border:1px solid rgba(0,229,255,.25);padding:.38rem .75rem;border-radius:4px;background:rgba(0,229,255,.05)">'+ico+a.l+'</a>';}).join('');
+
 }
 
 // EDUCATION
@@ -569,10 +576,10 @@ el('q-s').onclick=qStart;el('q-n').onclick=function(){qi++;if(qi>=qset.length)qE
 
 // GUESTBOOK
 var GB_KEY='wr_guestbook_v1';
-var GB_SEED=[{n:'Yuki Tanaka',o:'Kyoto University',f:'JP',m:'Great work on the federated learning paper!',ts:Date.now()-172800000},{n:'Sarah Chen',o:'Stanford Medical School',f:'US',m:'Your talk on foundation models was inspiring.',ts:Date.now()-86400000},{n:'Ahmad Al-Hassan',o:'King Faisal Hospital',f:'SA',m:'Your MedSeg framework looks very promising!',ts:Date.now()-43200000}];
+var GB_SEED=[];
 var FLAGS={JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;',ID:'&#127470;&#127465;',SG:'&#127480;&#127468;',AU:'&#127462;&#127482;',DE:'&#127465;&#127466;',KR:'&#127472;&#127479;',CA:'&#127464;&#127462;',FR:'&#127467;&#127479;'};
 function ago(ts){var s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
-function gbLoad(){try{var s=localStorage.getItem(GB_KEY);if(!s){localStorage.setItem(GB_KEY,JSON.stringify(GB_SEED));return GB_SEED.slice();}return JSON.parse(s);}catch(e){return GB_SEED.slice();}}
+function gbLoad(){try{var s=localStorage.getItem(GB_KEY);if(!s)return [];return JSON.parse(s);}catch(e){return [];}}
 function gbSave(entries){try{localStorage.setItem(GB_KEY,JSON.stringify(entries.slice(-60)));}catch(e){}}
 function gbR(){var entries=gbLoad(),c=el('gb-en');if(!c)return;if(!entries.length){c.innerHTML='<div style="font-family:var(--mo);font-size:.65rem;color:var(--d2);text-align:center;padding:1.5rem">No messages yet.</div>';return;}c.innerHTML=entries.slice().reverse().map(function(e){return '<div class="gbcard"><div class="gbh"><span class="gbn">'+esc(e.n)+(e.o?' <span style="opacity:.5">&middot; '+esc(e.o)+'</span>':'')+'</span><span class="gbm2">'+(FLAGS[e.f]||'&#127758;')+' '+ago(e.ts)+'</span></div><div class="gbmsg">'+esc(e.m)+'</div></div>';}).join('');}
 el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').value.trim(),m=el('gb-ms').value.trim(),s=el('gb-st');if(!n){s.textContent='Please enter your name.';s.style.color='#FCA5A5';return;}if(m.length<5){s.textContent='Message too short.';s.style.color='#FCA5A5';return;}var entries=gbLoad();entries.push({n:n,o:o,m:m,f:'',ts:Date.now()});gbSave(entries);gbR();el('gb-nm').value='';el('gb-or').value='';el('gb-ms').value='';s.style.color='var(--glow)';s.textContent='&#10003; Saved!';setTimeout(function(){s.textContent='';},3000);};
@@ -664,4 +671,4 @@ initProfile();initEdu();initFigures();rnp(0);rpu(0);rle(0);gbR();
 })();
 </script>
 </body>
-  </html>
+</html>

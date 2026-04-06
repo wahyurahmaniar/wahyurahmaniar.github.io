@@ -358,7 +358,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <div class="card" id="contact">
             <div class="sh"><span class="sn">07</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
             <h2 class="ch2">There are no vacancies at this time.</em></h2>
-            <p class="cs">I am not accepting interns, students, or postdoc applications currently. <br><em>I welcome research collaboration, clinical AI partnerships, and speaking invitations.</p>
+            <p class="cs">I am not accepting interns, students, or postdoc applications currently. <br><em></em>I welcome research collaboration, clinical AI partnerships, and speaking invitations.</p>
           </div>
         </div>
         <div class="btm-right">
@@ -583,11 +583,12 @@ el('q-s').onclick=qStart;el('q-n').onclick=function(){qi++;if(qi>=qset.length)qE
 // GUESTBOOK
 var GB_KEY='wr_guestbook_v2';
 var GB_SEED=[];
-var FLAGS={JP:'&#127471;&#127477;',US:'&#127482;&#127480;',SA:'&#127480;&#127462;',GB:'&#127468;&#127463;',ID:'&#127470;&#127465;',SG:'&#127480;&#127468;',AU:'&#127462;&#127482;',DE:'&#127465;&#127466;',KR:'&#127472;&#127479;',CA:'&#127464;&#127462;',FR:'&#127467;&#127479;'};
+function countryFlag(code){if(!code)return '&#127758;';return '<img src="https://flagcdn.com/16x12/'+code.toLowerCase()+'.png" width="16" height="12" style="border-radius:2px;margin-right:3px;vertical-align:middle" alt="'+code+'"/>';}
+var FLAGS={JP:'JP',US:'US',SA:'SA',GB:'GB',ID:'ID',SG:'SG',AU:'AU',DE:'DE',KR:'KR',CA:'CA',FR:'FR'};
 function ago(ts){var s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
 function gbLoad(){try{var s=localStorage.getItem(GB_KEY);if(!s)return [];return JSON.parse(s);}catch(e){return [];}}
 function gbSave(entries){try{localStorage.setItem(GB_KEY,JSON.stringify(entries.slice(-60)));}catch(e){}}
-function gbR(){var entries=gbLoad(),c=el('gb-en');if(!c)return;if(!entries.length){c.innerHTML='<div style="font-family:var(--mo);font-size:.65rem;color:var(--d2);text-align:center;padding:1.5rem">No messages yet.</div>';return;}c.innerHTML=entries.slice().reverse().map(function(e){return '<div class="gbcard"><div class="gbh"><span class="gbn">'+esc(e.n)+(e.o?' <span style="opacity:.5">&middot; '+esc(e.o)+'</span>':'')+'</span><span class="gbm2">'+(FLAGS[e.f]||'&#127758;')+' '+ago(e.ts)+'</span></div><div class="gbmsg">'+esc(e.m)+'</div></div>';}).join('');}
+function gbR(){var entries=gbLoad(),c=el('gb-en');if(!c)return;if(!entries.length){c.innerHTML='<div style="font-family:var(--mo);font-size:.65rem;color:var(--d2);text-align:center;padding:1.5rem">No messages yet.</div>';return;}c.innerHTML=entries.slice().reverse().map(function(e){return '<div class="gbcard"><div class="gbh"><span class="gbn">'+esc(e.n)+(e.o?' <span style="opacity:.5">&middot; '+esc(e.o)+'</span>':'')+'</span><span class="gbm2">'+countryFlag(FLAGS[e.f]||e.f)+' '+ago(e.ts)+'</span></div><div class="gbmsg">'+esc(e.m)+'</div></div>';}).join('');}
 el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').value.trim(),m=el('gb-ms').value.trim(),s=el('gb-st');if(!n){s.textContent='Please enter your name.';s.style.color='#FCA5A5';return;}if(m.length<5){s.textContent='Message too short.';s.style.color='#FCA5A5';return;}var entries=gbLoad();entries.push({n:n,o:o,m:m,f:'',ts:Date.now()});gbSave(entries);gbR();el('gb-nm').value='';el('gb-or').value='';el('gb-ms').value='';s.style.color='var(--glow)';s.textContent='&#10003; Saved!';setTimeout(function(){s.textContent='';},3000);};
 
 // VISITOR COUNTER (Supabase shared)
@@ -596,7 +597,11 @@ el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').valu
   var SB_URL='https://khcnvsbtttdejzfbddva.supabase.co/rest/v1/visitors';
   var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoY252c2J0dHRkZWp6ZmJkZHZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzODgzNTksImV4cCI6MjA5MDk2NDM1OX0.Y2XaXhkdZJFXH73X4lADkxeHWMlIadUvpmGfMwSdyhc';
   var SB_H={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'};
-  function flag(code){try{return String.fromCodePoint(0x1F1E6+code.charCodeAt(0)-65,0x1F1E6+code.charCodeAt(1)-65);}catch(e){return '';}}
+  function flag(code){
+    if(!code||code.length!==2)return '';
+    // Use flag image service that works on all platforms including Windows
+    return '<img src="https://flagcdn.com/16x12/'+code.toLowerCase()+'.png" width="16" height="12" style="border-radius:2px;margin-right:3px;vertical-align:middle" alt="'+code+'"/>';
+  }
   // sessionStorage resets when browser tab/window is closed — one count per visit
   var alreadyCounted = sessionStorage.getItem('wr_v3_counted');
 
@@ -618,7 +623,7 @@ el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').valu
         if(r.country&&!seen[r.country]){seen[r.country]=true;unique.push({name:r.country,flag:r.flag||flag(r.country_code||'')});}
       });
       if(el('v-ctry'))el('v-ctry').textContent=unique.length;
-      if(el('v-country-list'))el('v-country-list').innerHTML=unique.slice(0,20).map(function(u){return '<span class="ct">'+u.flag+' '+u.name+'</span>';}).join('');
+      if(el('v-country-list'))el('v-country-list').innerHTML=unique.slice(0,20).map(function(u){return '<span class="ct">'+u.flag+u.name+'</span>';}).join('');
     }).catch(function(){});
   }
   loadV();

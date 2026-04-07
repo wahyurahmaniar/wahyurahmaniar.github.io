@@ -11,7 +11,7 @@ var PU = [
     v:'Pattern Recognition &middot; Elsevier &middot; 2026',
     ls:[{l:'arXiv',u:'https://arxiv.org/abs/2602.05426'},{l:'DOI',u:'https://doi.org/10.1016/j.patcog.2025.112486'},{l:'Code',u:'#'}],
     ab:'Traditional deep learning models often lack annotated data, especially in cross-domain applications such as anomaly detection, which is critical for early disease diagnosis in medicine and defect detection in industry. To address this challenge, we propose Multi-AD, an unsupervised convolutional neural network (CNN) model for robust anomaly detection across medical and industrial domain images. Our approach utilizes the squeeze-and-excitation (SE) block to enhance feature extraction by applying channel-wise attention, enabling the model to focus on the most relevant features and detect subtle anomalies. Additionally, knowledge distillation (KD) transfers informative features from the teacher to the student model, enabling effective learning of the differences between normal and anomalous data. Then, the discriminator network further enhances the model’s capacity to distinguish between normal and anomalous data. At the inference stage, by integrating multi-scale features, the student model gains the ability to detect anomalies of varying sizes. Teacher-student (T-S) architecture ensures consistency in representing high-dimensional features while adapting these features to improve anomaly detection. Multi-AD was evaluated on several medical datasets, including brain MRI, liver CT, and retina OCT, as well as industrial datasets, such as MVTec AD, demonstrating strong generalization across multiple domains. Experimental results demonstrated that our approach consistently outperformed state-of-the-art models, achieving the best average accuracy for anomaly localization at both the image level (81.4 % for medical and 99.6 % for industrial) and pixel level (97.0 % for medical and 98.4 % for industrial), making it effective for real-world applications.',
-    img:'figures/Multi-ad.png'
+    imgs:['figures/multi-ad-1.png', 'figures/multi-ad-2.png', 'figures/multi-ad-3.png'],
   },
   {
     t:'Practical Applications of Artificial Intelligence: A Sector-Wise Review of Challenges and Future Directions',
@@ -19,7 +19,7 @@ var PU = [
     v:'IT Professional &middot; IEEE &middot; 2025',
     ls:[{l:'IEEE',u:'https://ieeexplore.ieee.org/abstract/document/11125707'},{l:'DOI',u:'https://doi.org/10.1109/MITP.2025.3578694'}],
     ab:'Artificial intelligence (AI) has developed rapidly and is becoming a technological foundation that drives innovation and efficiency in various sectors. This article examines real-world applications of AI in several key industries. Several case studies are explained to better understand the practical applications, outcomes, and challenges of implementing AI. This review aims to provide important points regarding the application of AI for professionals and researchers as well as possible solutions to face AI challenges in the real world. As AI continues to develop, it opens challenges and opportunities for current research and technology. In the future, it will be necessary to develop an AI framework that can adapt to various sectors.',
-    img:['figures/multi-ad-1.png', 'figures/multi-ad-2.png', 'figures/multi-ad-3.png'],
+    img:'figures/it-pro1.png'
   },
   {
     t:'Future of the medical world: collaborative medical imaging AI with federated learning',

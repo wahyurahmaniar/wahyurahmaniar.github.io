@@ -636,7 +636,7 @@ function gbR(){
       return;
     }
     c.innerHTML=rows.map(function(e){
-      var ts = e.created_at ? new Date(e.created_at).getTime() : Date.now();
+      var ts = e.created_at ? new Date(e.created_at.replace(" ","T")+"Z").getTime() : Date.now();
       return '<div class="gbcard"><div class="gbh">'+
         '<span class="gbn">'+esc(e.name)+(e.affiliation?' <span style="opacity:.5">&middot; '+esc(e.affiliation)+'</span>':'')+'</span>'+
         '<span class="gbm2">'+ago(ts)+'</span>'+
@@ -758,4 +758,4 @@ initProfile();initEdu();initFigures();rnp(0);rpu(0);rle(0);gbR();
 })();
 </script>
 </body>
-  </html>
+</html>

@@ -358,7 +358,7 @@ footer{padding:1.2rem 1.8rem;border-top:1px solid rgba(0,229,255,.07);display:fl
           <div class="card" id="contact">
             <div class="sh"><span class="sn">07</span><h2 class="sl">Contact</h2><span class="sli"></span></div>
             <h2 class="ch2">There are no vacancies at this time.</em></h2>
-            <p class="cs">I am not accepting interns, students, or postdoc applications currently. <br><em>I welcome research collaboration, clinical AI partnerships, and speaking invitations.</p>
+            <p class="cs">I am not accepting interns, students, or postdoc applications currently.<br><em>I welcome research collaboration, clinical AI partnerships, and speaking invitations.</p>
           </div>
         </div>
         <div class="btm-right">
@@ -618,16 +618,54 @@ function qEnd(){el('q-play').style.display='none';el('q-end').style.display='blo
 function qStart(){qi=0;qs=0;qset=shuf(QS);el('q-start').style.display='none';el('q-end').style.display='none';el('q-play').style.display='block';qR();}
 el('q-s').onclick=qStart;el('q-n').onclick=function(){qi++;if(qi>=qset.length)qEnd();else qR();};el('q-r').onclick=qStart;
 
-// GUESTBOOK
-var GB_KEY='wr_guestbook_v2';
-var GB_SEED=[];
-function countryFlag(code){if(!code)return '&#127758;';return '<img src="https://flagcdn.com/16x12/'+code.toLowerCase()+'.png" width="16" height="12" style="border-radius:2px;margin-right:3px;vertical-align:middle" alt="'+code+'"/>';}
-var FLAGS={JP:'JP',US:'US',SA:'SA',GB:'GB',ID:'ID',SG:'SG',AU:'AU',DE:'DE',KR:'KR',CA:'CA',FR:'FR'};
+// GUESTBOOK (Supabase — shared across all visitors)
+var GB_URL = 'https://khcnvsbtttdejzfbddva.supabase.co/rest/v1/guestbook';
+var GB_KEY_SB = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoY252c2J0dHRkZWp6ZmJkZHZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzODgzNTksImV4cCI6MjA5MDk2NDM1OX0.Y2XaXhkdZJFXH73X4lADkxeHWMlIadUvpmGfMwSdyhc';
+var GB_H = {'apikey':GB_KEY_SB,'Authorization':'Bearer '+GB_KEY_SB,'Content-Type':'application/json'};
+
 function ago(ts){var s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
-function gbLoad(){try{var s=localStorage.getItem(GB_KEY);if(!s)return [];return JSON.parse(s);}catch(e){return [];}}
-function gbSave(entries){try{localStorage.setItem(GB_KEY,JSON.stringify(entries.slice(-60)));}catch(e){}}
-function gbR(){var entries=gbLoad(),c=el('gb-en');if(!c)return;if(!entries.length){c.innerHTML='<div style="font-family:var(--mo);font-size:.65rem;color:var(--d2);text-align:center;padding:1.5rem">No messages yet.</div>';return;}c.innerHTML=entries.slice().reverse().map(function(e){return '<div class="gbcard"><div class="gbh"><span class="gbn">'+esc(e.n)+(e.o?' <span style="opacity:.5">&middot; '+esc(e.o)+'</span>':'')+'</span><span class="gbm2">'+countryFlag(FLAGS[e.f]||e.f)+' '+ago(e.ts)+'</span></div><div class="gbmsg">'+esc(e.m)+'</div></div>';}).join('');}
-el('gb-bt').onclick=function(){var n=el('gb-nm').value.trim(),o=el('gb-or').value.trim(),m=el('gb-ms').value.trim(),s=el('gb-st');if(!n){s.textContent='Please enter your name.';s.style.color='#FCA5A5';return;}if(m.length<5){s.textContent='Message too short.';s.style.color='#FCA5A5';return;}var entries=gbLoad();entries.push({n:n,o:o,m:m,f:'',ts:Date.now()});gbSave(entries);gbR();el('gb-nm').value='';el('gb-or').value='';el('gb-ms').value='';s.style.color='var(--glow)';s.textContent='&#10003; Saved!';setTimeout(function(){s.textContent='';},3000);};
+
+function gbR(){
+  var c=el('gb-en');if(!c)return;
+  c.innerHTML='<div style="font-family:var(--mo);font-size:.62rem;color:var(--d2);text-align:center;padding:1rem">Loading...</div>';
+  fetch(GB_URL+'?order=created_at.desc&limit=50',{headers:GB_H})
+  .then(function(r){return r.json();})
+  .then(function(rows){
+    if(!Array.isArray(rows)||!rows.length){
+      c.innerHTML='<div style="font-family:var(--mo);font-size:.65rem;color:var(--d2);text-align:center;padding:1.5rem">No messages yet — be the first!</div>';
+      return;
+    }
+    c.innerHTML=rows.map(function(e){
+      var ts = e.created_at ? new Date(e.created_at).getTime() : Date.now();
+      return '<div class="gbcard"><div class="gbh">'+
+        '<span class="gbn">'+esc(e.name)+(e.affiliation?' <span style="opacity:.5">&middot; '+esc(e.affiliation)+'</span>':'')+'</span>'+
+        '<span class="gbm2">'+ago(ts)+'</span>'+
+        '</div><div class="gbmsg">'+esc(e.message)+'</div></div>';
+    }).join('');
+  })
+  .catch(function(){
+    c.innerHTML='<div style="font-family:var(--mo);font-size:.62rem;color:#FCA5A5;text-align:center;padding:1rem">Could not load messages.</div>';
+  });
+}
+
+el('gb-bt').onclick=function(){
+  var n=el('gb-nm').value.trim(),o=el('gb-or').value.trim(),m=el('gb-ms').value.trim(),s=el('gb-st');
+  if(!n){s.textContent='Please enter your name.';s.style.color='#FCA5A5';return;}
+  if(m.length<5){s.textContent='Message too short.';s.style.color='#FCA5A5';return;}
+  s.textContent='Posting...';s.style.color='var(--d2)';
+  fetch(GB_URL,{method:'POST',headers:GB_H,body:JSON.stringify({name:n,affiliation:o,message:m})})
+  .then(function(r){
+    if(r.status>=200&&r.status<300){
+      el('gb-nm').value='';el('gb-or').value='';el('gb-ms').value='';
+      s.style.color='var(--glow)';s.textContent='&#10003; Posted! Thank you.';
+      setTimeout(function(){s.textContent='';},3000);
+      gbR();
+    } else {
+      s.style.color='#FCA5A5';s.textContent='Error posting. Try again.';
+    }
+  })
+  .catch(function(){s.style.color='#FCA5A5';s.textContent='Error posting. Try again.';});
+};
 
 // VISITOR COUNTER (Supabase shared)
 (function(){

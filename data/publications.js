@@ -19,7 +19,7 @@ var PU = [
     v:'IT Professional &middot; IEEE &middot; 2025',
     ls:[{l:'IEEE',u:'https://ieeexplore.ieee.org/abstract/document/11125707'},{l:'DOI',u:'https://doi.org/10.1109/MITP.2025.3578694'}],
     ab:'Artificial intelligence (AI) has developed rapidly and is becoming a technological foundation that drives innovation and efficiency in various sectors. This article examines real-world applications of AI in several key industries. Several case studies are explained to better understand the practical applications, outcomes, and challenges of implementing AI. This review aims to provide important points regarding the application of AI for professionals and researchers as well as possible solutions to face AI challenges in the real world. As AI continues to develop, it opens challenges and opportunities for current research and technology. In the future, it will be necessary to develop an AI framework that can adapt to various sectors.',
-    img:'figures/itpro-1.png'
+    img:['figures/multi-ad-1.png', 'figures/multi-ad-2.png', 'figures/multi-ad-3.png'],
   },
   {
     t:'Future of the medical world: collaborative medical imaging AI with federated learning',

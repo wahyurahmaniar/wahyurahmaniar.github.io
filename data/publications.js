@@ -27,7 +27,7 @@ var PU = [
     v:'IEEE Consumer Electronics Magazine &middot; IEEE &middot; 2025',
     ls:[{l:'IEEE',u:'https://ieeexplore.ieee.org/abstract/document/10876609'},{l:'DOI',u:'https://doi.org/10.1109/MCE.2025.3539474'}],
     ab:'Integrating federated learning with medical imaging represents a significant development in the rapidly evolving field of healthcare technology. Federated learning can enable medical institutions to train AI models collaboratively while preserving patient privacy by keeping data localized, addressing regulatory and ethical concerns associated with centralized data sharing. This review explores the transformative potential of federated learning, including its methodologies, associated challenges, and future implications.',
-    img:'figures/fl.png'
+    imgs:['figures/fl1.png','figures/fl2.png']
   },
   {
     t:'ChatGPT for Software Development: Opportunities and Challenges',
@@ -35,7 +35,7 @@ var PU = [
     v:'IT Professional &middot; IEEE &middot; 2024',
     ls:[{l:'IEEE',u:'https://www.computer.org/csdl/magazine/it/2024/03/10572230/1Y5ARhBvqla'},{l:'DOI',u:'https://doi.ieeecomputersociety.org/10.1109/MITP.2024.3379831'}],
     ab:'Rapid natural language processing advances, such as OpenAI ChatGPT, promise profound transformations across multiple domains, including software development. This article discusses ChatGPT role in software engineering, including an investigation of implications and applications highlighting ChatGPT code-assistance capabilities. Through a series of analyses, we discuss the real impact of ChatGPT on open source software development. However, apart from offering efficiency and innovation, ChatGPT mandates a careful and well-informed approach to integration into software development paradigms.',
-    img:null
+    img:'figures/chatgpt.png'
   },
   {
     t:'Deep learning and quantum algorithms approach to investigating the feasibility of wormholes: A review',
@@ -43,7 +43,7 @@ var PU = [
     v:'Astronomy and Computing &middot; Elsevier &middot; 2024',
     ls:[{l:'ScienceDirect',u:'https://www.sciencedirect.com/science/article/pii/S2213133724000179'},{l:'DOI',u:'https://doi.org/10.1016/j.ascom.2024.100802'}],
     ab:'Wormholes, hypothetical structures connecting distant regions of spacetime, have long captured the imagination of scientists and science fiction fans alike. In this review, we investigate the potential of deep learning and quantum algorithms to explain the implications of wormholes as an alternative to traditional analytical methods. A comprehensive analysis of the current understanding of wormholes is elaborated to discuss its theoretical foundations and limitations further.',
-    img:'figures/wormhole.png'
+    imgs:['figures/wormhole-1.png','figures/wormhole-2.png','figures/wormhole-3.png','figures/wormhole-4.png']
   },
   {
     t:'In Vitro Anti-Oxidant, In Vivo Anti-Hyperglycemic, and Untargeted Metabolomics-Aided-In Silico Screening of Macroalgae Lipophilic Extracts',

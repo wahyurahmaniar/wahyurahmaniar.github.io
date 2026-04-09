@@ -51,7 +51,7 @@ var PU = [
     v:'Metabolites &middot; MDPI &middot; 2023',
     ls:[{l:'MDPI',u:'https://www.mdpi.com/2218-1989/13/12/1177'},{l:'DOI',u:'https://doi.org/10.3390/metabo13121177'}],
     ab:'COVID-19 patients with comorbid DM face more severe outcomes, indicating that hyperglycemic conditions exacerbate SARS-CoV-2 infection. This study identifies potential compounds in macroalgae Sargassum cristaefolium, Tricleocarpa cylindrica, and Ulva lactuca lipophilic extracts for treating DM and COVID-19 using in vitro, in vivo, and metabolomic-integrated in silico approaches. Notably, steroid-derived compounds in T. cylindrica showed higher binding activity than known ligands for anti-DM and anti-COVID-19 targets.',
-    imgs:['figures/silico1.png','figures/silico2.png','figures/silico3.png','figures/silico4.png','figures/silico5.png','figures/silico6.png','figures/silico7.png','figures/silico8.png','figures/silico9.png']
+    imgs:['figures/silico1.png','figures/silico1b.png','figures/silico2.png','figures/silico3.png','figures/silico4.png','figures/silico5.png','figures/silico6.png','figures/silico7.png','figures/silico8.png','figures/silico9.png']
   },
   {
     t:'Auto-CA: automated Cobb angle measurement based on vertebrae detection for assessment of spinal curvature deformity',

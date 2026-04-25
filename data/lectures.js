@@ -64,11 +64,9 @@ var LE = [
    img: null,
    slides: null},
 
-  {t:'Clinical Deployment of AI: Regulatory and Safety Considerations',
-   v:'RIKEN Center for Medical Sciences', y:'2021', ty:'tl', tl:'Lecture',
-   desc:'Lecture on the full pipeline from AI research to clinical deployment — FDA 510(k) submissions, ISO 13485 requirements, post-market surveillance.',
-   links:['Lecture Slides','Reference Checklist'],
-   tags:['Regulation','FDA','Clinical Deployment'],
+  {t:'ARTIFICIAL INTELLIGENCE APPLICATIONS IN REAL-LIFE',
+   v:'SEKOLAH TINGGI TEKNOLOGI BANDUNG', y:'2021', ty:'tl', tl:'Lecture',
+   links:['https://docs.google.com/presentation/d/e/2PACX-1vR5J4GNWJIQ85spX4gael5fF7ZdyBtMWJ2HpjhfL5ZP__8EM0KXITqv3cBNvNhvIA/pub?start=true&loop=false&delayms=3000'],
    img: null,
    slides: null},
 ];

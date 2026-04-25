@@ -494,7 +494,7 @@ function showLecPreview(idx){
   var tgs=(l.tags||[]).map(function(tg){return '<span style="font-family:var(--mo);font-size:.52rem;padding:.12rem .42rem;border-radius:3px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)">'+tg+'</span>';}).join('');
   function toEmbedUrl(url){
     if(!url) return null;
-    if(url.indexOf('/pub')>=0) return url;
+    if(url.indexOf('/pub')>=0) return url.replace('/pub?','/embed?').replace('/pub#','/embed#');
     var m=url.match(/\/file\/d\/([^\/]+)/);
     if(m) return 'https://drive.google.com/file/d/'+m[1]+'/preview';
     var m2=url.match(/presentation\/d\/([^\/]+)/);

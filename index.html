@@ -685,11 +685,14 @@ el('gb-bt').onclick=function(){
   var SB_URL='https://khcnvsbtttdejzfbddva.supabase.co/rest/v1/visitors';
   var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoY252c2J0dHRkZWp6ZmJkZHZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzODgzNTksImV4cCI6MjA5MDk2NDM1OX0.Y2XaXhkdZJFXH73X4lADkxeHWMlIadUvpmGfMwSdyhc';
   var SB_H={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'};
+  
   function flag(code){
     if(!code||code.length!==2)return '';
-    // Use flag image service that works on all platforms including Windows
-    return '<img src="https://flagcdn.com/16x12/'+code.toLowerCase()+'.png" width="16" height="12" style="border-radius:2px;margin-right:3px;vertical-align:middle" alt="'+code+'"/>';
+    var chars=code.toUpperCase().split('');
+    var emoji=chars.map(function(c){return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65);}).join('');
+    return '<span style="font-size:14px;margin-right:4px;vertical-align:middle">'+emoji+'</span>';
   }
+  
   // sessionStorage resets when browser tab/window is closed — one count per visit
   var alreadyCounted = sessionStorage.getItem('wr_v3_counted');
 

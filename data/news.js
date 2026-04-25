@@ -31,7 +31,7 @@ var NA = [
    url:'https://www.sciencedirect.com/science/article/abs/pii/S0031320325011495', img:null},
 
   // ── 2025 ──────────────────────────────────────────────────────
-  {b:'nb-w', l:'Conference', t:'Attended RSNA 2025, Radiological Society of North America Annual Meeting', d:'2025',
+  {b:'nb-w', l:'Conference', t:'Attended RSNA 2025, Radiological Society of North America Annual Meeting, Chicago, USA', d:'2025',
    url:null, img:null},
   {b:'nb-t', l:'Invited Talk', t:'AI in Medical Images, 3rd Trunojoyo Madura International Conference (TMIC)', d:'2025',
    url:null, img:null},
@@ -47,7 +47,7 @@ var NA = [
    url:null, img:null},
   {b:'nb-t', l:'Lecture',      t:'AI in Medical Images and Assistive Device, Universitas Harapan Bangsa (UHB)', d:'2024',
    url:null, img:null},
-  {b:'nb-t', l:'Lecture',      t:'AI in Medical Images and Assistive Device, Prince Sultan University, Saudi Arabia', d:'2024',
+  {b:'nb-t', l:'Lecture',      t:'AI in Medical Images and Assistive Device, Prince Sultan University (PSU), Saudi Arabia', d:'2024',
    url:null, img:null},
   {b:'nb-n', l:'Milestone',  t:'Tokyo Institute of Technology officially renamed to Institute of Science Tokyo', d:'2024',
    url:null, img:null},
@@ -87,7 +87,7 @@ var NA = [
    url:'https://link.springer.com/book/10.1007/978-981-19-1804-9', img:null},
   {b:'nb-w', l:'Conference', t:'Mobile Robot Path Planning in a Trajectory with Multiple Obstacles Using Genetic Algorithms (Journal of Robotics and Control)', d:'2022',
    url:null, img:null},
-  {b:'nb-w', l:'Conference', t:'AutoSpine-Net: Spine Detection Using Convolutional Neural Networks for Cobb Angle Classification in Adolescent Idiopathic Scoliosis (2nd International Conference on Electronics, Biomedical Engineering, and Health Informatics, ICEBEHI)', d:'2022',
+  {b:'nb-w', l:'Conference', t:'AutoSpine-Net: Spine Detection Using Convolutional Neural Networks for Cobb Angle Classification in Adolescent Idiopathic Scoliosis (2nd International Conference on Electronics, Biomedical Engineering, and Health Informatics, ICEBEHI, Indonesia)', d:'2022',
    url:'https://link.springer.com/book/10.1007/978-981-19-1804-9', img:null},
   {b:'nb-w', l:'Conference', t:'Sensor Integration for Real-Time Data Acquisition in Aerial Surveillance (Australian Journal of Electrical and Electronics Engineering)', d:'2022',
    url:'https://www.tandfonline.com/doi/full/10.1080/1448837X.2021.2023070', img:null},
@@ -109,8 +109,6 @@ var NA = [
    url:'https://www.mdpi.com/2079-9292/10/14/1647', img:null},
   {b:'nb-w', l:'Conference', t:'Online Digital Image Stabilization for an Unmanned Aerial Vehicle (UAV) (Journal of Robotics and Control)', d:'July 2021',
    url:'https://journal.umy.ac.id/index.php/jrc/article/view/10006', img:null},
-  {b:'nb-w', l:'Conference', t:'Touchless Head-Control: An Assistive System for Computer Cursor Control Based on Head Pose (Journal of Robotics and Control)', d:'2021',
-   url:null, img:null},
   {b:'nb-w', l:'Conference', t:'Design and Implementation of a Mobile Robot for Carbon Monoxide Monitoring (Journal of Robotics and Control)', d:'January 2021',
    url:'https://journal.umy.ac.id/index.php/jrc/article/view/8547', img:null},
 
@@ -123,7 +121,7 @@ var NA = [
   // ── 2019 ──────────────────────────────────────────────────────
   {b:'nb-w', l:'Conference', t:'Real-Time Detection and Recognition of Multiple Moving Objects for Aerial Surveillance (Electronics, MDPI)', d:'2019',
    url:'https://www.mdpi.com/2079-9292/8/12/1373', img:null},
-  {b:'nb-p', l:'New Paper',  t:'Real-Time Automated Segmentation and Classification of Calcaneal Fractures in CT Images (Applied Sciences)', d:'2019',
+  {b:'nb-p', l:'New Paper',  t:'Real-Time Automated Segmentation and Classification of Calcaneal Fractures in CT Images (Applied Sciences, MDPI)', d:'2019',
    url:null, img:null},
 
   // ── 2018 ──────────────────────────────────────────────────────
@@ -135,6 +133,6 @@ var NA = [
    url:null, img:null},
 
   // ── 2015 ──────────────────────────────────────────────────────
-  {b:'nb-w', l:'Conference', t:'A Novel Object Detection Method Based on Fuzzy Sets Theory and SURF (International Conference on System Science and Engineering, ICSSE)', d:'2015',
+  {b:'nb-w', l:'Conference', t:'A Novel Object Detection Method Based on Fuzzy Sets Theory and SURF (International Conference on System Science and Engineering, ICSSE, Japan)', d:'2015',
    url:null, img:null},
 ];

@@ -16,7 +16,7 @@
 //   slides:'https://...'           ← direct link to your slides (PDF/PPT/Google Slides)
 // ─────────────────────────────────────────────────────────────────
 var LE = [
-  {t:'ARTIFICIAL INTELLIGENCE (AI)IN MEDICAL IMAGES',
+  {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES',
    v:'3rd Trunojoyo Madura International Conference (TMIC)', y:'2025', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
@@ -29,7 +29,7 @@ var LE = [
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQBqnJfAXFH6Q8iJf_FWJb4mg9fc1v3m63FrW-YLDdXjOqauwPpMbqTFu9RX5KMBg/pub?start=true&loop=false&delayms=3000'},
   
   {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE',
-   v:'3RD INTERNATIONAL CONFERENCE ON PHYSICS AND PHYSICS EDUCATION (ICONPHYEDU)', y:'2024', ty:'ti', tl:'Invited Talk',
+   v:'3rd INTERNATIONAL CONFERENCE ON PHYSICS AND PHYSICS EDUCATION (ICONPHYEDU)', y:'2024', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQFhmFjrnyV9G-k1NkzM0BTUKZ2NkygM0q7nLZO_go7zMwWEK2mxzG15uuyO1muWA/pub?start=true&loop=false&delayms=3000'},

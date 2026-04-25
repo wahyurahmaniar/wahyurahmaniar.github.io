@@ -431,10 +431,9 @@ function ni(n){
   var title=n.url?'<a href="'+n.url+'" target="_blank" style="color:var(--w);text-decoration:none;border-bottom:1px solid rgba(0,229,255,.2)">'+n.t+'</a>':n.t;
   return '<div class="ni"><span class="nb '+n.b+'">'+n.l+'</span><div style="flex:1"><div class="nt">'+title+'</div><div class="nm">'+n.d+'</div></div>'+img+'</div>';
 }
-// change from:
-var napg=0;function rna(pg){napg=pg;var s=pg*5,items=NA.slice(s,s+5)...pag('nallpag',NA.length,5,pg,'rna');}
-// change to:
-var napg=0;function rna(pg){napg=pg;var s=pg*15,items=NA.slice(s,s+15)...pag('nallpag',NA.length,15,pg,'rna');}
+
+var npg=0;function rnp(pg){npg=pg;var s=pg*5,items=NA.slice(s,s+5);el('nprev').innerHTML=items.map(ni).join('');pag('npag',NA.length,5,pg,'rnp');}
+var napg=0;function rna(pg){napg=pg;var s=pg*15,items=NA.slice(s,s+15);el('nall').innerHTML=items.map(ni).join('');pag('nallpag',NA.length,15,pg,'rna');}
   
 // PUBLICATIONS
 var PUB_TABS=['Overview','Abstract','Figure','Links'],pubTabIdx=0;

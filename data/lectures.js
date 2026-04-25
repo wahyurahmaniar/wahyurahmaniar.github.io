@@ -64,8 +64,8 @@ var LE = [
    img: null,
    slides: null},
 
-  {t:'ARTIFICIAL INTELLIGENCE APPLICATIONS IN REAL-LIFE',
-   v:'SEKOLAH TINGGI TEKNOLOGI BANDUNG', y:'2021', ty:'tl', tl:'Lecture',
+  {t:'Artificial Intelligence Applications in Real-Life',
+   v:'Sekolah Tinggi Teknologi Bandung (STTB)', y:'2021', ty:'tl', tl:'Lecture',
    links:['https://docs.google.com/presentation/d/e/2PACX-1vR5J4GNWJIQ85spX4gael5fF7ZdyBtMWJ2HpjhfL5ZP__8EM0KXITqv3cBNvNhvIA/pub?start=true&loop=false&delayms=3000'],
    img: null,
    slides: null},

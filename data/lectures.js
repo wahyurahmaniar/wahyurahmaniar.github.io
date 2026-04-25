@@ -62,6 +62,24 @@ var LE = [
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vRS67QdZXQfBQnbhRx8qUbDeVHFk_GwA-FWUow_grzJw3OOVy7SpdO3ymMO_x81QA/pub?start=true&loop=false&delayms=3000'},
 
+  {t:'PUBLICATIONS IN ARTIFICIAL INTELLIGENCE AND MEDICAL TECHNOLOGY',
+   v:'UNIVERSITAS HARAPAN BANGSA (UHB)', y:'2022', ty:'ti', tl:'Invited Talk',
+   links:['Slides'],
+   img: null,
+   slides: 'https://docs.google.com/presentation/d/e/2PACX-1vS95tdZf6vsjDu2sXJquwh2MuhEkMCYxrYHFs61B1q_-5TsV19Llf1dkV4iGCzZtg/pub?start=true&loop=false&delayms=3000'},
+  
+  {t:'AI TECHNOLOGY IN MEDICAL IMAGING AND ASSISTIVE DEVICES',
+   v:'UNIVERSITAS INDONESIA (UI)', y:'2022', ty:'tl', tl:'Lecture',
+   links:['Slides'],
+   img: null,
+   slides: 'https://docs.google.com/presentation/d/e/2PACX-1vSmA-KGamUwFrR1e4LD33vQUpSTVWe11um-Nf_D5_5xbNSCKSFrjiMScBa2NJxMng/pub?start=true&loop=false&delayms=3000'},
+  
+  {t:'When Remote Sensing Meets Artificial Intelligence',
+   v:'UNIVERSITAS NEGERI MAKASSAR (UNM)', y:'2021', ty:'ts', tl:'Seminar',
+   links:['Slides'],
+   img: null,
+   slides: 'https://docs.google.com/presentation/d/e/2PACX-1vRS67QdZXQfBQnbhRx8qUbDeVHFk_GwA-FWUow_grzJw3OOVy7SpdO3ymMO_x81QA/pub?start=true&loop=false&delayms=3000'},
+
   {t:'Artificial Intelligence Applications in Real-Life',
    v:'Sekolah Tinggi Teknologi Bandung (STTB)', y:'2021', ty:'tl', tl:'Lecture',
    links:['Slides'],

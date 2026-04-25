@@ -492,15 +492,41 @@ function showLecPreview(idx){
   var l=LE[idx];
   var lnks=(l.links||[]).map(function(lk){var label=typeof lk==='object'?lk.l:lk;var url=typeof lk==='object'&&lk.u?lk.u:'#';var tgt=url!=='#'?' target="_blank"':'';return '<a href="'+url+'" class="prev-chip"'+tgt+'>'+label+'</a>';}).join('');
   var tgs=(l.tags||[]).map(function(tg){return '<span style="font-family:var(--mo);font-size:.52rem;padding:.12rem .42rem;border-radius:3px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);color:var(--glow)">'+tg+'</span>';}).join('');
-  var lecImg = l.img ? '<img src="'+l.img+'" style="width:100%;max-height:180px;object-fit:cover;border-radius:6px;border:1px solid var(--bd);margin-bottom:.8rem;cursor:pointer" onclick="window.open(\''+l.img+'\')"/>' : '';
-  var slidesBtn = l.slides ? '<a href="'+l.slides+'" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mo);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--bg);background:var(--glow);border:1px solid var(--glow);padding:.4rem .8rem;border-radius:4px;margin-bottom:.8rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>View Slides</a>' : '';
-  el('lec-preview').innerHTML='<div class="prev-tag">'+l.tl+' &middot; '+l.v+' &middot; '+l.y+'</div><div class="prev-title">'+l.t+'</div><div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem">'+tgs+'</div>'+lecImg+slidesBtn+'<div class="prev-desc">'+(l.desc||'')+'</div><div class="prev-links-row">'+lnks+'</div>';
+  function toEmbedUrl(url){
+    if(!url) return null;
+    var m = url.match(/\/file\/d\/([^\/]+)/);
+    if(m) return 'https://drive.google.com/file/d/'+m[1]+'/preview';
+    var m2 = url.match(/presentation\/d\/([^\/]+)/);
+    if(m2) return 'https://docs.google.com/presentation/d/'+m2[1]+'/embed?start=false&loop=false&delayms=3000';
+    return url;
+  }
+  var embedUrl = l.slides ? toEmbedUrl(l.slides) : null;
+  var slidesEmbed = embedUrl ?
+    '<div style="position:relative;width:100%;padding-bottom:56.25%;margin-bottom:.8rem;border-radius:6px;overflow:hidden;border:1px solid var(--bd)">'+
+    '<iframe src="'+embedUrl+'" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" allowfullscreen></iframe>'+
+    '</div>' : '';
+  var lecImg = (!embedUrl && l.img) ? '<img src="'+l.img+'" style="width:100%;max-height:180px;object-fit:cover;border-radius:6px;border:1px solid var(--bd);margin-bottom:.8rem;cursor:pointer" onclick="window.open(this.src)"/>' : '';
+  el('lec-preview').innerHTML='<div class="prev-tag">'+l.tl+' &middot; '+l.v+' &middot; '+l.y+'</div><div class="prev-title">'+l.t+'</div><div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem">'+tgs+'</div>'+slidesEmbed+lecImg+'<div class="prev-desc">'+(l.desc||'')+'</div><div class="prev-links-row">'+lnks+'</div>';
 }
-var lpg=0;function rle(pg){
-  lpg=pg;var s=pg*3,items=LE.slice(s,s+3),h='';
-  items.forEach(function(l,i){h+='<div class="lci" style="cursor:pointer" onclick="showLecPreview('+(s+i)+')"><div class="lt">'+l.t+'</div><div class="lv"><strong>'+l.v+'</strong></div><div class="lf"><span class="ly">'+l.y+'</span><span class="lty '+l.ty+'">'+l.tl+'</span></div></div>';});
-  el('leclist').innerHTML=h;pag('lecpag',LE.length,3,pg,'rle');
+
+// Convert Google Drive share link to embed URL
+function toEmbedUrl(url){
+  if(!url) return null;
+  // Google Drive file: https://drive.google.com/file/d/FILE_ID/view
+  var m = url.match(/\/file\/d\/([^\/]+)/);
+  if(m) return 'https://drive.google.com/file/d/'+m[1]+'/preview';
+  // Google Slides: https://docs.google.com/presentation/d/ID/...
+  var m2 = url.match(/presentation\/d\/([^\/]+)/);
+  if(m2) return 'https://docs.google.com/presentation/d/'+m2[1]+'/embed?start=false&loop=false&delayms=3000';
+  return url;
 }
+var embedUrl = l.slides ? toEmbedUrl(l.slides) : null;
+var slidesEmbed = embedUrl ?
+  '<div style="position:relative;width:100%;padding-bottom:56.25%;margin-bottom:.8rem;border-radius:6px;overflow:hidden;border:1px solid var(--bd)">'+
+  '<iframe src="'+embedUrl+'" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" allowfullscreen></iframe>'+
+  '</div>' : '';
+var lecImg = (!embedUrl && l.img) ? '<img src="'+l.img+'" style="width:100%;max-height:180px;object-fit:cover;border-radius:6px;border:1px solid var(--bd);margin-bottom:.8rem;cursor:pointer" onclick="window.open(this.src)"/>' : '';
+el('lec-preview').innerHTML='<div class="prev-tag">'+l.tl+' &middot; '+l.v+' &middot; '+l.y+'</div><div class="prev-title">'+l.t+'</div><div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem">'+tgs+'</div>'+slidesEmbed+lecImg+'<div class="prev-desc">'+(l.desc||'')+'</div><div class="prev-links-row">'+lnks+'</div>';
 
 // RENDER PROFILE
 

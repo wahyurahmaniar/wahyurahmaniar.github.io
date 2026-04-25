@@ -56,13 +56,11 @@ var LE = [
    img: null,
    slides: null},
 
-  {t:'Privacy-Preserving AI in Healthcare: Federated Learning Approaches',
-   v:'University of Oxford, UK', y:'2022', ty:'ts', tl:'Seminar',
-   desc:'Seminar on federated learning with differential privacy. Covered epsilon-delta guarantees on gradient sharing and compliance with GDPR and HIPAA regulations in practice.',
-   links:['Slides (PDF)'],
-   tags:['Privacy','Differential Privacy','GDPR'],
+  {t:'When Remote Sensing Meets Artificial Intelligence',
+   v:'UNIVERSITAS NEGERI MAKASSAR', y:'2021', ty:'ts', tl:'Seminar',
+   links:['Slides'],
    img: null,
-   slides: null},
+   slides: 'https://docs.google.com/presentation/d/e/2PACX-1vRS67QdZXQfBQnbhRx8qUbDeVHFk_GwA-FWUow_grzJw3OOVy7SpdO3ymMO_x81QA/pub?start=true&loop=false&delayms=3000'},
 
   {t:'Artificial Intelligence Applications in Real-Life',
    v:'Sekolah Tinggi Teknologi Bandung (STTB)', y:'2021', ty:'tl', tl:'Lecture',

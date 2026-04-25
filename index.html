@@ -511,9 +511,9 @@ function showLecPreview(idx){
 
 // Convert Google Drive share link to embed URL
 function toEmbedUrl(url){
-  if(!url) return null;
-  // Google Drive file: https://drive.google.com/file/d/FILE_ID/view
-  var m = url.match(/\/file\/d\/([^\/]+)/);
+    if(!url) return null;
+    if(url.indexOf('/pub')>=0) return url;   // ← add this line
+    var m = url.match(/\/file\/d\/([^\/]+)/);
   if(m) return 'https://drive.google.com/file/d/'+m[1]+'/preview';
   // Google Slides: https://docs.google.com/presentation/d/ID/...
   var m2 = url.match(/presentation\/d\/([^\/]+)/);

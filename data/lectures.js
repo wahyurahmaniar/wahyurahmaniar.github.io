@@ -22,14 +22,14 @@ var LE = [
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vRpGwb6wVCGN8_im3LuuxuMIhHT1j4jsWVLfZbGqVT9rgqJdonitVISCk4Ld-0XOQ/pub?start=true&loop=false&delayms=3000'},
   
-  {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE',
+  {t:'Artificial Intelligence (AI) in Medical Images and Assistive Device',
    v:'Universitas Lambung Mangkurat (ULM)', y:'2025', ty:'tl', tl:'Lecture',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQBqnJfAXFH6Q8iJf_FWJb4mg9fc1v3m63FrW-YLDdXjOqauwPpMbqTFu9RX5KMBg/pub?start=true&loop=false&delayms=3000'},
   
   {t:'Artificial Intelligence (AI) in Medical Images and Assistive Device',
-   v:'3rd INTERNATIONAL CONFERENCE ON PHYSICS AND PHYSICS EDUCATION (ICONPHYEDU)', y:'2024', ty:'ti', tl:'Invited Talk',
+   v:'3rd International Conference on Physics and Physics Education (ICONPHYEDU)', y:'2024', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQFhmFjrnyV9G-k1NkzM0BTUKZ2NkygM0q7nLZO_go7zMwWEK2mxzG15uuyO1muWA/pub?start=true&loop=false&delayms=3000'},

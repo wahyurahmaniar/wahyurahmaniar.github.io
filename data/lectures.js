@@ -16,7 +16,7 @@
 //   slides:'https://...'           ← direct link to your slides (PDF/PPT/Google Slides)
 // ─────────────────────────────────────────────────────────────────
 var LE = [
-  {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES',
+  {t:'Artificial Intelligence (AI) in Medical Images',
    v:'3rd Trunojoyo Madura International Conference (TMIC)', y:'2025', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
@@ -28,19 +28,19 @@ var LE = [
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQBqnJfAXFH6Q8iJf_FWJb4mg9fc1v3m63FrW-YLDdXjOqauwPpMbqTFu9RX5KMBg/pub?start=true&loop=false&delayms=3000'},
   
-  {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE',
+  {t:'Artificial Intelligence (AI) in Medical Images and Assistive Device',
    v:'3rd INTERNATIONAL CONFERENCE ON PHYSICS AND PHYSICS EDUCATION (ICONPHYEDU)', y:'2024', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQFhmFjrnyV9G-k1NkzM0BTUKZ2NkygM0q7nLZO_go7zMwWEK2mxzG15uuyO1muWA/pub?start=true&loop=false&delayms=3000'},
   
-  {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE',
+  {t:'Artificial Intelligence (AI) in Medical Images and Assistive Device',
    v:'Universitas Harapan Bangsa (UHB)', y:'2024', ty:'tl', tl:'Lecture',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vS_rkz_XksDPQT9g9QHtQxfC04TP_eC5d5UqEwFxF9d8caEdQjx0UX0aA2LypRYtg/pub?start=true&loop=false&delayms=3000'},
 
-  {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE',
+  {t:'Artificial Intelligence (AI) in Medical Images and Assistive Device',
    v:'Prince Sultan University, Saudi Arabia', y:'2024', ty:'tl', tl:'Lecture',
    links:['Slides'],
    img: null,
@@ -52,25 +52,25 @@ var LE = [
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQQhMsr4_9dy2BJ0Kax6a533xAHcHAU_c37ynpPzlTMuaNSxOcMxfyTJcoT3pqZ_w/pub?start=true&loop=false&delayms=3000'},
 
-  {t:'ARTIFICIAL INTELLIGENCE (AI) IN MEDICAL IMAGES AND ASSISTIVE DEVICE',
+  {t:'Artificial Intelligence (AI) in Medical Images and Assistive Device',
    v:'1st Engineering Trunojoyo Madura International Conference 2023 (ETMIC)', y:'2023', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vSTJ7OrtEHAZrN-qzeYWiQwGyd7Y57uxJcnD_VDnYTkyQevi-h3jAJ4Rtk4JehswA/pub?start=true&loop=false&delayms=3000'},
 
-  {t:'PUBLICATIONS IN ARTIFICIAL INTELLIGENCE AND MEDICAL TECHNOLOGY',
+  {t:'Publications in Artificial Intelligence and Medical Technology',
    v:'Sekolah Tinggi Teknologi Bandung (STTB)', y:'2022', ty:'ts', tl:'Seminar',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vSBets5GO85rTrO7aFgytwX393aBIwW2XxRs0RcYfdBqXPGFoA10a0T716WEYJL3w/pub?start=true&loop=false&delayms=3000'},
 
-  {t:'PUBLICATIONS IN ARTIFICIAL INTELLIGENCE AND MEDICAL TECHNOLOGY',
+  {t:'Publications in Artificial Intelligence and Medical Technology',
    v:'Universitas Harapan Bangsa (UHB)', y:'2022', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
    slides: 'https://docs.google.com/presentation/d/e/2PACX-1vS95tdZf6vsjDu2sXJquwh2MuhEkMCYxrYHFs61B1q_-5TsV19Llf1dkV4iGCzZtg/pub?start=true&loop=false&delayms=3000'},
   
-  {t:'AI TECHNOLOGY IN MEDICAL IMAGING AND ASSISTIVE DEVICES',
+  {t:'AI Technology in Medical Imaging and Assistive Devices',
    v:'Universitas Indonesia (UI)', y:'2022', ty:'tl', tl:'Lecture',
    links:['Slides'],
    img: null,

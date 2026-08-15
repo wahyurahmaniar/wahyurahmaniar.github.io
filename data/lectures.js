@@ -20,7 +20,7 @@ var LE = [
   v:'Universitas Diponegoro (UNDIP)', y:'2026', ty:'tl', tl:'Lecture',
   links:['Slides'],
   img: null,
-  slides:'https://docs.google.com/presentation/d/1QxstM67hH9EnECYLmVSfu8q4zp8F_zKd/embed?start=true&loop=false&delayms=3000'},
+  slides:''},
   
 {t:'Guest Lecturer: Artificial Intelligence (AI) in Medical Imaging',
    v:'Universitas Brawijaya', y:'2026', ty:'tl', tl:'Lecture',

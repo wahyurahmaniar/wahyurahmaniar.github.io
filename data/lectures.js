@@ -22,7 +22,7 @@ links:['Slides'],
 img: null,
 slides: 'https://docs.google.com/presentation/d/e/2PACX-1vR3mn70Wvc0JelzMbTo7vtDbQ7iBY8cYHUnEpAem2IoGPhcZwgphnLGCukbqWZPbg/pubembed?start=true&loop=false&delayms=3000'},
 
-{t:'Guest Lecturer: Artificial Intelligence (AI) in Medical Imaging',
+{t:'Guest Lecture: Artificial Intelligence (AI) in Medical Imaging',
 v:'Universitas Brawijaya', y:'2026', ty:'tl', tl:'Lecture',
 links:['Slides'],
 img: null,

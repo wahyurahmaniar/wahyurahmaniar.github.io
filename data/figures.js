@@ -13,7 +13,7 @@ var FIGURES = [
   {
     cat:'concept', tag:'Concept · Quantum Gravity',
     title:'Traversable Wormholes',
-    desc:'The synchronized-vacuum wormhole (SVW) framework: an opening condition (entangled state matching rho_A = rho_B) and a holding condition (phantom scalar maintaining a horizon-free throat via b(r) = R0^2/r). Human-scale throat radius R0 = 1m supports walking-speed traversal.',
+    desc:'The synchronized-vacuum wormhole (SVW) framework: opening condition ρₐ = ρₙ (entangled state matching between mouth regions) and holding condition via phantom scalar □χ = 0 supporting b(r) = R₀²/r. Throat radius R₀ = 1m permits walking-speed traversal.',
     pub:'',
     wide:true,
     img:'figures/traversable_wormhole.png'
@@ -21,7 +21,7 @@ var FIGURES = [
   {
     cat:'method', tag:'Method · Quantum-Inspired Learning',
     title:'Quantum-Inspired Learning',
-    desc:'A quantum-inspired architecture that repeatedly re-injects initial token representations across encoder stages. Combines EMA-referenced token fusion, dual-scale Hadamard-attention mixing, and adaptive depth growth to progressively refine discriminative features under limited supervision.',
+    desc:'A quantum-inspired architecture using data re-uploading: initial token x₀ is fused at every encoder block via EMA reference. Combines Hadamard mixing (Hₙ ⊗ Hₗₒᶜ) with self-attention and adaptive depth growth L ← L+1 to refine discriminative features under limited supervision.',
     pub:'',
     wide:false,
     img:'figures/quantum_inspired_learning.png'
@@ -29,7 +29,7 @@ var FIGURES = [
   {
     cat:'concept', tag:'Concept · Quantum Information Theory',
     title:'One-Shot Quantum State Reconstruction',
-    desc:'Derives the least average trace-distance error achievable when encoding a quantum ensemble through a d-dimensional memory. The two-sided bound is tight for orthogonal ensembles, recovering lossless source coding in the product limit.',
+    desc:'Derives the least average trace-distance error Δ₂(ℰ) achievable when encoding a quantum ensemble ℰ through a d-dimensional memory. Two-sided bound: Pₛᵘᵔᵔ(ℰ) − Σ₂(p) ≤ Δ₂(ℰ) ≤ 1 − Pᵈₛᵘᵔᵔ(ℰ), tight for orthogonal ensembles.',
     pub:'',
     wide:false,
     img:'figures/quantum_state_reconstruction.png'

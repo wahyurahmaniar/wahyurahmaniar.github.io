@@ -16,11 +16,11 @@
 //   slides:'https://...'           ← direct link to your slides (PDF/PPT/Google Slides)
 // ─────────────────────────────────────────────────────────────────
 var LE = [
-  {t:'Global Classroom: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
-   v:'Universitas Diponegoro (UNDIP)', y:'2026', ty:'tl', tl:'Lecture',
-   links:['Slides'],
-   img: null,
-   slides: 'https://docs.google.com/presentation/d/e/2PACX-1vR3mn70Wvc0JelzMbTo7vtDbQ7iBY8cYHUnEpAem2IoGPhcZwgphnLGCukbqWZPbg/embed?start=true&loop=false&delayms=3000'},
+{t:'Global Classroom: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
+  v:'Universitas Diponegoro (UNDIP)', y:'2026', ty:'tl', tl:'Lecture',
+  links:['Slides'],
+  img: null,
+  slides:'https://docs.google.com/presentation/d/1QxstM67hH9EnECYLmVSfu8q4zp8F_zKd/embed?start=true&loop=false&delayms=3000'},
   
 {t:'Guest Lecturer: Artificial Intelligence (AI) in Medical Imaging',
    v:'Universitas Brawijaya', y:'2026', ty:'tl', tl:'Lecture',

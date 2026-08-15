@@ -17,12 +17,18 @@
 
 var NA = [
   // ── 2026 ──────────────────────────────────────────────────────
-  {b:'nb-a', l:'Award',   t:'Proposal accepted for the Diaspora Berdampak program in collaboration with Telkom University', d:'2026',
+  {b:'nb-a', l:'Award',   t:'Proposal accepted for the “Diaspora Berdampak” program in collaboration with Telkom University', d:'2026',
    url:null, img:null},
   {b:'nb-p', l:'Conference Paper',   t:'Our paper has been accepted to the 2nd MICCAI Workshop on Efficient Medical, France', d:'2026',
    url:null, img:null},
+  {b:'nb-p', l:'New Paper',  t:'Artificial intelligence for anticancer drug discovery from natural products of macroalgae and sponges: A systematic review (Computational Biology and Chemistry, Elsevier)', d:'2026',
+   url:'https://www.sciencedirect.com/science/article/abs/pii/S147692712600407X', img:null},
   {b:'nb-w', l:'Guest Editor',   t:'Guest Editor for the Special Issue “AI-Based Sensing and Imaging Applications” in Sensors (MDPI)', d:'2026',
    url:'https://www.mdpi.com/journal/sensors/special_issues/EB29LD56CW', img:null},
+  {b:'nb-t', l:'Lecture',      t:'Global Classroom, Universitas Diponegoro (UNDIP)', d:'2026',
+   url:null, img:null},
+  {b:'nb-t', l:'Lecture',      t:'Guest Lecture: AI in Medical Imaging, Universitas Brawijaya (UB)', d:'2026',
+   url:null, img:null},
   {b:'nb-p', l:'New Paper',  t:'A Narrative Review of AI Frameworks for Chronic Stress Detection Using Physiological Sensing (Sensors, MDPI)', d:'2026',
    url:'https://www.mdpi.com/1424-8220/26/8/2345', img:null},
   {b:'nb-a', l:'Position',   t:'Appointed as Adjunct Professor, Universitas Brawijaya, Indonesia', d:'2026',
@@ -41,9 +47,9 @@ var NA = [
   // ── 2025 ──────────────────────────────────────────────────────
   {b:'nb-w', l:'Conference', t:'Attended RSNA 2025, Radiological Society of North America Annual Meeting, Chicago, USA', d:'2025',
    url:null, img:null},
-  {b:'nb-t', l:'Invited Talk', t:'AI in Medical Images, 3rd Trunojoyo Madura International Conference (TMIC)', d:'2025',
+  {b:'nb-t', l:'Invited Talk', t:'AI in Medical Imaging, 3rd Trunojoyo Madura International Conference (TMIC)', d:'2025',
    url:null, img:null},
-  {b:'nb-t', l:'Lecture',      t:'AI in Medical Images and Assistive Device, Universitas Lambung Mangkurat (ULM)', d:'2025',
+  {b:'nb-t', l:'Lecture',      t:'AI in Medical Imaging and Assistive Device, Universitas Lambung Mangkurat (ULM)', d:'2025',
    url:null, img:null},
   {b:'nb-p', l:'New Paper',  t:'Practical Applications of Artificial Intelligence: A Sector-Wise Review of Challenges and Future Directions (IT Professional, IEEE)', d:'2025',
    url:'https://ieeexplore.ieee.org/abstract/document/11125707', img:null},
@@ -51,11 +57,11 @@ var NA = [
    url:'https://ieeexplore.ieee.org/abstract/document/10876609', img:null},
 
   // ── 2024 ──────────────────────────────────────────────────────
-  {b:'nb-t', l:'Invited Talk', t:'AI in Medical Images and Assistive Device, 3rd International Conference on Physics and Physics Education (ICONPHYEDU)', d:'2024',
+  {b:'nb-t', l:'Invited Talk', t:'AI in Medical Imaging and Assistive Device, 3rd International Conference on Physics and Physics Education (ICONPHYEDU)', d:'2024',
    url:null, img:null},
-  {b:'nb-t', l:'Lecture',      t:'AI in Medical Images and Assistive Device, Universitas Harapan Bangsa (UHB)', d:'2024',
+  {b:'nb-t', l:'Lecture',      t:'AI in Medical Imaging and Assistive Device, Universitas Harapan Bangsa (UHB)', d:'2024',
    url:null, img:null},
-  {b:'nb-t', l:'Lecture',      t:'AI in Medical Images and Assistive Device, Prince Sultan University (PSU), Saudi Arabia', d:'2024',
+  {b:'nb-t', l:'Lecture',      t:'AI in Medical Imaging and Assistive Device, Prince Sultan University (PSU), Saudi Arabia', d:'2024',
    url:null, img:null},
   {b:'nb-n', l:'Milestone',  t:'Tokyo Institute of Technology officially renamed to Institute of Science Tokyo', d:'2024',
    url:null, img:null},
@@ -69,7 +75,7 @@ var NA = [
   // ── 2023 ──────────────────────────────────────────────────────
   {b:'nb-t', l:'Seminar',      t:'Women in Engineering: AI and Computer Vision in Industry and Academia, Sciencemind', d:'2023',
    url:null, img:null},
-  {b:'nb-t', l:'Invited Talk', t:'AI in Medical Images and Assistive Device, 1st Engineering Trunojoyo Madura International Conference (ETMIC)', d:'2023',
+  {b:'nb-t', l:'Invited Talk', t:'AI in Medical Imaging and Assistive Device, 1st Engineering Trunojoyo Madura International Conference (ETMIC)', d:'2023',
    url:null, img:null},
   {b:'nb-a', l:'Position',   t:'Appointed as Assistant Professor (Specially Appointed) at Tokyo Institute of Technology (Tokyo Tech), Japan', d:'2023',
    url:null, img:null},

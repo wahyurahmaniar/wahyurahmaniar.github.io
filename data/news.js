@@ -21,6 +21,8 @@ var NA = [
    url:null, img:null},
   {b:'nb-p', l:'Conference Paper',   t:'Our paper has been accepted to the 2nd MICCAI Workshop on Efficient Medical, France', d:'2026',
    url:null, img:null},
+  {b:'nb-w', l:'Guest Editor',   t:'Guest Editor for the Special Issue “AI-Based Sensing and Imaging Applications” in Sensors (MDPI)', d:'2026',
+   url:'https://www.mdpi.com/journal/sensors/special_issues/EB29LD56CW', img:null},
   {b:'nb-p', l:'New Paper',  t:'A Narrative Review of AI Frameworks for Chronic Stress Detection Using Physiological Sensing (Sensors, MDPI)', d:'2026',
    url:'https://www.mdpi.com/1424-8220/26/8/2345', img:null},
   {b:'nb-a', l:'Position',   t:'Appointed as Adjunct Professor, Universitas Brawijaya, Indonesia', d:'2026',

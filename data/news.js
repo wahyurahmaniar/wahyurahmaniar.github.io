@@ -17,6 +17,8 @@
 
 var NA = [
   // ── 2026 ──────────────────────────────────────────────────────
+  {b:'nb-a', l:'Award',   t:'Proposal accepted for the Diaspora Berdampak program in collaboration with Telkom University', d:'2026',
+   url:null, img:null},
   {b:'nb-a', l:'Position',   t:'Appointed as Adjunct Professor, Universitas Brawijaya, Indonesia', d:'2026',
    url:null, img:null},
   {b:'nb-w', l:'Fun',        t:'Visited Disneyland and took a picture with Donald Duck!', d:'2026',

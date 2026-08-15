@@ -13,83 +13,19 @@
 // ─────────────────────────────────────────────────────────────────
 var FIGURES = [
   {
-    cat:'method', tag:'Method · Anomaly Detection',
-    title:'Multi-AD Architecture',
-    desc:'Cross-domain unsupervised anomaly detection using teacher-student CNN with squeeze-and-excitation blocks and knowledge distillation.',
-    pub:'Pattern Recognition, Elsevier 2026',
+    cat:'concept', tag:'Concept · Quantum Information Theory',
+    title:'One-Shot Quantum State Reconstruction',
+    desc:'Derives the least average trace-distance error achievable when encoding a quantum ensemble through a d-dimensional memory. The two-sided bound Psucc(E) - Sigma_d(p) <= Delta_d(E) <= 1 - P_succ^(d)(E) is tight for orthogonal ensembles, recovering lossless source coding in the product limit.',
+    pub:'',
     wide:true,
-    img:'figures/multi-ad-1.png'
-  },
-  {
-    cat:'result', tag:'Result · Anomaly Detection',
-    title:'Multi-AD Localization Results',
-    desc:'Pixel-level anomaly maps on brain MRI, liver CT, retina OCT, and MVTec AD datasets showing superior localization over state-of-the-art.',
-    pub:'Pattern Recognition, Elsevier 2026',
-    wide:false,
-    img:'figures/multi-ad-2.png'
-  },
-  {
-    cat:'method', tag:'Method · Spine Analysis',
-    title:'Auto-CA Cobb Angle Pipeline',
-    desc:'Automated vertebrae detection and Cobb angle measurement pipeline for adolescent idiopathic scoliosis severity classification.',
-    pub:'IEEE TBME 2023',
-    wide:true,
-    img:'figures/ca1.png'
-  },
-  {
-    cat:'result', tag:'Result · Spine Analysis',
-    title:'Scoliosis Classification Results',
-    desc:'C-shaped, S-shaped type 1, and S-shaped type 2 deformity classification with average accuracy of 0.958.',
-    pub:'IEEE TBME 2023',
-    wide:false,
-    img:'figures/ca2.png'
-  },
-  {
-    cat:'diagram', tag:'Diagram · Federated Learning',
-    title:'Federated Medical Imaging',
-    desc:'Privacy-preserving collaborative AI training across hospitals without sharing patient data — gradients aggregated at global model.',
-    pub:'IEEE Consumer Electronics Magazine 2025',
-    wide:false,
-    img:'figures/fl1.png'
-  },
-  {
-    cat:'concept', tag:'Concept · Stress Detection',
-    title:'Physiological Sensing for Chronic Stress',
-    desc:'AI framework overview for chronic stress detection using EEG, HRV, PPG, and EDA across resting, longitudinal, and reactivity paradigms.',
-    pub:'Sensors, MDPI 2026',
-    wide:true,
-    img:'figures/eeg1.png'
-  },
-  {
-    cat:'result', tag:'Result · Wormhole Research',
-    title:'Deep Learning for Wormhole Feasibility',
-    desc:'Deep learning and quantum algorithm approaches to analyse wormhole spacetime structures as alternatives to classical analytical methods.',
-    pub:'Astronomy and Computing, Elsevier 2024',
-    wide:false,
-    img:'figures/wormhole-1.png'
-  },
-  {
-    cat:'result', tag:'Result · Metabolomics',
-    title:'Macroalgae In Silico Screening',
-    desc:'Molecular docking of macroalgae lipophilic compounds against anti-DM and anti-COVID-19 targets using GC-MS metabolomics.',
-    pub:'Metabolites, MDPI 2023',
-    wide:false,
-    img:'figures/silico1.png'
-  },
-  {
-    cat:'concept', tag:'Concept · Quantum Information',
-    title:'Memory-Dimension Distortion Bounds',
-    desc:'One-shot bounds on quantum state reconstruction error under memory-dimension constraints. Two-sided bound: Psucc(E) - Sigma_d(p) <= Delta_d(E) <= 1 - P_succ^(d)(E), tight for orthogonal ensembles.',
-    pub:'IEEE Transactions on Information Theory, 2026',
-    wide:true,
-    img:null
+    svg:'<svg width="100%" height="185" viewBox="0 0 530 185" xmlns="http://www.w3.org/2000/svg"><text x="10" y="18" font-family="monospace" font-size="7.5" fill="rgba(0,229,255,.5)">average trace-distance distortion</text><line x1="38" y1="20" x2="38" y2="155" stroke="rgba(0,229,255,.18)" stroke-width="1"/><line x1="38" y1="155" x2="510" y2="155" stroke="rgba(0,229,255,.18)" stroke-width="1"/><text x="270" y="175" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,229,255,.4)">memory dimension d</text><text x="14" y="158" font-family="monospace" font-size="6" fill="rgba(0,229,255,.35)">0</text><text x="500" y="168" font-family="monospace" font-size="6" fill="rgba(0,229,255,.35)">N</text><text x="30" y="28" font-family="monospace" font-size="6" fill="rgba(0,229,255,.35)">1</text><polyline points="50,35 120,55 200,80 290,108 380,132 470,152" fill="none" stroke="rgba(0,229,255,.8)" stroke-width="2" stroke-linecap="round"/><polyline points="50,70 120,88 200,108 290,128 380,145 470,152" fill="none" stroke="rgba(139,92,246,.7)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 3"/><polygon points="50,35 120,55 200,80 290,108 380,132 470,152 470,152 380,145 290,128 200,108 120,88 50,70" fill="rgba(0,229,255,.05)"/><text x="85" y="50" font-family="monospace" font-size="7" fill="rgba(0,229,255,.75)">1 - P⁽ᵈ⁾ₛᵘᵔᵔ</text><text x="85" y="98" font-family="monospace" font-size="7" fill="rgba(139,92,246,.75)">Pₛᵘᵔᵔ - Σ₂(p)</text><text x="200" y="88" font-family="monospace" font-size="6.5" fill="rgba(255,255,255,.3)">Δ₂(E) gap W₂</text><circle cx="470" cy="152" r="3.5" fill="rgba(0,229,255,.6)"/><text x="472" y="148" font-family="monospace" font-size="6" fill="rgba(0,229,255,.5)">exact (orthogonal)</text></svg>'
   },
   {
     cat:'method', tag:'Method · Quantum-Inspired Learning',
-    title:'QuReUpNet: Quantum Re-Uploading Network',
-    desc:'Quantum-inspired architecture that repeatedly re-injects initial token representations across encoder stages via EMA-referenced re-uploading, dual-scale Hadamard mixing, and adaptive depth growth for classification under limited data.',
-    pub:'Under Review, 2025',
+    title:'Quantum-Inspired Learning',
+    desc:'A quantum-inspired architecture that repeatedly re-injects initial token representations across encoder stages. Combines EMA-referenced token fusion, dual-scale Hadamard-attention mixing, and adaptive depth growth to progressively refine discriminative features under limited and imbalanced supervision.',
+    pub:'',
     wide:false,
-    img:null
-  },
+    svg:'<svg width="100%" height="138" viewBox="0 0 370 138" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="55" width="44" height="30" rx="3" fill="rgba(0,229,255,.06)" stroke="rgba(0,229,255,.3)" stroke-width="1"/><text x="28" y="74" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00E5FF">x₀</text><text x="28" y="84" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(0,229,255,.5)">initial</text><rect x="72" y="42" width="52" height="54" rx="3" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><text x="98" y="66" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(232,244,255,.7)">Block 1</text><text x="98" y="78" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(0,229,255,.4)">fuse(x₀, z₁)</text><rect x="148" y="42" width="52" height="54" rx="3" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><text x="174" y="66" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(232,244,255,.7)">Block 2</text><text x="174" y="78" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(0,229,255,.4)">fuse(x₀, z₂)</text><text x="226" y="72" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(0,229,255,.3)">...</text><rect x="248" y="42" width="52" height="54" rx="3" fill="rgba(0,229,255,.04)" stroke="rgba(0,229,255,.22)" stroke-width="1"/><text x="274" y="66" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(232,244,255,.7)">Block N</text><text x="274" y="78" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(0,229,255,.4)">fuse(x₀, zₙ)</text><rect x="320" y="55" width="44" height="30" rx="3" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.35)" stroke-width="1"/><text x="342" y="74" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#A78BFA">predict</text><line x1="50" y1="70" x2="72" y2="70" stroke="rgba(0,229,255,.35)" stroke-width="1.2" marker-end="url(#arr)"/><line x1="124" y1="70" x2="148" y2="70" stroke="rgba(0,229,255,.25)" stroke-width="1.2"/><line x1="200" y1="70" x2="248" y2="70" stroke="rgba(0,229,255,.25)" stroke-width="1.2"/><line x1="300" y1="70" x2="320" y2="70" stroke="rgba(0,229,255,.25)" stroke-width="1.2"/><path d="M28 85 Q28 118 98 118 Q174 118 174 96" fill="none" stroke="rgba(0,229,255,.2)" stroke-width="1" stroke-dasharray="4 3"/><path d="M28 85 Q28 118 274 118 Q274 118 274 96" fill="none" stroke="rgba(0,229,255,.15)" stroke-width="1" stroke-dasharray="4 3"/><text x="155" y="130" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(0,229,255,.3)">original signal re-injected at every depth</text><text x="28" y="28" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(0,229,255,.55)">EMA Reference Re-uploading</text></svg>'
+  }
 ];

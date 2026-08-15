@@ -17,7 +17,7 @@
 
 var NA = [
   // ── 2026 ──────────────────────────────────────────────────────
-  {b:'nb-a', l:'Award',   t:'Proposal accepted for the “Diaspora Berdampak” program in collaboration with Telkom University', d:'2026',
+  {b:'nb-a', l:'Award',   t:'Proposal accepted for the “Diaspora Berdampak” program in collaboration with Telkom University, Indonesia', d:'2026',
    url:null, img:null},
   {b:'nb-p', l:'Conference Paper',   t:'Our paper has been accepted to the 2nd MICCAI Workshop on Efficient Medical, France', d:'2026',
    url:null, img:null},

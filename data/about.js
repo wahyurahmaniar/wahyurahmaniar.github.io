@@ -16,17 +16,17 @@ var PROFILE = {
   chips: [
     {t:'Artificial Intelligence',     cls:'cc'},
     {t:'Deep Learning',  cls:'cc'},
-    {t:'Computer Vision',   cls:'cp'},
-    {t:'Medical Imaging',cls:'cp'},
-    {t:'Image Processing',cls:'cg'}
+    {t:'Medical Imaging',   cls:'cp'},
+    {t:'Quantum Information',cls:'cp'},
+    {t:'Quantum Physics',cls:'cg'}
   ],
 
-  about_text: 'I build <strong>AI systems that see what radiologists see</strong> — tumor segmentation, lesion classification, and detecting anomalies on MRI, CT, X-rays, and other modalities.',
-  about_sub:  'My work bridges deep learning research and clinical practice.',
+  about_text: 'I build <strong>AI systems that see what radiologists see</strong> — tumor segmentation, lesion classification, and anomaly detection across MRI, CT, X-rays, and other modalities. I also conduct research in <strong>quantum information</strong>, exploring quantum-inspired and information-theoretic approaches to computation and learning.',
+  about_sub: 'My work bridges deep learning, quantum information, and clinically relevant intelligent systems.'
 
   info: [
     {k:'Position',  v:'Assistant Professor (specially appointed), Institute of Science Tokyo'},
     {k:'Lab',       v:'BioMedical Artificial Intelligence (BMAI)'},
-    {k:'Research',  v:'Medical Image Analysis · Deep Learning · Computer Vision'},
+    {k:'Research',  v:'Medical Image Analysis · Deep Learning · Quantum Information'},
   ]
 };

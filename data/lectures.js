@@ -80,7 +80,7 @@ var LE = [
    v:'Universitas Harapan Bangsa (UHB)', y:'2022', ty:'ti', tl:'Invited Talk',
    links:['Slides'],
    img: null,
-   slides: '0'},
+   slides: ''},
   
   {t:'AI Technology in Medical Imaging and Assistive Devices',
    v:'Universitas Indonesia (UI)', y:'2022', ty:'tl', tl:'Lecture',

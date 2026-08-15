@@ -38,7 +38,7 @@ var LE = [
    v:'Universitas Lambung Mangkurat (ULM)', y:'2025', ty:'tl', tl:'Lecture',
    links:['Slides'],
    img: null,
-   slides: '},
+   slides: ''},
   
   {t:'Artificial Intelligence (AI) in Medical Imaging and Assistive Device',
    v:'3rd International Conference on Physics and Physics Education (ICONPHYEDU)', y:'2024', ty:'ti', tl:'Invited Talk',

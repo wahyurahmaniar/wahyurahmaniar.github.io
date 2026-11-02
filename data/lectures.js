@@ -16,6 +16,12 @@
 //   slides:'https://...'           ← direct link to your slides (PDF/PPT/Google Slides)
 // ─────────────────────────────────────────────────────────────────
 var LE = [
+{t:'Guest Lecture: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
+v:'Universitas Telkom, Surabaya', y:'2026', ty:'tl', tl:'Lecture',
+links:['Slides'],
+img: null,
+slides: ''},
+  
 {t:'Global Classroom: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
 v:'Universitas Diponegoro (UNDIP)', y:'2026', ty:'tl', tl:'Lecture',
 links:['Slides'],

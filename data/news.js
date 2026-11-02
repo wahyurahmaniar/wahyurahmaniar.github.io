@@ -27,7 +27,7 @@ var NA = [
   d:'2026', url:null, img:null},
   {b:'nb-a', l:'Award',   t:'Proposal accepted for the “Diaspora Berdampak” program in collaboration with Telkom University, Indonesia', d:'2026',
    url:null, img:null},
-  {b:'nb-p', l:'Conference Paper',   t:'Our paper has been accepted to the 2nd MICCAI Workshop on Efficient Medical, France', d:'2026',
+  {b:'nb-p', l:'Conference Paper',   t:'Our paper has been accepted to the 2nd MICCAI Workshop on Efficient Medical (EMA4MICCAI), France', d:'2026',
    url:null, img:null},
   {b:'nb-p', l:'Conference Poster',
   t:'Our poster "Sarcoma-AD: Unsupervised Anomaly Detection for Annotation-Efficient Lesion Localization in Soft-Tissue Sarcoma MRI" has been accepted for presentation at the Radiological Society of North America (RSNA) 2026 Annual Meeting, Chicago, USA.',

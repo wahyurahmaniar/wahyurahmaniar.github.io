@@ -17,6 +17,14 @@
 
 var NA = [
   // ── 2026 ──────────────────────────────────────────────────────
+   // Best Paper Award — MICCAI 2026
+   {b:'nb-a', l:'Award',
+   t:'Our paper “MLSFP-CL: Label- and Compute-Efficient Contrastive Learning for Lung Nodule Classification in Small-Data Settings” received the Best Paper Award (Honorable Mention) at the 2nd MICCAI Workshop on Efficient Medical AI (EMA4MICCAI), France.',
+   d:'2026', url:null, img:null},
+   // ACCV 2026 — Accepted Paper
+   {b:'nb-p', l:'Conference Paper',
+   t:'Our paper “Rare-AD: Unsupervised Soft-Tissue Sarcoma Anomaly Detection via Capacity-Weighted Multi-Scale Knowledge Distillation” has been accepted to the SmallData-CV Workshop at the Asian Conference on Computer Vision (ACCV 2026), Osaka, Japan.',
+   d:'2026', url:null, img:null},
   {b:'nb-a', l:'Award',   t:'Proposal accepted for the “Diaspora Berdampak” program in collaboration with Telkom University, Indonesia', d:'2026',
    url:null, img:null},
   {b:'nb-p', l:'Conference Paper',   t:'Our paper has been accepted to the 2nd MICCAI Workshop on Efficient Medical, France', d:'2026',

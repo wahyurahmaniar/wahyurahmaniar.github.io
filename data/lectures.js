@@ -25,7 +25,7 @@ var LE = [
   tl: 'Lecture',
   links: ['Slides'],
   img: null,
-  slides: ''
+  slides: 'https://docs.google.com/presentation/d/e/2PACX-1vRlsb8a5cowh1iZk_Na7Kg7HhqJfrn-WdTpsbXsmdJdjrPmoqgMs0hNnEjLmX40qQ/pub?start=false&loop=false&delayms=3000'
 },
 {
   t: 'Guest Lecture: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
@@ -35,7 +35,7 @@ var LE = [
   tl: 'Lecture',
   links: ['Slides'],
   img: null,
-  slides: ''
+  slides: 'https://docs.google.com/presentation/d/e/2PACX-1vRK8PS5ekS_VETs44pAwum_GopfoElEyVqV88qswcKKsNk42vj36xyNjCjd_4liHQ/pub?start=false&loop=false&delayms=3000'
 },
 {
   t: 'Invited Lecture: Physics-Informed Machine Learning for Multi-Sensor and Multi-Source Environmental Monitoring',
@@ -45,7 +45,7 @@ var LE = [
   tl: 'Lecture',
   links: ['Slides'],
   img: null,
-  slides: ''
+  slides: 'https://docs.google.com/presentation/d/e/2PACX-1vQM9gFQattV4Fxnf-GykEvrGdjBiko_fmbAr316SPzDamD3-_sgsHLv7_USl8W7uQ/pub?start=false&loop=false&delayms=3000'
 },
 {
   t: 'Invited Lecture: Securing Research Funding and Collaboration Through International Grants',
@@ -55,7 +55,7 @@ var LE = [
   tl: 'Lecture',
   links: ['Slides'],
   img: null,
-  slides: ''
+  slides: 'https://docs.google.com/presentation/d/e/2PACX-1vRi6IXsob9nzvtsH-k9YvR0br5doypQRS3oBZLco5wDGfXXsFrV77TmVQincSXKRA/pub?start=false&loop=false&delayms=3000'
 },
   
 {t:'Global Classroom: Artificial Intelligence (AI) in Medical Imaging and Healthcare',

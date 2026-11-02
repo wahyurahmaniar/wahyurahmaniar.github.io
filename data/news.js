@@ -17,26 +17,28 @@
 
 var NA = [
   // ── 2026 ──────────────────────────────────────────────────────
-   // Best Paper Award — MICCAI 2026
-   {b:'nb-a', l:'Award',
-   t:'Our paper “MLSFP-CL: Label- and Compute-Efficient Contrastive Learning for Lung Nodule Classification in Small-Data Settings” received the Best Paper Award (Honorable Mention) at the 2nd MICCAI Workshop on Efficient Medical AI (EMA4MICCAI), France.',
-   d:'2026', url:null, img:null},
-   // ACCV 2026 — Accepted Paper
-   {b:'nb-p', l:'Conference Paper',
-   t:'Our paper “Rare-AD: Unsupervised Soft-Tissue Sarcoma Anomaly Detection via Capacity-Weighted Multi-Scale Knowledge Distillation” has been accepted to the SmallData-CV Workshop at the Asian Conference on Computer Vision (ACCV 2026), Osaka, Japan.',
-   d:'2026', url:null, img:null},
+  // Best Paper Award — MICCAI 2026
+  {b:'nb-a', l:'Award',
+  t:'Our paper “MLSFP-CL: Label- and Compute-Efficient Contrastive Learning for Lung Nodule Classification in Small-Data Settings” received the Best Paper Award (Honorable Mention) at the 2nd MICCAI Workshop on Efficient Medical AI (EMA4MICCAI), France.',
+  d:'2026', url:null, img:null},
+  // ACCV 2026 — Accepted Paper
+  {b:'nb-p', l:'Conference Paper',
+  t:'Our paper “Rare-AD: Unsupervised Soft-Tissue Sarcoma Anomaly Detection via Capacity-Weighted Multi-Scale Knowledge Distillation” has been accepted to the SmallData-CV Workshop at the Asian Conference on Computer Vision (ACCV 2026), Osaka, Japan.',
+  d:'2026', url:null, img:null},
   {b:'nb-a', l:'Award',   t:'Proposal accepted for the “Diaspora Berdampak” program in collaboration with Telkom University, Indonesia', d:'2026',
    url:null, img:null},
   {b:'nb-p', l:'Conference Paper',   t:'Our paper has been accepted to the 2nd MICCAI Workshop on Efficient Medical, France', d:'2026',
    url:null, img:null},
-  {b:'nb-p', l:'Conference Paper',   t:'Our poster has been accepted to the RSNA (Radiological Society of North America) Annual Meeting, Chicago, USA', d:'2026',
-   url:null, img:null},
+  {b:'nb-p', l:'Conference Poster',
+  t:'Our poster "Sarcoma-AD: Unsupervised Anomaly Detection for Annotation-Efficient Lesion Localization in Soft-Tissue Sarcoma MRI" has been accepted for presentation at the Radiological Society of North America (RSNA) 2026 Annual Meeting, Chicago, USA.',
+  d:'2026', url:null, img:null},
   {b:'nb-p', l:'New Paper',  t:'Artificial Intelligence for Anticancer Drug Discovery from Natural Products of Macroalgae and Sponges: A Systematic Review (Computational Biology and Chemistry, Elsevier)', d:'2026',
    url:'https://www.sciencedirect.com/science/article/abs/pii/S147692712600407X', img:null},
   {b:'nb-w', l:'Guest Editor',   t:'Guest Editor for the Special Issue “AI-Based Sensing and Imaging Applications” in Sensors (MDPI)', d:'2026',
    url:'https://www.mdpi.com/journal/sensors/special_issues/EB29LD56CW', img:null},
-  {b:'nb-p', l:'Conference Paper',   t:'Our poster has been accepted to the CARS (Computer Assisted Radiology and Surgery), Japan', d:'2026',
-   url:null, img:null},
+  {b:'nb-p', l:'Conference Poster',
+  t:'Our poster “Detection and Classification of Lesions in Digital Breast Tomosynthesis Using a Two-Stage Deep Learning Pipeline” has been accepted for presentation at CARS 2026, Nagoya, Japan.',
+  d:'2026', url:'https://link.springer.com/article/10.1007/s11548-026-03613-3', img:null},
   {b:'nb-t', l:'Lecture',      t:'Global Classroom, Universitas Diponegoro (UNDIP)', d:'2026',
    url:null, img:null},
   {b:'nb-t', l:'Lecture',      t:'Guest Lecture: AI in Medical Imaging, Universitas Brawijaya (UB)', d:'2026',

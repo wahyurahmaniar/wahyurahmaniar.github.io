@@ -16,11 +16,47 @@
 //   slides:'https://...'           ← direct link to your slides (PDF/PPT/Google Slides)
 // ─────────────────────────────────────────────────────────────────
 var LE = [
-{t:'Guest Lecture: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
-v:'Universitas Telkom, Surabaya', y:'2026', ty:'tl', tl:'Lecture',
-links:['Slides'],
-img: null,
-slides: ''},
+
+{
+  t: 'Guest Lecture: Artificial Intelligence (AI) in Medical Imaging and Assistive Devices',
+  v: 'Telkom University Surabaya, Indonesia',
+  y: '2026',
+  ty: 'tl',
+  tl: 'Lecture',
+  links: ['Slides'],
+  img: null,
+  slides: ''
+},
+{
+  t: 'Guest Lecture: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
+  v: 'Telkom University Surabaya, Indonesia',
+  y: '2026',
+  ty: 'tl',
+  tl: 'Lecture',
+  links: ['Slides'],
+  img: null,
+  slides: ''
+},
+{
+  t: 'Invited Lecture: Physics-Informed Machine Learning for Multi-Sensor and Multi-Source Environmental Monitoring',
+  v: 'Telkom University Surabaya, Indonesia',
+  y: '2026',
+  ty: 'tl',
+  tl: 'Lecture',
+  links: ['Slides'],
+  img: null,
+  slides: ''
+},
+{
+  t: 'Invited Lecture: Securing Research Funding and Collaboration Through International Grants',
+  v: 'Telkom University Surabaya, Indonesia',
+  y: '2026',
+  ty: 'tl',
+  tl: 'Lecture',
+  links: ['Slides'],
+  img: null,
+  slides: ''
+},
   
 {t:'Global Classroom: Artificial Intelligence (AI) in Medical Imaging and Healthcare',
 v:'Universitas Diponegoro (UNDIP)', y:'2026', ty:'tl', tl:'Lecture',
